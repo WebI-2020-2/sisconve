@@ -12,3 +12,11 @@ html, body{
     height: 100%;
     background: linear-gradient(252.44deg, #73A5A8 0%, #73A5A8 0.01%, #1F8F96 100%);
 }
+
+body{
+    position: fixed;
+}
+
+#container{
+    display: flex;
+}

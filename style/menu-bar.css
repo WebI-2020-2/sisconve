@@ -1,17 +1,16 @@
 .left-bar{
     position: relative;
     background: #256064;
-    width: 250px;
+    width: px;
     height: 85%;
 }
 
 .left-bar .sidebar{
-    position: fixed;
     width: 300px;
-    height: 100%;
+    height: 100vh;
     background: #256064;
     padding: 20px 0;
-
+    /* overflow-y: auto; */
 }
 
 .sidebar ul {
@@ -37,6 +36,11 @@
 
 .sidebar ul li ul li{
     padding: 7px;
+}
+
+.sidebar ul li ul li:hover{
+    /* trocar essa cor */
+    background-color: #256064;
 }
 
 .sidebar ul li span{
