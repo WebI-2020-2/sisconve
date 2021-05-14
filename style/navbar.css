@@ -12,23 +12,12 @@ nav .logo {
   padding: 15px 35px;
 }
 
-<<<<<<< Updated upstream
-nav .logo a{
-    font-size: 35px;
-    color: #FFFFFF;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    text-transform: inherit;
-    text-decoration: none;
-
-    letter-spacing: 3px;
-=======
 nav .logo a {
   font-size: 35px;
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-transform: inherit;
   text-decoration: none;
->>>>>>> Stashed changes
 }
 
 nav .user-area {
@@ -63,7 +52,7 @@ nav .user-area .arrow-icon {
 }
 
 .dropdown-menu {
-    width: 180px;
+  width: 180px;
 }
 
 .dropdown-menu a {
@@ -80,14 +69,8 @@ nav .user-area .arrow-icon {
   align-items: center;
 }
 
-<<<<<<< Updated upstream
-.dropdown-menu a .item-menu i{
-    margin-right: 5px;
-    margin-left: 10px;
-=======
 .dropdown-menu a .item-menu i {
   margin-right: 5px;
->>>>>>> Stashed changes
 }
 
 .dropdown-menu a .item-menu p {

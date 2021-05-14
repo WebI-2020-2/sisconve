@@ -1,93 +1,87 @@
-.left-bar{
-    position: relative;
-    background: #256064;
-    width: px;
-    height: 85%;
+.left-bar {
+  position: relative;
+  background: #256064;
+  width: 250px;
+  height: 85%;
 }
 
-.left-bar .sidebar{
-    width: 300px;
-    height: 100vh;
-    background: #256064;
-    padding: 20px 0;
-    /* overflow-y: auto; */
+.left-bar .sidebar {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  background: #256064;
+  padding: 20px 0;
 }
 
 .sidebar ul {
-    padding: 30px;
-    list-style-type: none;
+  padding: 30px;
+  list-style-type: none;
 }
 
 .sidebar ul li {
-    padding: 13px;
+  padding: 13px;
 }
 
-.sidebar ul li ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-    width: 100%;
+.sidebar ul li ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  width: 100%;
 }
 
-.sidebar ul li ul{
-    margin-top: 6px;
-    padding: 5px;
+.sidebar ul li ul {
+  margin-top: 6px;
+  padding: 5px;
 }
 
-.sidebar ul li ul li{
-    padding: 7px;
+.sidebar ul li ul li {
+  padding: 7px;
 }
 
-.sidebar ul li ul li:hover{
-    /* trocar essa cor */
-    background-color: #256064;
+.sidebar ul li span {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.sidebar ul li span{
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    text-decoration: none;
-    cursor: pointer;
+.sidebar ul li span img {
+  width: 30px;
+  margin-right: 15px;
 }
 
-.sidebar ul li span img{
-    width: 30px;
-    margin-right: 15px;
-}
-
-.sidebar ul li a i{
-    width: 30px;
+.sidebar ul li a i {
+  width: 30px;
 }
 
 .sidebar ul li:hover {
-    background: #1f565a;
-    -webkit-box-shadow: inset -50px 0px 29px -11px #256064; 
-    box-shadow: inset -50px 0px 29px -11px #256064;
-
-}  
+  background: #1f565a;
+  -webkit-box-shadow: inset -50px 0px 29px -11px #256064;
+  box-shadow: inset -50px 0px 29px -11px #256064;
+}
 
 .sidebar ul li a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.sidebar .footer-sidebar{
-    padding: 20px 15px 15px 15px;
+.sidebar .footer-sidebar {
+  padding: 20px 15px 15px 15px;
 }
 
-.sidebar .footer-sidebar a{
-    color: #fff;
-    text-decoration: none;
-    padding: 5px 15px;
-    transition: background .2s;
+.sidebar .footer-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 15px;
+  transition: background 0.2s;
 }
 
-.sidebar .footer-sidebar a:hover{
-    background: #1f565a;
+.sidebar .footer-sidebar a:hover {
+  background: #1f565a;
 }
 
-.sidebar .footer-sidebar a img{
-    margin-right: 5px;
-    margin-bottom: 4px;
+.sidebar .footer-sidebar a img {
+  margin-right: 5px;
+  margin-bottom: 4px;
 }
