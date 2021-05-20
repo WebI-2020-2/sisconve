@@ -1,15 +1,3 @@
-<?php
- include './../app/Libraries/Database.php';
-
-$db = new Database;
-
-$db->query("SELECT * FROM cliente");
-$db->executa();
-
-echo 'total de linhas afetadas: '.$db->totalResultados();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
