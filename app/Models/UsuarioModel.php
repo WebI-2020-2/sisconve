@@ -14,63 +14,100 @@ class UsuarioModel
         $this->db = new Database();
     }
 
-    // Usuario
+    /**
+     * @return mixed
+     */
     public function getUsuario()
     {
         return $this->usuario;
     }
-    public function setUsuario($usuario)
-    {
-        $this->usuario = $usuario;
-    }
-    // Senha
+
+    /**
+     * @return mixed
+     */
     public function getSenha()
     {
         return $this->senha;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNomeCompleto()
+    {
+        return $this->nomeCompleto;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNivelAcesso()
+    {
+        return $this->nivelAcesso;
+    }
+
+    /**
+     * @param mixed $usuario
+     */
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
+    }
+
+    /**
+     * @param mixed $senha
+     */
     public function setSenha($senha)
     {
         $this->senha = $senha;
     }
 
-    // Email
-    public function getEmail()
-    {
-        return $this->email;
-    }
+    /**
+     * @param mixed $email
+     */
     public function setEmail($email)
     {
-        $this->senha = $email;
+        $this->email = $email;
     }
 
-    // Nome Completo
-    public function getNomeCompleto()
-    {
-        return $this->nomeCompleto;
-    }
+    /**
+     * @param mixed $nomeCompleto
+     */
     public function setNomeCompleto($nomeCompleto)
     {
-        $this->senha = $nomeCompleto;
+        $this->nomeCompleto = $nomeCompleto;
     }
 
-    // Status
-    public function getStatus()
-    {
-        return $this->status;
-    }
+    /**
+     * @param mixed $status
+     */
     public function setStatus($status)
     {
-        $this->senha = $status;
+        $this->status = $status;
     }
 
-    // Nivel de Acesso
-    public function getNivelAcesso()
-    {
-        return $this->nivelAcesso;
-    }
+    /**
+     * @param mixed $nivelAcesso
+     */
     public function setNivelAcesso($nivelAcesso)
     {
-        $this->senha = $nivelAcesso;
+        $this->nivelAcesso = $nivelAcesso;
     }
 
     public function insert($dados)
@@ -118,7 +155,7 @@ class UsuarioModel
     public function Delete($dados)
     {
         $this->setUsuario($dados['usuario']);
-        
+
         $this->db->query("UPDATE usuario set status = f WHERE usuario = :usuario");  
 
         $this->db->bind("usuario", $this->getUsuario());
