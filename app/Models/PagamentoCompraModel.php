@@ -92,5 +92,6 @@ class PagamentoCompraModel
     {
         $this->status = $status;
     }
+    
 }
 
