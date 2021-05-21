@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class EnderecoModel
@@ -9,7 +9,12 @@ class EnderecoModel
     private $cidade;
     private $estado;
     private $numero;
-    
+
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
+
     /**
      * @return mixed
      */
@@ -105,6 +110,4 @@ class EnderecoModel
     {
         $this->numero = $numero;
     }
-
 }
-

@@ -9,7 +9,11 @@ class FuncionarioModel
     private $cargo;
     private $salario;
 
-     /**
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
+    /**
      * @return mixed
      */
     public function getNomeFuncionario()
@@ -105,4 +109,3 @@ class FuncionarioModel
         $this->salario = $salario;
     }
 }
-

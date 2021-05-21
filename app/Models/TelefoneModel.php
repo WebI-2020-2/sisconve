@@ -8,7 +8,8 @@ class TelefoneModel
     private $ddd;
     private $whatsapp;
 
-    public function __construct() {
+    public function __construct() 
+    {
         $this->db = new Database();
     }
 
