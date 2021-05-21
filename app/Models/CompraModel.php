@@ -7,6 +7,11 @@ class CompraModel
     private $valorTotal;
     private $parcelas;
 
+    public function __construct() 
+    {
+        $this->db = new Database();
+    }
+
     /**
      * @return mixed
      */

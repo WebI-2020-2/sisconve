@@ -19,6 +19,7 @@ class ProdutoModel
     {
         $this->db = new Database();
     }
+    
     /**
      * @return mixed
      */
