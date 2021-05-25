@@ -1,5 +1,8 @@
 <?php
 include './../app/Libraries/Rota.php';
+include './../app/Libraries/Database.php';
+$db = new Database();
+var_dump($db);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
