@@ -2,6 +2,7 @@
 
 class ItemVendaModel
 {
+    private $Id;
     private ProdutoModel $produto;
     private VendaModel $venda;
     private $valorUnitario;
@@ -12,6 +13,22 @@ class ItemVendaModel
         $this->db = new Database();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    
     /**
      * @return mixed
      */

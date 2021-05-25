@@ -2,6 +2,7 @@
 
 class ProdutoModel
 {
+    private $Id;
     private CategoriaModel $categoria;
     private $nome_produto;
     private $icms;
@@ -19,7 +20,22 @@ class ProdutoModel
     {
         $this->db = new Database();
     }
-    
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+
     /**
      * @return mixed
      */

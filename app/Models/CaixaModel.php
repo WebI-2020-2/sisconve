@@ -2,6 +2,7 @@
 
 class CaixaModel
 {
+    private $Id;
     private FuncionarioModel $funcionario;
     private $valorEmCaixa;
     private $status;
@@ -9,6 +10,22 @@ class CaixaModel
     public function __construct() 
     {
         $this->db = new Database();
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
     }
     
     /**

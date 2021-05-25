@@ -2,6 +2,7 @@
 
 class DevolucaoModel
 {
+    private $Id;
     private ProdutoModel $produto;
     private ItemVendaModel $itemVenda;
     private $motivoDevolucao;
@@ -11,8 +12,23 @@ class DevolucaoModel
     {
         $this->db = new Database();
     }
-    
-     /**
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    /**
      * @return mixed
      */
     public function getProduto()
@@ -75,8 +91,6 @@ class DevolucaoModel
     {
         $this->quantidade = $quantidade;
     }
-
-  
 }
 
 // CREATE TABLE "devolucao" (

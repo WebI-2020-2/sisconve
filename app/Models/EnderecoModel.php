@@ -3,6 +3,7 @@
 
 class EnderecoModel
 {
+    private $Id;
     private ClienteModel $cliente;
     private $rua;
     private $bairro;
@@ -13,6 +14,21 @@ class EnderecoModel
     public function __construct()
     {
         $this->db = new Database();
+    }
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
     }
 
     /**

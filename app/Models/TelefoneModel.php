@@ -3,6 +3,7 @@
 
 class TelefoneModel
 {
+    private $Id;
     private ClienteModel $cliente;
     private $numTelefone;
     private $ddd;
@@ -21,6 +22,22 @@ class TelefoneModel
         return $this->cliente;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    
     /**
      * @return mixed
      */

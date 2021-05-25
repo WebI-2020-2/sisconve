@@ -2,6 +2,7 @@
 
 class PagamentoVendaModel
 {
+    private $Id;
     private VendaModel $venda;
     private FormaPagamentoModel $formaPagamento;
     private $numeroDeParcelas;
@@ -12,6 +13,22 @@ class PagamentoVendaModel
     {
         $this->db = new Database();
     }
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    
     /**
      * @return mixed
      */

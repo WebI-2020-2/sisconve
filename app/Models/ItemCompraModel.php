@@ -2,6 +2,7 @@
 
 class ItemCompraModel
 {
+    private $Id;
     private ProdutoModel $produto;
     private CompraModel $compra;
     private $ipi;
@@ -14,6 +15,23 @@ class ItemCompraModel
     {
         $this->db = new Database();
     }
+    
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+
     /**
      * @return mixed
      */

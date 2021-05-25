@@ -2,6 +2,7 @@
 
 class VendaModel
 {
+    private $Id;
     private CaixaModel $caixa;
     private ClienteModel $cliente;
     private $numParcelas;
@@ -10,6 +11,22 @@ class VendaModel
     public function __construct()
     {
         $this->db = new Database();
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
     }
 
     /**

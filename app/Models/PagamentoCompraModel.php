@@ -2,6 +2,7 @@
 
 class PagamentoCompraModel
 {
+    private $Id;
     private CompraModel $compra;
     private FormaPagamentoModel $formaDePagamento;
     private $parcelas;
@@ -13,6 +14,22 @@ class PagamentoCompraModel
         $this->db = new Database();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    
     /**
      * @return mixed
      */
@@ -92,6 +109,6 @@ class PagamentoCompraModel
     {
         $this->status = $status;
     }
-    
+
 }
 

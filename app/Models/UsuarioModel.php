@@ -2,6 +2,7 @@
 
 class UsuarioModel
 {
+    private $Id;
     private $usuario;
     private $senha;
     private $email;
@@ -22,6 +23,22 @@ class UsuarioModel
         return $this->usuario;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    
     /**
      * @return mixed
      */

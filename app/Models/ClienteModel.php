@@ -2,6 +2,7 @@
 
 class ClienteModel
 {
+    private $Id;
     private $nomeCliente;
     private $cpf;
     private $credito;
@@ -10,6 +11,21 @@ class ClienteModel
     public function __construct() 
     {
         $this->db = new Database();
+    }
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
     }
 
     /**

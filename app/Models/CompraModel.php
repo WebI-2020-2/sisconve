@@ -2,6 +2,7 @@
 
 class CompraModel
 {
+    private $Id;
     private FuncionarioModel $funcionario;
     private FornecedorModel $fornecedor;
     private $valorTotal;
@@ -10,6 +11,21 @@ class CompraModel
     public function __construct() 
     {
         $this->db = new Database();
+    }
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
     }
 
     /**

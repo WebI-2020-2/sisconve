@@ -2,6 +2,7 @@
 
 class ParcelasModel
 {
+    private $Id;
     private PagamentoVendaModel $pagamentoVenda;
     private $numeroDaParcela;
     private $valorParcela;
@@ -15,6 +16,22 @@ class ParcelasModel
         $this->db = new Database();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param mixed $Id
+     */
+    public function setId($Id)
+    {
+        $this->Id = $Id;
+    }
+    
     /**
      * @return mixed
      */
