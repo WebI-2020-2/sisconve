@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+.sell-products{
+=======
 .dashboard .sell-products{
+>>>>>>> e501e8f97dc949f273055fe56265a9a1816ea2f6
     height: 92%;
     margin: 15px;
     padding: 1px;
@@ -6,6 +10,128 @@
 }
 
 .sell-products .sell-area{
+<<<<<<< HEAD
+    /* display: flex;
+    flex-direction: column; */
+    height: 75%;
+    border: 1px solid #25767B;
+    border-radius: 10px;
+    margin: .5%;
+    padding: .5%;
+}
+
+.sell-products .sell-area .section-sell-area{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sell-area .title-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+}
+
+.sell-area .title-section h3{
+    font-size: 25px;
+    color: #25767B;
+    text-transform: uppercase;
+    margin: 5px;
+}
+
+.sell-area .table-section{
+    height: 85%;
+    border: 1px solid #9db9bb;
+    margin-top: 5px;
+    overflow-y: scroll;
+}
+
+.table-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.table-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+.table-section::-webkit-scrollbar-thumb {
+    border: 4px solid #fff;
+    border-radius: 20px;
+    background: #25767B;
+}
+
+.sell-area .table-scroll thead th{
+    height: 35px;
+}
+
+.sell-area .sell-info{
+    display: flex;
+    width: 100%;
+    height: 8%;
+    margin-top: 5px;
+}
+
+.sell-area .sell-info .client,
+.sell-area .sell-info .payment{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin-right: 5px;
+    background-color: #25767B;
+    border-radius: 10px;
+}
+
+.sell-area .sell-info .client a,
+.sell-area .sell-info .payment a,
+.sell-area .sell-info .add-product a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sell-area .sell-info .add-product{
+    width: 20%;
+    border-radius: 10px;
+    background-color: #00CDE9;
+}
+
+.sell-area .sell-info .add-product a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.sell-area .sell-info .client a,
+.sell-area .sell-info .payment a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #2D595B;
+}
+
+.sell-area .sell-info .client .data-sell-info,
+.sell-area .sell-info .payment .data-sell-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    color: #fff;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.sell-area .sell-info .client a img,
+.sell-area .sell-info .payment a img,
+.sell-area .sell-info .add-product a img{
+    width: 17px;
+    margin: 0 5px 3px 0;
+=======
     height: 80%;
     padding: 5px;
 
@@ -41,6 +167,7 @@
 
 .sell-area .table-scroll tbody{
     /* display: block; */
+>>>>>>> e501e8f97dc949f273055fe56265a9a1816ea2f6
 }
 
 .sell-products .sell-attributes{
