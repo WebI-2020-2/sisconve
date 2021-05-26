@@ -1,8 +1,8 @@
 <?php
-include './../app/Libraries/Rota.php';
-include './../app/Libraries/Database.php';
-$db = new Database();
-var_dump($db);
+// include './../app/Libraries/Rota.php';
+// include './../app/Libraries/Database.php';
+// $db = new Database();
+// var_dump($db);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,7 +13,8 @@ var_dump($db);
 </head>
 <body>
     <?php
-        $rotas = new Rota();
+        include './../app/Views/topo.php';
+        echo '<h1>AAAAAAAAAAAAA</h1>';
     ?>
     
 </body>
