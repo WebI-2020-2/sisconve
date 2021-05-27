@@ -1,4 +1,6 @@
 <?php
+include './../app/autoload.php';
+include './../app/config.php';
 // include './../app/Libraries/Rota.php';
 // include './../app/Libraries/Database.php';
 // $db = new Database();
@@ -14,6 +16,7 @@
 <body>
     <?php
         include './../app/Views/topo.php';
+        $rotas = new Rota();
     ?>
     
 </body>

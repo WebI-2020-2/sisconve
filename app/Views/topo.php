@@ -1,3 +1,5 @@
 <header>
-    <a href="http://localhost/Sisconve-Projeto/usuarios/cadastrar.php">Cadastre-se</a>
+    <br>
+    <a href="<?= URL ?>/usuarios/cadastrar">Cadastre-se</a>
+    <br>
 </header>

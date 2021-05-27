@@ -16,6 +16,12 @@ class Paginas extends Controller {
         ];
 
         $this->view('paginas/sobre', $dados);
-    }
-    
+    }   
+    public function cadastrar(){
+        $dados = [
+            'tituloPagina' => APP_NOME
+        ];
+
+        $this->view('usuarios/cadastrar', $dados);
+    }   
 }
