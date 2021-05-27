@@ -14,7 +14,6 @@
 <body>
     <?php
         include './../app/Views/topo.php';
-        echo '<h1>AAAAAAAAAAAAA</h1>';
     ?>
     
 </body>
