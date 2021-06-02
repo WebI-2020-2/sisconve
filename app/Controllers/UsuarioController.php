@@ -4,9 +4,76 @@ class UsuarioController extends Controller
 {    
     public function cadastrar(){
 
-        echo 'carregou cadastrar';
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($formulario)):
+            $dados = [
+
+                'nome' => trim($formulario['nome']),
+                'usuario' => trim($formulario['usuario']),
+                'email' => trim($formulario['email']),
+                'senha' => trim($formulario['senha']),
+                'confirmar_senha' => trim($formulario['confirmar_senha']),
+
+                'nome_erro' => '',
+                'usuario_erro' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+                'confirmar_senha_erro' => ''
+
+            ];
+
+            if(empty($formulario['nome'])):
+                $dados['nome_erro'] ="Preencha o campo nome";
+            endif;
+
+            if(empty($formulario['usuario'])):
+                $dados['usuario_erro'] ="Preencha o campo usuario";
+            endif;
+
+            if(empty($formulario['email'])):
+                $dados['email_erro'] = "Preencha o campo email";
+            endif;
+
+            if(empty($formulario['senha'])):
+                $dados['senha_erro'] ="Preencha o campo senha";
+                elseif(strlen($formulario['senha']) < 6):
+                $dados['senha_erro'] ="A senha deve ter no minino 6 caracteres";
+            endif;
+
+            if(empty($formulario['confirmar_senha_erro'])):
+                $dados['confirmar_senha_erro'] ="Preencha o campo comfrimar Senha";
+            else:
+                if($formulario['senha'] != $formulario['comfrimar_senha']):
+                    $dados['confirmar_senha_erro'] ="As senhas estao diferentes";
+                endif;
+            endif;
+
+            if(!in_array("", $formulario)):
+                echo "Pode realizar cadastro";
+            endif;
+
+
+            var_dump($formulario);
+        else:
+            $dados = [
+                'nome' => '',
+                'usuario' => '',
+                'email' => '',
+                'senha' => '',
+                'comfrimar_senha' => '',
+
+                'nome_erro' => '',
+                'usuario_erro' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+                'confirmar_senha_erro' => ''
+            ];
+
+        endif;
         
-        $this->view('usuarios/cadastrar');
+        $this->view('usuarios/cadastrar', $dados);
     }
+
+    
     
 }
