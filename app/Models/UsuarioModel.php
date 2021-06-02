@@ -9,6 +9,7 @@ class UsuarioModel
     private $nomeCompleto;
     private $status;
     private $nivelAcesso;
+    private $db;
 
     public function __construct()
     {
@@ -132,18 +133,15 @@ class UsuarioModel
         $this->setUsuario($dados['usuario']);
         $this->setSenha($dados['senha']);
         $this->setEmail($dados['email']);
-        $this->setNomeCompleto($dados['nome_completo']);
-        $this->setStatus($dados['status']);
-        $this->setNivelAcesso($dados['nivel_acesso']);
+        $this->setNomeCompleto($dados['nome']);
 
-        $this->db->query("INSERT INTO usuario(usuario, senha, email, nome_completo, status, nivel_acesso) VALUES (:usuario, :senha, :email, :nome_completo, :status, :nivel_acesso)");
+
+        $this->db->query("INSERT INTO usuario(usuario, senha, email, nome_completo) VALUES (:usuario, :senha, :email, :nome)");
 
         $this->db->bind("usuario", $this->getUsuario());
         $this->db->bind("senha", $this->getSenha());
         $this->db->bind("email", $this->getEmail());
-        $this->db->bind("nome_completo", $this->getNivelAcesso());
-        $this->db->bind("status", $this->getStatus());
-        $this->db->bind("nivel_acesso", $this->getNivelAcesso());
+        $this->db->bind("nome", $this->getNomeCompleto());
 
         if ($this->db->executa()) :
             return true;

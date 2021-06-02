@@ -1,11 +1,16 @@
 <?php
 
 class UsuarioController extends Controller
-{    
-    public function cadastrar(){
+{
+    public function __construct() {
+        $this->usuarioModel = $this->model('UsuarioModel');
+    }
+
+    public function cadastrar()
+    {
 
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        if (isset($formulario)):
+        if (isset($formulario)) :
             $dados = [
 
                 'nome' => trim($formulario['nome']),
@@ -21,46 +26,66 @@ class UsuarioController extends Controller
                 'confirmar_senha_erro' => ''
 
             ];
+            if (in_array("", $formulario)) :
 
-            if(empty($formulario['nome'])):
-                $dados['nome_erro'] ="Preencha o campo nome";
-            endif;
+                if (empty($formulario['nome'])) :
+                    $dados['nome_erro'] = "Preencha o campo nome";
+                endif;
 
-            if(empty($formulario['usuario'])):
-                $dados['usuario_erro'] ="Preencha o campo usuario";
-            endif;
+                if (empty($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Preencha o campo usuario";
+                endif;
 
-            if(empty($formulario['email'])):
-                $dados['email_erro'] = "Preencha o campo email";
-            endif;
+                if (empty($formulario['email'])) :
+                    $dados['email_erro'] = "Preencha o campo email";
+                endif;
 
-            if(empty($formulario['senha'])):
-                $dados['senha_erro'] ="Preencha o campo senha";
-                elseif(strlen($formulario['senha']) < 6):
-                $dados['senha_erro'] ="A senha deve ter no minino 6 caracteres";
-            endif;
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = "Preencha o campo senha";
 
-            if(empty($formulario['confirmar_senha_erro'])):
-                $dados['confirmar_senha_erro'] ="Preencha o campo comfrimar Senha";
-            else:
-                if($formulario['senha'] != $formulario['comfrimar_senha']):
-                    $dados['confirmar_senha_erro'] ="As senhas estao diferentes";
+                endif;
+
+                if (empty($formulario['confirmar_senha_erro'])) :
+                    $dados['confirmar_senha_erro'] = "Preencha o campo comfrimar Senha";
+
+                endif;
+            else :
+                if(Validar::validarNome($formulario['nome'])):
+                    $dados['nome_erro'] = "Nome informado é invalido";
+
+                elseif(Validar::validarEmail($formulario['email'])):
+                    $dados['email_erro'] = "E-mail informado é invalido";
+
+                elseif (strlen($formulario['senha']) < 6) :
+                    $dados['senha_erro'] = "A senha deve ter no minino 6 caracteres";
+
+                elseif ($formulario['senha'] != $formulario['confirmar_senha']) :
+                    $dados['confirmar_senha_erro'] = "As senhas estao diferentes";
+                    
+                else:
+                    $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
+
+                    if ($this->usuarioModel->insert($dados)) :
+                    echo 'Cadastro realizado como sucesso <hr>';
+
+                    else:
+                        die("Erro");
+                        
+                    endif;
                 endif;
             endif;
 
-            if(!in_array("", $formulario)):
-                echo "Pode realizar cadastro";
-            endif;
-
+            	
 
             var_dump($formulario);
-        else:
+
+        else :
             $dados = [
                 'nome' => '',
                 'usuario' => '',
                 'email' => '',
                 'senha' => '',
-                'comfrimar_senha' => '',
+                'confirmar_senha' => '',
 
                 'nome_erro' => '',
                 'usuario_erro' => '',
@@ -70,10 +95,7 @@ class UsuarioController extends Controller
             ];
 
         endif;
-        
+
         $this->view('usuarios/cadastrar', $dados);
     }
-
-    
-    
 }

@@ -45,7 +45,7 @@
 
         <label for="">Confirmar Senha</label>
         <br>
-        <input type="password" name="comfrimar_senha" name="comfrimar_senha"  class="<?= $dados['confirmar_senha_erro'] ? 'is-invalid' : '' ?>">
+        <input type="password" name="confirmar_senha" name="confirmar_senha"  class="<?= $dados['confirmar_senha_erro'] ? 'is-invalid' : '' ?>">
         <div class="invalid-feedback">
             <?= $dados['confirmar_senha_erro'] ?>
         </div>
