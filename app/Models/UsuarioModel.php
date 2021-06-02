@@ -149,6 +149,32 @@ class UsuarioModel
             return false;
         endif;
     }
+
+    public function ValidarEmailUsuario($email)
+    {
+        $this->setEmail($email);
+        $this->db->query("SELECT email from usuario WHERE email = :email");
+        $this->db->bind(":email", $this->getEmail());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+
+    }
+    public function ValidarUsuario($usuario)
+    {
+        $this->setUsuario($usuario);
+        $this->db->query("SELECT usuario from usuario WHERE usuario = :usuario");
+        $this->db->bind(":usuario", $this->getUsuario());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
     
     public function login($email, $senha)
     {
@@ -174,6 +200,17 @@ class UsuarioModel
         $this->db->query("UPDATE usuario set status = f WHERE usuario = :usuario");  
 
         $this->db->bind("usuario", $this->getUsuario());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
+    public function select()
+    {
+        $this->db->query("SELECT * FROM usuario");
 
         if ($this->db->executa()) :
             return true;

@@ -56,6 +56,12 @@ class UsuarioController extends Controller
                 elseif(Validar::validarEmail($formulario['email'])):
                     $dados['email_erro'] = "E-mail informado é invalido";
 
+                elseif($this->usuarioModel->ValidarEmailUsuario($formulario['email'])):
+                    $dados['email_erro'] = "E-mail ja cadastrado";
+
+                elseif($this->usuarioModel->ValidarUsuario($formulario['usuario'])):
+                    $dados['usuario_erro'] = "Usuario não esta disponivel";
+
                 elseif (strlen($formulario['senha']) < 6) :
                     $dados['senha_erro'] = "A senha deve ter no minino 6 caracteres";
 
