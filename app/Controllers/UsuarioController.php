@@ -50,10 +50,10 @@ class UsuarioController extends Controller
 
                 endif;
             else :
-                if(Validar::validarNome($formulario['nome'])):
+                if(Validar::validarCampoNome($formulario['nome'])):
                     $dados['nome_erro'] = "Nome informado é invalido";
 
-                elseif(Validar::validarEmail($formulario['email'])):
+                elseif(Validar::validarCampoEmail($formulario['email'])):
                     $dados['email_erro'] = "E-mail informado é invalido";
 
                 elseif($this->usuarioModel->ValidarEmailUsuario($formulario['email'])):
