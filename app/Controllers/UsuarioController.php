@@ -56,11 +56,14 @@ class UsuarioController extends Controller
                 elseif(Validar::validarCampoEmail($formulario['email'])):
                     $dados['email_erro'] = "E-mail informado é invalido";
 
+                elseif(Validar::validarCampoNome($formulario['usuario'])):
+                    $dados['usuario_erro'] = "Usuario invalido";
+
                 elseif($this->usuarioModel->ValidarEmailUsuario($formulario['email'])):
                     $dados['email_erro'] = "E-mail ja cadastrado";
 
                 elseif($this->usuarioModel->ValidarUsuario($formulario['usuario'])):
-                    $dados['usuario_erro'] = "Usuario não esta disponivel";
+                    $dados['usuario_erro'] = "Usuario invalido";
 
                 elseif (strlen($formulario['senha']) < 6) :
                     $dados['senha_erro'] = "A senha deve ter no minino 6 caracteres";
@@ -81,10 +84,6 @@ class UsuarioController extends Controller
                 endif;
             endif;
 
-            	
-
-            var_dump($formulario);
-
         else :
             $dados = [
                 'nome' => '',
@@ -103,5 +102,59 @@ class UsuarioController extends Controller
         endif;
 
         $this->view('usuarios/cadastrar', $dados);
+    }
+    public function login()
+    {
+       
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($formulario)) :
+            $dados = [
+
+                'usuario' => trim($formulario['usuario']),
+                'senha' => trim($formulario['senha']),
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+
+            ];
+            if (in_array("", $formulario)) :
+
+                if (empty($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Preencha o campo usuario";
+                endif;
+
+
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = "Preencha o campo senha";
+
+                endif;
+
+            else :
+                if(Validar::validarCampoNome($formulario['usuario'])):
+                    $dados['usuario_erro'] = "Usuario invalido";
+                    
+                else:
+                    
+                    echo 'Aqio';
+                endif;
+            endif;
+
+            	
+
+            var_dump($formulario);
+
+        else :
+            $dados = [
+
+                'usuario' => '',
+                'senha' => '',
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+            ];
+
+        endif;
+        
+        $this->view('usuarios/login', $dados);
     }
 }

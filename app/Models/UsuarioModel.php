@@ -176,14 +176,17 @@ class UsuarioModel
         endif;
     }
     
-    public function login($email, $senha)
+    public function login($usuario, $senha)
     {
-        $this->db->query("SELECT * FROM usuario WHERE email = :e");
-        $this->db->bind(":e", $email);
+        $this->setUsuario($usuario);
+        $this->setSenha($senha);
+
+        $this->db->query("SELECT * FROM usuario WHERE usuario = :usuario");
+        $this->db->bind(":usuario", $usuario);
 
         if ($this->db->resultado()) : 
             $resultado = $this->db->resultado();
-            if(password_verify($senha, $resultado->senha)): 
+            if(password_verify($this->getSenha(), $resultado->senha)): 
                 return $resultado;
             else:
                 return false;
