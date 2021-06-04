@@ -12,16 +12,24 @@ class Paginas extends Controller {
 
     public function sobre(){
         $dados = [
-            'tituloPagina' => APP_NOME
+            'Sobre' => APP_NOME
         ];
 
         $this->view('paginas/sobre', $dados);
     }   
     public function cadastrar(){
         $dados = [
-            'tituloPagina' => APP_NOME
+            'Cadastrar' => APP_NOME
         ];
 
         $this->view('usuarios/cadastrar', $dados);
+    }  
+    public function login(){
+        $dados = [
+            'Login' => APP_NOME
+        ];
+
+        $this->view('usuarios/login', $dados);
     }   
+    
 }

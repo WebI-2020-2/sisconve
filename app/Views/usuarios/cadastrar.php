@@ -53,6 +53,7 @@
 
         <br>
         <input type="submit">
+        <a href="<?= URL?>/usuarios/login">login</a>
     </form>
 </body>
 
