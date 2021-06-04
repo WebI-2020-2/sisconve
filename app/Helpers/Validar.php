@@ -23,8 +23,13 @@ class Validar
 
     public static function validarCampoCPF($cpf)
     {
+        if(!preg_replace('/[^0-9]/is', '', $cpf)):
+            return true;
+        else: 
+            return false;
+        endif;
 
-        if (strlen($cpf) != 11 || preg_replace('/[^0-9]/is', '', $cpf)) :
+        if (strlen($cpf) != 11) :
             return false;
         endif;
 
