@@ -165,6 +165,7 @@ class UsuarioController extends Controller
 
         $this->view('usuarios/login', $dados);
     }
+
     private function sesaoUsuario($login)
     {
         $_SESSION["USUARIO_ID"] = $login->id_usuario;
@@ -178,8 +179,8 @@ class UsuarioController extends Controller
 
     public function sair()
     {
-        unset($_SESSION["USUARIO_ID"]); 
-        unset($_SESSION["USUARIO_NOME_COMPLETO"]); 
+        unset($_SESSION["USUARIO_ID"]);
+        unset($_SESSION["USUARIO_NOME_COMPLETO"]);
         unset($_SESSION["USUARIO_USER"]);
         unset($_SESSION["USUARIO_EMAIL"]);
         unset($_SESSION["USUARIO_STATUS"]);
