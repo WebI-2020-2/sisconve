@@ -1,13 +1,14 @@
 <?php
 
+include '../config.php';
 
 class Database {
 
-    private $host = 'ec2-54-87-112-29.compute-1.amazonaws.com';
-    private $usuario = 'xekcvktfbijhgg';
-    private $senha = '5632494d11491b7564708c22a2a73d6f1bc1891025a49503cc83576df1365f40';
-    private $banco = 'deuda74mn17o99';
-    private $porta = '5432';
+    private $host = HOST;
+    private $usuario = USER;
+    private $senha = PASSWORD;
+    private $banco = DATABASE;
+    private $porta = PORT;
     private $dbh;
     private $stmt;
 
