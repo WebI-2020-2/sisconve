@@ -182,7 +182,7 @@ class UsuarioModel
         $this->setSenha($senha);
 
         $this->db->query("SELECT * FROM usuario WHERE usuario = :usuario");
-        $this->db->bind(":usuario", $usuario);
+        $this->db->bind(":usuario", $this->getUsuario());
 
         if ($this->db->resultado()) : 
             $resultado = $this->db->resultado();

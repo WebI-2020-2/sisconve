@@ -134,8 +134,15 @@ class UsuarioController extends Controller
                     $dados['usuario_erro'] = "Usuario invalido";
                     
                 else:
-                    
-                    echo 'Aqio';
+                    $login = $this->usuarioModel->login($formulario['usuario'], $formulario['senha']); 
+
+                    if($login):
+                        echo "logado <hr>";
+                    else:
+                        echo "Usuarios ou senha invalidos <hr>";
+        
+                    endif;
+                   
                 endif;
             endif;
 
