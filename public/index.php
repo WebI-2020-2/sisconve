@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './../app/autoload.php';
 include './../app/config.php';
 // include './../app/Libraries/Rota.php';

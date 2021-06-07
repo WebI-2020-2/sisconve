@@ -93,13 +93,3 @@ class VendaModel
         $this->valorTotal = $valorTotal;
     }
 }
-
-// CREATE TABLE "venda" (
-//     "id_venda" serial NOT NULL,
-//     "id_caixa" int,
-//     "id_cliente" int,
-//     "num_parcelas" int,
-//     "valor_total" decimal(7,2) DEFAULT 0,
-//     "data_venda" date DEFAULT CURRENT_DATE,
-//     PRIMARY KEY ("id_venda")
-//   );
