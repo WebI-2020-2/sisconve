@@ -42,4 +42,11 @@ class Paginas extends Controller {
 
         $this->view('produtos/cadastrarProdutos', $dados);
     } 
+    public function cadastrarCategoria(){
+        $dados = [
+            'Cadastrar Produtos' => APP_NOME
+        ];
+
+        $this->view('categoria/cadastrarCategoria', $dados);
+    } 
 }

@@ -9,7 +9,7 @@
 
         <label for="">Usuário</label>
         <br>
-        <input type="text" name="usuario" id="usuario" v class="<?= $dados['usuario_erro'] ? 'is-invalid' : '' ?>">
+        <input type="text" name="usuario" id="usuario" class="<?= $dados['usuario_erro'] ? 'is-invalid' : '' ?>">
         <div class="invalid-feedback">
             <?= $dados['usuario_erro'] ?>
         </div>
