@@ -2,6 +2,7 @@
 
 class Paginas extends Controller {
 
+    //Application pages
     public function index(){
         $dados = [
             'tituloPagina' => 'Página Inicial'
@@ -17,6 +18,7 @@ class Paginas extends Controller {
 
         $this->view('paginas/sobre', $dados);
     }   
+    //users pages
     public function cadastrar(){
         $dados = [
             'Cadastrar' => APP_NOME
@@ -30,6 +32,14 @@ class Paginas extends Controller {
         ];
 
         $this->view('usuarios/login', $dados);
-    }   
-    
+    }  
+
+    //Products pages
+    public function cadastrarProdutos(){
+        $dados = [
+            'Cadastrar Produtos' => APP_NOME
+        ];
+
+        $this->view('produtos/cadastrarProdutos', $dados);
+    } 
 }

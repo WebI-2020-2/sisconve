@@ -9,7 +9,7 @@
     <a href="<?= URL ?>/usuarios/login">Login</a>
     <br>
     <br>
-    <a href="<?= URL ?>/produtos/index">produtos</a>
+    <a href="<?= URL ?>/produtos/cadastrarProdutos">produtos</a>
     <br>
     <br>
     
