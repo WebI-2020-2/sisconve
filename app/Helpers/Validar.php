@@ -20,7 +20,6 @@ class Validar
             return false;
         endif;
     }
-
     public static function validarCampoCPF($cpf)
     {
         if(!preg_replace('/[^0-9]/is', '', $cpf)):
@@ -43,5 +42,14 @@ class Validar
             endif;
         endfor;
         return true;
+    }
+
+    public static function validarCampoSalario($salario)
+    {
+        if(!preg_replace('/[^0-9]/is', '', $salario)):
+            return true;
+        else:
+            return false;
+        endif;
     }
 }

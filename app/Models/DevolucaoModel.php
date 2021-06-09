@@ -92,13 +92,3 @@ class DevolucaoModel
         $this->quantidade = $quantidade;
     }
 }
-
-// CREATE TABLE "devolucao" (
-//     "id_devolucao" serial NOT NULL,
-//     "id_produto" int,
-//     "id_item_venda" int,
-//     "motivo_devolucao" varchar(255),
-//     "quantidade" int,
-//       "criado_em" TIMESTAMP DEFAULT CURRENT_DATE,
-//     PRIMARY KEY ("id_devolucao")
-//   );
