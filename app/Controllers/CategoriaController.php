@@ -14,7 +14,6 @@ class CategoriaController extends Controller
         if (isset($formulario)) :
             $dados = [
                 'nomecategoria' => trim($formulario['nomecategoria']),
-
                 'nomecategoria_erro' => ''
             ];
 
