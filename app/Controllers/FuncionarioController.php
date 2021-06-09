@@ -28,34 +28,42 @@ class FuncionarioController extends Controller
             ];
             if (in_array("", $formulario)) :
 
-                if(empty($formulario['nome_funcionario'])):
+                if (empty($formulario['nome_funcionario'])) :
                     $dados['nome_funcionario_erro'] = 'Preencha o campo';
                 endif;
 
-                if(empty($formulario['telefone'])):
+                if (empty($formulario['telefone'])) :
                     $dados['telefone_erro'] = 'Preencha o campo';
                 endif;
 
-                if(empty($formulario['cpf'])):
+                if (empty($formulario['cpf'])) :
                     $dados['cpf_erro'] = 'Preencha o campo';
                 endif;
 
-                if(empty($formulario['endereco'])):
+                if (empty($formulario['endereco'])) :
                     $dados['endereco_erro'] = 'Preencha o campo';
                 endif;
 
-                if(empty($formulario['cargo'])):
+                if (empty($formulario['cargo'])) :
                     $dados['cargo_erro'] = 'Preencha o campo';
                 endif;
 
-                if(empty($formulario['salario'])):
+                if (empty($formulario['salario'])) :
                     $dados['salario_erro'] = 'Preencha o campo';
                 endif;
-            else:
-                if(Validar::validarCampoNome($formulario['nome_funcionario'])):
+            else :
+                if (Validar::validarCampoString($formulario['nome_funcionario'])) :
                     $dados['nome_funcionario_erro'] = "Nome informado inavlido";
-                elseif(Validar::validarCampoCPF($formulario['cpf'])):
+                elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
+                    $dados['cpf_erro'] = "Formato informado inavlido";
+                elseif (Validar::validarCampoCPF($formulario['cpf'])) :
                     $dados['cpf_erro'] = "CPF informado inavlido";
+                elseif (Validar::validarCampoNumerico($formulario['salario'])) :
+                    $dados['salario_erro'] = "Formato informado inavlido";
+                elseif (Validar::validarCampoString($formulario['cargo'])) :
+                    $dados['cargo_erro'] = "Formato informado inavlido";
+                else:
+                    echo "Pode Cadastrar <hr>";
                 endif;
 
             endif;
