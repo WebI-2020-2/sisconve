@@ -8,8 +8,8 @@
     </tr>
     <tr >
         <td>
-            <a target="_blank" href="https://github.com/net0xy">
-                <img src="https://github.com/net0xy.png?size=70">
+            <a target="_blank" href="https://github.com/netosep">
+                <img src="https://github.com/netosep.png?size=70">
             </a>
         </td>
         <td>
