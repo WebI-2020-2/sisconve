@@ -51,19 +51,37 @@ class FuncionarioController extends Controller
                 if (empty($formulario['salario'])) :
                     $dados['salario_erro'] = 'Preencha o campo';
                 endif;
+
             else :
                 if (Validar::validarCampoString($formulario['nome_funcionario'])) :
                     $dados['nome_funcionario_erro'] = "Nome informado inavlido";
+
                 elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
                     $dados['cpf_erro'] = "Formato informado inavlido";
+
+                elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
+                    $dados['telefone_erro'] = "Formato informado inavlido";
+
                 elseif (Validar::validarCampoCPF($formulario['cpf'])) :
                     $dados['cpf_erro'] = "CPF informado inavlido";
+
                 elseif (Validar::validarCampoNumerico($formulario['salario'])) :
                     $dados['salario_erro'] = "Formato informado inavlido";
+
                 elseif (Validar::validarCampoString($formulario['cargo'])) :
                     $dados['cargo_erro'] = "Formato informado inavlido";
-                else:
-                    echo "Pode Cadastrar <hr>";
+
+                elseif ($this->usuarioModel->validarCpf($formulario['cpf'])) :
+                    $dados['cpf_erro'] = "CPF informado Invalido";
+
+                elseif ($this->usuarioModel->validarTelefone($formulario['telefone'])) :
+                    $dados['telefone_erro'] = "Telefone  informado pertence a outro funcionário";
+                else :
+                    if ($this->usuarioModel->insert($dados)) :
+                        echo 'Cadastro realizado como sucesso <hr>';
+                    else :
+                        die("Erro");
+                    endif;
                 endif;
 
             endif;
