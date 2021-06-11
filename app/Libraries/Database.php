@@ -1,6 +1,5 @@
 <?php
 
-
 class Database {
 
     private $host = 'ec2-54-87-112-29.compute-1.amazonaws.com';
@@ -10,7 +9,6 @@ class Database {
     private $porta = '5432';
     private $dbh;
     private $stmt;
-
 
 
     public function __construct()

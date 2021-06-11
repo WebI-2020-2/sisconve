@@ -8,7 +8,7 @@
 class Rota {
     //atributos da classe
     private $controlador = 'Paginas';
-    private $metodo = 'index';
+    private $metodo = 'Index';
     private $parametros = [];
 
     public function __construct()

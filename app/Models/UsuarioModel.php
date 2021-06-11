@@ -9,6 +9,7 @@ class UsuarioModel
     private $nomeCompleto;
     private $status;
     private $nivelAcesso;
+    private $db;
 
     public function __construct()
     {
@@ -132,18 +133,15 @@ class UsuarioModel
         $this->setUsuario($dados['usuario']);
         $this->setSenha($dados['senha']);
         $this->setEmail($dados['email']);
-        $this->setNomeCompleto($dados['nome_completo']);
-        $this->setStatus($dados['status']);
-        $this->setNivelAcesso($dados['nivel_acesso']);
+        $this->setNomeCompleto($dados['nome']);
 
-        $this->db->query("INSERT INTO usuario(usuario, senha, email, nome_completo, status, nivel_acesso) VALUES (:usuario, :senha, :email, :nome_completo, :status, :nivel_acesso)");
+
+        $this->db->query("INSERT INTO usuario(usuario, senha, email, nome_completo) VALUES (:usuario, :senha, :email, :nome)");
 
         $this->db->bind("usuario", $this->getUsuario());
         $this->db->bind("senha", $this->getSenha());
         $this->db->bind("email", $this->getEmail());
-        $this->db->bind("nome_completo", $this->getNivelAcesso());
-        $this->db->bind("status", $this->getStatus());
-        $this->db->bind("nivel_acesso", $this->getNivelAcesso());
+        $this->db->bind("nome", $this->getNomeCompleto());
 
         if ($this->db->executa()) :
             return true;
@@ -151,15 +149,44 @@ class UsuarioModel
             return false;
         endif;
     }
-    
-    public function login($email, $senha)
+
+    public function ValidarEmailUsuario($email)
     {
-        $this->db->query("SELECT * FROM usuario WHERE email = :e");
-        $this->db->bind(":e", $email);
+        $this->setEmail($email);
+        $this->db->query("SELECT email from usuario WHERE email = :email");
+        $this->db->bind(":email", $this->getEmail());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+
+    }
+    public function ValidarUsuario($usuario)
+    {
+        $this->setUsuario($usuario);
+        $this->db->query("SELECT usuario from usuario WHERE usuario = :usuario");
+        $this->db->bind(":usuario", $this->getUsuario());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+    
+    public function login($usuario, $senha)
+    {
+        $this->setUsuario($usuario);
+        $this->setSenha($senha);
+
+        $this->db->query("SELECT * FROM usuario WHERE usuario = :usuario");
+        $this->db->bind(":usuario", $this->getUsuario());
 
         if ($this->db->resultado()) : 
             $resultado = $this->db->resultado();
-            if(password_verify($senha, $resultado->senha)): 
+            if(password_verify($this->getSenha(), $resultado->senha)): 
                 return $resultado;
             else:
                 return false;
@@ -176,6 +203,17 @@ class UsuarioModel
         $this->db->query("UPDATE usuario set status = f WHERE usuario = :usuario");  
 
         $this->db->bind("usuario", $this->getUsuario());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
+    public function select()
+    {
+        $this->db->query("SELECT * FROM usuario");
 
         if ($this->db->executa()) :
             return true;
