@@ -9,5 +9,7 @@
     <a href="<?= URL ?>/produtos/cadastrarProdutos" class="btn btn-primary btn-sm">produtos</a>
     
     <a href="<?= URL ?>/categoria/cadastrarCategoria" class="btn btn-primary btn-sm">Categoria</a>
+
+    <a href="<?= URL ?>/funcionario/cadastrarFuncionario" class="btn btn-primary btn-sm">Cadastrar Funcionario</a>
     
 </header>

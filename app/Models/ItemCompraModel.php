@@ -144,16 +144,3 @@ class ItemCompraModel
         $this->quantidade = $quantidade;
     }
 }
-
-// CREATE TABLE "item_compra" (
-//     "id_item_compra" serial NOT NULL,
-//     "id_produto" int,
-//     "id_compra" int,
-//       "ipi" decimal(5,2) DEFAULT 0,
-//       "frete" decimal(5,2) DEFAULT 0,
-//       "icms" decimal(5,2) DEFAULT 0,
-//       "preco_compra" decimal(7,2) DEFAULT 0,
-//     "quantidade" int,
-//       "criado_em" TIMESTAMP DEFAULT CURRENT_DATE,
-//     PRIMARY KEY ("id_item_compra")
-//   );

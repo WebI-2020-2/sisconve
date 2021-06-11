@@ -6,7 +6,7 @@ class FuncionarioModel
     private $nomeFuncionario;
     private $telefone;
     private $cpf;
-    private $endereço;
+    private $endereco;
     private $cargo;
     private $salario;
 
@@ -57,9 +57,9 @@ class FuncionarioModel
     /**
      * @return mixed
      */
-    public function getEndereço()
+    public function getEndereco()
     {
-        return $this->endereço;
+        return $this->endereco;
     }
 
     /**
@@ -103,11 +103,11 @@ class FuncionarioModel
     }
 
     /**
-     * @param mixed $endereço
+     * @param mixed $endereco
      */
-    public function setEndereço($endereço)
+    public function setEndereco($endereco)
     {
-        $this->endereço = $endereço;
+        $this->endereco = $endereco;
     }
 
     /**
@@ -124,5 +124,67 @@ class FuncionarioModel
     public function setSalario($salario)
     {
         $this->salario = $salario;
+    }
+
+    public function validarCpf($cpf)
+    {
+        $this->setCpf($cpf);
+        $this->db->query("SELECT cpf FROM funcionario WHERE cpf = :cpf");
+        $this->db->bind(":cpf", $this->getCpf());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+
+    }
+    public function validarTelefone($telefone)
+    {
+        $this->setTelefone($telefone);
+        $this->db->query("SELECT telefone FROM funcionario WHERE telefone = :telefone");
+        $this->db->bind(":telefone", $this->getTelefone());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
+    public function findByAll(){
+        $this->db->query("SELECT * FROM funcionario");
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
+    public function insert($dados)
+    {
+        $this->setNomeFuncionario($dados['nome_funcionario']);
+        $this->setTelefone($dados['telefone']);
+        $this->setCpf($dados['cpf']);
+        $this->setEndereco($dados['endereco']);
+        $this->setCargo($dados['cargo']);
+        $this->setSalario($dados['salario']);
+
+        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario)");
+
+        $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
+        $this->db->bind(":telefone", $this->getTelefone());
+        $this->db->bind(":cpf", $this->getCpf());
+        $this->db->bind(":endereco", $this->getEndereco());
+        $this->db->bind(":cargo", $this->getCargo());
+        $this->db->bind(":salario", $this->getSalario());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+
+    
     }
 }

@@ -181,7 +181,7 @@ class UsuarioModel
         $this->setUsuario($usuario);
         $this->setSenha($senha);
 
-        $this->db->query("SELECT * FROM usuario WHERE usuario = :usuario");
+        $this->db->query("SELECT * FROM usuario WHERE usuario = :usuario AND status = t");
         $this->db->bind(":usuario", $this->getUsuario());
 
         if ($this->db->resultado()) : 
@@ -191,32 +191,6 @@ class UsuarioModel
             else:
                 return false;
             endif;
-        else :
-            return false;
-        endif;
-    }
-
-    public function Delete($dados)
-    {
-        $this->setUsuario($dados['usuario']);
-
-        $this->db->query("UPDATE usuario set status = f WHERE usuario = :usuario");  
-
-        $this->db->bind("usuario", $this->getUsuario());
-
-        if ($this->db->executa()) :
-            return true;
-        else :
-            return false;
-        endif;
-    }
-
-    public function select()
-    {
-        $this->db->query("SELECT * FROM usuario");
-
-        if ($this->db->executa()) :
-            return true;
         else :
             return false;
         endif;
