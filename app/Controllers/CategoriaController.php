@@ -24,7 +24,7 @@ class CategoriaController extends Controller
                 endif;
                 
             else :
-                if (Validar::validarCampoNome($formulario['nomecategoria'])) :
+                if (Validar::validarCampoString($formulario['nomecategoria'])) :
                     $dados['nomecategoria_erro'] = "Nome informado é invalido";
                 elseif ($this->categoriaModel->validarCategoria($formulario['nomecategoria'])) :
                     $dados['nomecategoria_erro'] = "Nome informado já existe";

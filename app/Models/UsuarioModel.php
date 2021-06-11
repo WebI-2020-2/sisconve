@@ -195,19 +195,4 @@ class UsuarioModel
             return false;
         endif;
     }
-
-    public function Delete($dados)
-    {
-        $this->setUsuario($dados['usuario']);
-
-        $this->db->query("UPDATE usuario set status = f WHERE usuario = :usuario");  
-
-        $this->db->bind("usuario", $this->getUsuario());
-
-        if ($this->db->executa()) :
-            return true;
-        else :
-            return false;
-        endif;
-    }
 }
