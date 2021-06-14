@@ -163,6 +163,7 @@ class UsuarioModel
         endif;
 
     }
+    
     public function ValidarUsuario($usuario)
     {
         $this->setUsuario($usuario);

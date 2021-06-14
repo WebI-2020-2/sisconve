@@ -49,4 +49,8 @@ class CategoriaController extends Controller
         endif;
         $this->view('categoria/cadastrarCategoria', $dados);
     }
+    public function editar() 
+    {
+        
+    }
 }

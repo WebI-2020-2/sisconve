@@ -58,4 +58,14 @@ class Paginas extends Controller {
 
         $this->view('funcionario/cadastrarFuncionario', $dados);
     }
+
+    // Client pages
+    public function cadastraClientes() 
+    {
+        $dados = [
+            "Cadastar Clientes" => APP_NOME
+        ];
+
+        $this->view('clientes/cadastraClientes', $dados);
+    }
 }

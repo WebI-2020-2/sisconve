@@ -11,5 +11,7 @@
     <a href="<?= URL ?>/categoria/cadastrarCategoria" class="btn btn-primary btn-sm">Categoria</a>
 
     <a href="<?= URL ?>/funcionario/cadastrarFuncionario" class="btn btn-primary btn-sm">Cadastrar Funcionario</a>
+
+    <a href="<?= URL ?>/clientes/cadastraClientes" class="btn btn-primary btn-sm">Cadastrar Clientes</a>
     
 </header>
