@@ -68,4 +68,14 @@ class Paginas extends Controller {
 
         $this->view('clientes/cadastraClientes', $dados);
     }
+
+    // 
+    public function cadastarFornecedor()
+    {
+        $dados = [
+            "Cadastar Fornecedor" => APP_NOME
+        ];
+        
+        $this->view('fornecedor/cadastarFornecedor', $dados);
+    }
 }

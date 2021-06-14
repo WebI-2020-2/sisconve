@@ -5,8 +5,10 @@ class ClientesController extends Controller
     public function __construct()
     {
         $this->usuarioModel = $this->model('ClienteModel');
-    }
 
+        
+    }
+    
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
