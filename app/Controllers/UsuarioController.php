@@ -30,47 +30,47 @@ class UsuarioController extends Controller
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome'])) :
-                    $dados['nome_erro'] = "Preencha o campo nome";
+                    $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
                 endif;
 
                 if (empty($formulario['usuario'])) :
-                    $dados['usuario_erro'] = "Preencha o campo usuario";
+                    $dados['usuario_erro'] = "Preencha o campo <b>usuario</b>";
                 endif;
 
                 if (empty($formulario['email'])) :
-                    $dados['email_erro'] = "Preencha o campo email";
+                    $dados['email_erro'] = "Preencha o campo <b>email</b>";
                 endif;
 
                 if (empty($formulario['senha'])) :
-                    $dados['senha_erro'] = "Preencha o campo senha";
+                    $dados['senha_erro'] = "Preencha o campo <b>senha</b>";
 
                 endif;
 
                 if (empty($formulario['confirmar_senha_erro'])) :
-                    $dados['confirmar_senha_erro'] = "Preencha o campo comfrimar Senha";
+                    $dados['confirmar_senha_erro'] = "Preencha o <b>campo</b> comfrimar Senha";
 
                 endif;
             else :
                 if (Validar::validarCampoString($formulario['nome'])) :
-                    $dados['nome_erro'] = "Nome informado é invalido";
+                    $dados['nome_erro'] = "Nome informado é <b>invalido</b>";
 
                 elseif (Validar::validarCampoEmail($formulario['email'])) :
-                    $dados['email_erro'] = "E-mail informado é invalido";
+                    $dados['email_erro'] = "E-mail informado é <b>invalido</b>";
 
                 elseif (Validar::validarCampoString($formulario['usuario'])) :
-                    $dados['usuario_erro'] = "Usuario invalido";
+                    $dados['usuario_erro'] = "Usuario <b>invalido</b>";
 
                 elseif ($this->usuarioModel->ValidarEmailUsuario($formulario['email'])) :
-                    $dados['email_erro'] = "E-mail ja cadastrado";
+                    $dados['email_erro'] = "E-mail ja <b>cadastrado</b>";
 
                 elseif ($this->usuarioModel->ValidarUsuario($formulario['usuario'])) :
-                    $dados['usuario_erro'] = "Usuario invalido";
+                    $dados['usuario_erro'] = "Usuario <b>invalido</b>";
 
                 elseif (strlen($formulario['senha']) < 6) :
-                    $dados['senha_erro'] = "A senha deve ter no minino 6 caracteres";
+                    $dados['senha_erro'] = "A senha deve ter no minino 6 <b>caracteres</b>";
 
                 elseif ($formulario['senha'] != $formulario['confirmar_senha']) :
-                    $dados['confirmar_senha_erro'] = "As senhas estao diferentes";
+                    $dados['confirmar_senha_erro'] = "As senhas estao <b>diferentes</b>";
 
                 else :
                     $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);

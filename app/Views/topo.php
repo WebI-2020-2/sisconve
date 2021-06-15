@@ -13,5 +13,7 @@
     <a href="<?= URL ?>/funcionario/cadastrarFuncionario" class="btn btn-primary btn-sm">Cadastrar Funcionario</a>
 
     <a href="<?= URL ?>/clientes/cadastraClientes" class="btn btn-primary btn-sm">Cadastrar Clientes</a>
+
+    <a href="<?= URL ?>/fornecedor/cadastarFornecedor" class="btn btn-primary btn-sm">Cadastrar Fornecedor</a>
     
 </header>

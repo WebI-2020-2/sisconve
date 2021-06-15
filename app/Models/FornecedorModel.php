@@ -92,4 +92,27 @@ class FornecedorModel
     {
         $this->estado = $estado;
     }
+
+
+    public function insert($dados)
+    {
+        $this->setNomeFornecedor($dados['nome']);
+        $this->setTelefone($dados['telefone']);
+        $this->setEstado($dados['estado']);
+        $this->setCidade($dados['cidade']);
+
+
+        $this->db->query("INSERT INTO fornecedor(nome_fornecedor, telefone, estado, cidade) VALUES (:nome_fornecedor, :telefone, :estado, :cidade)");
+
+        $this->db->bind(":nome_fornecedor", $this->getNomeFornecedor());
+        $this->db->bind(":telefone", $this->getTelefone());
+        $this->db->bind(":estado", $this->getEstado());
+        $this->db->bind(":cidade", $this->getCidade());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
 }

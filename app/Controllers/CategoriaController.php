@@ -19,7 +19,7 @@ class CategoriaController extends Controller
 
             if (in_array("", $formulario)) :
                 if (empty($formulario['nomecategoria'])) :
-                    $dados['nomecategoria_erro'] = "Preencha o campo";
+                    $dados['nomecategoria_erro'] = "Preencha o campo <b>nomecategoria</b>";
 
                 endif;
                 

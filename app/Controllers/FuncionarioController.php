@@ -29,53 +29,53 @@ class FuncionarioController extends Controller
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome_funcionario'])) :
-                    $dados['nome_funcionario_erro'] = 'Preencha o campo';
+                    $dados['nome_funcionario_erro'] = 'Preencha o campo <b>nome do funcionario</b>';
                 endif;
 
                 if (empty($formulario['telefone'])) :
-                    $dados['telefone_erro'] = 'Preencha o campo';
+                    $dados['telefone_erro'] = 'Preencha o campo <b>telefone</b>';
                 endif;
 
                 if (empty($formulario['cpf'])) :
-                    $dados['cpf_erro'] = 'Preencha o campo';
+                    $dados['cpf_erro'] = 'Preencha o campo <b>cpf</b>';
                 endif;
 
                 if (empty($formulario['endereco'])) :
-                    $dados['endereco_erro'] = 'Preencha o campo';
+                    $dados['endereco_erro'] = 'Preencha o campo <b>endereco</b>';
                 endif;
 
                 if (empty($formulario['cargo'])) :
-                    $dados['cargo_erro'] = 'Preencha o campo';
+                    $dados['cargo_erro'] = 'Preencha o campo <b>cargo</b>';
                 endif;
 
                 if (empty($formulario['salario'])) :
-                    $dados['salario_erro'] = 'Preencha o campo';
+                    $dados['salario_erro'] = 'Preencha o campo <b>salario</b>';
                 endif;
 
             else :
                 if (Validar::validarCampoString($formulario['nome_funcionario'])) :
-                    $dados['nome_funcionario_erro'] = "Nome informado inavlido";
+                    $dados['nome_funcionario_erro'] = "Nome informado <b>inavlido</b>";
 
                 elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "Formato informado inavlido";
+                    $dados['cpf_erro'] = "Formato informado <b>inavlido</b>";
 
                 elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
-                    $dados['telefone_erro'] = "Formato informado inavlido";
+                    $dados['telefone_erro'] = "Formato informado <b>inavlido</b>";
 
                 elseif (Validar::validarCampoCPF($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "CPF informado inavlido";
+                    $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
 
                 elseif (Validar::validarCampoNumerico($formulario['salario'])) :
-                    $dados['salario_erro'] = "Formato informado inavlido";
+                    $dados['salario_erro'] = "Formato informado <b>inavlido</b>";
 
                 elseif (Validar::validarCampoString($formulario['cargo'])) :
-                    $dados['cargo_erro'] = "Formato informado inavlido";
+                    $dados['cargo_erro'] = "Formato informado <b>inavlido</b>";
 
                 elseif ($this->usuarioModel->validarCpf($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "CPF informado Invalido";
+                    $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
 
                 elseif ($this->usuarioModel->validarTelefone($formulario['telefone'])) :
-                    $dados['telefone_erro'] = "Telefone  informado pertence a outro funcionário";
+                    $dados['telefone_erro'] = "Telefone  informado <b>pertence</b> a outro funcionário";
                 else :
                     if ($this->usuarioModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';

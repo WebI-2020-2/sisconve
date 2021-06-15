@@ -23,19 +23,19 @@ class ClientesController extends Controller
             if (in_array("", $formulario)) :
                 
                 if (empty($formulario['nome'])) :
-                    $dados['nome_erro'] = "Preencha o campo nome";
+                    $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
                 endif;
 
                 if (empty($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "Preencha o campo CPF";
+                    $dados['cpf_erro'] = "Preencha o campo <b>CPF</b>";
                 endif;
             else:
                 if(Validar::validarCampoString($formulario['nome'])):
-                    $dados['nome_erro'] = "Nome informado é invalido";
+                    $dados['nome_erro'] = "Nome informado é <b>invalido</b>";
                 elseif(Validar::validarCampoNumerico($formulario['cpf'])):
-                    $dados['cpf_erro'] = "CPF informado é invalido";
+                    $dados['cpf_erro'] = "CPF informado é <b>invalido</b>";
                 elseif($this->usuarioModel->VerificarCpf($formulario['cpf'])):
-                    $dados['cpf_erro'] = "Usuario já cadastrado";
+                    $dados['cpf_erro'] = "Usuario já <b>cadastrado</b>";
                 else:
                     if ($this->usuarioModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
