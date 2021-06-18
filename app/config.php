@@ -9,10 +9,10 @@ define('URL','https://sisconve.herokuapp.com/Sisconve-Projeto');
 define('APP_NOME','Sisconve');
 
 
-const HOST = "ec2-54-87-112-29.compute-1.amazonaws.com";
-const USER = 'xekcvktfbijhgg';
-const PASSWORD = '5632494d11491b7564708c22a2a73d6f1bc1891025a49503cc83576df1365f40';
-const DATABASE = 'deuda74mn17o99';
+const HOST = "ec2-54-224-194-214.compute-1.amazonaws.com";
+const USER = 'xvszbxiximronw';
+const PASSWORD = '4cf6317f5daa8b7a5578ea61a10254432424e35f4ae956699d9bf3163b145612';
+const DATABASE = 'd2akcoj2hg6cij';
 const PORT = '5432';
 
 
