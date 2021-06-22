@@ -4,7 +4,7 @@
 
 define('APP', dirname(__FILE__));
 
-define('URL','https://sisconve.herokuapp.com/Sisconve-Projeto');
+define('URL','localhost/html');
 
 define('APP_NOME','Sisconve');
 
