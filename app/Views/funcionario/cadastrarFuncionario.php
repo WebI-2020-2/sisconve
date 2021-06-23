@@ -40,4 +40,5 @@
     </div>
     <br>
     <button type="submit">Cadastrar</button>
+    <a href="<?= URL ?>/funcionario/listarFuncionario">listar</a>
 </form>

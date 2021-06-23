@@ -75,4 +75,10 @@ class CaixaModel
     {
         $this->status = $status;
     }
+
+    public function selectAll(){
+        $this->db->query('SELECT * FROM caixa');
+        return $this->db->resultados();
+    }
+
 }

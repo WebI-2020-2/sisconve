@@ -91,4 +91,8 @@ class CompraModel
     {
         $this->parcelas = $parcelas;
     }
+    public function selectAll(){
+        $this->db->query('SELECT * FROM compra');
+        return $this->db->resultados();
+    }
 }

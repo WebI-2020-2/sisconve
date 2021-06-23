@@ -93,6 +93,10 @@ class TelefoneModel
     {
         $this->whatsapp = $whatsapp;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM telefone");
+        return $this->db->resultados();
+    }
 
 }
 

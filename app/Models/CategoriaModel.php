@@ -68,5 +68,9 @@ class CategoriaModel
             return false;
         endif;
     }
+    public function selectAll(){
+        $this->db->query('SELECT * FROM categoria');
+        return $this->db->resultados();
+    }
 
 }

@@ -92,4 +92,9 @@ class VendaModel
     {
         $this->valorTotal = $valorTotal;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM venda");
+        return $this->db->resultados();
+    }
+    
 }

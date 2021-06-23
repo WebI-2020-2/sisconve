@@ -4,7 +4,16 @@ class FuncionarioController extends Controller
 {
     public function __construct()
     {
-        $this->usuarioModel = $this->model('FuncionarioModel');
+        $this->funcionarioModel = $this->model('FuncionarioModel');
+    }
+
+    public function listarFuncionario(){
+        $dados = [
+            'funcionarios' => $this->funcionarioModel->selectAll()
+        ];
+
+        $this->view('funcionario/listarFuncionario', $dados);
+
     }
 
     public function cadastrar()

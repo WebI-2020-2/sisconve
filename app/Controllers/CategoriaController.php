@@ -7,6 +7,12 @@ class CategoriaController extends Controller
         $this->categoriaModel = $this->model('CategoriaModel');
     }
 
+    public function listarCategoria(){
+        $dados =[
+            'categorias' => $this->categoriaModel->selectAll()
+        ];
+        $this->view('categoria/listarCategorias', $dados);
+    }
 
     public function cadastrarCategoria()
     {

@@ -126,4 +126,8 @@ class EnderecoModel
     {
         $this->numero = $numero;
     }
+    public function selectAll(){
+        $this->db->query('SELECT * FROM endereco');
+        return $this->db->resultados();
+    }
 }

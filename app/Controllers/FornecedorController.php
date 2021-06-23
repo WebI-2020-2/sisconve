@@ -5,7 +5,16 @@ class FornecedorController extends Controller
 {
     public function __construct()
     {
-        $this->usuarioModel = $this->model('FornecedorModel');
+        $this->fornecedorModel = $this->model('FornecedorModel');
+    }
+
+    public function listarFornecedor(){
+        $dados = [
+            'fornecedores' => $this->fornecedorModel->selectAll()
+        ];
+
+        $this->view('fornecedor/listarFornecedor', $dados);
+
     }
 
     public function cadastrar()

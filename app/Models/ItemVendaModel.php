@@ -92,4 +92,8 @@ class ItemVendaModel
     {
         $this->quantidade = $quantidade;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM item_venda");
+        return $this->db->resultados();
+    }
 }

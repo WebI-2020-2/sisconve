@@ -196,4 +196,8 @@ class UsuarioModel
             return false;
         endif;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM usuario");
+        return $this->db->resultados();
+    }
 }

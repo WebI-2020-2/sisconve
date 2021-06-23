@@ -41,5 +41,9 @@ class FormaPagamentoModel
     {
         $this->tipo_pagamento = $tipo_pagamento;
     }
+    public function selectAll(){
+        $this->db->query('SELECT * FROM forma_pagamento');
+        return $this->db->resultados();
+    }
 
 }

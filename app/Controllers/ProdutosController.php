@@ -4,7 +4,7 @@ class ProdutosController extends Controller
 {
     public function __construct()
     {
-        $this->usuarioModel = $this->model('ProdutoModel');
+        $this->produtoModel = $this->model('ProdutoModel');
     }
 
 
@@ -43,5 +43,13 @@ class ProdutosController extends Controller
 
             ];
         endif;
+    }
+    public function listarProdutos(){
+        $dados = [
+            'produtos' => $this->produtoModel->selectAll()
+        ];
+
+        $this->view('produtos/listarProdutos', $dados);
+
     }
 }

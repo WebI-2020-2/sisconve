@@ -123,7 +123,7 @@ class ClienteModel
         endif;
     }
 
-    public function a() 
+    public function selectAll() 
     {
         $this->db->query("SELECT * FROM cliente");
         return $this->db->resultados();

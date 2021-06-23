@@ -108,4 +108,8 @@ class PagamentoVendaModel
     {
         $this->valorPago = $valorPago;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM pagamento_venda");
+        return $this->db->resultados();
+    }
 }

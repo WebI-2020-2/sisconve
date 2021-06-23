@@ -227,4 +227,9 @@ class ProdutoModel
     {
         $this->quantidade = $quantidade;
     }
+
+    public function selectAll(){
+        $this->db->query("SELECT * FROM produto");
+        return $this->db->resultados();
+    }
 }

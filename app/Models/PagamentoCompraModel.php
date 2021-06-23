@@ -110,5 +110,9 @@ class PagamentoCompraModel
         $this->status = $status;
     }
 
+    public function selectAll(){
+        $this->db->query("SELECT * FROM pagamento_compra");
+        return $this->db->resultados();
+    }
 }
 

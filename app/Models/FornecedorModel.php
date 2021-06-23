@@ -115,4 +115,8 @@ class FornecedorModel
             return false;
         endif;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM fornecedor");
+        return $this->db->resultados();
+    }
 }

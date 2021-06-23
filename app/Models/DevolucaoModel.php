@@ -91,4 +91,8 @@ class DevolucaoModel
     {
         $this->quantidade = $quantidade;
     }
+    public function selectAll(){
+        $this->db->query('SELECT * FROM devolucao');
+        return $this->db->resultados();
+    }
 }

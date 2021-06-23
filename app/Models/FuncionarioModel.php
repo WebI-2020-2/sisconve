@@ -187,4 +187,8 @@ class FuncionarioModel
 
     
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM funcionario");
+        return $this->db->resultados();
+    }
 }

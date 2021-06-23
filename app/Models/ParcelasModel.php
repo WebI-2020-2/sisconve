@@ -127,4 +127,8 @@ class ParcelasModel
     {
         $this->status = $status;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM parcelas");
+        return $this->db->resultados();
+    }
 }

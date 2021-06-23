@@ -1,8 +1,5 @@
 <?php
-/*
- * Controlador base
- * Carrega os modelos e as views
- */
+
 class Controller {
 
     public function model($model){
@@ -18,5 +15,4 @@ class Controller {
             die('O arquivo de view não existe!');
         endif;
     }
-
 }

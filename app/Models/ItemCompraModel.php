@@ -143,4 +143,8 @@ class ItemCompraModel
     {
         $this->quantidade = $quantidade;
     }
+    public function selectAll(){
+        $this->db->query("SELECT * FROM item_compra");
+        return $this->db->resultados();
+    }
 }

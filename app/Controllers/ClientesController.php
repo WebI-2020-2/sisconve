@@ -4,10 +4,19 @@ class ClientesController extends Controller
 {
     public function __construct()
     {
-        $this->usuarioModel = $this->model('ClienteModel');
+        $this->clienteModel = $this->model('ClienteModel');
 
         
     }
+    public function listarClientes(){
+        $dados = [
+            'clientes' => $this->clienteModel->selectAll()
+        ];
+
+        $this->view('clientes/listarClientes', $dados);
+
+    }
+
     
     public function cadastrar()
     {
