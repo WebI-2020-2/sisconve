@@ -5,7 +5,7 @@
     </span>
 <?php else : ?>
     <span class="navbar-text">
-        <h3>Users</h3>
+        <!-- <h3>Users</h3>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/cadastrar">Cadastre-se</a>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/login">Entrar</a>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/listar">Listar</a>
@@ -22,25 +22,39 @@
         <a class="btn btn-info" href="<?= URL ?>/FornecedorController/cadastrar">Cadastre Fornecedor</a>
         <a class="btn btn-info" href="<?= URL ?>/FornecedorController/listarFornecedor">Listar Fornecedor</a>
         <br>
+
         <h3>Clientes</h3>
+
         <a class="btn btn-info" href="<?= URL ?>/ClientesController/cadastrar">Cadastrar Clientes</a>
         <a class="btn btn-info" href="<?= URL ?>/ClientesController/listarClientes">Listar Clientes</a>
         <br>
+
         <h3>Categoria</h3>
+
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/cadastrarCategoria">Cadastrar Categoria</a>
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/listarCategoria">Listar Categoria</a>
         <br>
+
         <h3>Caixa</h3>
+
         <a class="btn btn-info" href="<?= URL ?>/CaixaController/listarCaixas">Listar Caixas</a>
         <br>
+
         <h3>Compra</h3>
+
         <a class="btn btn-info" href="<?= URL ?>/CompraController/listarCompras">Listar Compras</a>
         <br>
+
         <h3>Devolucao</h3>
+        
         <a class="btn btn-info" href="<?= URL ?>/DevolucaoController/listarDevolucoes">Listar Devolucoes</a>
-        <br>
+        <br> -->
+
         <h3>Endereco</h3>
+
+        <a class="btn btn-info" href="<?= URL ?>/EnderecoController/cadastrar">Cadastrar Enderecos</a>
         <a class="btn btn-info" href="<?= URL ?>/EnderecoController/listarEnderecos">Listar Enderecos</a>
+<!--         
         <br>
         <h3>Forma de pagamento</h3>
         <a class="btn btn-info" href="<?= URL ?>/FormaPagamentoController/listarFormasDePagamento">Listar Enderecos</a>
@@ -62,6 +76,6 @@
         <br>
         <h3>Venda</h3>
         <a class="btn btn-info" href="<?= URL ?>/VendaController/listarVendas">Listar Venda</a>
-        <br>
+        <br> -->
     </span>
 <?php endif; ?>

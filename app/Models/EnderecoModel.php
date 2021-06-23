@@ -11,6 +11,10 @@ class EnderecoModel
     private $estado;
     private $numero;
 
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
     /**
      * @return mixed
      */
@@ -139,7 +143,11 @@ class EnderecoModel
         $this->setCidade($dados['cidade']);
         $this->setEstado($dados['estado']);
         $this->setNumero($dados['numero']);
-        $this->setIdCliente($dados['cliente_id']);
+
+        // trasformando cliente_id em int
+        $cliente_id_int = (int)$dados['cliente_id'];
+
+        $this->setIdCliente($cliente_id_int);
 
         $this->db->query("INSERT INTO endereco(id_cliente, rua, bairro, cidade, estado, numero) VALUES (:id_cliente, :rua, :bairro, :cidade, :estado, :numero)");
 
@@ -150,7 +158,10 @@ class EnderecoModel
         $this->db->bind(":estado", $this->getEstado());
         $this->db->bind(":numero", $this->getNumero());
 
-
-
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
     }
 }

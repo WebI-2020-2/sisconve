@@ -15,12 +15,12 @@ include './../app/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= URL?>/public/css/login.css">
+    <!-- <link rel="stylesheet" href="<?= URL?>/public/css/login.css">
     <link rel="stylesheet" href="<?= URL?>/public/css/box-center.css">
     <link rel="stylesheet" href="<?= URL?>/public/css/dashboard.css">
     <link rel="stylesheet" href="<?= URL?>/public/css/main.css">
     <link rel="stylesheet" href="<?= URL?>/public/css/sell-products.css">
-    <link rel="stylesheet" href="<?= URL?>/public/css/sidebar.css">
+    <link rel="stylesheet" href="<?= URL?>/public/css/sidebar.css"> -->
 </head>
 <body>
     <?php
