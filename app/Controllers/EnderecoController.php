@@ -15,4 +15,10 @@ class EnderecoController extends Controller
         ];
         $this->view('endereco/listarEnderecos', $dados);
     }
+
+
+    public function cadastrar()
+    {
+        
+    }
 }
