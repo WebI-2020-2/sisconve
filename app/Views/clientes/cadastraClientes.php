@@ -12,6 +12,6 @@
           <?= $dados['cpf_erro'] ?>
       </div>
       <br>
-      
+
       <input type="submit" value="Cadastar" class="btn btn-primary">
   </form>

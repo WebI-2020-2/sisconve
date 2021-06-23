@@ -61,7 +61,7 @@ class FornecedorController extends Controller
                 elseif(Validar::validarCampoString($formulario['cidade'])):
                     $dados['cidade_erro'] = "Cidade informado é <b>invalido</b>";
                 else:
-                    if ($this->usuarioModel->insert($dados)) :
+                    if ($this->fornecedorModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
 
                     else :

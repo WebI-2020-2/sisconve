@@ -41,12 +41,16 @@ class ClientesController extends Controller
             else:
                 if(Validar::validarCampoString($formulario['nome'])):
                     $dados['nome_erro'] = "Nome informado é <b>invalido</b>";
+
                 elseif(Validar::validarCampoNumerico($formulario['cpf'])):
+
                     $dados['cpf_erro'] = "CPF informado é <b>invalido</b>";
-                elseif($this->usuarioModel->VerificarCpf($formulario['cpf'])):
+
+                elseif($this->clienteModel->VerificarCpf($formulario['cpf'])):
                     $dados['cpf_erro'] = "Usuario já <b>cadastrado</b>";
+                
                 else:
-                    if ($this->usuarioModel->insert($dados)) :
+                    if ($this->clienteModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
 
                     else :

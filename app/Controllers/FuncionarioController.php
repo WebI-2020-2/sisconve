@@ -80,13 +80,13 @@ class FuncionarioController extends Controller
                 elseif (Validar::validarCampoString($formulario['cargo'])) :
                     $dados['cargo_erro'] = "Formato informado <b>inavlido</b>";
 
-                elseif ($this->usuarioModel->validarCpf($formulario['cpf'])) :
+                elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
                     $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
 
-                elseif ($this->usuarioModel->validarTelefone($formulario['telefone'])) :
+                elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
                     $dados['telefone_erro'] = "Telefone  informado <b>pertence</b> a outro funcionário";
                 else :
-                    if ($this->usuarioModel->insert($dados)) :
+                    if ($this->funcionarioModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
                     else :
                         die("Erro");

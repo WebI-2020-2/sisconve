@@ -4,7 +4,7 @@
 class TelefoneModel
 {
     private $Id;
-    private ClienteModel $cliente;
+    private $idCliente;
     private $numTelefone;
     private $ddd;
     private $whatsapp;
@@ -17,27 +17,19 @@ class TelefoneModel
     /**
      * @return mixed
      */
-    public function getCliente()
-    {
-        return $this->cliente;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->Id;
     }
 
     /**
-     * @param mixed $Id
+     * @return mixed
      */
-    public function setId($Id)
+    public function getIdCliente()
     {
-        $this->Id = $Id;
+        return $this->idCliente;
     }
-    
+
     /**
      * @return mixed
      */
@@ -63,11 +55,19 @@ class TelefoneModel
     }
 
     /**
-     * @param mixed $cliente
+     * @param mixed $Id
      */
-    public function setCliente($cliente)
+    public function setId($Id)
     {
-        $this->cliente = $cliente;
+        $this->Id = $Id;
+    }
+
+    /**
+     * @param mixed $idCliente
+     */
+    public function setIdCliente($idCliente)
+    {
+        $this->idCliente = $idCliente;
     }
 
     /**
@@ -93,9 +93,33 @@ class TelefoneModel
     {
         $this->whatsapp = $whatsapp;
     }
+    
     public function selectAll(){
         $this->db->query("SELECT * FROM telefone");
         return $this->db->resultados();
+    }
+
+    public function insert($dados)
+    {
+        $this->setNumTelefone($dados['num_telefone']);
+        $this->setDdd($dados['ddd']);
+
+        // trasformando cliente_id em int
+        $cliente_id_int = (int)$dados['cliente_id'];
+        $this->setIdCliente($cliente_id_int);
+        // fim
+
+        $this->db->query("INSERT INTO telefone(id_cliente, num_telefone, ddd) VALUES (:id_cliente, :num_telefone, :ddd)");
+
+        $this->db->bind(":id_cliente", $this->getIdCliente());
+        $this->db->bind(":num_telefone", $this->getNumTelefone());
+        $this->db->bind(":ddd", $this->getDdd());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
     }
 
 }
