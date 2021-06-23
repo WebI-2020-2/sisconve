@@ -63,16 +63,31 @@ class EnderecoController extends Controller
                     $dados['numero_erro'] = "Preencha o campo";
                 endif;
             else :
-                if ($this->enderecoModel->insert($dados)) :
+                if (Validar::validarCampoString($formulario['rua'])) :
+                    $dados['rua_erro'] = "Formato invalido";
+
+                elseif (Validar::validarCampoString($formulario['bairro'])) :
+                    $dados['bairro_erro'] = "Formato invalido";
+
+                elseif (Validar::validarCampoString($formulario['cidade'])) :
+                    $dados['cidade_erro'] = "Formato invalido";
+
+                elseif (Validar::validarCampoString($formulario['estado'])) :
+                    $dados['estado_erro'] = "Formato invalido";
+
+                elseif (Validar::validarCampoNumerico($formulario['numero'])) :
+                    $dados['numero_erro'] = "Formato invalido";
+                    
+                else :
+                    if ($this->enderecoModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
 
                     else :
                         die("Erro");
 
                     endif;
+                endif;
             endif;
-
-            var_dump($formulario);
         else :
             $dados = [
                 'cliente_id' => '',
