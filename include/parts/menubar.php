@@ -2,10 +2,10 @@
     <div class="sidebar">
         <ul class="menu-items">
             <li href="#" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/dashboard.svg" alt="">Dashboard</span>
+                <span><img src="../public/img/dashboard.svg" alt="">Dashboard</span>
             </li>
             <li href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/clientes.svg" alt="">Clientes</span>
+                <span><img src="../public/img/clientes.svg" alt="">Clientes</span>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li><a href="#">Ver clientes</a></li>
                     <li><a href="#">Cadastrar um cliente</a></li>
@@ -15,9 +15,13 @@
             </li>
 
             <li href="#pageSubmenuProdutos" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/produtos.svg" alt="">Produtos</span>
+                <span><img src="../public/img/produtos.svg" alt="">Produtos</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuProdutos">
-                    <li><a href="#">Cadastrar um produto</a></li>
+                    <li>
+                        <button data-toggle="modal" data-target="#cadastrar-produto-modal" href="#">
+                            Cadastrar um produto
+                        </button>
+                    </li>
                     <li><a href="">Ver produtos</a></li>
                     <li><a href="#">Atualizar produto</a></li>
                     <li><a href="#">Excluir produto</a></li>
@@ -25,7 +29,7 @@
             </li>
 
             <li href="#pageSubmenuCategorias" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/categorias.svg" alt="">Categorias</span>
+                <span><img src="../public/img/categorias.svg" alt="">Categorias</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuCategorias">
                     <li><a href="#">Cadastrar um categoria</a></li>
                     <li><a href="">Ver Categorias</a></li>
@@ -35,7 +39,7 @@
             </li>
 
             <li href="#pageSubmenuVendas" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/vendas.svg" alt="">Vendas</span>
+                <span><img src="../public/img/vendas.svg" alt="">Vendas</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuVendas">
                     <li><a href="./realizar-venda.php">Realizar uma venda</a></li>
                     <li><a href="">Ver vendas</a></li>
@@ -45,7 +49,7 @@
             </li>
 
             <li href="#pageSubmenuCompras" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/Compras.svg" alt="">Compras</span>
+                <span><img src="../public/img/Compras.svg" alt="">Compras</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuCompras">
                     <li><a href="#">Registrar uma compras</a></li>
                     <li><a href="">Ver compras</a></li>
@@ -55,7 +59,7 @@
             </li>
 
             <li href="#pageSubmenuFornecedor" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/Fornecedor.svg" alt="">Fornecedor</span>
+                <span><img src="../public/img/Fornecedor.svg" alt="">Fornecedor</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedor">
                     <li><a href="#">Cadastrar um fornecedor</a></li>
                     <li><a href="">Ver fornecedor</a></li>
@@ -65,20 +69,20 @@
             </li>
 
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/financas.svg" alt="">Finanças</span>
+                <span><img src="../public/img/financas.svg" alt="">Finanças</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedoa">
                     <li><a href="">Ver realatorios</a></li>
                 </ul>
             </li>
 
             <li href="#pageSubmenuRelatório" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../img/relatorios.svg" alt="">Relatório</span>
+                <span><img src="../public/img/relatorios.svg" alt="">Relatório</span>
             </li>
         </ul>
         <ul class="footer-sidebar dropdown">
             <div class="text-center">
                 <a href="#" id="log-off" data-toggle="modal" data-target="#logoff-modal">
-                    <img src="../img/logout.svg" alt="">
+                    <img src="../public/img/logout.svg" alt="">
                     Sair do sistema
                 </a>
                 <span id="clock"></span>
@@ -106,7 +110,7 @@
                     </div>
                 </div>
             </div>
-
+            
         </ul>
     </div>
 </div>

@@ -43,11 +43,16 @@
     padding: 13px;
 }
 
+.sidebar ul li ul li button,
 .sidebar ul li ul li a{
+    display: flex;
     color: #fff;
+    background-color: transparent;
+    border: none;
     text-decoration: none;
     font-size: 17px;
     width: 100%;
+    height: 100%;
 }
 
 .sidebar ul li ul{

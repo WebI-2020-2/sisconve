@@ -21,7 +21,7 @@
         <!-- inicio menu-bar (barra lateral)-->
         <?php include("../include/parts/menubar.php") ?>
         <!-- menu-bar fim -->
-
+        
         <!-- box-center início (area central) -->
         <div class="content-center">
             <?php include("../include/venda/add-venda.php") ?>

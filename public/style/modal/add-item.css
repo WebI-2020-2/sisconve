@@ -1,0 +1,171 @@
+.modal-content-add-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 15px solid #25767B !important;
+    border-right: 15px solid #25767B !important;
+    width: 700px !important;
+    height: 300px !important;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content-add-items .modal-header-add-items{
+    height: 10%;
+    width: 90%;
+}
+
+.modal-header-add-items .close-modal{
+    display: flex !important;
+    align-items: center !important;
+    float: right !important;
+    cursor: pointer !important;
+}
+
+.modal-header-add-items .close-modal img{
+    width: 17px !important;
+}
+
+.modal-content-add-items .content-box{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    height: 50% !important;
+    width: 100% !important;
+}
+
+.modal-content-add-items .title-modal-add-item{
+    height: 40% !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.modal-content-add-items .title-modal-add-item h2{
+    text-transform: uppercase;
+    font-size: 30px;
+    margin: 0;
+    color: #25767B;
+    padding: 5px;
+}
+
+.modal-content-add-items .input-modal-add-item{
+    display: flex;
+    padding: 5px;
+    height: 20%;
+    align-items: center !important;
+}
+
+.modal-content-add-items .input-modal-add-item .input-product,
+.modal-content-add-items .input-modal-add-item .input-quantidade{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+} 
+
+.input-modal-add-item .input-product .input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #f6f6f6;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .3s;
+}
+
+.input-modal-add-item .input-quantidade .input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #f6f6f6 !important;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .3s;
+}
+
+.input-modal-add-item .input-quantidade .input:hover,
+.input-modal-add-item .input-product .input:hover{
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.input-modal-add-item .input-quantidade .input input{
+    text-align: center;
+    background-color: transparent;
+    margin: 5px;
+}
+
+.input-modal-add-item .input-product .input input{
+    background-color: transparent;
+    padding-left: 10px;
+    width: 400px;
+
+}
+
+.input-modal-add-item .input-product .input img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.input-modal-add-item .input-product input,
+.input-modal-add-item .input-quantidade input{
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+.input-modal-add-item .input-product label,
+.input-modal-add-item .input-quantidade label{
+    color: #25767B;
+    font-size: 20px;
+}
+
+.input-quantidade .quant-product{
+    width: 100px;
+}
+
+.modal-content-add-items .buttons-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 50px;
+}
+
+.modal-content-add-items .buttons-modal .cancel{
+    background-color: #CD0000;
+    transition: opacity .3s;
+}
+
+.modal-content-add-items .buttons-modal .confirm{
+    background-color: #00AC4F;
+    transition: opacity .3s;
+}
+
+.modal-content-add-items .buttons-modal .cancel:hover,
+.modal-content-add-items .buttons-modal .confirm:hover{
+    opacity: 80%;
+}
+
+.modal-content-add-items .buttons-modal .btn-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px !important;
+    height: 40px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+}
+
+.modal-content-add-items .buttons-modal a span,
+.modal-content-add-items .buttons-modal button span{
+    font-size: 18px;
+}
