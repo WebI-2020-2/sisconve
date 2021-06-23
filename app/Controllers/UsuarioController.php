@@ -106,12 +106,61 @@ class UsuarioController extends Controller
     }
     public function login()
     {
-        $dados = [
-            'Login' => APP_NOME
-        ];
+
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($formulario)) :
+            $dados = [
+
+                'usuario' => trim($formulario['usuario']),
+                'senha' => trim($formulario['senha']),
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+
+            ];
+            if (in_array("", $formulario)) :
+
+                if (empty($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Preencha o campo usuario";
+                endif;
+
+
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = "Preencha o campo senha";
+
+                endif;
+
+            else :
+                if (Validar::validarCampoString($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Usuario invalido";
+
+                else :
+                    $login = $this->usuarioModel->login($formulario['usuario'], $formulario['senha']);
+
+                    if ($login) :
+                        $this->sesaoUsuario($login);
+                    else :
+                        Sessao::mensagem('usuario','Usuario ou senha invalidos','alert alert-danger');
+                    endif;
+
+                endif;
+            endif;
+
+        else :
+            $dados = [
+
+                'usuario' => '',
+                'senha' => '',
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+            ];
+
+        endif;
 
         $this->view('usuarios/login', $dados);
     }
+
     public function listar(){
         $dados = [
             'usuarios' => $this->usuarioModel->selectAll()

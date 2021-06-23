@@ -1,0 +1,108 @@
+.content-center .title-content .title-text{
+    padding: 5px;
+    margin-left: 30px;
+}
+
+.content-center .title-content .title-text a{
+    color: #25767B;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.content-center .title-content .title-text span{
+    color: #25767B;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px 3px;
+}
+
+.content-center .title-content span img{
+    margin-right: 10px;
+    margin-bottom: 3px;
+    width: 25px;
+    pointer-events: none;
+}
+
+.content-center .dash-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 13px;
+    background-color: #fff;
+    width: 100%;
+    height: 70px;
+}
+
+.content-center .dash-btns .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    height: 40px;
+    margin: .5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: opacity .3s;
+}
+
+.content-center .dash-btns .button:hover{
+    opacity: 75%;
+}
+
+.content-center .dash-btns .button span{
+    font-size: 1rem;
+}
+
+.content-center .dash-btns .button span img{
+    margin-right: 3px;
+    margin-bottom: 3px;
+    width: 18px;
+}
+
+.section{
+    margin: 15px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.section .section-title{
+    padding: 5px;
+    border-bottom: 1px dotted #9db9bb;
+}
+
+.section .section-title span{
+    color: #25767B;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.section .section-title span img{
+    margin-right: 10px;
+    margin-bottom: 3px;
+    width: 23px;
+    pointer-events: none;
+}
+
+.section table{
+    width: 100%;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.section table thead{
+    background-color: #F6F6F6;
+    border: 1px solid #9db9bb;
+}
+
+.section table td{
+    border: 1px solid #9db9bb;
+    height: 30px;
+}
+
+.section table a img{
+    width: 20px;
+}
