@@ -4,17 +4,13 @@
 class EnderecoModel
 {
     private $Id;
-    private ClienteModel $cliente;
+    private $idCliente;
     private $rua;
     private $bairro;
     private $cidade;
     private $estado;
     private $numero;
 
-    public function __construct()
-    {
-        $this->db = new Database();
-    }
     /**
      * @return mixed
      */
@@ -24,19 +20,11 @@ class EnderecoModel
     }
 
     /**
-     * @param mixed $Id
-     */
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    }
-
-    /**
      * @return mixed
      */
-    public function getCliente()
+    public function getIdCliente()
     {
-        return $this->cliente;
+        return $this->idCliente;
     }
 
     /**
@@ -80,11 +68,19 @@ class EnderecoModel
     }
 
     /**
-     * @param mixed $cliente
+     * @param mixed $Id
      */
-    public function setCliente($cliente)
+    public function setId($Id)
     {
-        $this->cliente = $cliente;
+        $this->Id = $Id;
+    }
+
+    /**
+     * @param mixed $idCliente
+     */
+    public function setIdCliente($idCliente)
+    {
+        $this->idCliente = $idCliente;
     }
 
     /**
@@ -126,8 +122,35 @@ class EnderecoModel
     {
         $this->numero = $numero;
     }
-    public function selectAll(){
+
+
+
+
+    public function selectAll()
+    {
         $this->db->query('SELECT * FROM endereco');
         return $this->db->resultados();
+    }
+
+    public function insert($dados)
+    {
+        $this->setRua($dados['rua']);
+        $this->setBairro($dados['bairro']);
+        $this->setCidade($dados['cidade']);
+        $this->setEstado($dados['estado']);
+        $this->setNumero($dados['numero']);
+        $this->setIdCliente($dados['cliente_id']);
+
+        $this->db->query("INSERT INTO endereco(id_cliente, rua, bairro, cidade, estado, numero) VALUES (:id_cliente, :rua, :bairro, :cidade, :estado, :numero)");
+
+        $this->db->bind(":id_cliente", $this->getIdCliente());
+        $this->db->bind(":rua", $this->getRua());
+        $this->db->bind(":bairro", $this->getBairro());
+        $this->db->bind(":cidade", $this->getCidade());
+        $this->db->bind(":estado", $this->getEstado());
+        $this->db->bind(":numero", $this->getNumero());
+
+
+
     }
 }
