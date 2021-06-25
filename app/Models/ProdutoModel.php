@@ -3,7 +3,7 @@
 class ProdutoModel
 {
     private $Id;
-    private CategoriaModel $categoria;
+    private $categoria_id;
     private $nome_produto;
     private $icms;
     private $ipi;
@@ -29,19 +29,11 @@ class ProdutoModel
     }
 
     /**
-     * @param mixed $Id
-     */
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    }
-
-    /**
      * @return mixed
      */
-    public function getCategoria()
+    public function getCategoria_id()
     {
-        return $this->categoria;
+        return $this->categoria_id;
     }
 
     /**
@@ -133,11 +125,19 @@ class ProdutoModel
     }
 
     /**
-     * @param mixed $categoria
+     * @param mixed $Id
      */
-    public function setCategoria($categoria)
+    public function setId($Id)
     {
-        $this->categoria = $categoria;
+        $this->Id = $Id;
+    }
+
+    /**
+     * @param mixed $categoria_id
+     */
+    public function setCategoria_id($categoria_id)
+    {
+        $this->categoria_id = $categoria_id;
     }
 
     /**
@@ -232,4 +232,22 @@ class ProdutoModel
         $this->db->query("SELECT * FROM produto");
         return $this->db->resultados();
     }
+    public function insert($dados)
+    {
+        $categoria_id_int = (int) $dados['categoria'];
+
+        $this->setCategoria_id($categoria_id_int);
+        $this->setNome_produto($dados['nome_produto']);
+
+        $this->db->query("INSERT INTO produto(id_categoria, nome_produto) VALUES (:id_categoria, :nome_produto)");
+        $this->db->bind(":id_categoria", $this->getCategoria_id());
+        $this->db->bind(":nome_produto", $this->getNome_produto());
+        
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
 }
+

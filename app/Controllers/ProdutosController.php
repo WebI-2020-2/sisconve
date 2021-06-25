@@ -21,19 +21,28 @@ class ProdutosController extends Controller
 
             ];
             if (in_array("", $formulario)) :
-                if (empty($formulario['nome'])) :
-                    $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
+                if (empty($formulario['categoria'])) :
+                    $dados['categoria_erro'] = "Preencha o campo ";
                 endif;
 
-                if (empty($formulario['usuario'])) :
-                    $dados['usuario_erro'] = "Preencha o campo <b>usuario</b>";
+                if (empty($formulario['nome_produto'])) :
+                    $dados['nome_produto_erro'] = "Preencha o campo";
                 endif;
+            else :
+                if (Validar::validarCampoString($formulario['nome_produto'])) :
+                    $dados['nome_produto_erro'] = "Formato informado <b>inavalido</b>";
+                else :
+                    if ($this->produtoModel->insert($dados)) :
+                        echo 'Cadastro realizado como sucesso <hr>';
 
-                if (empty($formulario['email'])) :
-                    $dados['email_erro'] = "Preencha o campo <b>email</b>";
+                    else :
+                        die("Erro");
+
+                    endif;
                 endif;
             endif;
-        else:
+            var_dump($formulario);
+        else :
             $dados = [
                 'categoria' => '',
                 'nome_produto' => '',
@@ -43,13 +52,16 @@ class ProdutosController extends Controller
 
             ];
         endif;
+
+        $this->view('produtos/cadastrarProdutos', $dados);
     }
-    public function listarProdutos(){
+
+    public function listarProdutos()
+    {
         $dados = [
             'produtos' => $this->produtoModel->selectAll()
         ];
 
         $this->view('produtos/listarProdutos', $dados);
-
     }
 }
