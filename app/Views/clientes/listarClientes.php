@@ -1,5 +1,5 @@
 <?php
-include_once './../app/Controllers/ClientesController.php';
+// include_once './../app/Controllers/ClientesController.php';
 foreach ($dados['clientes'] as $cliente) : ?>
         <?= $cliente->id_cliente ?>
         <?= $cliente->nome_cliente ?>

@@ -61,7 +61,6 @@ class TelefoneController extends Controller
                 endif;
 
             endif;
-            var_dump($formulario);
         else:
             $dados = [
                 "cliente_id" => '',

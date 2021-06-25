@@ -83,6 +83,6 @@ class FornecedorController extends Controller
             ];
         endif;
 
-        $this->view('fornecedor/cadastarFornecedor', $dados);
+        $this->view('fornecedor/cadastrarFornecedor', $dados);
     }
 }

@@ -3,12 +3,12 @@
 class CompraModel
 {
     private $Id;
-    private FuncionarioModel $funcionario;
-    private FornecedorModel $fornecedor;
+    private $funcionario_id;
+    private $fornecedor_id;
     private $valorTotal;
     private $parcelas;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->db = new Database();
     }
@@ -21,27 +21,19 @@ class CompraModel
     }
 
     /**
-     * @param mixed $Id
+     * @return mixed
      */
-    public function setId($Id)
+    public function getFuncionario_id()
     {
-        $this->Id = $Id;
+        return $this->funcionario_id;
     }
 
     /**
      * @return mixed
      */
-    public function getFuncionario()
+    public function getFornecedor_id()
     {
-        return $this->funcionario;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFornecedor()
-    {
-        return $this->fornecedor;
+        return $this->fornecedor_id;
     }
 
     /**
@@ -61,19 +53,27 @@ class CompraModel
     }
 
     /**
-     * @param mixed $funcionario
+     * @param mixed $Id
      */
-    public function setFuncionario($funcionario)
+    public function setId($Id)
     {
-        $this->funcionario = $funcionario;
+        $this->Id = $Id;
     }
 
     /**
-     * @param mixed $fornecedor
+     * @param mixed $funcionario_id
      */
-    public function setFornecedor($fornecedor)
+    public function setFuncionario_id($funcionario_id)
     {
-        $this->fornecedor = $fornecedor;
+        $this->funcionario_id = $funcionario_id;
+    }
+
+    /**
+     * @param mixed $fornecedor_id
+     */
+    public function setFornecedor_id($fornecedor_id)
+    {
+        $this->fornecedor_id = $fornecedor_id;
     }
 
     /**
@@ -91,8 +91,32 @@ class CompraModel
     {
         $this->parcelas = $parcelas;
     }
-    public function selectAll(){
+    public function selectAll()
+    {
         $this->db->query('SELECT * FROM compra');
         return $this->db->resultados();
+    }
+
+    public function insert($dados)
+    {
+        $funcionario_id_int = (int) $dados['funcionario_id'];
+        $fornecedor_id_int = (int) $dados['fornecedor_id'];
+        $parcelas_int = (int) $dados['parcelas'];
+
+        $this->setFornecedor_id($fornecedor_id_int);
+        $this->setFuncionario_id($funcionario_id_int);
+        $this->setParcelas($parcelas_int);
+
+        $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:id_funcionario, :id_fornecedor, :parcelas)");
+
+        $this->db->bind(':id_funcionario', $this->getFornecedor_id());
+        $this->db->bind(':id_fornecedor', $this->getFuncionario_id());
+        $this->db->bind(':parcelas', $this->getParcelas());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
     }
 }
