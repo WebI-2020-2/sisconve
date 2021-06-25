@@ -5,14 +5,14 @@
 
 .content-center .title-content .title-text a{
     color: #25767B;
-    font-size: 20px;
+    font-size: 1.2rem;
     text-decoration: none;
 }
 
 .content-center .title-content .title-text span{
     color: #25767B;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2rem;
     padding: 0px 3px;
 }
 
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8rem;
+    width: 10%;
     height: 40px;
     margin: .5rem;
     border-radius: 5px;
@@ -58,6 +58,11 @@
     margin-right: 3px;
     margin-bottom: 3px;
     width: 18px;
+}
+
+.content-dashboard{
+    height: 50%;
+    overflow: scroll;
 }
 
 .section{

@@ -9,7 +9,6 @@
     height: 100%;
     background: #256064;
     overflow-y: auto;
-    
 }
 
 .sidebar::-webkit-scrollbar {
@@ -68,6 +67,7 @@
     background-color: #256064;
 }
 
+.sidebar ul li a,
 .sidebar ul li span{
     color: #ffffff;
     display: flex;
@@ -75,8 +75,11 @@
     font-size: 20px;
     text-decoration: none;
     cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 
+.sidebar ul li a img,
 .sidebar ul li span img{
     width: 30px;
     margin-right: 15px;

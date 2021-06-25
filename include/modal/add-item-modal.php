@@ -15,32 +15,30 @@
                     <div class="input-product">
                         <label for="nome-produto">Nome do produto</label>
                         <div class="input">
-                            <input class="name-product" type="text" autocomplete="false" required>
+                            <select name="nome-produto" id="nome-produto" class="name-product" placeholder="" required>
+                                <option value="" disabled selected>Selecione um produto</option>
+                                <option value="0">Boneca Cotiplas</option>
+                                <option value="1">Caneca Porcelux</option>
+                            </select>
                             <img src="../public/img/search-icon.svg" alt="Procurar">
                         </div>
                     </div>
                     <div class="input-quantidade">
                         <label for="quantidade-item">Quantidade</label>
                         <div class="input">
-                            <input class="quant-product" type="text" min="1" value="1" required>
+                            <input name="quantidade-item" id="quantidade-item" class="quant-product" type="text" min="1" value="1" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="buttons-modal">
-                <button data-dismiss="modal" class="cancel btn-modal">
+                <a href="#" data-dismiss="modal" class="cancel btn-modal">
                     <span>Cancelar</span>
-                </button>
-                <a class="confirm btn-modal" href="#">
+                </a>
+                <a href="#" id="btn-add-item-modal" data-dismiss="modal" class="confirm btn-modal">
                     <span>Adicionar</span>
                 </a>
-            </div>
-
-            <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Sair</button> -->
             </div>
         </div>
     </div>
 </div>
-<!-- Modal -->

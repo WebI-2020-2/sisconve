@@ -16,7 +16,7 @@
     flex-direction: column; */
     height: 85%;
     border: 1px solid #25767B;
-    border-radius: 10px;
+    border-radius: .5rem;
     margin: .5%;
     padding: .5%;
 }
@@ -43,7 +43,6 @@
 
 .sell-area .table-section{
     height: 85%;
-    border: 1px solid #9db9bb;
     margin-top: 5px;
     overflow-y: scroll;
 }
@@ -85,7 +84,7 @@
 
 .sell-area .sell-info .client a,
 .sell-area .sell-info .payment a,
-.sell-area .sell-info .add-product a{
+.sell-area .sell-info .add-product #btn-add-item{
     color: #fff;
     text-decoration: none;
     font-size: 16px;
@@ -102,12 +101,15 @@
     background-color: #00aac0;
 }
 
-.sell-area .sell-info .add-product a{
+.sell-area .sell-info .add-product #btn-add-item{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .sell-area .sell-info .client a,
@@ -150,9 +152,9 @@
 
 .sell-area .sell-info .client a img,
 .sell-area .sell-info .payment a img,
-.sell-area .sell-info .add-product a img{
+.sell-area .sell-info .add-product #btn-add-item img{
     width: 17px;
-    margin: 0 5px 3px 0;
+    margin: 0 0.3rem 0.2rem 0;
 }
 
 .sell-products .sell-attributes{
@@ -187,6 +189,8 @@
     background-color: #CD0000;
     margin-left: 5px;
     margin-right: 5px;
+    border: 0;
+    outline: none;
     transition: box-shadow .3s;
 }
 
@@ -194,6 +198,7 @@
     background-color: #00AC4F;
     margin-left: 5px;
     border: 0;
+    outline: none;
     transition: box-shadow .3s;
 }
 
@@ -209,7 +214,6 @@
     justify-content: center;
     width: 50%;
     height: 100%;
-    background-color: royalblue;
     text-decoration: none;
     border-radius: 10px;
 }
@@ -228,7 +232,26 @@
 .sell-products .sell-attributes button span{
     color: #fff;
     margin: 5px;
-    font-size: 20px;
+    font-size: 22px;
+}
+
+@media (max-width: 1400px) {
+    .sell-products .sell-attributes a span,
+    .sell-products .sell-attributes button span{
+        font-size: 17px;
+    }
+
+    .sell-products .buttons .cancel img{
+        width: 13px;
+    }
+    
+    .sell-products .buttons .accept img{
+        width: 20px;
+    }
+
+    .sell-products .sell-attributes .value-cart span{
+        font-size: 20px;
+    }
 }
 
 
