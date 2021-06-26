@@ -34,7 +34,7 @@ class ProdutosController extends Controller
                 else :
                     if ($this->produtoModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
-
+                        
                     else :
                         die("Erro");
 

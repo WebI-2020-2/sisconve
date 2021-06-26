@@ -34,7 +34,7 @@
         <a class="btn btn-info" href="<?= URL ?>/ClientesController/cadastrar">Cadastrar Clientes</a>
         <a class="btn btn-info" href="<?= URL ?>/ClientesController/listarClientes">Listar Clientes</a>
         <br> 
-
+-->
         <h3>Categoria</h3> 
 
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/cadastrarCategoria">Cadastrar Categoria</a>
@@ -45,7 +45,7 @@
 
         <a class="btn btn-info" href="<?= URL ?>/CaixaController/listarCaixas">Listar Caixas</a>
         <br>
-        -->
+        
 
         <h3>Compra</h3>
 
@@ -73,6 +73,8 @@
         <h3>Item compra</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/ItemCompraController/listarItensCompra">Listar itens compra</a>
+        <a class="btn btn-info" href="<?= URL ?>/ItemCompraController/cadastra">cadastra</a>
+        
         <br>
 <!--
         <h3>Item venda</h3>

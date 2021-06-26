@@ -71,6 +71,11 @@ class Database {
         return $this->dbh->lastInsertId();
     }
 
+    public function ultimoId()
+    {
+        return $this->stmt->fetch();
+    }
+
 }
 
 

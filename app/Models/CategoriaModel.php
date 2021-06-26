@@ -4,6 +4,7 @@ class CategoriaModel
 {
     private $Id;
     private $nomeCategoria;
+    private $ultimoId;
 
     public function __construct()
     {
@@ -40,6 +41,21 @@ class CategoriaModel
     {
         $this->nomeCategoria = $nomeCategoria;
     }
+    /**
+     * @return mixed
+     */
+    public function getUltimoId()
+    {
+        return $this->ultimoId;
+    }
+
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
 
     public function validarCategoria($categoria)
     {
@@ -58,19 +74,21 @@ class CategoriaModel
     {
         $this->setNomeCategoria($dados['nomecategoria']);
 
-        $this->db->query("INSERT INTO categoria (nome_categoria) VALUES (:nomecategoria)");
-
+        $this->db->query("INSERT INTO categoria (nome_categoria) VALUES (:nomecategoria) RETURNING id_categoria");
         $this->db->bind(":nomecategoria", $this->getNomeCategoria());
-
+        
+        // print $this->db->ultimoIdInserido();
+        
         if ($this->db->executa()) :
+            $this->setUltimoId($this->db->ultimoId()['id_categoria']); 
             return true;
         else :
             return false;
         endif;
     }
-    public function selectAll(){
+    public function selectAll()
+    {
         $this->db->query('SELECT * FROM categoria');
         return $this->db->resultados();
     }
-
 }

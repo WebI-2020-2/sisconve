@@ -37,7 +37,7 @@ class CategoriaController extends Controller
                 else :
                     if ($this->categoriaModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
-
+                        print_r($this->categoriaModel->getUltimoId());
                     else :
                         die("Erro");
 

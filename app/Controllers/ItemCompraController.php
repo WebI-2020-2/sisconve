@@ -15,4 +15,8 @@ class ItemCompraController extends Controller
         ];
         $this->view('itemCompra/listarItensCompra', $dados);
     }
+    public function cadastra()
+    {
+        $this->view('itemCompra/CadastarItemCompra');
+    }
 }

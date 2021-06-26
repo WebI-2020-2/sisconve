@@ -248,6 +248,8 @@ class ProdutoModel
         else:
             return false;
         endif;
+
+        
     }
 }
 
