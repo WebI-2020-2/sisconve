@@ -15,6 +15,7 @@ class ProdutoModel
     private $lucro;
     private $desconto;
     private $quantidade;
+    private $ultimoId;
 
     public function __construct()
     {
@@ -125,6 +126,14 @@ class ProdutoModel
     }
 
     /**
+     * @return mixed
+     */
+    public function getUltimoId()
+    {
+        return $this->ultimoId;
+    }
+
+    /**
      * @param mixed $Id
      */
     public function setId($Id)
@@ -228,28 +237,34 @@ class ProdutoModel
         $this->quantidade = $quantidade;
     }
 
-    public function selectAll(){
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
+
+    public function selectAll()
+    {
         $this->db->query("SELECT * FROM produto");
         return $this->db->resultados();
     }
     public function insert($dados)
     {
-        $categoria_id_int = (int) $dados['categoria'];
-
-        $this->setCategoria_id($categoria_id_int);
+        $this->setCategoria_id(1);
         $this->setNome_produto($dados['nome_produto']);
 
-        $this->db->query("INSERT INTO produto(id_categoria, nome_produto) VALUES (:id_categoria, :nome_produto)");
+        $this->db->query("INSERT INTO produto(id_categoria, nome_produto) VALUES (:id_categoria, :nome_produto) RETURNING id_produto");
         $this->db->bind(":id_categoria", $this->getCategoria_id());
         $this->db->bind(":nome_produto", $this->getNome_produto());
-        
-        if($this->db->resultado()):
+
+        if ($this->db->executa()) :
+            $this->setUltimoId($this->db->ultimoId()['id_produto']);
+            print_r($this->getUltimoId());
             return true;
-        else:
+        else :
             return false;
         endif;
-
-        
     }
 }
-

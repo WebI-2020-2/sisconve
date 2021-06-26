@@ -1,15 +1,16 @@
-<?php 
+<?php
 
 
-class FornecedorModel 
+class FornecedorModel
 {
     private $Id;
     private $nomeFornecedor;
     private $telefone;
     private $cidade;
     private $estado;
+    private $ultimoId;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->db = new Database();
     }
@@ -94,28 +95,47 @@ class FornecedorModel
     }
 
 
+    /**
+     * @return mixed
+     */
+    public function getUltimoId()
+    {
+        return $this->ultimoId;
+    }
+
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
+
+
     public function insert($dados)
     {
-        $this->setNomeFornecedor($dados['nome']);
+        $this->setNomeFornecedor($dados['nome_fornecedor']);
         $this->setTelefone($dados['telefone']);
         $this->setEstado($dados['estado']);
         $this->setCidade($dados['cidade']);
 
 
-        $this->db->query("INSERT INTO fornecedor(nome_fornecedor, telefone, estado, cidade) VALUES (:nome_fornecedor, :telefone, :estado, :cidade)");
+        $this->db->query("INSERT INTO fornecedor(nome_fornecedor, telefone, estado, cidade) VALUES (:nome_fornecedor, :telefone, :estado, :cidade) RETURNING id_fornecedor");
 
         $this->db->bind(":nome_fornecedor", $this->getNomeFornecedor());
         $this->db->bind(":telefone", $this->getTelefone());
         $this->db->bind(":estado", $this->getEstado());
         $this->db->bind(":cidade", $this->getCidade());
 
-        if($this->db->resultado()):
+        if ($this->db->resultado()) :
+            $this->setUltimoId($this->db->ultimoId());
             return true;
-        else:
+        else :
             return false;
         endif;
     }
-    public function selectAll(){
+    public function selectAll()
+    {
         $this->db->query("SELECT * FROM fornecedor");
         return $this->db->resultados();
     }

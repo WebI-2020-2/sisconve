@@ -5,6 +5,7 @@
                 <div class="main-items">
                     <div class="title-logo">
                         <h1>SISCONVE</h1>
+                        <h2><?php Sessao::mensagem('usuario')?></h2>
                     </div>
                     <div class="inputs">
                         <div class="login">

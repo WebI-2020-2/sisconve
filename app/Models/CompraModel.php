@@ -7,6 +7,7 @@ class CompraModel
     private $fornecedor_id;
     private $valorTotal;
     private $parcelas;
+    private $ultimoId;
 
     public function __construct()
     {
@@ -53,6 +54,14 @@ class CompraModel
     }
 
     /**
+     * @return mixed
+     */
+    public function getUltimoId()
+    {
+        return $this->ultimoId;
+    }
+
+    /**
      * @param mixed $Id
      */
     public function setId($Id)
@@ -91,6 +100,14 @@ class CompraModel
     {
         $this->parcelas = $parcelas;
     }
+
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
     public function selectAll()
     {
         $this->db->query('SELECT * FROM compra');
@@ -99,21 +116,22 @@ class CompraModel
 
     public function insert($dados)
     {
-        $funcionario_id_int = (int) $dados['funcionario_id'];
-        $fornecedor_id_int = (int) $dados['fornecedor_id'];
         $parcelas_int = (int) $dados['parcelas'];
 
-        $this->setFornecedor_id($fornecedor_id_int);
-        $this->setFuncionario_id($funcionario_id_int);
+        $this->setFornecedor_id(1);
+        $this->setFuncionario_id(1);
         $this->setParcelas($parcelas_int);
 
-        $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:id_funcionario, :id_fornecedor, :parcelas)");
+        $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:id_funcionario, :id_fornecedor, :parcelas) RETURNING id_compra");
 
         $this->db->bind(':id_funcionario', $this->getFornecedor_id());
         $this->db->bind(':id_fornecedor', $this->getFuncionario_id());
         $this->db->bind(':parcelas', $this->getParcelas());
 
         if ($this->db->executa()) :
+            // print_r($this->db->ultimoId());
+            $this->setUltimoId($this->db->ultimoId()['id_compra']);
+            // print_r($this->getUltimoId());
             return true;
         else :
             return false;

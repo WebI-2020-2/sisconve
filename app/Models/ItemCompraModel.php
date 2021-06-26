@@ -3,8 +3,8 @@
 class ItemCompraModel
 {
     private $Id;
-    private ProdutoModel $produto;
-    private CompraModel $compra;
+    private $produtoId;
+    private $compraId;
     private $ipi;
     private $frete;
     private $icms;
@@ -15,7 +15,7 @@ class ItemCompraModel
     {
         $this->db = new Database();
     }
-    
+
     /**
      * @return mixed
      */
@@ -25,27 +25,19 @@ class ItemCompraModel
     }
 
     /**
-     * @param mixed $Id
+     * @return mixed
      */
-    public function setId($Id)
+    public function getProdutoId()
     {
-        $this->Id = $Id;
+        return $this->produtoId;
     }
 
     /**
      * @return mixed
      */
-    public function getProduto()
+    public function getCompraId()
     {
-        return $this->produto;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCompra()
-    {
-        return $this->compra;
+        return $this->compraId;
     }
 
     /**
@@ -89,19 +81,27 @@ class ItemCompraModel
     }
 
     /**
-     * @param mixed $produto
+     * @param mixed $Id
      */
-    public function setProduto($produto)
+    public function setId($Id)
     {
-        $this->produto = $produto;
+        $this->Id = $Id;
     }
 
     /**
-     * @param mixed $compra
+     * @param mixed $produtoId
      */
-    public function setCompra($compra)
+    public function setProdutoId($produtoId)
     {
-        $this->compra = $compra;
+        $this->produtoId = $produtoId;
+    }
+
+    /**
+     * @param mixed $compraId
+     */
+    public function setCompraId($compraId)
+    {
+        $this->compraId = $compraId;
     }
 
     /**
@@ -143,8 +143,45 @@ class ItemCompraModel
     {
         $this->quantidade = $quantidade;
     }
-    public function selectAll(){
+    public function selectAll()
+    {
         $this->db->query("SELECT * FROM item_compra");
         return $this->db->resultados();
+    }
+
+    public function insert($dados, $ultimoidProduto, $ultimoidCompra)
+    {
+
+        $this->setProdutoId($ultimoidProduto);
+        $this->setCompraId($ultimoidCompra);
+        
+        $ipiInt = (int)$dados['ipi'];
+        $freteInt = (int)$dados['frete'];
+        $icmsInt = (int)$dados['icms'];
+        $precoCompraInt = (int)$dados['preco_compra'];
+        $quantidadeInt = (int)$dados['quantidade'];
+
+        $this->setIpi($ipiInt);
+        $this->setFrete($freteInt);
+        $this->setIcms($icmsInt);
+        $this->setPreco_compra($precoCompraInt);
+        $this->setQuantidade($quantidadeInt);
+
+        $this->db->query("INSERT INTO item_compra(id_produto, id_compra, ipi, frete, icms, preco_compra, quantidade) VALUES (:id_produto, :id_compra, :ipi, :frete, :icms, :preco_compra, :quantidade)");
+        
+        $this->db->bind(":id_produto", $this->getProdutoId());
+        $this->db->bind(":id_compra", $this->getCompraId());
+        $this->db->bind(":ipi", $this->getIpi());
+        $this->db->bind(":frete", $this->getFrete());
+        $this->db->bind(":icms", $this->getIcms());
+        $this->db->bind(":preco_compra", $this->getPreco_compra());
+        $this->db->bind(":quantidade", $this->getQuantidade());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+
     }
 }

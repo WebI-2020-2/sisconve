@@ -73,6 +73,7 @@ class Database {
 
     public function ultimoId()
     {
+        // print_r($this->stmt->fetch());
         return $this->stmt->fetch();
     }
 
