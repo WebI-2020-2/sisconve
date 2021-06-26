@@ -10,6 +10,7 @@ class EnderecoModel
     private $cidade;
     private $estado;
     private $numero;
+    private $ultimoId;
 
     public function __construct()
     {
@@ -126,7 +127,21 @@ class EnderecoModel
     {
         $this->numero = $numero;
     }
+    /**
+     * @return mixed
+     */
+    public function getUltimoId()
+    {
+        return $this->ultimoId;
+    }
 
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
 
 
 
@@ -136,7 +151,7 @@ class EnderecoModel
         return $this->db->resultados();
     }
 
-    public function insert($dados)
+    public function insert($dados, $ultimoid)
     {
         $this->setRua($dados['rua']);
         $this->setBairro($dados['bairro']);
@@ -145,8 +160,8 @@ class EnderecoModel
         $this->setNumero($dados['numero']);
 
         // trasformando cliente_id em int
-        $cliente_id_int = (int)$dados['cliente_id'];
-        $this->setIdCliente($cliente_id_int);
+        // $cliente_id_int = (int)$dados['cliente_id_endereco'];
+        $this->setIdCliente($ultimoid);
         // fim
 
         $this->db->query("INSERT INTO endereco(id_cliente, rua, bairro, cidade, estado, numero) VALUES (:id_cliente, :rua, :bairro, :cidade, :estado, :numero)");

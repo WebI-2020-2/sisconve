@@ -8,6 +8,8 @@ class TelefoneModel
     private $numTelefone;
     private $ddd;
     private $whatsapp;
+    private $ultimoId;
+
 
     public function __construct() 
     {
@@ -93,21 +95,34 @@ class TelefoneModel
     {
         $this->whatsapp = $whatsapp;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUltimoId()
+    {
+        return $this->ultimoId;
+    }
+
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
     
     public function selectAll(){
         $this->db->query("SELECT * FROM telefone");
         return $this->db->resultados();
     }
 
-    public function insert($dados)
+    public function insert($dados, $ultimoid)
     {
         $this->setNumTelefone($dados['num_telefone']);
         $this->setDdd($dados['ddd']);
-
-        // trasformando cliente_id em int
-        $cliente_id_int = (int)$dados['cliente_id'];
-        $this->setIdCliente($cliente_id_int);
-        // fim
+        $this->setIdCliente($ultimoid);
+        
 
         $this->db->query("INSERT INTO telefone(id_cliente, num_telefone, ddd) VALUES (:id_cliente, :num_telefone, :ddd)");
 
