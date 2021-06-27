@@ -3,8 +3,8 @@
 class ItemVendaModel
 {
     private $Id;
-    private ProdutoModel $produto;
-    private VendaModel $venda;
+    private $produtoId;
+    private $vendaId;
     private $valorUnitario;
     private $quantidade;
 
@@ -22,27 +22,19 @@ class ItemVendaModel
     }
 
     /**
-     * @param mixed $Id
-     */
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    }
-    
-    /**
      * @return mixed
      */
-    public function getProduto()
+    public function getProdutoId()
     {
-        return $this->produto;
+        return $this->produtoId;
     }
 
     /**
      * @return mixed
      */
-    public function getVenda()
+    public function getVendaId()
     {
-        return $this->venda;
+        return $this->vendaId;
     }
 
     /**
@@ -62,19 +54,27 @@ class ItemVendaModel
     }
 
     /**
-     * @param mixed $produto
+     * @param mixed $Id
      */
-    public function setProduto($produto)
+    public function setId($Id)
     {
-        $this->produto = $produto;
+        $this->Id = $Id;
     }
 
     /**
-     * @param mixed $venda
+     * @param mixed $produtoId
      */
-    public function setVenda($venda)
+    public function setProdutoId($produtoId)
     {
-        $this->venda = $venda;
+        $this->produtoId = $produtoId;
+    }
+
+    /**
+     * @param mixed $vendaId
+     */
+    public function setVendaId($vendaId)
+    {
+        $this->vendaId = $vendaId;
     }
 
     /**
@@ -92,8 +92,36 @@ class ItemVendaModel
     {
         $this->quantidade = $quantidade;
     }
-    public function selectAll(){
+    public function selectAll()
+    {
         $this->db->query("SELECT * FROM item_venda");
         return $this->db->resultados();
+    }
+
+    public function insert($dados, $ultimoId)
+    {
+        $quantidadeInt = (int)$dados['quantidade'];
+        $valorUnitarioFloat = (float)$dados['valor_unitario'];
+        $this->setQuantidade($quantidadeInt);
+        $this->setProdutoId(1);
+        $this->setVendaId($ultimoId);
+        $this->setValorUnitario($valorUnitarioFloat);
+        
+
+        $this->db->query("INSERT INTO item_venda(id_produto, id_venda, valor_unitario,quantidade) VALUES (:id_produto, :id_venda, :valor_unitario, :quantidade)");
+
+        $this->db->bind(":id_produto", $this->getProdutoId());
+        $this->db->bind(":id_venda", $this->getVendaId());
+        $this->db->bind(":valor_unitario", $this->getValorUnitario());
+        $this->db->bind(":quantidade", $this->getQuantidade());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+        
+
+
     }
 }

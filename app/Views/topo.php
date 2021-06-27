@@ -6,7 +6,7 @@
 <?php else : ?>
     <span class="navbar-text">
 
-        <!-- <h3>Users</h3>
+       <!-- <h3>Users</h3>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/cadastrar">Cadastre-se</a>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/login">Entrar</a>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/listar">Listar</a>
@@ -39,7 +39,7 @@
 
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/cadastrarCategoria">Cadastrar Categoria</a>
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/listarCategoria">Listar Categoria</a>
-        <br> -->
+        <br> 
 
         <h3>Caixa</h3>
 
@@ -49,7 +49,7 @@
         <br>
 
 
-        <!-- <h3>Compra</h3>
+         <h3>Compra</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/CompraController/listarCompras">Listar Compras</a>
         <a class="btn btn-info" href="<?= URL ?>/CompraController/cadastrar">Comprar</a>
@@ -99,12 +99,12 @@
         <a class="btn btn-info" href="<?= URL ?>/TelefoneController/listarTelefones">Listar Telefone</a>
 
         <a class="btn btn-info" href="<?= URL ?>/TelefoneController/cadastrar">Cadastrar Telefone</a>
-        <br>
+        <br> -->
 
         <h3>Venda</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/VendaController/listarVendas">Listar Venda</a>
         <a class="btn btn-info" href="<?= URL ?>/VendaController/cadastrar">Cadastrar</a>
-        <br> -->
+        <br>
     </span>
 <?php endif; ?>

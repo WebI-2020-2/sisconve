@@ -3,16 +3,17 @@
 class VendaModel
 {
     private $Id;
-    private CaixaModel $caixa;
-    private ClienteModel $cliente;
+    private $caixaId;
+    private $clienteId;
     private $numParcelas;
     private $valorTotal;
+    private $ultimoId;
 
     public function __construct()
     {
         $this->db = new Database();
     }
-    
+
     /**
      * @return mixed
      */
@@ -22,27 +23,19 @@ class VendaModel
     }
 
     /**
-     * @param mixed $Id
+     * @return mixed
      */
-    public function setId($Id)
+    public function getCaixaId()
     {
-        $this->Id = $Id;
+        return $this->caixaId;
     }
 
     /**
      * @return mixed
      */
-    public function getCaixa()
+    public function getClienteId()
     {
-        return $this->caixa;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCliente()
-    {
-        return $this->cliente;
+        return $this->clienteId;
     }
 
     /**
@@ -62,19 +55,35 @@ class VendaModel
     }
 
     /**
-     * @param mixed $caixa
+     * @return mixed
      */
-    public function setCaixa($caixa)
+    public function getUltimoId()
     {
-        $this->caixa = $caixa;
+        return $this->ultimoId;
     }
 
     /**
-     * @param mixed $cliente
+     * @param mixed $Id
      */
-    public function setCliente($cliente)
+    public function setId($Id)
     {
-        $this->cliente = $cliente;
+        $this->Id = $Id;
+    }
+
+    /**
+     * @param mixed $caixaId
+     */
+    public function setCaixaId($caixaId)
+    {
+        $this->caixaId = $caixaId;
+    }
+
+    /**
+     * @param mixed $clienteId
+     */
+    public function setClienteId($clienteId)
+    {
+        $this->clienteId = $clienteId;
     }
 
     /**
@@ -92,9 +101,36 @@ class VendaModel
     {
         $this->valorTotal = $valorTotal;
     }
-    public function selectAll(){
+
+    /**
+     * @param mixed $ultimoId
+     */
+    public function setUltimoId($ultimoId)
+    {
+        $this->ultimoId = $ultimoId;
+    }
+    public function selectAll()
+    {
         $this->db->query("SELECT * FROM venda");
         return $this->db->resultados();
     }
-    
+    public function insert($dados)
+    {
+        $this->setCaixaId(1);
+        $this->setClienteId(1);
+        $num_parcelas_int = (int)$dados['num_parcelas'];
+        $this->setNumParcelas($num_parcelas_int);
+        $this->db->query("INSERT INTO venda(id_caixa, id_cliente, num_parcelas) VALUES (:id_caixa, :id_cliente, :num_parcelas)RETURNING id_venda");
+
+        $this->db->bind(":id_caixa", $this->getCaixaId());
+        $this->db->bind(":id_cliente", $this->getClienteId());
+        $this->db->bind(":num_parcelas", $this->getNumParcelas());
+
+        if ($this->db->executa()) :
+            $this->setUltimoId($this->db->ultimoId()['id_venda']);
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }
