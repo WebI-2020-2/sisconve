@@ -9,7 +9,7 @@
             </span>
             <span>/</span>
             <span>
-                <img src="../public/img/.svg" alt="Categorias">
+                <img src="../public/img/categoria-dark.svg" alt="Categorias">
                 Categorias
             </span>
         </div>
@@ -22,10 +22,16 @@
                 <img src="../public/img/search-icon.svg" alt="">
             </div>
 
-            <button id="btn">
+            <button type="button" id="btn" data-toggle="modal" data-target="#cadastrar-categoria-modal">
                 <img src="../public/img/adicionar-item.svg" alt="Adicionar categoria">
                 Adicionar Categoria
             </button>
+
+            <?php 
+                // modal para cadastro do categoria
+                include('../include/modal/cadastrar-categoria-modal.php');
+            ?>
+
         </div>
 
         <div class="table-item-area">

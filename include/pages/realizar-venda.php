@@ -22,7 +22,6 @@
                     <h3>Lista de Produtos</h3>
                 </div>
                 <div class="table-section">
-                    
                     <table class="table-scroll m-0" id="table-items-venda">
                         <thead>
                             <tr>
@@ -46,12 +45,10 @@
                         <div class="data-sell-info">
                             <input type="text" id="name-client" value="CLIENTE PADRÃO" disabled>
                         </div>
-
                         <?php 
                             // modal para o metodo de pagamento
                             include('../include/modal/cliente-modal.php');
                         ?>
-
                     </div>
                     <div class="payment">
                         <a href="#" data-toggle="modal" data-target="#payment-modal">
@@ -61,15 +58,13 @@
                         <div class="data-sell-info">
                             <input type="text" id="met-pag" value="À VISTA" disabled required>
                         </div>
-
                         <?php 
                             // modal para o metodo de pagamento
                             include('../include/modal/metodo-pagamento-modal.php');
                         ?>
-
                     </div>
                     <div class="add-product">
-                        <button id="btn-add-item" data-toggle="modal" data-target="#add-item-modal">
+                        <button type="button" id="btn-add-item" data-toggle="modal" data-target="#add-item-modal">
                             <img src="../public/img/Adicionar-Item.svg" alt="Adicionar Item">
                             Adicionar Item
                         </button>
@@ -87,10 +82,10 @@
                 <span id="value-cart">00,00</span>
             </div>
             <div class="buttons">
-                <a href="#" id="cancelar-venda" class="cancel">
+                <button type="button" id="cancelar-venda" class="cancel">
                     <span>Cancelar Venda</span>
                     <img src="../public/img/block-icon.svg" alt="Cancelar venda">
-                </a>
+                </button>
                 <button type="submit" id="finalizar-venda" class="accept">
                     <span>Finalizar Venda</span>
                     <img src="../public/img/check-icon.svg" alt="Finalizar venda">

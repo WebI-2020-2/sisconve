@@ -15,8 +15,7 @@
     /* display: flex;
     flex-direction: column; */
     height: 85%;
-    border: 1px solid #25767B;
-    border-radius: .5rem;
+    border: 1px dotted #25767B;
     margin: .5%;
     padding: .5%;
 }
@@ -79,7 +78,7 @@
     width: 40%;
     margin-right: 5px;
     background-color: #25767B;
-    border-radius: 10px;
+    border-radius: .5rem;
 }
 
 .sell-area .sell-info .client a,
@@ -92,7 +91,7 @@
 
 .sell-area .sell-info .add-product{
     width: 20%;
-    border-radius: 10px;
+    border-radius: .5rem;
     background-color: #00CDE9;
     transition: background-color .3s;
 }
@@ -119,7 +118,7 @@
     justify-content: center;
     width: 45%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: .5rem;
     background-color: #2D595B;
     transition: background-color .3s;
 }
@@ -236,6 +235,11 @@
 }
 
 @media (max-width: 1400px) {
+    .sell-products .sell-attributes .value-cart,
+    .sell-products .sell-attributes a,
+    .sell-products .sell-attributes button{
+        border-radius: .4rem;
+    }
     .sell-products .sell-attributes a span,
     .sell-products .sell-attributes button span{
         font-size: 17px;

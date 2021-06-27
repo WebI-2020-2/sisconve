@@ -24,9 +24,9 @@
                                     <img src="../public/img/icon-user.svg" alt="Usuário">
                                     <input type="text" name="login" autocomplete="off" maxlength="50">
                                 </div>
-                                <!-- <div class="alert">
+                                <div class="alert">
                                     <small>Necessário inserir um <b>usuário</b>!</small>
-                                </div> -->
+                                </div>
                             </div>
                             <div class="login">
                                 <label class="label-pw" for="password">Senha</label>
@@ -34,9 +34,9 @@
                                     <img src="../public/img/icon-pw.svg" alt="Cadeado">
                                     <input type="password" name="password" maxlength="50">
                                 </div>
-                                <!-- <div class="alert">
+                                <div class="alert">
                                     <small>Necessário inserir uma <b>senha</b>!</small>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                         <div class="submit">

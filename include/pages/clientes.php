@@ -22,10 +22,16 @@
                 <img src="../public/img/search-icon.svg" alt="">
             </div>
 
-            <button id="btn">
+            <button type="button" id="btn" data-toggle="modal" data-target="#cadastrar-cliente-modal">
                 <img src="../public/img/adicionar-item.svg" alt="Adicionar cliente">
                 Cadastrar Cliente
             </button>
+
+            <?php 
+                // modal para cadastro do produto
+                include('../include/modal/cadastrar-cliente-modal.php');
+            ?>
+
         </div>
 
         <div class="table-item-area">

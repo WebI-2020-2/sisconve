@@ -65,12 +65,18 @@ function countTableRows() {
     var table = document.getElementById("table-items-venda");
     if (table.rows.length == 1) {
         finalizarVenda.disabled = true;
+        cancelarVenda.disabled = true;
         finalizarVenda.style.cursor = "not-allowed";
+        cancelarVenda.style.cursor = "not-allowed";
         finalizarVenda.style.opacity = "70%";
+        cancelarVenda.style.opacity = "70%";
     } else {
         finalizarVenda.disabled = false;
+        cancelarVenda.disabled = false;
         finalizarVenda.style.cursor = "pointer";
+        cancelarVenda.style.cursor = "pointer";
         finalizarVenda.style.opacity = "100%";
+        cancelarVenda.style.opacity = "100%";
     }
 }
 

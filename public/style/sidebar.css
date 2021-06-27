@@ -129,3 +129,20 @@
     margin-right: 5px;
     margin-bottom: 3px;
 }
+
+@media (max-width: 1400px) {
+    .left-bar .sidebar{
+        width: 270px;
+    }
+
+    .sidebar ul li a,
+    .sidebar ul li span{
+        font-size: 19px;
+    }
+
+    .sidebar ul li a img,
+    .sidebar ul li span img{
+        width: 27px;
+        margin-right: 13px;
+    }
+}

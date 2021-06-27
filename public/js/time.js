@@ -5,7 +5,7 @@ function refreshTime() {
 
     var time = new Date();
     var hour, minu, seco, day, mont, year, nmDy;
-    var days = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sabado", "Domingo"];
+    var days = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sabado"];
     var months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
 
     hour = time.getHours() < 10 ? "0"+time.getHours() : time.getHours();
@@ -16,11 +16,10 @@ function refreshTime() {
     year = time.getFullYear();
     nmDy = time.getDay();
 
-    dateTime.innerHTML = `${days[nmDy-1]}, ${day} de ${months[mont]} de ${year}`;
+    dateTime.innerHTML = `${days[nmDy]}, ${day} de ${months[mont]} de ${year}`;
     clock.innerHTML = `${hour}:${minu}:${seco}`
 
-
 }
--
+
 refreshTime();
 setInterval(() => refreshTime(), 1000);
