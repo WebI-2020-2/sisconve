@@ -20,7 +20,7 @@
                 <span><img src="../public/img/vendas.svg" alt="">Vendas</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuVendas">
                     <li><a href="./realizar-venda.php">Realizar venda</a></li>
-                    <li><a href="">Ver vendas</a></li>
+                    <li><a href="#">Ver vendas</a></li>
                 </ul>
             </li>
 
@@ -28,7 +28,7 @@
                 <span><img src="../public/img/Compras.svg" alt="">Compras</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuCompras">
                     <li><a href="#">Registrar uma compra</a></li>
-                    <li><a href="">Ver compras</a></li>
+                    <li><a href="#">Ver compras</a></li>
                 </ul>
             </li>
 
@@ -39,7 +39,7 @@
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/financas.svg" alt="">Finanças</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedoa">
-                    <li><a href="">Ver relatorios</a></li>
+                    <li><a href="#">Ver relatorios</a></li>
                 </ul>
             </li>
 
@@ -50,7 +50,7 @@
         <ul class="footer-sidebar dropdown">
             <div class="text-center">
                 <a href="#" id="log-off" data-toggle="modal" data-target="#logoff-modal">
-                    <img src="../public/img/logout.svg" alt="">
+                    <img src="../public/img/logout.svg" alt="Logout">
                     Sair do sistema
                 </a>
                 <?php 

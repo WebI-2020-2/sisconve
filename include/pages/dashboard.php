@@ -37,116 +37,118 @@
         </div>
 
         <div class="content-dashboard">
-            <!-- Produtos que tem baixa no estoque... -->
-            <div class="section">
-                <div class="section-title">
-                    <span><img src="../public/img/probaixoestoque-btn.svg" alt="">Produtos com baixa no Estoque</span>
+            <div class="content">
+                <!-- Produtos que tem baixa no estoque... -->
+                <div class="section">
+                    <div class="section-title">
+                        <span><img src="../public/img/probaixoestoque-btn.svg" alt="">Produtos com baixa no Estoque</span>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome do Produto</th>
+                                <th>Valor Unitario</th>
+                                <th>Quantidade</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0001</td>
+                                <td>Caneca Porcelana Branca 500ml Porcelux</td>
+                                <td>R$ 24,99</td>
+                                <td>5 unidades</td>
+                                <td>
+                                    <a href=""><img src="../public/img/edit-tabela.svg" alt=""></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0002</td>
+                                <td>Vaso de Barro marrom Ceramica do Valdir</td>
+                                <td>R$ 30,99</td>
+                                <td>4 unidades</td>
+                                <td>
+                                    <a href="#"><img src="../public/img/edit-tabela.svg" alt=""></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome do Produto</th>
-                            <th>Valor Unitario</th>
-                            <th>Quantidade</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0001</td>
-                            <td>Caneca Porcelana Branca 500ml Porcelux</td>
-                            <td>R$ 24,99</td>
-                            <td>5 unidades</td>
-                            <td>
-                                <a href=""><img src="../public/img/edit-tabela.svg" alt=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0002</td>
-                            <td>Vaso de Barro marrom Ceramica do Valdir</td>
-                            <td>R$ 30,99</td>
-                            <td>4 unidades</td>
-                            <td>
-                                <a href="#"><img src="../public/img/edit-tabela.svg" alt=""></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- clientes que devem... -->
-            <div class="section">
-                <div class="section-title">
-                    <span><img src="../public/img/cliParcleasVencendo.svg" alt="">Clientes com parcelas vencendo</span>
+                <!-- clientes que devem... -->
+                <div class="section">
+                    <div class="section-title">
+                        <span><img src="../public/img/cliParcleasVencendo.svg" alt="">Clientes com parcelas vencendo</span>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome do Cliente</th>
+                                <th scope="col">Valor da Parcela</th>
+                                <th scope="col">Vencimento</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0001</td>
+                                <td>Maria Devedora da Silva</th>
+                                <td>R$ 24,99</td>
+                                <td>25/02/2021</td>
+                                <td>
+                                    <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0002</td>
+                                <td>José Bonifácil de Nogueira</td>
+                                <td>R$ 30,99</td>
+                                <td>32/13/1999</td>
+                                <td>
+                                    <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome do Cliente</th>
-                            <th scope="col">Valor da Parcela</th>
-                            <th scope="col">Vencimento</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0001</td>
-                            <td>Maria Devedora da Silva</th>
-                            <td>R$ 24,99</td>
-                            <td>25/02/2021</td>
-                            <td>
-                                <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0002</td>
-                            <td>José Bonifácil de Nogueira</td>
-                            <td>R$ 30,99</td>
-                            <td>32/13/1999</td>
-                            <td>
-                                <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- clientes que devem... -->
-            <div class="section">
-                <div class="section-title">
-                    <span><img src="../public/img/cliParcleasVencendo.svg" alt="">Clientes com parcelas vencendo</span>
+                <!-- clientes que devem... -->
+                <div class="section">
+                    <div class="section-title">
+                        <span><img src="../public/img/cliParcleasVencendo.svg" alt="">Clientes com parcelas vencendo</span>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome do Cliente</th>
+                                <th scope="col">Valor da Parcela</th>
+                                <th scope="col">Vencimento</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0001</td>
+                                <td>Maria Devedora da Silva</th>
+                                <td>R$ 24,99</td>
+                                <td>25/02/2021</td>
+                                <td>
+                                    <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0002</td>
+                                <td>José Bonifácil de Nogueira</td>
+                                <td>R$ 30,99</td>
+                                <td>32/13/1999</td>
+                                <td>
+                                    <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome do Cliente</th>
-                            <th scope="col">Valor da Parcela</th>
-                            <th scope="col">Vencimento</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0001</td>
-                            <td>Maria Devedora da Silva</th>
-                            <td>R$ 24,99</td>
-                            <td>25/02/2021</td>
-                            <td>
-                                <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0002</td>
-                            <td>José Bonifácil de Nogueira</td>
-                            <td>R$ 30,99</td>
-                            <td>32/13/1999</td>
-                            <td>
-                                <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
