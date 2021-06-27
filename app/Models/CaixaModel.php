@@ -3,15 +3,14 @@
 class CaixaModel
 {
     private $Id;
-    private FuncionarioModel $funcionario;
+    private $funcionarioId;
     private $valorEmCaixa;
     private $status;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->db = new Database();
     }
-    
     /**
      * @return mixed
      */
@@ -21,19 +20,11 @@ class CaixaModel
     }
 
     /**
-     * @param mixed $Id
-     */
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    }
-    
-    /**
      * @return mixed
      */
-    public function getFuncionario()
+    public function getFuncionarioId()
     {
-        return $this->funcionario;
+        return $this->funcionarioId;
     }
 
     /**
@@ -53,11 +44,19 @@ class CaixaModel
     }
 
     /**
-     * @param mixed $funcionario
+     * @param mixed $Id
      */
-    public function setFuncionario($funcionario)
+    public function setId($Id)
     {
-        $this->funcionario = $funcionario;
+        $this->Id = $Id;
+    }
+
+    /**
+     * @param mixed $funcionarioId
+     */
+    public function setFuncionarioId($funcionarioId)
+    {
+        $this->funcionarioId = $funcionarioId;
     }
 
     /**
@@ -76,9 +75,28 @@ class CaixaModel
         $this->status = $status;
     }
 
-    public function selectAll(){
+
+    public function selectAll()
+    {
         $this->db->query('SELECT * FROM caixa');
         return $this->db->resultados();
     }
 
+    public function insert($dados)
+    {
+        $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
+        $this->setValorEmCaixa($valorEmCaixaFloat);
+        $this->setFuncionarioId(1);
+        $this->setStatus(true);
+        $this->db->query("INSERT INTO caixa(id_funcionario, valor_em_caixa, status) VALUES (:id_funcionario, :valor_em_caixa, :status)");
+        $this->db->bind(":id_funcionario", $this->getFuncionarioId());
+        $this->db->bind(":valor_em_caixa", $this->getValorEmCaixa());
+        $this->db->bind(":status", $this->getStatus());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

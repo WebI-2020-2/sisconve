@@ -15,4 +15,9 @@ class VendaController extends Controller
         ];
         $this->view('venda/listarVendas', $dados);
     }
+
+    public function cadastrar()
+    {
+        $this->view('venda/cadastrarVenda');
+    }
 }

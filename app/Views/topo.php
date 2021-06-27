@@ -26,7 +26,7 @@
         <h3>Fornecedor</h3>
         <a class="btn btn-info" href="<?= URL ?>/FornecedorController/cadastrar">Cadastre Fornecedor</a>
         <a class="btn btn-info" href="<?= URL ?>/FornecedorController/listarFornecedor">Listar Fornecedor</a>
-        <br> -->
+        <br>
 
 
         <h3>Clientes</h3>
@@ -35,19 +35,21 @@
         <a class="btn btn-info" href="<?= URL ?>/ClientesController/listarClientes">Listar Clientes</a>
         <br>
 
-        <!-- <h3>Categoria</h3>
+         <h3>Categoria</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/cadastrarCategoria">Cadastrar Categoria</a>
         <a class="btn btn-info" href="<?= URL ?>/CategoriaController/listarCategoria">Listar Categoria</a>
-        <br>
+        <br> -->
 
         <h3>Caixa</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/CaixaController/listarCaixas">Listar Caixas</a>
-        <br> 
+        <a class="btn btn-info" href="<?= URL ?>/CaixaController/cadastrar">Cadastrar Caixas</a>
+        
+        <br>
 
 
-        <h3>Compra</h3>
+        <!-- <h3>Compra</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/CompraController/listarCompras">Listar Compras</a>
         <a class="btn btn-info" href="<?= URL ?>/CompraController/cadastrar">Comprar</a>
@@ -102,6 +104,7 @@
         <h3>Venda</h3>
 
         <a class="btn btn-info" href="<?= URL ?>/VendaController/listarVendas">Listar Venda</a>
+        <a class="btn btn-info" href="<?= URL ?>/VendaController/cadastrar">Cadastrar</a>
         <br> -->
     </span>
 <?php endif; ?>
