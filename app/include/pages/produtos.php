@@ -29,7 +29,7 @@
 
             <?php 
                 // modal para cadastro do produto
-                include('../include/modal/cadastrar-produto-modal.php');
+                include('../app/include/modal/cadastrar-produto-modal.php');
             ?>
 
         </div>
@@ -41,18 +41,33 @@
                         <th>#</th>
                         <th>Nome do Produto</th>
                         <th>Categoria</th>
+                        <th>ICMS</th>
+                        <th>IPI</th>
+                        <th>Frete</th>
+                        <th>Preço de Compra</th>
+                        <th>Preço na Fabrica</th>
                         <th>Preço de Venda</th>
+                        <th>Lucro</th>
+                        <th>Desconto</th>
                         <th>Quantidade</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($dados['produtos'] as $produto) :?>
                     <tr id="item-details">
-                        <td>0001</td>
-                        <td>Caneca Porcelana Branca 500ml Porcelux</td>
-                        <td>Porcelana</td>
-                        <td>R$ 15,00</td>
-                        <td>45 unid</td>
+                        <td><?= $produto->id_produto ?></td>
+                        <td><?= $produto->nome_produto ?></td>
+                        <td><?= $produto->nome_categoria ?></td>
+                        <td><?= $produto->icms ?></td>
+                        <td><?= $produto->ipi ?></td>
+                        <td><?= $produto->frete ?></td>
+                        <td><?= $produto->preco_compra ?></td>
+                        <td><?= $produto->preco_na_fabrica ?></td>
+                        <td><?= $produto->preco_venda ?></td>
+                        <td><?= $produto->lucro ?></td>
+                        <td><?= $produto->desconto ?></td>
+                        <td><?= $produto->quantidade ?></td>
                         <td>
                             <a title="Ver produto" href="#">
                                 <img src="../public/img/eye-icon.svg" alt="">
@@ -65,26 +80,8 @@
                             </a>
                         </td>
                     </tr>
-                    <tr id="item-details">
-                        <td>0002</td>
-                        <td>Cadeira de vidro</td>
-                        <td>Porcelana</td>
-                        <td>R$ 25,00</td>
-                        <td>78 unid</td>
-                        <td>
-                            <a title="Ver produto" href="#">
-                                <img src="../public/img/eye-icon.svg" alt="">
-                            </a>
-                            <a title="Editar produto" href="#">
-                                <img src="../public/img/pencil-icon.svg" alt="">
-                            </a>
-                            <a title="Exluir produto" href="#">
-                                <img src="../public/img/trash-icon.svg" alt="">
-                            </a>
-                        </td>
-                    </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
     </div>
-</div>

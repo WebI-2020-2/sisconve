@@ -247,7 +247,10 @@ class ProdutoModel
 
     public function selectAll()
     {
-        $this->db->query("SELECT * FROM produto");
+        $this->db->query("SELECT produto.id_produto, produto.nome_produto, categoria.nome_categoria, produto.icms, produto.ipi, produto.frete, produto.preco_compra,
+        produto.preco_na_fabrica, produto.preco_venda, produto.lucro, produto.desconto, produto.quantidade
+        from produto, categoria
+        where produto.id_categoria = categoria.id_categoria");
         return $this->db->resultados();
     }
     public function insert($dados)

@@ -4,6 +4,9 @@ class FuncionarioController extends Controller
 {
     public function __construct()
     {
+        if (!Sessao::estaLogado()) :
+            URL::redirecionar('UsuarioController/login');
+        endif;
         $this->funcionarioModel = $this->model('FuncionarioModel');
     }
 

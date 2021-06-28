@@ -4,7 +4,7 @@
 
 define('APP', dirname(__FILE__));
 
-define('URL','http://localhost:8000/Sisconve-Projeto');
+define('URL','http://localhost/Sisconve-Projeto');
 
 define('APP_NOME','Sisconve');
 

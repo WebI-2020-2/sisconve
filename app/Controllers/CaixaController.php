@@ -3,7 +3,12 @@ class CaixaController extends Controller
 {
     public function __construct()
     {
+
+        if (!Sessao::estaLogado()) :
+            URL::redirecionar('UsuarioController/login');
+        endif;
         $this->caixaModel = $this->model('CaixaModel');
+
     }
 
     public function index()

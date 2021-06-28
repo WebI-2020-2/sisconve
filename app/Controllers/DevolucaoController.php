@@ -3,6 +3,9 @@ class DevolucaoController extends Controller
 {
     public function __construct()
     {
+        if (!Sessao::estaLogado()) :
+            URL::redirecionar('UsuarioController/login');
+        endif;
         $this->devolucaoModel = $this->model('DevolucaoModel');
     }
 

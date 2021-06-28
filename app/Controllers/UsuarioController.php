@@ -139,6 +139,7 @@ class UsuarioController extends Controller
 
                     if ($login) :
                         $this->sesaoUsuario($login);
+                        URL::redirecionar('ProdutosController/listarProdutos');
                     else :
                         Sessao::mensagem('usuario','Usuario ou senha invalidos','alert alert-danger');
                     endif;

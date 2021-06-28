@@ -5,6 +5,9 @@ class FornecedorController extends Controller
 {
     public function __construct()
     {
+        if (!Sessao::estaLogado()) :
+            URL::redirecionar('UsuarioController/login');
+        endif;
         $this->fornecedorModel = $this->model('FornecedorModel');
     }
 

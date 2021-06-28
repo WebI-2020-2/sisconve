@@ -3,6 +3,9 @@ class CompraController extends Controller
 {
     public function __construct()
     {
+        if (!Sessao::estaLogado()) :
+            URL::redirecionar('UsuarioController/login');
+        endif;
         $this->compraModel = $this->model('CompraModel');
         $this->produtoModel = $this->model('ProdutoModel');
         $this->fornecedorModel = $this->model('FornecedorModel');
