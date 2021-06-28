@@ -9,7 +9,7 @@
             </li>
 
             <li href="#pageSubmenuProdutos" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="./produtos.php"><img src="../public/img/produtos.svg" alt="">Produtos</a>
+                <a href="<?= URL ?>/ProdutosController/listarProdutos"><img src="../public/img/produtos.svg" alt="">Produtos</a>
             </li>
 
             <li href="#pageSubmenuCategorias" data-toggle="collapse" aria-expanded="false" class="dropdown">

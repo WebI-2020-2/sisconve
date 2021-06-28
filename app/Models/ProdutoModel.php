@@ -255,7 +255,8 @@ class ProdutoModel
     }
     public function insert($dados)
     {
-        $this->setCategoria_id(1);
+        $categoriaInt = (int)$dados['categoria'];
+        $this->setCategoria_id($categoriaInt);
         $this->setNome_produto($dados['nome_produto']);
 
         $this->db->query("INSERT INTO produto(id_categoria, nome_produto) VALUES (:id_categoria, :nome_produto) RETURNING id_produto");

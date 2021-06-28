@@ -37,7 +37,7 @@ class ProdutosController extends Controller
                 else :
                     if ($this->produtoModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
-                        
+                        URL::redirecionar('ProdutosController/listarProdutos');
                     else :
                         die("Erro");
 
@@ -56,7 +56,7 @@ class ProdutosController extends Controller
             ];
         endif;
 
-        $this->view('produtos/cadastrarProdutos', $dados);
+        $this->viewModal('modal/cadastrar-produto-modal', $dados);
     }
 
     public function listarProdutos()
