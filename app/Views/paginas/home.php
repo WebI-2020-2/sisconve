@@ -3,5 +3,5 @@
 if (!Sessao::estaLogado()) :
     URL::redirecionar('UsuarioController/login');
 else :
-    URL::redirecionar('pages/produtos');
+    URL::redirecionar('CategoriaController/listarCategoria');
 endif;
