@@ -193,5 +193,7 @@ class UsuarioController extends Controller
         unset($_SESSION["USUARIO_DATA_CRIACAO"]);
 
         session_destroy();
+
+        URL::redirecionar('UsuarioController/login');
     }
 }

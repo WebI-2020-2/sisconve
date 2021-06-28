@@ -23,7 +23,7 @@
                         <p>Configurações</p>
                     </div>
                 </a>
-                <a class="" href="#">
+                <a class="" href="<?= URL ?>/UsuarioController/sair">
                     <div class="item-menu">
                         <i class="fas fa-power-off"></i>
                         <p>Sair do sistema</p>
