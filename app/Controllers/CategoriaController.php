@@ -36,8 +36,8 @@ class CategoriaController extends Controller
                     $dados['nomecategoria_erro'] = "Nome informado já existe";
                 else :
                     if ($this->categoriaModel->insert($dados)) :
-                        echo 'Cadastro realizado como sucesso <hr>';
-                        print_r($this->categoriaModel->getUltimoId());
+                        Sessao::mensagem('categoria', 'Cadastro realizado como sucesso', 'alert alert-sucess');
+                        $this->listarCategoria();
                     else :
                         die("Erro");
 
@@ -45,7 +45,7 @@ class CategoriaController extends Controller
                 endif;
 
             endif;
-            var_dump($formulario);
+            // var_dump($formulario);
         else :
             $dados = [
                 'nomecategoria' => '',

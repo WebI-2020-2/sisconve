@@ -78,7 +78,17 @@ class CaixaModel
 
     public function selectAll()
     {
-        $this->db->query('SELECT * FROM caixa');
+        $this->db->query("SELECT
+		caixa.id_caixa,
+        funcionario.id_funcionario,
+        caixa.valor_em_caixa,
+        caixa.status,
+        caixa.criado_em
+        FROM
+        caixa,
+        funcionario
+        WHERE
+        caixa.id_funcionario = funcionario.id_funcionario");
         return $this->db->resultados();
     }
 

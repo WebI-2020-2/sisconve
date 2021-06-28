@@ -5,14 +5,14 @@
 
 .content-center .title-content .title-text a{
     color: #25767B;
-    font-size: 20px;
+    font-size: 1.2rem;
     text-decoration: none;
 }
 
 .content-center .title-content .title-text span{
     color: #25767B;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2rem;
     padding: 0px 3px;
 }
 
@@ -37,17 +37,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8rem;
+    width: 10%;
     height: 40px;
     margin: .5rem;
     border-radius: 5px;
     text-decoration: none;
     color: #fff;
-    transition: opacity .3s;
+    transition: .3s;
 }
 
 .content-center .dash-btns .button:hover{
-    opacity: 75%;
+    box-shadow: 0px 0px 4px #000;
+    opacity: 80%;
 }
 
 .content-center .dash-btns .button span{
@@ -58,6 +59,17 @@
     margin-right: 3px;
     margin-bottom: 3px;
     width: 18px;
+}
+
+.content{
+    height: auto;
+}
+
+.content-dashboard{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
 }
 
 .section{

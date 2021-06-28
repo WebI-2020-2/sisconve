@@ -109,9 +109,20 @@ class VendaModel
     {
         $this->ultimoId = $ultimoId;
     }
+
     public function selectAll()
     {
-        $this->db->query("SELECT * FROM venda");
+        $this->db->query("SELECT
+        cliente.id_cliente,
+        caixa.id_caixa,
+        venda.id_venda,
+        venda.num_parcelas,
+        venda.valor_total,
+        venda.data_venda
+        From
+        cliente,
+        caixa,
+        venda ");
         return $this->db->resultados();
     }
     public function insert($dados)

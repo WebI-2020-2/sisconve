@@ -12,6 +12,8 @@ class ClientesController extends Controller
     {
         $dados = [
             'clientes' => $this->clienteModel->selectAll()
+            // 'telefones' => $this->telefoneModel->selectAll(),
+
         ];
 
         $this->view('clientes/listarClientes', $dados);

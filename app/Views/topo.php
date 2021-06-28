@@ -6,7 +6,7 @@
 <?php else : ?>
     <span class="navbar-text">
 
-       <!-- <h3>Users</h3>
+       <h3>Users</h3>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/cadastrar">Cadastre-se</a>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/login">Entrar</a>
         <a class="btn btn-info" href="<?= URL ?>/UsuarioController/listar">Listar</a>
@@ -99,7 +99,7 @@
         <a class="btn btn-info" href="<?= URL ?>/TelefoneController/listarTelefones">Listar Telefone</a>
 
         <a class="btn btn-info" href="<?= URL ?>/TelefoneController/cadastrar">Cadastrar Telefone</a>
-        <br> -->
+        <br>
 
         <h3>Venda</h3>
 
