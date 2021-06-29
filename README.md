@@ -1,6 +1,8 @@
 # SISCONVE - `Sistema de Controle de Vendas e Estoque`
 
 #### • Link para acesso/teste do sistema: [sisconve.sytes.net](http://sisconve.sytes.net/)
+#### Usuario = teste
+#### Senha = teste
 
 ## Lista de funcionalidades disponiveis:
 
