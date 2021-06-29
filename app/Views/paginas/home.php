@@ -5,5 +5,5 @@ if (!Sessao::estaLogado()) :
     // URL::redirecionar('UsuarioController/login');
 else :
      header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
-    URL::redirecionar('CategoriaController/listarCategoria');
+    // URL::redirecionar('CategoriaController/listarCategoria');
 endif;
