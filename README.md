@@ -1,6 +1,29 @@
-# Sisconve-Projeto
+# SISCONVE - `Sistema de Controle de Vendas e Estoque`
 
-<table align="center">
+#### • Link para acesso/teste do sistema: [sisconve.sytes.net](http://sisconve.sytes.net/)
+
+## Lista de funcionalidades disponiveis:
+
+|      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
+| ------------------ |:-------:|:--------:|:--------:|:---------:|
+| Caixa              |    ✔️    |    ❌    |     X    |     X     |
+| Categorias         |    ✔️    |    ✔️     |     X    |     X     |
+| Cliente            |    ✔️    |    ✔️     |     X    |     X     |
+| Compra             |    ✔️     |    ❌     |     X    |     X     |
+| Devolução          |    ❌    |    ❌     |     X    |     X     |
+| Endereço           |    ✔️    |    ✔️     |     X    |     X     |
+| Forma de Pagamento |    ✔️    |    ✔️     |     X    |     X     |
+| Fornecedor         |    ✔️    |    ✔️     |     X    |     X     |
+| Funcionario        |    ✔️    |    ✔️     |     X    |     X     |
+| Parcelas           |    ✔️    |    ✔️     |     X    |     X     |
+| Produto            |    ✔️    |    ✔️     |     X    |     X     |
+| Contato            |    ✔️    |    ✔️     |     X    |     X     |
+| Usuário            |    ✔️    |    ✔️     |     X    |     X     |
+| Venda              |    ✔️    |    ✔️     |     X    |     X     |
+
+# 
+
+<table aling="center">
     <tr>
         <th colspan="5" style="text-align: center; font-size: 17px">
             Colaboradores
@@ -34,3 +57,5 @@
         </td>
     </tr>
 </table>
+
+
