@@ -5,7 +5,8 @@ class CaixaController extends Controller
     {
 
         if (!Sessao::estaLogado()) :
-            URL::redirecionar('UsuarioController/login');
+            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
+            // URL::redirecionar('UsuarioController/login');
         endif;
         $this->caixaModel = $this->model('CaixaModel');
 

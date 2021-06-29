@@ -5,7 +5,8 @@ class ClientesController extends Controller
     public function __construct()
     {
         if (!Sessao::estaLogado()) :
-            URL::redirecionar('UsuarioController/login');
+            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
+            // URL::redirecionar('UsuarioController/login');
         endif;
         $this->clienteModel = $this->model('ClienteModel');
         $this->enderecoModel = $this->model('EnderecoModel');

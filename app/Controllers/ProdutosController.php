@@ -5,7 +5,8 @@ class ProdutosController extends Controller
     public function __construct()
     {
         if (!Sessao::estaLogado()) :
-            URL::redirecionar('UsuarioController/login');
+            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
+            // URL::redirecionar('UsuarioController/login');
         endif;
         $this->produtoModel = $this->model('ProdutoModel');
     }
@@ -37,7 +38,8 @@ class ProdutosController extends Controller
                 else :
                     if ($this->produtoModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
-                        URL::redirecionar('ProdutosController/listarProdutos');
+                        header("Location:".URL.DIRECTORY_SEPARATOR.'ProdutosController/listarProdutos');
+                        // URL::redirecionar('ProdutosController/listarProdutos');
                     else :
                         die("Erro");
 
