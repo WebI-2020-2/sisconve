@@ -7,19 +7,19 @@
 |      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
 | Caixa              |    ✔️    |    ❌    |     X    |     X     |
-| Categorias         |    X    |    X     |     X    |     X     |
-| Cliente            |    X    |    X     |     X    |     X     |
-| Compra             |    X    |    X     |     X    |     X     |
-| Devolução          |    X    |    X     |     X    |     X     |
-| Endereço           |    X    |    X     |     X    |     X     |
-| Forma de Pagamento |    X    |    X     |     X    |     X     |
-| Fornecedor         |    X    |    X     |     X    |     X     |
-| Funcionario        |    X    |    X     |     X    |     X     |
-| Parcelas           |    X    |    X     |     X    |     X     |
-| Produto            |    X    |    X     |     X    |     X     |
-| Contato            |    X    |    X     |     X    |     X     |
-| Usuário            |    X    |    X     |     X    |     X     |
-| Venda              |    X    |    X     |     X    |     X     |
+| Categorias         |    ✔️    |    ✔️     |     X    |     X     |
+| Cliente            |    ✔️    |    ✔️     |     X    |     X     |
+| Compra             |    ✔️     |    ❌     |     X    |     X     |
+| Devolução          |    ❌    |    ❌     |     X    |     X     |
+| Endereço           |    ✔️    |    ✔️     |     X    |     X     |
+| Forma de Pagamento |    ✔️    |    ✔️     |     X    |     X     |
+| Fornecedor         |    ✔️    |    ✔️     |     X    |     X     |
+| Funcionario        |    ✔️    |    ✔️     |     X    |     X     |
+| Parcelas           |    ✔️    |    ✔️     |     X    |     X     |
+| Produto            |    ✔️    |    ✔️     |     X    |     X     |
+| Contato            |    ✔️    |    ✔️     |     X    |     X     |
+| Usuário            |    ✔️    |    ✔️     |     X    |     X     |
+| Venda              |    ✔️    |    ✔️     |     X    |     X     |
 
 # 
 
