@@ -11,7 +11,7 @@
             <div><h1 class="text-center">Deseja sair do sistema?</h1></div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Sair</button>
+                <a type="submit" href="<?= URL ?>/UsuarioController/sair" class="btn btn-primary">Sair</a>
             </div>
         </div>
     </div>
