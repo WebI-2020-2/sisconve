@@ -6,7 +6,7 @@
 
 |      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
-| Caixa              |    X    |    X     |     X    |     X     |
+| Caixa              |    ✔️    |    ❌    |     X    |     X     |
 | Categorias         |    X    |    X     |     X    |     X     |
 | Cliente            |    X    |    X     |     X    |     X     |
 | Compra             |    X    |    X     |     X    |     X     |
