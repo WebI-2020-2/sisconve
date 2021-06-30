@@ -51,7 +51,7 @@
                     <?php foreach ($dados['clientes'] as $cliente) : ?>
                         <td><?= $cliente->id_cliente ?></td>
                         <td><?= $cliente->nome_cliente ?></td>
-                        <td><?= $cliente->num_telefone ?></td>
+                        <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
                         <td><?= $cliente->cpf ?></td>
                         <td><?= $cliente->credito ?></td>
                         <td><?= $cliente->debito ?></td>
