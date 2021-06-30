@@ -25,7 +25,7 @@
 
         <!-- box-center início (area central) -->
         <div class="content-center">
-            <?php include('./../app/include/pages/clientes.php') ?>
+            <?php include("./../app/include/pages/clientes/listar-clientes.php"); ?>
         </div>
         <!-- box-center fim -->
 

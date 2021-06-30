@@ -3,13 +3,13 @@
         <div class="title-text">
             <span>
                 <a href="./dashboard.php">
-                    <img src="./../public/img/dashboard-verde.svg" alt="Dashboard">
+                    <img src="../public/img/dashboard-verde.svg" alt="Dashboard">
                     Dashboard
                 </a>
             </span>
             <span>/</span>
             <span>
-                <img src="./../public/img/categoria-dark.svg" alt="Categorias">
+                <img src="../public/img/categoria-dark.svg" alt="Categorias">
                 Categorias
             </span>
         </div>
@@ -19,11 +19,11 @@
         <div class="manage-item-top">
             <div class="search-item">
                 <input id="search" type="text" placeholder="Procure por uma categoria">
-                <img src="<?= URL ?>/public/img/search-icon.svg" alt="">
+                <img src="../public/img/search-icon.svg" alt="">
             </div>
 
             <button type="button" id="btn" data-toggle="modal" data-target="#cadastrar-categoria-modal">
-                <img src="./../public/img/adicionar-item.svg" alt="Adicionar categoria">
+                <img src="../public/img/adicionar-item.svg" alt="Adicionar categoria">
                 Adicionar Categoria
             </button>
 
@@ -40,15 +40,16 @@
                     <tr>
                         <th>#</th>
                         <th>Nome da Categoria</th>
+                        <th>Quantidade de Produtos</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    foreach ($dados['categorias'] as $categoria) : ?>
+                    <?php foreach ($dados['categorias'] as $categoria) : ?>
                         <tr>
                             <td><?= $categoria->id_categoria ?></td>
                             <td><?= $categoria->nome_categoria ?></td>
+                            <td>Quantidade de produtos aqui</td>
                             <td>
                                 <a title="Ver categoria" href="#">
                                     <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
@@ -60,9 +61,8 @@
                                     <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
                                 </a>
                             </td>
-                        </tr> <?php
-                    endforeach
-                    ?>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>

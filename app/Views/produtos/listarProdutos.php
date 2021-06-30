@@ -25,7 +25,7 @@
         <!-- box-center início (area central) -->
         <div class="content-center">
             <?php 
-                include("./../app/include/pages/produtos.php");
+                include("./../app/include/pages/produtos/listar-produtos.php");
 
             ?>
         </div>

@@ -16,13 +16,14 @@
                     <div class="main-items">
                         <div class="title-logo">
                             <h1>SISCONVE</h1>
+                            
                         </div>
                         <div class="inputs">
                             <div class="login">
                                 <label class="label-login" for="login">Usuário</label>
                                 <div class="input">
                                     <img src="../public/img/icon-user.svg" alt="Usuário">
-                                    <input type="text" name="usuario" autocomplete="off" maxlength="50">
+                                    <input type="text" name="usuario" autocomplete="off" maxlength="50" required>
                                 </div>
                                 <div class="alert">
                                     <!-- <small>Necessário inserir um <b>usuário</b>!</small> -->
@@ -32,10 +33,11 @@
                                 <label class="label-pw" for="password">Senha</label>
                                 <div class="input">
                                     <img src="../public/img/icon-pw.svg" alt="Cadeado">
-                                    <input type="password" name="senha" maxlength="50">
+                                    <input type="password" name="senha" maxlength="50" required>
                                 </div>
                                 <div class="alert">
-                                    <!-- <small>Necessário inserir uma <b>senha</b>!</small> -->
+                                    <small><?= Sessao::mensagem('usuario');?></small>
+                                    
                                 </div>
                             </div>
                         </div>

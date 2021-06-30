@@ -2,7 +2,7 @@
     <div class="sidebar">
         <ul class="menu-items">
             <li href="#" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="dashboard.php"><img src="../public/img/dashboard.svg" alt="">Dashboard</a>
+                <a href="<?= URL?>/DashboardController/dashboard"><img src="../public/img/dashboard.svg" alt="">Dashboard</a>
             </li>
             <li href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <a href="<?= URL?>/ClientesController/listarClientes"><img src="../public/img/clientes.svg" alt="">Clientes</a>
@@ -49,10 +49,10 @@
         </ul>
         <ul class="footer-sidebar dropdown">
             <div class="text-center">
-                <a href="#" id="log-off" data-toggle="modal" data-target="#logoff-modal">
+                <button id="btn" data-toggle="modal" data-target="#logoff-modal">
                     <img src="../public/img/logout.svg" alt="Logout">
                     Sair do sistema
-                </a>
+                </button>
                 <?php 
                     // chamando o modal de logoff
                     include('./../app/include/modal/logoff-modal.php'); 

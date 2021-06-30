@@ -1,6 +1,6 @@
 <nav>
     <div class="logo">
-        <a href="./dashboard.php">SISCONVE</a>
+        <a href="<?= URL?>/DashboardController/dashboard">SISCONVE</a>
     </div>
     <div class="user-area">
         <span id="date-time"></span>

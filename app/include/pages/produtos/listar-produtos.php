@@ -29,7 +29,7 @@
 
             <?php 
                 // modal para cadastro do produto
-                include('../app/include/modal/cadastrar-produto-modal.php');
+                include('./../app/include/modal/cadastrar-produto-modal.php');
             ?>
 
         </div>
@@ -41,32 +41,18 @@
                         <th>#</th>
                         <th>Nome do Produto</th>
                         <th>Categoria</th>
-                        <th>ICMS</th>
-                        <th>IPI</th>
-                        <th>Frete</th>
-                        <th>Preço de Compra</th>
-                        <th>Preço na Fabrica</th>
-                        <th>Preço de Venda</th>
-                        <th>Lucro</th>
-                        <th>Desconto</th>
+                        <th>Preço</th>
                         <th>Quantidade</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($dados['produtos'] as $produto) :?>
+                    <?php foreach ($dados['produtos'] as $produto) :?>
                     <tr id="item-details">
                         <td><?= $produto->id_produto ?></td>
                         <td><?= $produto->nome_produto ?></td>
                         <td><?= $produto->nome_categoria ?></td>
-                        <td><?= $produto->icms ?></td>
-                        <td><?= $produto->ipi ?></td>
-                        <td><?= $produto->frete ?></td>
-                        <td><?= $produto->preco_compra ?></td>
-                        <td><?= $produto->preco_na_fabrica ?></td>
                         <td><?= $produto->preco_venda ?></td>
-                        <td><?= $produto->lucro ?></td>
-                        <td><?= $produto->desconto ?></td>
                         <td><?= $produto->quantidade ?></td>
                         <td>
                             <a title="Ver produto" href="#">
@@ -85,3 +71,4 @@
             </table>
         </div>
     </div>
+</div>

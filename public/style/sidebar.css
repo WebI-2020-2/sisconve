@@ -112,20 +112,22 @@
     letter-spacing: 1px;
 }
 
-.sidebar .footer-sidebar .text-center a{
+.sidebar .footer-sidebar .text-center #btn{
     display: flex;
     color: #fff;
     text-decoration: none;
     padding: 10px;
     transition: background .2s;
     margin: 15px;
+    background-color: transparent;
+    border: 0;
 }
 
-.sidebar .footer-sidebar .text-center a:hover{
+.sidebar .footer-sidebar .text-center #btn:hover{
     background: #1f565a;
 }
 
-.sidebar .footer-sidebar .text-center a img{
+.sidebar .footer-sidebar .text-center #btn img{
     margin-right: 5px;
     margin-bottom: 3px;
 }

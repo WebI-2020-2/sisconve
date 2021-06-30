@@ -1,44 +1,48 @@
-.content-center .title-content .title-text{
+.dashboard .title-content .title-text{
     padding: 5px;
     margin-left: 30px;
 }
 
-.content-center .title-content .title-text a{
+.dashboard .title-content .title-text a{
     color: #25767B;
     font-size: 1.2rem;
     text-decoration: none;
 }
 
-.content-center .title-content .title-text span{
+.dashboard .title-content .title-text span{
     color: #25767B;
     font-weight: bold;
     font-size: 1.2rem;
     padding: 0px 3px;
 }
 
-.content-center .title-content span img{
+.dashboard .title-content span img{
     margin-right: 10px;
     margin-bottom: 3px;
     width: 25px;
     pointer-events: none;
 }
 
-.content-center .dash-btns{
+.main-page{
+    height: 90%;
+}
+
+.main-page .dash-btns{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 13px;
     background-color: #fff;
     width: 100%;
-    height: 70px;
+    height: 10%;
 }
 
-.content-center .dash-btns .button{
+.main-page .dash-btns .button{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 10%;
-    height: 40px;
+    height: 70%;
     margin: .5rem;
     border-radius: 5px;
     text-decoration: none;
@@ -46,30 +50,40 @@
     transition: .3s;
 }
 
-.content-center .dash-btns .button:hover{
+.main-page .dash-btns .button:hover{
     box-shadow: 0px 0px 4px #000;
     opacity: 80%;
 }
 
-.content-center .dash-btns .button span{
+.main-page .dash-btns .button span{
     font-size: 1rem;
 }
 
-.content-center .dash-btns .button span img{
+.main-page .dash-btns .button span img{
     margin-right: 3px;
     margin-bottom: 3px;
     width: 18px;
 }
 
-.content{
-    height: auto;
-}
-
 .content-dashboard{
     display: flex;
     flex-direction: column;
-    height: 100%;
-    overflow: scroll;
+    height: 90%;
+    overflow: auto;
+}
+
+.content-dashboard::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content-dashboard::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+.content-dashboard::-webkit-scrollbar-thumb {
+    border: 4px solid #f6f6f6;
+    border-radius: 20px;
+    background: #25767B;
 }
 
 .section{
@@ -117,4 +131,53 @@
 
 .section table a img{
     width: 20px;
+}
+
+.section-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 170px;
+}
+
+.section-card .card{
+    height: 90%;
+    margin-top: .5rem;
+    width: 32%;
+    border-radius: .5rem !important;
+    background-color: aqua;
+    border: 0 !important;
+}
+
+.section-card .card .title-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25%;
+    background-color: bisque;
+    border-radius: .5rem !important;
+}
+
+.card .title-card span{
+    color: #fff;
+    font-size: 20px;
+}
+
+.section-card .card .card-body{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+}
+
+.card .card-body strong{
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.card .card-body span{
+    font-size: 23px;
+    margin-left: .3rem;
+    margin-right: .3rem;
 }

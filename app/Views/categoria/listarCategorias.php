@@ -25,7 +25,7 @@
         <!-- box-center início (area central) -->
         <div class="content-center">
             <?php 
-                include("./../app/include/pages/categorias.php");
+                include("./../app/include/pages/categorias/listar-categorias.php");
 
             ?>
         </div>

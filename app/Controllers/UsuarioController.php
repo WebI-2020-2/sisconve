@@ -139,7 +139,7 @@ class UsuarioController extends Controller
 
                     if ($login) :
                         $this->sesaoUsuario($login);
-                        header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
+                        header("Location:".URL.DIRECTORY_SEPARATOR.'DashboardController/dashboard');
                         // URL::redirecionar('CategoriaController/listarCategoria');
                     else :
                         Sessao::mensagem('usuario','Usuario ou senha invalidos','alert alert-danger');
