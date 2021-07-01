@@ -140,7 +140,9 @@ class ClientesController extends Controller
                     endif;
 
                     if ($this->enderecoModel->insert($dados, $ultimoid) && $this->telefoneModel->insert($dados, $ultimoid)) :
-                        echo 'Cadastro realizado com sucesso';
+                        Sessao::mensagem('cliente','Usuario ou senha invalidos','alert alert-danger');
+                        header("Location:".URL.DIRECTORY_SEPARATOR.'ClientesController/listarClientes');
+                        // URL::redirecionar('UsuarioController/login');
                     else :
                         die("Erro");
                     endif;
@@ -177,6 +179,7 @@ class ClientesController extends Controller
                 'whatsapp_erro' => '',
             ];
         endif;
-        $this->view('clientes/cadastraClientes', $dados);
+        $this->viewModal('modal/cadastrar-cliente-modal', $dados);
+        // $this->view('clientes/cadastraClientes', $dados);
     }
 }

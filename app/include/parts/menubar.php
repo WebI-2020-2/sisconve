@@ -19,7 +19,7 @@
             <li href="#pageSubmenuVendas" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/vendas.svg" alt="">Vendas</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuVendas">
-                    <li><a href="./realizar-venda.php">Realizar venda</a></li>
+                    <li><a href="#">Realizar venda</a></li>
                     <li><a href="#">Ver vendas</a></li>
                 </ul>
             </li>
@@ -33,7 +33,7 @@
             </li>
 
             <li href="#pageSubmenuFornecedor" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <span><img src="../public/img/Fornecedor.svg" alt="">Fornecedor</span>
+                <a href="<?= URL ?>/FornecedorController/listarFornecedor"><img src="../public/img/Fornecedor.svg" alt="">Fornecedor</a>
             </li>
 
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">

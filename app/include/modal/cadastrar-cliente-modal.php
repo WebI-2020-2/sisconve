@@ -10,11 +10,16 @@
                 </div>
             </div>
 
-            <form action="./testepost.php" method="POST">
-                <div > <!-- class="d-flex justify-content-center" -->
+            <form action="<?= URL ?>/ClientesController/cadastrar" method="POST">
+                <div>
+                    <!-- class="d-flex justify-content-center" -->
                     <div class="input input-nome-cliente">
                         <label for="nome-cliente">Nome do cliente</label>
-                        <input type="text" name="nome-cliente" placeholder="nome do cliente" required>
+                        <input type="text" name="nome" placeholder="nome do cliente" required>
+                    </div>
+                    <div class="input input-catagoria">
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="cpf" required>
                     </div>
                     <div class="input input-ddd">
                         <label for="ddd">DDD</label>
@@ -24,17 +29,13 @@
                         <label for="num_telefone">Telefone</label>
                         <input type="text" name="num_telefone" required>
                     </div>
-                    <div class="input input-catagoria">
-                        <label for="cpf">CPF</label>
-                        <input type="text" name="cpf" required>
+                    <div class="input input-numero">
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" required>
                     </div>
                     <div class="input input-rua">
                         <label for="rua">Rua</label>
                         <input type="text" name="rua" required>
-                    </div>
-                    <div class="input input-numero">
-                        <label for="numero">Número</label>
-                        <input type="text" name="numero" required>
                     </div>
                     <div class="input input-bairro">
                         <label for="bairro">Bairro</label>

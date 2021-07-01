@@ -2,7 +2,7 @@
     <div class="title-content">
         <div class="title-text">
             <span>
-                <a href="./dashboard.php">
+                <a href="<?= URL?>/DashboardController/dashboard">
                     <img src="../public/img/dashboard-verde.svg" alt="Dashboard">
                     Dashboard
                 </a>
@@ -27,9 +27,9 @@
                 Cadastrar Fornecedor
             </button>
 
-            <?php 
-                // modal para cadastro do fornecedor
-                include('../src/includes/modal/cadastrar-fornecedor-modal.php');
+            <?php
+            // modal para cadastro do fornecedor
+            include('./../app/include/modal/cadastrar-fornecedor-modal.php');
             ?>
 
         </div>
@@ -47,12 +47,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($dados['fornecedores'] as $fornecedor) : ?>
                     <tr id="item-details">
-                        <td>0001</td>
-                        <td>Cotiplas</td>
-                        <td>77 992256874</td>
-                        <td>Candiba</td>
-                        <td>BA</td>
+                        <td><?= $fornecedor->id_fornecedor?></td>
+                        <td><?= $fornecedor->nome_fornecedor ?></td>
+                        <td><?= $fornecedor->telefone ?></td>
+                        <td><?= $fornecedor->cidade ?></td>
+                        <td><?= $fornecedor->estado ?></td>
                         <td>
                             <a title="Ver fornecedor" href="#">
                                 <img src="../public/img/eye-icon.svg" alt="">
@@ -65,8 +66,13 @@
                             </a>
                         </td>
                     </tr>
+                <?php endforeach ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
+
+

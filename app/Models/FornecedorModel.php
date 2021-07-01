@@ -114,7 +114,7 @@ class FornecedorModel
 
     public function insert($dados)
     {
-        $this->setNomeFornecedor($dados['nome_fornecedor']);
+        $this->setNomeFornecedor($dados['nome']);
         $this->setTelefone($dados['telefone']);
         $this->setEstado($dados['estado']);
         $this->setCidade($dados['cidade']);

@@ -2,7 +2,7 @@
     <div class="title-content">
         <div class="title-text">
             <span>
-                <a href="./dashboard.php">
+                <a href="<?= URL?>/DashboardController/dashboard">
                     <img src="../public/img/dashboard-verde.svg" alt="Dashboard">
                     Dashboard
                 </a>
@@ -49,24 +49,26 @@
                 </thead>
                 <tbody>
                     <?php foreach ($dados['clientes'] as $cliente) : ?>
-                        <td><?= $cliente->id_cliente ?></td>
-                        <td><?= $cliente->nome_cliente ?></td>
-                        <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
-                        <td><?= $cliente->cpf ?></td>
-                        <td><?= $cliente->credito ?></td>
-                        <td><?= $cliente->debito ?></td>
-                        <td>
-                            <a title="Ver cliente" href="#">
-                                <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
-                            </a>
-                            <a title="Editar cliente" href="#">
-                                <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
-                            </a>
-                            <a title="Exluir cliente" href="#">
-                                <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
-                            </a>
-                        </td> 
-                        <?php endforeach ?>
+                        <tr>
+                            <td><?= $cliente->id_cliente ?></td>
+                            <td><?= $cliente->nome_cliente ?></td>
+                            <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
+                            <td><?= $cliente->cpf ?></td>
+                            <td><?= $cliente->credito ?></td>
+                            <td><?= $cliente->debito ?></td>
+                            <td>
+                                <a title="Ver cliente" href="#">
+                                    <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
+                                </a>
+                                <a title="Editar cliente" href="#">
+                                    <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
+                                </a>
+                                <a title="Exluir cliente" href="#">
+                                    <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>

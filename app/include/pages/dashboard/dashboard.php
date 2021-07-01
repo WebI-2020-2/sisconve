@@ -25,7 +25,7 @@
             <a href="#" style="background-color: #00FF66;" class="button">
                 <span><img src="../public/img/compas-btn.svg" alt="">Compras</span>
             </a>
-            <a href="#" style="background-color: #00A3FF;" class="button">
+            <a href="<?= URL ?>/FornecedorController/listarFornecedor" style="background-color: #00A3FF;" class="button">
                 <span><img src="../public/img/fornecedor-btn.svg" alt="">Fornecedor</span>
             </a>
             <a href="#" style="background-color: #FF0099;" class="button">
