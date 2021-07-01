@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <form action="./testepost.php" method="POST" class="sell">
+    <form action="#" method="POST" class="sell">
         <div class="sell-area">
             <div class="section section-sell-area p-0 m-0">
                 <div class="title-section">
@@ -47,7 +47,7 @@
                         </div>
                         <?php 
                             // modal para o metodo de pagamento
-                            include('../src/includes/modal/cliente-modal.php');
+                            include('./../app/include/modal/cliente-modal.php');
                         ?>
                     </div>
                     <div class="payment">
@@ -60,7 +60,7 @@
                         </div>
                         <?php 
                             // modal para o metodo de pagamento
-                            include('../src/includes/modal/metodo-pagamento-modal.php');
+                            include('./../app/include/modal/metodo-pagamento-modal.php');
                         ?>
                     </div>
                     <div class="add-product">
@@ -70,7 +70,7 @@
                         </button>
                         <?php 
                             // chamada do modal add-items
-                            include("../src/includes/modal/add-item-modal.php");
+                            include("./../app/include/modal/add-item-modal.php");
                         ?>
                     </div>
                 </div>

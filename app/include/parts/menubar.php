@@ -33,7 +33,7 @@
             </li>
 
             <li href="#pageSubmenuFornecedor" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="<?= URL ?>/FornecedorController/listarFornecedor"><img src="../public/img/Fornecedor.svg" alt="">Fornecedor</a>
+                <a href="<?= URL ?>/FornecedorController/listarFornecedor"><img src="../public/img/fornecedor.svg" alt="Fornecedor">Fornecedor</a>
             </li>
 
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">
