@@ -19,7 +19,7 @@
             <li href="#pageSubmenuVendas" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/vendas.svg" alt="">Vendas</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuVendas">
-                    <li><a href="#">Realizar venda</a></li>
+                    <li><a href="<?= URL ?>/VendaController/cadastrar">Realizar venda</a></li>
                     <li><a href="#">Ver vendas</a></li>
                 </ul>
             </li>
