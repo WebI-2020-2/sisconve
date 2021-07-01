@@ -271,4 +271,17 @@ class ProdutoModel
             return false;
         endif;
     }
+
+    public function validarQuantidade($dados)
+    {
+        $qunatidadeInt = (int)$dados['quantidade'];
+        $this->setQuantidade($qunatidadeInt);
+        $this->db->query("SELECT quantidade FROM produto WHERE quantidade <= :quantidade");
+        $this->db->bind(":quantidade", $this->getQuantidade());
+        if ($this->db->resultado()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

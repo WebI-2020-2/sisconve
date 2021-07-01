@@ -4,18 +4,20 @@ class VendaController extends Controller
     public function __construct()
     {
         if (!Sessao::estaLogado()) :
-            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
-            // URL::redirecionar('UsuarioController/login');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
         endif;
         $this->vendaModel = $this->model('VendaModel');
         $this->itemVendaModel = $this->model('ItemVendaModel');
+        $this->produtoModel = $this->model('ProdutoModel');
     }
 
-    public function index(){
-        
+    public function index()
+    {
     }
-    public function listarvenda(){
-        $dados =[
+    public function listarvenda()
+    {
+        $dados = [
             'vendas' => $this->vendaModel->selectAll()
         ];
         $this->view('venda/listarVendas', $dados);
@@ -28,10 +30,10 @@ class VendaController extends Controller
             $dados = [
                 // item_venda
                 'quantidade' => trim($formulario['quantidade']),
-                'valor_unitario'=> trim($formulario['valor_unitario']),
+                'valor_unitario' => trim($formulario['valor_unitario']),
 
                 // venda
-                'num_parcelas'=> trim($formulario['num_parcelas']),
+                'num_parcelas' => trim($formulario['num_parcelas']),
 
                 'quantidade_erro' => '',
                 'valor_unitario_erro' => '',
@@ -50,16 +52,19 @@ class VendaController extends Controller
                 if (empty($formulario['num_parcelas'])) :
                     $dados['num_parcelas_erro'] = "Preencha o campo";
                 endif;
-            else:
+            else :
                 if (Validar::validarCampoNumerico($formulario['quantidade'])) :
                     $dados['quantidade_erro'] = "Formato informado é <b>invalido</b>";
 
-                elseif(Validar::validarCampoNumerico($formulario['valor_unitario'])):
+                elseif ($this->produtoModel->validarQuantidade($formulario['quantidade'])) :
+                    $dados['quantidade_erro'] = "Quantidade <b>acima</b> do estoque";
+
+                elseif (Validar::validarCampoNumerico($formulario['valor_unitario'])) :
                     $dados['valor_unitario_erro'] = "Formato informado é <b>invalido</b>";
-                
-                elseif(Validar::validarCampoNumerico($formulario['num_parcelas'])):
+
+                elseif (Validar::validarCampoNumerico($formulario['num_parcelas'])) :
                     $dados['num_parcelas_erro'] = "Formato informado é <b>invalido</b>";
-                else:
+                else :
                     if ($this->vendaModel->insert($dados)) :
                         $ultimoId = $this->vendaModel->getUltimoId();
                         echo 'Cadastro realizado como sucesso <hr>';
@@ -70,7 +75,7 @@ class VendaController extends Controller
                     endif;
 
                     if ($this->itemVendaModel->insert($dados, $ultimoId)) :
-                        
+
                         echo 'Cadastro realizado como sucesso <hr>';
 
                     else :
@@ -80,11 +85,11 @@ class VendaController extends Controller
                 endif;
             endif;
             var_dump($formulario);
-        else:
+        else :
             $dados = [
                 'quantidade' => '',
-                'valor_unitario'=> '',
-                'num_parcelas'=> '',
+                'valor_unitario' => '',
+                'num_parcelas' => '',
 
                 'quantidade_erro' => '',
                 'valor_unitario_erro' => '',
