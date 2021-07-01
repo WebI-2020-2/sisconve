@@ -110,7 +110,10 @@ class CompraModel
     }
     public function selectAll()
     {
-        $this->db->query('SELECT * FROM compra');
+        $this->db->query('SELECT compra.id_compra, funcionario.nome_funcionario, fornecedor.nome_fornecedor, compra.valor_total, compra.data_compra
+        FROM compra, funcionario, fornecedor
+        WHERE compra.id_fornecedor = fornecedor.id_fornecedor
+        AND compra.id_funcionario = funcionario.id_funcionario');
         return $this->db->resultados();
     }
 

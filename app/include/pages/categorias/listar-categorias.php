@@ -46,7 +46,7 @@
                 </thead>
                 <tbody>
                     <?php foreach ($dados['categorias'] as $categoria) : ?>
-                        <tr>
+                        <tr id="item-details">
                             <td><?= $categoria->id_categoria ?></td>
                             <td><?= $categoria->nome_categoria ?></td>
                             <td>Quantidade de produtos aqui</td>

@@ -1,3 +1,12 @@
+<?php
+include './../app/Models/ClienteModel.php';
+
+$cliente = new ClienteModel();
+$lista_cliente = $cliente->selectAll();
+
+?>
+
+
 <div class="modal fade" id="client-modal" tabindex="-1" aria-labelledby="client-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -10,11 +19,9 @@
 
             <div class="d-flex justify-content-center">
                 <select name="cliente" id="nome-cliente">
-                    <option value="0" selected>CLIENTE PADRÃO</option>
-                    <option value="1">JOSÉ ALENCAR DE SOUZA</option>
-                    <option value="2">ZECA DA SILVA FAGUNDES</option>
-                    <option value="3">MARIA ANTONIETA MARGARIDA</option>
-                    <option value="4">ANA MARGARIDA MARTINS</option>
+                    <?php foreach ($lista_cliente as $cliente) : ?>
+                        <option value="<?= $cliente->id_cliente?>" selected><?=$cliente->nome_cliente?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 

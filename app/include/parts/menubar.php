@@ -28,7 +28,7 @@
                 <span><img src="../public/img/Compras.svg" alt="">Compras</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuCompras">
                     <li><a href="#">Registrar uma compra</a></li>
-                    <li><a href="#">Ver compras</a></li>
+                    <li><a href="<?= URL ?>/CompraController/listarCompras">Ver compras</a></li>
                 </ul>
             </li>
 

@@ -9,7 +9,7 @@
             </span>
             <span>/</span>
             <span>
-                <img src="../public/img/car-comprad.svg" alt="Compras">
+                <img src="../public/img/car-compra.svg" alt="Compras">
                 Compras
             </span>
         </div>
@@ -36,12 +36,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($dados['compras'] as $compra) : ?>
                     <tr id="item-details">
-                        <td>0001</td>
-                        <td>Zeca Zika</td>
-                        <td>Nike</td>
-                        <td>R$ 2566,00</td>
-                        <td>25/25/2525</td>
+                        <td><?= $compra->id_compra ?></td>
+                        <td><?= $compra->nome_funcionario ?></td>
+                        <td><?= $compra->nome_fornecedor ?></td>
+                        <td><?= $compra->valor_total ?></td>
+                        <td><?= Validar::dataBr($compra->data_compra) ?></td>
                         <td>
                             <a title="Ver compra" href="#">
                                 <img src="../public/img/eye-icon.svg" alt="">
@@ -54,8 +55,10 @@
                             </a>
                         </td>
                     </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+

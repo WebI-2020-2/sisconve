@@ -1,3 +1,13 @@
+<?php
+include './../app/Models/FormaPagamentoModel.php';
+
+$formaDePagamento = new FormaPagamentoModel();
+$lista_formaDePagamento = $formaDePagamento->selectAll(); 
+
+
+?>
+
+
 <div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="logoff-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -10,11 +20,9 @@
 
             <div class="d-flex justify-content-center">
                 <select name="metodo-pagamento" id="metodo-pagamento" required>
-                    <option value="0" selected>À VISTA</option>
-                    <option value="1">À PRAZO</option>
-                    <option value="2">CARTÃO DÉBITO</option>
-                    <option value="3">CARTÃO CRÉDITO</option>
-                    <option value="4">CARNÊ</option>
+                <?php foreach ($lista_formaDePagamento as $formaDePagamentos):?>
+                    <option value="<?=$formaDePagamentos->id_forma_pagamento?>" selected><?=$formaDePagamentos->tipo_pagamento?></option>
+                <?php endforeach;?>
                 </select>
             </div>
 

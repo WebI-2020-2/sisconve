@@ -49,7 +49,7 @@
                 </thead>
                 <tbody>
                     <?php foreach ($dados['clientes'] as $cliente) : ?>
-                        <tr>
+                        <tr id="item-details">
                             <td><?= $cliente->id_cliente ?></td>
                             <td><?= $cliente->nome_cliente ?></td>
                             <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
