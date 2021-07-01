@@ -1,0 +1,20 @@
+.content-center{
+    width: 100%;
+    height: 99%;
+    background-color: #f6f6f6;
+    margin: 13px 13px 0px 13px;
+    border-radius: .5rem .5rem 0 0;
+    border-top: .7rem solid #25767B;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.content-center .dashboard{
+    height: 100%;
+}
+
+.content-center .dashboard .title-content{
+    background-color: #fff;
+    height: 8%;
+    display: flex;
+    align-items: center;
+}
