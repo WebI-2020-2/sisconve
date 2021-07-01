@@ -1,3 +1,9 @@
+<?php
+include './../app/Models/ProdutoModel.php';
+$produto = new ProdutoModel();
+$lista_produtos = $produto->selectAll();
+?>
+
 <!-- Modal Add Item -->
 <div class="modal fade" id="add-item-modal" tabindex="-1" aria-labelledby="logoff-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -17,8 +23,9 @@
                         <div class="input">
                             <select name="nome-produto" id="nome-produto" class="name-product" placeholder="" required>
                                 <option value="" disabled selected>Selecione um produto</option>
-                                <option value="0">Boneca Cotiplas</option>
-                                <option value="1">Caneca Porcelux</option>
+                                <?php foreach ($lista_produtos as $produtos):?>
+                                <option value="<?= $produtos->id_produto ?>"><?= $produtos->nome_produto ?></option>
+                                <?php endforeach;?>
                             </select>
                             <img src="../public/img/search-icon.svg" alt="Procurar">
                         </div>
