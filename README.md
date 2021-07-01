@@ -1,27 +1,27 @@
 # SISCONVE - `Sistema de Controle de Vendas e Estoque`
 
-#### • Link para acesso/teste do sistema: [sisconve.sytes.net](http://sisconve.sytes.net/)
-#### Usuario = teste
-#### Senha = teste
+#### • Link para acesso/teste do sistema: [sisconve.duckdns.org](http://sisconve.duckdns.org)
+#### Usuario = `teste`
+#### Senha = `teste`
 
 ## Lista de funcionalidades disponiveis:
 
 |      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
-| Caixa              |    ✔️    |    ❌    |     ❌    |     ❌     |
+| Caixa              |    ❌    |    ❌    |     ❌    |     ❌     |
 | Categorias         |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Cliente            |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Compra             |    ✔️    |    ❌     |     ❌    |     ❌     |
+| Compra             |    ❌    |    ❌     |     ❌    |     ❌     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
-| Endereço           |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Forma de Pagamento |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Endereço           |    ✔️    |    ❌     |     ❌    |     ❌     |
+| Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
 | Fornecedor         |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Funcionario        |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Parcelas           |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Funcionario        |    ❌    |    ❌     |     ❌    |     ❌     |
+| Parcelas           |    ❌    |    ❌     |     ❌    |     ❌     |
 | Produto            |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Contato            |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Usuário            |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Venda              |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Contato            |    ✔️    |    ❌     |     ❌    |     ❌     |
+| Usuário            |    ❌    |    ❌     |     ❌    |     ❌     |
+| Venda              |    ❌    |    ❌     |     ❌    |     ❌     |
 
 # 
 
