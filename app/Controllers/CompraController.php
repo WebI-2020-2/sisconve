@@ -34,8 +34,11 @@ class CompraController extends Controller
 
                 // Compra
                 'parcelas' =>  trim($formulario['parcelas']),
+                'fornecedor' => trim($formulario['fornecedor']),
+                'funcionario' => trim($formulario['funcionario']),
 
                 // Produto
+                'categoria' => trim($formulario['categoria']),
                 'nome_produto' => trim($formulario['nome_produto']),
 
                 // item_compra
@@ -53,6 +56,8 @@ class CompraController extends Controller
 
                 // Compra
                 'parcelas_erro' =>  '',
+                'fornecedor_erro' => '',
+                'funcionario_erro' => '',
 
                 // Produto
                 'nome_produto_erro' => '',
@@ -67,8 +72,24 @@ class CompraController extends Controller
             ];
             if (in_array("", $formulario)) :
 
+                if (empty($formulario['categoria'])) :
+                    $dados['categoria_erro'] = "Preencha o campo ";
+                endif;
+
+                if (empty($formulario['nome_produto'])) :
+                    $dados['nome_produto_erro'] = "Preencha o campo";
+                endif;
+
                 if (empty($formulario['parcelas'])) :
                     $dados['parcelas_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['fornecedor'])) :
+                    $dados['fornecedor_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['funcionario'])) :
+                    $dados['funcionario_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['nome_produto'])) :
@@ -119,6 +140,8 @@ class CompraController extends Controller
 
                     endif;
 
+                    ////////////////////////////////////////
+
                     if ($this->produtoModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
                         $ultimoidProduto = $this->produtoModel->getUltimoId();
@@ -135,13 +158,17 @@ class CompraController extends Controller
                         die("Erro");
 
                     endif;
-
+                    
                 endif;
             endif;
+            var_dump($formulario);
+            echo '<hr>';
         else :
             $dados = [
                 // Compra
                 'parcelas' =>  '',
+                'fornecedor' => '',
+                'funcionario' => '',
 
                 // Produto
                 'nome_produto' => '',

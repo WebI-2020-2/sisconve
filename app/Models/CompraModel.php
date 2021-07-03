@@ -120,15 +120,17 @@ class CompraModel
     public function insert($dados)
     {
         $parcelas_int = (int) $dados['parcelas'];
+        $fornecedorint = (int) $dados['fornecedor'];
+        $funcionarioInt = (int) $dados['funcionario'];
 
-        $this->setFornecedor_id(1);
-        $this->setFuncionario_id(1);
+        $this->setFornecedor_id($fornecedorint);
+        $this->setFuncionario_id($funcionarioInt);
         $this->setParcelas($parcelas_int);
 
         $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:id_funcionario, :id_fornecedor, :parcelas) RETURNING id_compra");
 
-        $this->db->bind(':id_funcionario', $this->getFornecedor_id());
-        $this->db->bind(':id_fornecedor', $this->getFuncionario_id());
+        $this->db->bind(':id_funcionario', $this->getFuncionario_id());
+        $this->db->bind(':id_fornecedor', $this->getFornecedor_id());
         $this->db->bind(':parcelas', $this->getParcelas());
 
         if ($this->db->executa()) :

@@ -265,7 +265,6 @@ class ProdutoModel
 
         if ($this->db->executa()) :
             $this->setUltimoId($this->db->ultimoId()['id_produto']);
-            print_r($this->getUltimoId());
             return true;
         else :
             return false;
