@@ -198,4 +198,13 @@ class UsuarioController extends Controller
         header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
         URL::redirecionar('UsuarioController/login');
     }
+
+    public function minhaConta()
+    {
+        $dados = [
+            'usuariosListar' => $this->usuarioModel->selectById($_SESSION["USUARIO_ID"])
+        ];
+
+        $this->view('usuarios/MeusDados', $dados);
+    }
 }

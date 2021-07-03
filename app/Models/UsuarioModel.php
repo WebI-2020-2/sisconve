@@ -200,4 +200,11 @@ class UsuarioModel
         $this->db->query("SELECT * FROM usuario");
         return $this->db->resultados();
     }
+    public function selectById($id)
+    {
+        $this->setId($id);
+        $this->db->query("SELECT * FROM usuario WHERE id_usuario = :id_usuario");
+        $this->db->bind(":id_usuario", $this->getId());
+        return $this->db->resultados();
+    }
 }

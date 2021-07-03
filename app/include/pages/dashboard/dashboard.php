@@ -19,10 +19,10 @@
             <a href="<?= URL?>/CategoriaController/listarCategoria" style="background-color: #A1A500;" class="button">
                 <span><img src="../public/img/categorias-btn.svg" alt="">Categorias</span>
             </a>
-            <a href="#" style="background-color: #890765;" class="button">
+            <a href="<?= URL ?>/VendaController/cadastrar" style="background-color: #890765;" class="button">
                 <span><img src="../public/img/vendas-btn.svg" alt="">Vendas</span>
             </a>
-            <a href="#" style="background-color: #00FF66;" class="button">
+            <a href="<?= URL ?>/CompraController/listarCompras" style="background-color: #00FF66;" class="button">
                 <span><img src="../public/img/compas-btn.svg" alt="">Compras</span>
             </a>
             <a href="<?= URL ?>/FornecedorController/listarFornecedor" style="background-color: #00A3FF;" class="button">

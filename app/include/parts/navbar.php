@@ -11,10 +11,10 @@
         <div class="dropdown show">
             <img class="arrow-icon dropdown" id="dropdownMenuLink" data-toggle="dropdown" src="../public/img/arrow-icon.svg" alt="Seta Configuração">
             <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="dropdownMenuLink">
-                <a class="" href="#">
+                <a class="" href="<?= URL ?>/UsuarioController/minhaConta">
                     <div class="item-menu">
                         <i class="fas fa-user"></i>
-                        <p>Minha Conta</p>
+                        <a>Minha Conta</a>
                     </div>
                 </a>
                 <a class="" href="#">
