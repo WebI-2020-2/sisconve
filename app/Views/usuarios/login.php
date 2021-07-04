@@ -36,7 +36,7 @@
                                     <input type="password" name="senha" maxlength="50" required>
                                 </div>
                                 <div class="alert">
-                                    <small><?= Sessao::mensagem('usuario');?></small>
+                                    <small><?= Sessao::mensagem('usuario'); ?></small>
                                     
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             </button>
                         </div>
                         <div class="mini-footer">
-                            <a href="dashboard.php">Esqueci minha senha</a>
+                            <a href="#">Esqueci minha senha</a>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-include './../app/Models/ClienteModel.php';
+include_once './../app/Models/ClienteModel.php';
 
 $cliente = new ClienteModel();
 $lista_cliente = $cliente->selectAll();

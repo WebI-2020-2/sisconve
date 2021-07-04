@@ -1,5 +1,5 @@
 <?php
-include './../app/Models/FormaPagamentoModel.php';
+include_once './../app/Models/FormaPagamentoModel.php';
 
 $formaDePagamento = new FormaPagamentoModel();
 $lista_formaDePagamento = $formaDePagamento->selectAll(); 

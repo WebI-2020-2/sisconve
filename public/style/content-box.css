@@ -101,15 +101,20 @@
     height: 30px;
 }
 
+.table-item-area table td button,
 .table-item-area table td a{
     text-decoration: none;
+    outline: none;
+    border: 0;
 }
 
+.table-item-area table td button img,
 .table-item-area table td a img{
     width: 20px;
     transition: opacity .3s;
 }
 
+.table-item-area table td button img:hover,
 .table-item-area table td a img:hover{
     opacity: 70%;
 }

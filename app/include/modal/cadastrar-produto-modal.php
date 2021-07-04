@@ -1,5 +1,5 @@
 <?php
-include './../app/Models/CategoriaModel.php';
+include_once './../app/Models/CategoriaModel.php';
 $categoria = new CategoriaModel();
 $lista_categorias = $categoria->selectAll();
 ?>

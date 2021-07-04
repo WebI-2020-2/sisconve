@@ -11,19 +11,19 @@
         <div class="dropdown show">
             <img class="arrow-icon dropdown" id="dropdownMenuLink" data-toggle="dropdown" src="../public/img/arrow-icon.svg" alt="Seta Configuração">
             <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="dropdownMenuLink">
-                <a class="" href="<?= URL ?>/UsuarioController/minhaConta">
+                <a href="<?= URL ?>/UsuarioController/minhaConta">
                     <div class="item-menu">
                         <i class="fas fa-user"></i>
-                        <a>Minha Conta</a>
+                        <p>Minha Conta</p>
                     </div>
                 </a>
-                <a class="" href="#">
+                <a href="#">
                     <div class="item-menu">
                         <i class="fas fa-cog"></i>
                         <p>Configurações</p>
                     </div>
                 </a>
-                <a class="" href="<?= URL ?>/UsuarioController/sair">
+                <a href="<?= URL ?>/UsuarioController/sair">
                     <div class="item-menu">
                         <i class="fas fa-power-off"></i>
                         <p>Sair do sistema</p>

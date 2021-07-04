@@ -1,5 +1,5 @@
 <?php
-include './../app/Models/ProdutoModel.php';
+include_once './../app/Models/ProdutoModel.php';
 $produto = new ProdutoModel();
 $lista_produtos = $produto->selectAll();
 ?>

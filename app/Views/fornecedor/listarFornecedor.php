@@ -13,57 +13,94 @@
 
 <body>
 
-    <!-- nav bar inicio -->
+    <!-- navbar topo-->
     <?php include("./../app/include/parts/navbar.php") ?>
-    <!-- navbar fim -->
 
     <div id="container">
 
-        <!-- inicio menu-bar (barra lateral)-->
+        <!-- menu lateral -->
         <?php include("./../app/include/parts/menubar.php") ?>
-        <!-- menu-bar fim -->
 
-        <!-- box-center início (area central) -->
         <div class="content-center">
-            <?php include("./../app/include/pages/fornecedor/listar-fornecedores.php"); ?>
+            <!-- conteudo do centro -->
+            <div class="dashboard">
+                <div class="title-content">
+                    <div class="title-text">
+                        <span>
+                            <a href="<?= URL ?>/DashboardController/dashboard">
+                                <img src="../public/img/dashboard-verde.svg" alt="Dashboard">
+                                Dashboard
+                            </a>
+                        </span>
+                        <span>/</span>
+                        <span>
+                            <img src="../public/img/truck-icon.svg" alt="Fornecedor">
+                            Fornecedores
+                        </span>
+                    </div>
+                </div>
+
+                <div class="item-area">
+                    <div class="manage-item-top">
+                        <div class="search-item">
+                            <input id="search" onkeyup="search()" type="text" placeholder="Procure por um fornecedor">
+                            <img src="../public/img/search-icon.svg" alt="Search">
+                        </div>
+
+                        <button type="button" id="btn" data-toggle="modal" data-target="#cadastrar-fornecedor-modal">
+                            <img src="../public/img/adicionar-item.svg" alt="Adicionar fornecedor">
+                            Cadastrar Fornecedor
+                        </button>
+
+                        <!-- modal para cadastro do fornecedor -->
+                        <?php include('./../app/include/modal/cadastrar-fornecedor-modal.php'); ?>
+
+                    </div>
+
+                    <div class="table-item-area">
+                        <table id="table-item">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome do Fornecedor</th>
+                                    <th>Telefone</th>
+                                    <th>Cidade</th>
+                                    <th>Estado</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($dados['fornecedores'] as $fornecedor) : ?>
+                                    <tr>
+                                        <td><?= $fornecedor->id_fornecedor ?></td>
+                                        <td><?= $fornecedor->nome_fornecedor ?></td>
+                                        <td><?= $fornecedor->telefone ?></td>
+                                        <td><?= $fornecedor->cidade ?></td>
+                                        <td><?= $fornecedor->estado ?></td>
+                                        <td>
+                                            <button title="Ver fornecedor" onclick="">
+                                                <img src="../public/img/eye-icon.svg" alt="">
+                                            </button>
+                                            <button title="Editar fornecedor" onclick="">
+                                                <img src="../public/img/pencil-icon.svg" alt="">
+                                            </button>
+                                            <button title="Exluir fornecedor" onclick="deleteFornecedor('<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
+                                                <img src="../public/img/trash-icon.svg" alt="">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- box-center fim -->
 
     </div>
 
-
-
 </body>
-<?php
-    // include dos scripts js
-    include("./../app/include/etc/scripts.php")
-?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-    $(function() {
-        $("#search").keyup(function() {
-            var texto = $(this).val();
-            $("#item-details").each(function() {
-                var resultado = $(this).text().toUpperCase().indexOf(' ' + texto.toUpperCase());
-                if (resultado < 0) {
-                    $(this).fadeOut()
-                } else {
-                    $(this).fadeIn();
-                }
-            });
-        });
-    });
-</script>
+
+<?php include("./../app/include/etc/scripts.php"); ?>
 
 </html>
-
-
-
-<?php
-// include_once './../app/Controllers/ClientesController.php';
-
-//foreach ($dados['clientes'] as $cliente) : ?>
-        <?php // $cliente->id_cliente ?>
-
-<?php // endforeach ?>
-
