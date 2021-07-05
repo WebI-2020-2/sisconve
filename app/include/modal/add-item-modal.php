@@ -21,13 +21,13 @@ $lista_produtos = $produto->selectAll();
                     <div class="input-product">
                         <label for="nome-produto">Nome do produto</label>
                         <div class="input">
-                            <select name="nome-produto" id="nome-produto" class="name-product" placeholder="" required>
+                            <select name="nome-produto" id="nome-produto" class="select name-product" required>
                                 <option value="" disabled selected>Selecione um produto</option>
                                 <?php foreach ($lista_produtos as $produtos):?>
                                 <option value="<?= $produtos->id_produto ?>"><?= $produtos->nome_produto ?></option>
                                 <?php endforeach;?>
                             </select>
-                            <img src="../public/img/search-icon.svg" alt="Procurar">
+                            <!-- <img src="../public/img/search-icon.svg" alt="Procurar"> -->
                         </div>
                     </div>
                     <div class="input-quantidade">

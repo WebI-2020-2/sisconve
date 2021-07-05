@@ -129,6 +129,12 @@
     height: 30px;
 }
 
+.section table button{
+    outline: none;
+    border: 0;
+}
+
+.section table button img,
 .section table a img{
     width: 20px;
 }

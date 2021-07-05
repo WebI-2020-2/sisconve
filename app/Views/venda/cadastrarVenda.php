@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="add-product">
                                     <button type="button" id="btn-add-item" data-toggle="modal" data-target="#add-item-modal">
-                                        <img src="../public/img/Adicionar-Item.svg" alt="Adicionar Item">
+                                        <img src="../public/img/adicionar-item.svg" alt="Adicionar Item">
                                         Adicionar Item
                                     </button>
                                     <!-- chamada do modal add-items -->
@@ -98,7 +98,7 @@
                     <div class="sell-attributes">
                         <div class="value-cart">
                             <span id="total-value">Valor total R$</span>
-                            <span id="value-cart">00,00</span>
+                            <span id="value-cart">0.00</span>
                         </div>
                         <div class="buttons">
                             <button type="button" id="cancelar-venda" class="cancel">
@@ -125,7 +125,141 @@
 <?php include("./../app/include/etc/scripts.php"); ?>
 <script src="../public/js/metPagamento.js"></script>
 <script src="../public/js/selectCliente.js"></script>
-<script src="../public/js/realizarVenda.js"></script>
+
+<script>
+
+    var produtos = [];
+    var estoqueProduto = [];
+    
+    <?php 
+        include_once './../app/Models/ProdutoModel.php';
+        $produto = new ProdutoModel();
+        $lista_produtos = $produto->selectAll();
+
+        // trazer a variavel $dados['produtos'] pra cá
+
+        foreach($lista_produtos as $produto): ?>
+            produtos["<?= $produto->id_produto ?>"] = {
+                id : parseInt("<?= $produto->id_produto ?>"),
+                nome : "<?= $produto->nome_produto ?>",
+                valor : parseFloat("<?= $produto->preco_venda ?>"),
+                quantidade : parseInt("<?= $produto->quantidade ?>")
+            }; 
+            estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>");
+            <?php
+        endforeach;
+    ?>
+
+    var buttonAddItem = document.getElementById("btn-add-item");
+    var inputNomeProduto = document.getElementById("nome-produto");
+    var inputQuantProduto = document.getElementById("quantidade-item");
+    var tableBodyItems = document.getElementById("table-body-items-venda");
+    var buttonAddItemModal = document.getElementById("btn-add-item-modal");
+    var cancelarVenda = document.getElementById("cancelar-venda");
+    var finalizarVenda = document.getElementById("finalizar-venda");
+    var valorTotalVenda = document.getElementById("value-cart");
+    var table = document.getElementById("table-items-venda");
+    var indiceTable = 0;
+
+    buttonAddItem.addEventListener("click", () => {
+        inputNomeProduto.value = "";
+        inputQuantProduto.value = 1;
+    });
+
+    buttonAddItemModal.addEventListener("click", () => {
+
+        if (inputQuantProduto.value > estoqueProduto[inputNomeProduto.value]) {
+            return alert("Não existe essa quantidade para esse produto cadastrado em estoque!");
+        } 
+
+        if (inputNomeProduto.value != "" && inputQuantProduto.value != "") {
+
+            estoqueProduto[inputNomeProduto.value] -= inputQuantProduto.value;
+
+            tableBodyItems.innerHTML += `
+                <tr>
+                    <td>${indiceTable+1}</td>
+                    <td>
+                        <input type="text" name="id-produto[]" value="${inputNomeProduto.value}" required style="display: none">
+                        ${produtos[inputNomeProduto.value].nome}
+                    </td>
+                    <td>
+                        R$ ${(produtos[inputNomeProduto.value].valor).toFixed(2)}
+                    </td>
+                    <td>
+                        <input type="text" id="quantidade-produto" name="quantidade-produto[]" value="${inputQuantProduto.value}" required style="display: none">
+                        ${inputQuantProduto.value} unid
+                    </td>
+                    <td>
+                        <input type="text" id="valor-total-produto" value="${(parseInt(inputQuantProduto.value)*produtos[inputNomeProduto.value].valor)}" required style="display: none">
+                        R$ ${(parseInt(inputQuantProduto.value)*produtos[inputNomeProduto.value].valor).toFixed(2)}
+                    </td>
+                    <td>
+                        <button title="Remover item" onclick="removeRow(this)">
+                            <img src="../public/img/lixeira-btn.svg" alt="Remover Produto">
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }
+
+        indiceTable++;
+        countTableRows();
+        setTotalValue();
+    });
+
+    function setTotalValue() {
+        var valores = document.querySelectorAll("#valor-total-produto");
+        var valorTotal = 0;
+        valores.forEach((valor) => {
+            valorTotal += parseFloat(valor.value);
+        });
+
+        valorTotalVenda.innerHTML = valorTotal.toFixed(2);
+    }
+
+    function removeRow(btn) {
+        var row = btn.parentNode.parentNode;
+        //console.log(parseInt(row.querySelector("#quantidade-produto").value))
+        estoqueProduto[row.querySelector("input").value] += parseInt(row.querySelector("#quantidade-produto").value);
+        row.remove(row);
+        countTableRows();
+        setTotalValue();
+    }
+
+    function countTableRows() {
+        if (table.rows.length == 1) {
+            finalizarVenda.disabled = true;
+            cancelarVenda.disabled = true;
+            finalizarVenda.style.cursor = "not-allowed";
+            cancelarVenda.style.cursor = "not-allowed";
+            finalizarVenda.style.opacity = "70%";
+            cancelarVenda.style.opacity = "70%";
+        } else {
+            finalizarVenda.disabled = false;
+            cancelarVenda.disabled = false;
+            finalizarVenda.style.cursor = "pointer";
+            cancelarVenda.style.cursor = "pointer";
+            finalizarVenda.style.opacity = "100%";
+            cancelarVenda.style.opacity = "100%";
+        }
+    }
+
+    cancelarVenda.addEventListener("click", () => {
+        var value = confirm("Deseja cancelar a venda?");
+        if (value) {
+            tableBodyItems.innerHTML = "";
+            // devolvendo a quantidade dos produtos para a variavel estoque
+            produtos.forEach(produto => {
+                estoqueProduto[produto.id] = produto.quantidade;
+            });
+        }
+        indiceTable = 0;
+        countTableRows();
+        setTotalValue();
+    });
+
+</script>
 
 </html>
 
