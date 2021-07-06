@@ -123,8 +123,6 @@
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
-<script src="../public/js/metPagamento.js"></script>
-<script src="../public/js/selectCliente.js"></script>
 
 <script>
 
@@ -220,7 +218,6 @@
 
     function removeRow(btn) {
         var row = btn.parentNode.parentNode;
-        //console.log(parseInt(row.querySelector("#quantidade-produto").value))
         estoqueProduto[row.querySelector("input").value] += parseInt(row.querySelector("#quantidade-produto").value);
         row.remove(row);
         countTableRows();
@@ -258,6 +255,67 @@
         countTableRows();
         setTotalValue();
     });
+
+    //////////////////////////////////////////////////
+    //                 modal clientes
+
+    var clientes = [];
+    clientes[0] = {id: null, nome: "Cliente Padrão"}
+
+    <?php
+
+        include_once './../app/Models/ClienteModel.php';
+        $cliente = new ClienteModel();
+        $lista_cliente = $cliente->selectAll();
+
+        // trazer a variavel $dados['clientes'] pra cá
+
+        foreach($lista_cliente as $cliente): ?>
+            clientes["<?= $cliente->id_cliente ?>"] = {
+                id : parseInt("<?= $cliente->id_cliente ?>"),
+                nome : "<?= $cliente->nome_cliente ?>"
+            }; <?php
+        endforeach;
+
+    ?>
+
+    var spanTxtSC = document.getElementById("name-client");
+    var selectCliente = document.getElementById("nome-cliente");
+
+    selectCliente.addEventListener("change", () => {
+        spanTxtSC.value = clientes[parseInt(selectCliente.value)].nome.toUpperCase();
+    });
+
+    //////////////////////////////////////////////////
+    //           modal metodo de pagamento
+
+    var metPag = [];
+    metPag[1] = {id: 1, tipo: "à vista"}
+
+    <?php
+
+        include_once './../app/Models/FormaPagamentoModel.php';
+        $formaDePagamento = new FormaPagamentoModel();
+        $lista_formaDePagamento = $formaDePagamento->selectAll(); 
+
+        // trazer a variavel $dados['metodo_pagamento'] pra cá
+
+        foreach($lista_formaDePagamento as $formaDePagamento): ?>
+            metPag["<?= $formaDePagamento->id_forma_pagamento ?>"] = {
+                id : parseInt("<?= $formaDePagamento->id_forma_pagamento ?>"),
+                tipo : "<?= $formaDePagamento->tipo_pagamento ?>"
+            }; <?php
+        endforeach;
+
+    ?>
+
+    var spanTxtMP = document.getElementById("met-pag");
+    var metodoPagamento = document.getElementById("metodo-pagamento");
+
+    metodoPagamento.addEventListener("change", () => {
+        spanTxtMP.value = metPag[parseInt(metodoPagamento.value)].tipo.toUpperCase();
+    });
+
 
 </script>
 

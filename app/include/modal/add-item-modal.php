@@ -33,7 +33,7 @@ $lista_produtos = $produto->selectAll();
                     <div class="input-quantidade">
                         <label for="quantidade-item">Quantidade</label>
                         <div class="input">
-                            <input name="quantidade-item" id="quantidade-item" class="quant-product" type="text" min="1" value="1" required>
+                            <input name="quantidade-item" id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="text" min="1" value="1" required>
                         </div>
                     </div>
                 </div>

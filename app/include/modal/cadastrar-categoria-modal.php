@@ -14,7 +14,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="input-nome-categoria">
                         <label for="nomecategoria">Nome da categoria</label>
-                        <input type="text" name="nomecategoria" placeholder="nome da categoria" required>
+                        <input type="text" name="nomecategoria" oninput="validaInput(this)" placeholder="nome da categoria" required>
                     </div>
                 </div>
 
