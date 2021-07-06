@@ -155,16 +155,24 @@ class ItemCompraModel
         $this->setProdutoId($ultimoidProduto);
         $this->setCompraId($ultimoidCompra);
         
-        $ipiInt = (int)$dados['ipi'];
-        $freteInt = (int)$dados['frete'];
-        $icmsInt = (int)$dados['icms'];
-        $precoCompraInt = (int)$dados['preco_compra'];
+        $ipiString = str_replace(",",".", $dados['ipi']);
+        $ipiFloat = (float)$ipiString;
+
+        $freteString = str_replace(",",".", $dados['frete']);
+        $freteFloat = (float)$freteString;
+
+        $icmsString = str_replace(",",".", $dados['icms']);
+        $icmsFloat = (float)$icmsString;
+
+        $precoCompraString = str_replace(",",".", $dados['preco_compra']);
+        $precoCompraFloat = (float) $precoCompraString;
+
         $quantidadeInt = (int)$dados['quantidade'];
 
-        $this->setIpi($ipiInt);
-        $this->setFrete($freteInt);
-        $this->setIcms($icmsInt);
-        $this->setPreco_compra($precoCompraInt);
+        $this->setIpi($ipiFloat);
+        $this->setFrete($freteFloat);
+        $this->setIcms($icmsFloat);
+        $this->setPreco_compra($precoCompraFloat);
         $this->setQuantidade($quantidadeInt);
 
         $this->db->query("INSERT INTO item_compra(id_produto, id_compra, ipi, frete, icms, preco_compra, quantidade) VALUES (:id_produto, :id_compra, :ipi, :frete, :icms, :preco_compra, :quantidade)");
@@ -188,17 +196,26 @@ class ItemCompraModel
     {
         $this->setCompraId($ultimoidCompra);
 
-        $ipiInt = (int)$dados['ipi'];
-        $freteInt = (int)$dados['frete'];
-        $icmsInt = (int)$dados['icms'];
-        $precoCompraInt = (int)$dados['preco_compra'];
+        
+        $ipiString = str_replace(",",".", $dados['ipi']);
+        $ipiFloat = (float)$ipiString;
+
+        $freteString = str_replace(",",".", $dados['frete']);
+        $freteFloat = (float)$freteString;
+
+        $icmsString = str_replace(",",".", $dados['icms']);
+        $icmsFloat = (float)$icmsString;
+
+        $precoCompraString = str_replace(",",".", $dados['preco_compra']);
+        $precoCompraFloat = (float) $precoCompraString;
+
         $quantidadeInt = (int)$dados['quantidade'];
         $produtoInt = (int)$dados['produto'];
 
-        $this->setIpi($ipiInt);
-        $this->setFrete($freteInt);
-        $this->setIcms($icmsInt);
-        $this->setPreco_compra($precoCompraInt);
+        $this->setIpi($ipiFloat);
+        $this->setFrete($freteFloat);
+        $this->setIcms($icmsFloat);
+        $this->setPreco_compra($precoCompraFloat);
         $this->setQuantidade($quantidadeInt);
         $this->setProdutoId($produtoInt);
 
