@@ -85,6 +85,8 @@
                                             <button type="button" title="Exluir produto" onclick="deleteProduto('<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="">
                                             </button>
+                                            <a href="<?= URL.'/ProdutosController/visualizar/'.$produto->id_produto
+                                            ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

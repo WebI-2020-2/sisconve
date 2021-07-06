@@ -69,4 +69,14 @@ class ProdutosController extends Controller
 
         $this->view('produtos/listarProdutos', $dados);
     }
+
+    public function visualizar($id)
+    {
+        $produtos = $this->produtoModel->selectById($id);
+        $dados = [
+            'produtosListar' => $produtos
+        ];
+
+        $this->view('produtos/visualizar', $dados);
+    }
 }

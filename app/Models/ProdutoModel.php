@@ -247,10 +247,27 @@ class ProdutoModel
 
     public function selectAll()
     {
-        $this->db->query("SELECT produto.id_produto, produto.nome_produto, categoria.nome_categoria, produto.icms, produto.ipi, produto.frete, produto.preco_compra,
-        produto.preco_na_fabrica, produto.preco_venda, produto.lucro, produto.desconto, produto.quantidade
-        from produto, categoria
-        where produto.id_categoria = categoria.id_categoria");
+        $this->db->query("SELECT
+        produto.id_produto,
+        produto.nome_produto,
+        categoria.nome_categoria,
+        produto.icms,
+        produto.ipi,
+        produto.frete,
+        produto.preco_compra,
+        produto.preco_na_fabrica,
+        produto.preco_venda,
+        produto.lucro,
+        produto.desconto,
+        produto.quantidade 
+    FROM
+        produto,
+        categoria 
+    WHERE
+        produto.id_categoria = categoria.id_categoria 
+    ORDER BY
+        produto.id_produto ASC
+        ");
         return $this->db->resultados();
     }
     public function insert($dados)
@@ -282,5 +299,31 @@ class ProdutoModel
         else :
             return false;
         endif;
+    }
+
+    public function selectById($id)
+    {
+        $this->setId($id);
+        $this->db->query("SELECT
+        produto.id_produto,
+        produto.nome_produto,
+        categoria.nome_categoria,
+        produto.icms,
+        produto.ipi,
+        produto.frete,
+        produto.preco_compra,
+        produto.preco_na_fabrica,
+        produto.preco_venda,
+        produto.lucro,
+        produto.desconto,
+        produto.quantidade 
+    FROM
+        produto,
+        categoria 
+    WHERE
+        produto.id_categoria = categoria.id_categoria
+    AND produto.id_produto = :id_produto");
+        $this->db->bind(":id_produto", $this->getId());
+        return $this->db->resultados();
     }
 }

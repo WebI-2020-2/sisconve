@@ -161,4 +161,12 @@ class FornecedorModel
         $this->db->bind(":id_produto", $testeInt);
         return $this->db->resultados();
     }
+
+    public function selectById($id)
+    {
+        $this->setId($id);
+        $this->db->query("SELECT * FROM fornecedor WHERE id_fornecedor = :id_fornecedor");
+        $this->db->bind(":id_fornecedor", $this->getId());
+        return $this->db->resultados();
+    }
 }

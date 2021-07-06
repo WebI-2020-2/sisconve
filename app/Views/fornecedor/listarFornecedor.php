@@ -87,6 +87,8 @@
                                             <button title="Exluir fornecedor" onclick="deleteFornecedor('<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="">
                                             </button>
+                                            <a href="<?= URL.'/FornecedorController/visualizar/'.$fornecedor->id_fornecedor
+                                            ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

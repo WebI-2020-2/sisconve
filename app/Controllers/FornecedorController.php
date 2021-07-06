@@ -90,4 +90,14 @@ class FornecedorController extends Controller
         $this->viewModal('modal/cadastrar-fornecedor-modal', $dados);
         // $this->view('fornecedor/cadastrarFornecedor', $dados);
     }
+
+    public function visualizar($id)
+    {
+        $fornecedor = $this->fornecedorModel->selectById($id);
+        $dados = [
+            'fornecedorListar' => $fornecedor
+        ];
+
+        $this->view('fornecedor/visualizar', $dados);
+    }
 }

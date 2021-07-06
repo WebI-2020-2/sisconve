@@ -200,6 +200,7 @@ class UsuarioModel
         $this->db->query("SELECT * FROM usuario");
         return $this->db->resultados();
     }
+    
     public function selectById($id)
     {
         $this->setId($id);
