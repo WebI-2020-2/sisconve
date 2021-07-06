@@ -142,4 +142,29 @@ class CompraModel
             return false;
         endif;
     }
+
+    public function insertDois($dados, $idFornecedorModel)
+    {
+        $parcelasInt = (int) $dados['parcelas'];
+        $funcionarioInt = (int) $dados['funcionario'];
+
+        $this->setFuncionario_id($funcionarioInt);
+        $this->setParcelas($parcelasInt);
+        $this->setFornecedor_id($idFornecedorModel);
+
+        $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:id_funcionario, :id_fornecedor, :parcelas) RETURNING id_compra");
+
+        $this->db->bind(':id_funcionario', $this->getFuncionario_id());
+        $this->db->bind(':id_fornecedor', $this->getFornecedor_id());
+        $this->db->bind(':parcelas', $this->getParcelas());
+
+        if ($this->db->executa()) :
+            // print_r($this->db->ultimoId());
+            $this->setUltimoId($this->db->ultimoId()['id_compra']);
+            // print_r($this->getUltimoId());
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

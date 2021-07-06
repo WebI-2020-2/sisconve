@@ -184,4 +184,38 @@ class ItemCompraModel
         endif;
 
     }
+    public function insertDois($dados, $ultimoidCompra)
+    {
+        $this->setCompraId($ultimoidCompra);
+
+        $ipiInt = (int)$dados['ipi'];
+        $freteInt = (int)$dados['frete'];
+        $icmsInt = (int)$dados['icms'];
+        $precoCompraInt = (int)$dados['preco_compra'];
+        $quantidadeInt = (int)$dados['quantidade'];
+        $produtoInt = (int)$dados['produto'];
+
+        $this->setIpi($ipiInt);
+        $this->setFrete($freteInt);
+        $this->setIcms($icmsInt);
+        $this->setPreco_compra($precoCompraInt);
+        $this->setQuantidade($quantidadeInt);
+        $this->setProdutoId($produtoInt);
+
+        $this->db->query("INSERT INTO item_compra(id_produto, id_compra, ipi, frete, icms, preco_compra, quantidade) VALUES (:id_produto, :id_compra, :ipi, :frete, :icms, :preco_compra, :quantidade)");
+        
+        $this->db->bind(":id_produto", $this->getProdutoId());
+        $this->db->bind(":id_compra", $this->getCompraId());
+        $this->db->bind(":ipi", $this->getIpi());
+        $this->db->bind(":frete", $this->getFrete());
+        $this->db->bind(":icms", $this->getIcms());
+        $this->db->bind(":preco_compra", $this->getPreco_compra());
+        $this->db->bind(":quantidade", $this->getQuantidade());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

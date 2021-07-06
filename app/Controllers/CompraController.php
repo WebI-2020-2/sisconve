@@ -24,7 +24,7 @@ class CompraController extends Controller
         $this->view('compra/listarCompras', $dados);
     }
 
-    public function cadastrar()
+    public function compraSemProduto()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
@@ -158,7 +158,7 @@ class CompraController extends Controller
                         die("Erro");
 
                     endif;
-                    
+
                 endif;
             endif;
             var_dump($formulario);
@@ -198,6 +198,156 @@ class CompraController extends Controller
                 'preco_compra_erro' => '',
             ];
         endif;
-        $this->view('compra/cadastarCompras', $dados);
+        $this->view('compra/cadastarComprasSemProduto', $dados);
+    }
+
+    public function compraComProduto()
+    {
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($formulario)) :
+            $dados = [
+                // Compra
+                'funcionario' => trim($formulario['funcionario']),
+                'parcelas' => trim($formulario['parcelas']),
+
+                // Produto
+
+                'produto' => trim($formulario['produto']),
+                // item_compra
+                'ipi' => trim($formulario['ipi']),
+                'frete' => trim($formulario['frete']),
+                'icms' => trim($formulario['icms']),
+                'quantidade' => trim($formulario['quantidade']),
+                'preco_compra' => trim($formulario['preco_compra']),
+
+                // Erro
+                // Compra
+                'funcionario_erro' => '',
+                'parcelas_erro' => '',
+
+                // Produto
+
+                'produto_erro' => '',
+                // item_compra
+                'ipi_erro' => '',
+                'frete_erro' => '',
+                'icms_erro' => '',
+                'quantidade_erro' => '',
+                'preco_compra_erro' => '',
+
+
+            ];
+            if (in_array("", $formulario)) :
+                if (empty($formulario['funcionario'])) :
+                    $dados['funcionario_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['parcelas'])) :
+                    $dados['parcelas_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['produto'])) :
+                    $dados['produto_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['ipi'])) :
+                    $dados['ipi_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['frete'])) :
+                    $dados['frete_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['icms'])) :
+                    $dados['icms_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['quantidade'])) :
+                    $dados['quantidade_erro'] = "Preencha o campo";
+                endif;
+
+                if (empty($formulario['preco_compra'])) :
+                    $dados['preco_compra_erro'] = "Preencha o campo";
+                endif;
+            else :
+                if (Validar::validarCampoNumerico($formulario['funcionario'])) :
+                    $dados['funcionario_erro'] = "Formato informado <b>invalido</b>";
+
+                elseif (Validar::validarCampoNumerico($formulario['parcelas'])) :
+                    $dados['parcelas_erro'] = "Formato informado <b>invalido</b>";
+
+                elseif (Validar::validarCampoNumerico($formulario['produto'])) :
+                    $dados['produto_erro'] = "Formato informado <b>invalido</b>";
+
+                elseif (Validar::validarCampoNumerico($formulario['ipi'])) :
+                    $dados['ipi_erro'] = "Formato informado <b>invalido</b>";
+
+                elseif (Validar::validarCampoNumerico($formulario['frete'])) :
+                    $dados['frete_erro'] = "Formato informado <b>invalido</b>";
+
+                elseif (Validar::validarCampoNumerico($formulario['icms'])) :
+                    $dados['icms_erro'] = "Formato informado <b>invalido</b>";
+
+                elseif (Validar::validarCampoNumerico($formulario['preco_compra'])) :
+                    $dados['preco_compra_erro'] = "Formato informado <b>invalido</b>";
+
+                else :
+                    foreach ($this->fornecedorModel->fornecedorPorProduto($dados['produto']) as $teste) :
+                        $idFornecedorModel = $teste->id_fornecedor;
+                        $nome = $teste->nome_fornecedor;
+                    endforeach;
+
+                    if ($this->compraModel->insertDois($dados, $idFornecedorModel)) :
+                        echo 'Cadastro realizado como sucesso <hr>';
+                        $ultimoidCompra = $this->compraModel->getUltimoId();
+                    else :
+                        die("Erro");
+
+                    endif;
+
+                    if ($this->itemCompraModel->insertDois($dados, $ultimoidCompra)) :
+                        echo 'Cadastro realizado como sucesso <hr>';
+
+                    else :
+                        die("Erro");
+
+                    endif;
+
+                endif;
+            endif;
+            // var_dump($formulario);
+        else :
+            $dados = [
+                // Compra
+                'funcionario' => '',
+                'parcelas' => '',
+
+                // Produto
+
+                'produto' => '',
+                // item_compra
+                'ipi' => '',
+                'frete' => '',
+                'icms' => '',
+                'quantidade' => '',
+                'preco_compra' => '',
+
+                // Erro
+                // Compra
+                'funcionario_erro' => '',
+                'parcelas_erro' => '',
+
+                // Produto
+
+                'produto_erro' => '',
+                // item_compra
+                'ipi_erro' => '',
+                'frete_erro' => '',
+                'icms_erro' => '',
+                'quantidade_erro' => '',
+                'preco_compra_erro' => '',
+            ];
+        endif;
+        $this->view('compra/cadastarComprasComProduto');
     }
 }

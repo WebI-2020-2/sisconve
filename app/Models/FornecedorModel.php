@@ -139,4 +139,26 @@ class FornecedorModel
         $this->db->query("SELECT * FROM fornecedor");
         return $this->db->resultados();
     }
+
+    public function fornecedorPorProduto($id_produto)
+    {
+        $testeInt = $id_produto;
+        $this->db->query(
+            "SELECT
+            fornecedor.id_fornecedor,
+            fornecedor.nome_fornecedor 
+        FROM
+            compra,
+            fornecedor,
+            item_compra,
+            produto 
+        WHERE
+            fornecedor.id_fornecedor = compra.id_fornecedor 
+            AND compra.id_compra = item_compra.id_compra 
+            AND produto.id_produto = item_compra.id_produto 
+            AND produto.id_produto = :id_produto"
+        );
+        $this->db->bind(":id_produto", $testeInt);
+        return $this->db->resultados();
+    }
 }
