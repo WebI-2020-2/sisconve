@@ -29,7 +29,6 @@ $lista_categorias = $categoria->selectAll();
                                 <option value="<?= $categorias->id_categoria ?>">
                                     <?= $categorias->nome_categoria  ?>
                                 </option>
-
                             <?php endforeach ?>
                         </select>
                     </div>

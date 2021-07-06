@@ -77,13 +77,13 @@
                                         <td><?= $produto->quantidade ?></td>
                                         <td>
                                             <button type="button" title="Ver produto" onclick="">
-                                                <img src="../public/img/eye-icon.svg" alt="">
+                                                <img src="../public/img/eye-icon.svg" alt="Ver produto">
                                             </button>
                                             <button type="button" title="Editar produto" onclick="">
-                                                <img src="../public/img/pencil-icon.svg" alt="">
+                                                <img src="../public/img/pencil-icon.svg" alt="Editar produto">
                                             </button>
                                             <button type="button" title="Exluir produto" onclick="deleteProduto('<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
-                                                <img src="../public/img/trash-icon.svg" alt="">
+                                                <img src="../public/img/trash-icon.svg" alt="Exluir produto">
                                             </button>
                                             <a href="<?= URL.'/ProdutosController/visualizar/'.$produto->id_produto
                                             ?>">TESTE</a>
@@ -97,6 +97,15 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="toast fade show bg-success" id="myToast" data-bs-autohide="true" data-bs-delay="1000" style="position: absolute; top: 14%; right: 1%;">
+        <div class="d-flex">
+            <div class="toast-body" style="color: white">
+                Sucesso!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
     </div>
 
 </body>

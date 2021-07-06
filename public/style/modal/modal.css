@@ -1,6 +1,14 @@
 .modal-content {
-    background-color: #f6f6f6 !important;
-    border-radius: 10px !important;
+    border-radius: .5rem;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    border-left: .7rem solid #25767B !important;
+    border-right: .7rem solid #25767B !important;
+}
+
+.modal-content .modal-logoff{
+    width: 800px !important;
+    height: 300px !important;
 }
 
 .modal-content .modal-header,

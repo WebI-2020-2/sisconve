@@ -20,8 +20,9 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
 
             <div class="d-flex justify-content-center">
                 <select name="metodo-pagamento" id="metodo-pagamento" required>
+                    <option value="1" selected>À VISTA</option>
                 <?php foreach ($lista_formaDePagamento as $formaDePagamentos):?>
-                    <option value="<?=$formaDePagamentos->id_forma_pagamento?>" selected><?=$formaDePagamentos->tipo_pagamento?></option>
+                    <option value="<?=$formaDePagamentos->id_forma_pagamento?>"><?= mb_strtoupper($formaDePagamentos->tipo_pagamento) ?></option>
                 <?php endforeach;?>
                 </select>
             </div>

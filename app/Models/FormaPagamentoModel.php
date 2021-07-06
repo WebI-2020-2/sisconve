@@ -42,7 +42,7 @@ class FormaPagamentoModel
         $this->tipo_pagamento = $tipo_pagamento;
     }
     public function selectAll(){
-        $this->db->query('SELECT * FROM forma_pagamento');
+        $this->db->query('SELECT * FROM forma_pagamento WHERE id_forma_pagamento != 1');
         return $this->db->resultados();
     }
 
