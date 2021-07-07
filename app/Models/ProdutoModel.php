@@ -251,6 +251,7 @@ class ProdutoModel
         produto.id_produto,
         produto.nome_produto,
         categoria.nome_categoria,
+        categoria.id_categoria,
         produto.icms,
         produto.ipi,
         produto.frete,

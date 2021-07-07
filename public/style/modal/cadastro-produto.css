@@ -1,23 +1,15 @@
-.modal .modal-cad-cliente{
-    max-width: 600px !important;
+.modal .modal-cad-produto{
+    max-width: 650px !important;
 }
 
-.modal-content .form{
+form .form{
+    display: flex;
     margin: 0 1rem;
 }
 
-form{
-    margin-top: 15px;
-}
-
-.modal-content .form form input{
+form .input{
     display: flex;
     flex-direction: column;
-    width: 100%;
-}
-
-form .input{
-    margin: .2rem 0;
     width: 100%;
 }
 
@@ -32,49 +24,12 @@ form .input select{
     width: 100%;
 }
 
-form .input-nome-cliente input{
-    width: 100%;
-}
-
-form .input-ddd-tel-cpf{
-    display: flex;
-}
-
-form .input-ddd-tel-cpf .input-ddd{
-    margin-left: 2rem;
-    margin-right: 1rem;
-    width: 50px !important;
-} 
-
-form .input-ddd-tel-cpf .input-ddd input{
-    width: 50px;
-    text-align: center;
-}
-
-form .input-endereco-num{
-    display: flex;
-}
-
-form .input-endereco-num .input-rua{
-    width: 100%;
-}
-
-form .input-endereco-num .input-numero{
-    width: 100px;
-    margin-left: 1rem;
-}
-
-form .input-bairro-cidade-estado{
-    display: flex;
-}
-
-form .input-bairro-cidade-estado .input-cidade,
-form .input-bairro-cidade-estado .input-estado{
+form .form .input-categoria{
     margin-left: 1rem;
 }
 
 form .modal-footer{
-    margin: 1.5rem 0;
+    margin: 1.5rem 1rem;
     padding: 0;
 }
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SISCONVE - Produtos</title>
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/style/modal/cadastro-produto.css">
     <!-- estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
 </head>
@@ -70,7 +71,10 @@
                             <tbody>
                                 <?php foreach ($dados['produtos'] as $produto) : ?>
                                     <tr id="item-details">
-                                        <td><?= $produto->id_produto ?></td>
+                                        <td>
+                                            <?= $produto->id_produto ?>
+                                            <input value="<?= $produto->id_categoria ?>" style="display: none;">
+                                        </td>
                                         <td><?= $produto->nome_produto ?></td>
                                         <td><?= $produto->nome_categoria ?></td>
                                         <td><?= $produto->preco_venda ?></td>
@@ -79,19 +83,21 @@
                                             <button type="button" title="Ver produto" onclick="">
                                                 <img src="../public/img/eye-icon.svg" alt="Ver produto">
                                             </button>
-                                            <button type="button" title="Editar produto" onclick="">
-                                                <img src="../public/img/pencil-icon.svg" alt="Editar produto">
+                                            <button type="button" title="Editar produto" onclick="editProduto(this)">
+                                                <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-produto-modal" alt="Editar produto">
                                             </button>
                                             <button type="button" title="Exluir produto" onclick="deleteProduto('<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="Exluir produto">
                                             </button>
-                                            <a href="<?= URL.'/ProdutosController/visualizar/'.$produto->id_produto
-                                            ?>">TESTE</a>
+                                            <a href="<?= URL.'/ProdutosController/visualizar/'.$produto->id_produto ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+
+                        <?php include('./../app/include/modal/editar-produto-modal.php'); ?>
+
                     </div>
                 </div>
             </div>
@@ -99,18 +105,57 @@
 
     </div>
 
-    <div class="toast fade show bg-success" id="myToast" data-bs-autohide="true" data-bs-delay="1000" style="position: absolute; top: 14%; right: 1%;">
+    <!-- <div class="toast fade show bg-success" id="myToast" data-bs-autohide="true" data-bs-delay="1000" style="position: absolute; top: 14%; right: 1%;">
         <div class="d-flex">
             <div class="toast-body" style="color: white">
                 Sucesso!
             </div>
             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
         </div>
-    </div>
+    </div> -->
 
 </body>
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php") ?>
+
+<script>
+
+    var produtos = [];
+
+    <?php
+
+        foreach($dados['produtos'] as $produto) { ?>
+            produtos["<?= $produto->id_produto ?>"] = {
+                idCategoria: "<?= $produto->id_categoria ?>",
+                nome: "<?= $produto->nome_produto ?>"
+            }; <?php
+        } 
+
+    ?>
+
+    function editProduto(idCategoria) {
+        idCategoria = idCategoria.parentNode.parentNode.querySelector("input").value;
+
+        var editProdutoModal = document.getElementById("editar-produto-modal");
+        var produtoEdit;
+
+        produtos.forEach(produto => {
+            if(produto.idCategoria == idCategoria){
+                produtoEdit = produto;
+            }
+        });
+
+        var inputEdit = {
+            nome: editProdutoModal.querySelector("#nome-produto"),
+            categoria: editProdutoModal.querySelector("#categoria")
+        }
+
+        inputEdit.nome.value = produtoEdit.nome;
+        inputEdit.categoria.value = produtoEdit.idCategoria;
+
+    }
+
+</script>
 
 </html>

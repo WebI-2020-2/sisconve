@@ -10,8 +10,6 @@
                 </div>
             </div>
             <div class="form">
-                <h4 class="text-center">Digite abaixo os dados do cliente</h4>
-
                 <form action="<?= URL ?>/ClientesController/cadastrar" method="POST">
                     <div class="input input-nome-cliente">
                         <label for="nome-cliente">Nome do cliente</label>

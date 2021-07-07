@@ -11,16 +11,22 @@
             </div>
 
             <form action="<?= URL ?>/CategoriaController/cadastrarCategoria" method="POST">
-                <div class="d-flex justify-content-center">
+                <div class="form">
                     <div class="input-nome-categoria">
                         <label for="nomecategoria">Nome da categoria</label>
-                        <input type="text" name="nomecategoria" oninput="validaInput(this)" placeholder="nome da categoria" required>
+                        <input type="text" name="nomecategoria" oninput="validaInput(this)" placeholder="Brinquedos" required>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">OK</button>
+                    <button type="button" class="close" data-dismiss="modal">
+                        Cancelar
+                        <img src="../public/img/block-icon.svg" alt="Cancelar">
+                    </button>
+                    <button type="submit" class="submit">
+                        Cadastrar
+                        <img src="../public/img/check-icon.svg" alt="Cadastrar">
+                    </button>
                 </div>
             </form>
         </div>

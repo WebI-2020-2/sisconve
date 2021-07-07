@@ -118,7 +118,7 @@
 
     <?php
 
-        foreach ($dados['clientes'] as $cliente) : ?>
+        foreach ($dados['clientes'] as $cliente) { ?>
             clientes["<?= $cliente->id_cliente ?>"] = {
                 id: "<?= $cliente->id_cliente ?>",
                 nome: "<?= $cliente->nome_cliente ?>",
@@ -130,16 +130,13 @@
                 bairro: "<?= $cliente->bairro ?>",
                 cidade: "<?= $cliente->cidade ?>",
                 estado: "<?= $cliente->estado ?>"
-            };
-        <?php
-        endforeach;
+            }; <?php
+        }
 
     ?>
 
     function editCliente(idCliente) {
-        idCliente = idCliente.parentNode.parentNode;
-        idCliente = idCliente.querySelector("input");
-        idCliente = idCliente.value;
+        idCliente = idCliente.parentNode.parentNode.querySelector("input").value;
 
         var editClientModal = document.getElementById("editar-cliente-modal");
         var clienteEdit;

@@ -11,28 +11,35 @@
             </div>
 
             <form action="<?= URL ?>/FornecedorController/cadastrar" method="POST">
-                <div class="">
+                <div class="form">
                     <div class="input input-nome-fornecedor">
                         <label for="nome">Nome da fornecedor</label>
-                        <input type="text" id="nome" name="nome-fornecedor" placeholder="nome do fornecedor" required>
+                        <input type="text" id="nome" name="nome-fornecedor" oninput="validaInput(this)" placeholder="Brinquedos LTDA" required>
                     </div>
-                    <div class="input input-telefone-fornecedor">
-                        <label for="telefone">Telefone</label>
-                        <input type="text" name="telefone-fornecedor" required>
-                    </div>
-                    <div class="input input-nome-fornecedor">
-                        <label for="cidade">Cidade</label>
-                        <input type="text" name="cidade-fornecedor" required>
-                    </div>
-                    <div class="input input-estado-fornecedor">
-                        <label for="estado-fornecedor">Estado</label>
-                        <input type="text" name="estado-fornecedor" required>
+                    <div class="input-tel-cid-est">
+                        <div class="input input-telefone-fornecedor">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" name="telefone-fornecedor" oninput="validaInput(this)" placeholder="11 9 12345678" required>
+                        </div>
+                        <div class="input input-cidade-fornecedor">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade-fornecedor" oninput="validaInput(this)" placeholder="Guarabira" required>
+                        </div>
+                        <div class="input input-estado-fornecedor">
+                            <label for="estado-fornecedor">Estado</label>
+                            <input type="text" name="estado-fornecedor" oninput="validaInput(this)" placeholder="MG" maxlength="2" required>
+                        </div>
                     </div>
                 </div>
-
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">OK</button>
+                    <button type="button" class="close" data-dismiss="modal">
+                        Cancelar
+                        <img src="../public/img/block-icon.svg" alt="Cancelar">
+                    </button>
+                    <button type="submit" class="submit">
+                        Cadastrar
+                        <img src="../public/img/check-icon.svg" alt="Cadastrar">
+                    </button>
                 </div>
             </form>
         </div>

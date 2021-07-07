@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SISCONVE - Categorias</title>
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/style/modal/cadastro-categoria.css">
     <!-- estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
 </head>

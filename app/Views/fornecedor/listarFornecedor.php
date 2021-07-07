@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SISCONVE - Clientes</title>
     <link rel="shortcut icon" href="<?= URL ?>/public/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/style/modal/cadastro-fornecedor.css">
     <!-- Estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
 </head>

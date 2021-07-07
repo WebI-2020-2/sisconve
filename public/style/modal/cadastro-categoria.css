@@ -1,0 +1,58 @@
+form .form{
+    margin: 0 1rem;
+}
+
+form .input-nome-categoria{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form .input-nome-categoria input{
+    height: 33px;
+    outline: none;
+    padding: 0 .5rem;
+    border: 0.5px solid #9db9bb;
+    background-color: #f6f6f6;
+    border-radius: .4rem;
+    width: 100%;
+}
+
+form .modal-footer{
+    margin: 1.5rem 1rem;
+    padding: 0;
+}
+
+form .modal-footer button{
+    outline: none;
+    border: 0;
+    width: 120px;
+    height: 35px;
+    color: #fff;
+    border-radius: .3rem;
+}
+
+form .modal-footer .close img{
+    width: 13px;
+    margin: 2px;
+}
+
+form .modal-footer .submit img{
+    width: 17px;
+    margin: 2px;
+}
+
+form .modal-footer .close{
+    background-color: #CD0000;
+    transition: opacity .3s;
+}
+
+form .modal-footer .submit{
+    background-color: #00AC4F;
+    transition: opacity .3s;
+}
+
+form .modal-footer .close:hover,
+form .modal-footer .submit:hover{
+    opacity: 80%;
+}
