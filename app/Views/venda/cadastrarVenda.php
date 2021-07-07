@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SISCONVE - Realizar Venda</title>
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/style/sell-products.css">
+    <link rel="stylesheet" href="../public/style/modal/add-item.css">
     <!-- Estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
 </head>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SISCONVE - Clientes</title>
     <link rel="shortcut icon" href="<?= URL ?>/public/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/style/modal/cadastro-cliente.css">
     <!-- estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
 </head>
@@ -72,7 +73,10 @@
                             <tbody>
                                 <?php foreach ($dados['clientes'] as $cliente) : ?>
                                     <tr>
-                                        <td><?= $cliente->id_cliente ?></td>
+                                        <td>
+                                            <?= $cliente->id_cliente ?>
+                                            <input value="<?= $cliente->id_cliente ?>" style="display: none;">
+                                        </td>
                                         <td><?= $cliente->nome_cliente ?></td>
                                         <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
                                         <td><?= $cliente->cpf ?></td>
@@ -82,7 +86,7 @@
                                             <button title="Ver cliente" onclick="">
                                                 <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
                                             </button>
-                                            <button title="Editar cliente" onclick="">
+                                            <button title="Editar cliente" onclick="editCliente(this)" data-toggle="modal" data-target="#editar-cliente-modal">
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
                                             </button>
                                             <button title="Exluir cliente" onclick="deleteCliente('<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
@@ -93,6 +97,9 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+
+                        <?php include('./../app/include/modal/editar-cliente-modal.php'); ?>
+
                     </div>
                 </div>
             </div>
@@ -104,5 +111,68 @@
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
+
+<script>
+
+    var clientes = [];
+
+    <?php
+
+        foreach ($dados['clientes'] as $cliente) : ?>
+            clientes["<?= $cliente->id_cliente ?>"] = {
+                id: "<?= $cliente->id_cliente ?>",
+                nome: "<?= $cliente->nome_cliente ?>",
+                cpf: "<?= $cliente->cpf ?>",
+                ddd: "<?= $cliente->ddd ?>",
+                telefone: "<?= $cliente->num_telefone ?>",
+                rua: "<?= $cliente->rua ?>",
+                numero: "<?= $cliente->numero ?>",
+                bairro: "<?= $cliente->bairro ?>",
+                cidade: "<?= $cliente->cidade ?>",
+                estado: "<?= $cliente->estado ?>"
+            };
+        <?php
+        endforeach;
+
+    ?>
+
+    function editCliente(idCliente) {
+        idCliente = idCliente.parentNode.parentNode;
+        idCliente = idCliente.querySelector("input");
+        idCliente = idCliente.value;
+
+        var editClientModal = document.getElementById("editar-cliente-modal");
+        var clienteEdit;
+
+        clientes.forEach(cliente => {
+            if(cliente.id == idCliente){
+                clienteEdit = cliente
+            }
+        });
+
+        var inputEdit = {
+            nome: editClientModal.querySelector("#nome"),
+            cpf: editClientModal.querySelector("#cpf"),
+            ddd: editClientModal.querySelector("#ddd"),
+            telefone: editClientModal.querySelector("#telefone"),
+            rua: editClientModal.querySelector("#rua"),
+            numero: editClientModal.querySelector("#numero"),
+            bairro: editClientModal.querySelector("#bairro"),
+            cidade: editClientModal.querySelector("#cidade"),
+            estado: editClientModal.querySelector("#estado")
+        }
+
+        inputEdit.nome.value = clienteEdit.nome;
+        inputEdit.cpf.value = clienteEdit.cpf;
+        inputEdit.ddd.value = clienteEdit.ddd;
+        inputEdit.telefone.value = clienteEdit.telefone;
+        inputEdit.rua.value = clienteEdit.rua;
+        inputEdit.numero.value = clienteEdit.numero;
+        inputEdit.bairro.value = clienteEdit.bairro;
+        inputEdit.cidade.value = clienteEdit.cidade;
+        inputEdit.estado.value = clienteEdit.estado;
+    }
+
+</script>
 
 </html>

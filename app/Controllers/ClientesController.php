@@ -123,8 +123,8 @@ class ClientesController extends Controller
                 elseif (Validar::validarCampoString($formulario['estado'])) :
                     $dados['estado_erro'] = "Formato invalido";
 
-                elseif (Validar::validarCampoNumerico($formulario['numero'])) :
-                    $dados['numero_erro'] = "Formato invalido";
+                // elseif (Validar::validarCampoNumerico($formulario['numero'])) :
+                //    $dados['numero_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoNumerico($formulario['num_telefone'])) :
                     $dados['num_telefone_erro'] = "Formato invalido";
