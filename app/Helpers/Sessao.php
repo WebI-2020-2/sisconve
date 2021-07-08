@@ -14,9 +14,15 @@ class Sessao {
                 $_SESSION[$nome.'classe'] = $classe;
 
                 elseif(!empty($_SESSION[$nome]) && empty($texto)): 
-                    $classe = !empty($_SESSION[$nome.'classe']) ? $_SESSION[$nome.'classe'] : 'alert alert-success';
+                    $classe = !empty($_SESSION[$nome.'classe']) ? $_SESSION[$nome.'classe'] : 'bg-green';
                     //echo '<div class="'.$classe.'">'.$_SESSION[$nome].'</div>';
-                    echo "<script>alert('".$_SESSION[$nome]."');</script>";
+                    echo '
+                        <div class="toast fade show" id="toast">
+                            <div class="toast-body '.$classe.'">
+                                '.$_SESSION[$nome].'
+                            </div>
+                        </div>
+                    ';
                 
                     unset($_SESSION[$nome]);
                     unset($_SESSION[$nome.'classe']);

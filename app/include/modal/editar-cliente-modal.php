@@ -53,6 +53,10 @@
                             <input type="text" oninput="validaInput(this)" name="estado" id="estado" maxlength="2" placeholder="SP" required>
                         </div>
                     </div>
+                    
+                    <!-- levando o id do cliente via POST -->
+                    <input name="id_cliente" id="id-cliente" style="display: none;" required>
+
                     <div class="modal-footer">
                         <button type="button" class="close" data-dismiss="modal">
                             Cancelar

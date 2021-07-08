@@ -37,11 +37,14 @@ class CategoriaController extends Controller
                 if (Validar::validarCampoString($formulario['nomecategoria'])) :
                     $dados['nomecategoria_erro'] = "Nome informado é invalido";
                 elseif ($this->categoriaModel->validarCategoria($formulario['nomecategoria'])) :
-                    $dados['nomecategoria_erro'] = "Nome informado já existe";
+                    //$dados['nomecategoria_erro'] = "Nome informado já existe";
+                    Sessao::mensagem('categoria', 'Erro! O nome informado já existe!', 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
                 else :
                     if ($this->categoriaModel->insert($dados)) :
-                        Sessao::mensagem('categoria', 'Cadastro realizado como sucesso', 'alert alert-sucess');
-                        $this->listarCategoria();
+                        Sessao::mensagem('categoria', 'Cadastro realizado como sucesso!', 'bg-green');
+                        header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
+                        // URL::redirecionar('CategoriaController/listarCategoria');
                     else :
                         die("Erro");
 

@@ -19,6 +19,7 @@
 
     <div id="container">
 
+        <?= Sessao::mensagem('cliente')?>
         <!-- menu lateral -->
         <?php include("./../app/include/parts/menubar.php") ?>
 
@@ -149,6 +150,7 @@
         });
 
         var inputEdit = {
+            id: editClientModal.querySelector("#id-cliente"),
             nome: editClientModal.querySelector("#nome"),
             cpf: editClientModal.querySelector("#cpf"),
             ddd: editClientModal.querySelector("#ddd"),
@@ -160,6 +162,7 @@
             estado: editClientModal.querySelector("#estado")
         }
 
+        inputEdit.id.value = clienteEdit.id;
         inputEdit.nome.value = clienteEdit.nome;
         inputEdit.cpf.value = clienteEdit.cpf;
         inputEdit.ddd.value = clienteEdit.ddd;
@@ -169,6 +172,7 @@
         inputEdit.bairro.value = clienteEdit.bairro;
         inputEdit.cidade.value = clienteEdit.cidade;
         inputEdit.estado.value = clienteEdit.estado;
+        
     }
 
 </script>

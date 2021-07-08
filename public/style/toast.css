@@ -1,0 +1,25 @@
+body .toast,
+body .toast-body{
+    border-radius: .5rem !important;
+}
+
+body .toast-body{
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+body .toast{
+    display: block; 
+    position: absolute;
+    right: 1%;
+    top: 13.5%;
+    box-shadow: 2rem 1rem 1rem #000, 70% !important;
+}
+
+body .toast .bg-green{
+    background-color:  #00AC4F !important;
+}
+
+body .toast .bg-red{
+    background-color: #CD0000 !important;
+}

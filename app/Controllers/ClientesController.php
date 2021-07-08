@@ -140,7 +140,7 @@ class ClientesController extends Controller
                     endif;
 
                     if ($this->enderecoModel->insert($dados, $ultimoid) && $this->telefoneModel->insert($dados, $ultimoid)) :
-                        Sessao::mensagem('cliente', 'Usuario ou senha invalidos', 'alert alert-danger');
+                        Sessao::mensagem('cliente', 'Cadastro realizado com sucesso!', 'bg-green');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     // URL::redirecionar('UsuarioController/login');
                     else :

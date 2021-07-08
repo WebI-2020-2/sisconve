@@ -1,8 +1,10 @@
 function deleteCliente(id, nome) {
     var resp = confirm(`Deseja realmente excluir o cliente ${nome}?`);
-    if (resp) return alert(`ok! id = ${id}`)
+    if (resp) {
+        window.location.href = `/sisconve/ClientesController/visualizar/${id}`;
+    } //return alert(`ok! id = ${id}`)
     
-    //window.location.href = `/apagarCliente${id}`;
+    
 }
 
 function deleteProduto(id, nome) {

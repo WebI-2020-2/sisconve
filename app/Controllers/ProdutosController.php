@@ -37,7 +37,7 @@ class ProdutosController extends Controller
                     $dados['nome_produto_erro'] = "Formato informado <b>inavalido</b>";
                 else :
                     if ($this->produtoModel->insert($dados)) :
-                        echo 'Cadastro realizado como sucesso <hr>';
+                        Sessao::mensagem('produto', 'Cadastro realizado como sucesso', 'bg-green');
                         header("Location:".URL.DIRECTORY_SEPARATOR.'ProdutosController/listarProdutos');
                         // URL::redirecionar('ProdutosController/listarProdutos');
                     else :

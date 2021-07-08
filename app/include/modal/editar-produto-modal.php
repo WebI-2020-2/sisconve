@@ -34,6 +34,9 @@ $lista_categorias = $categoria->selectAll();
                     </div>
                 </div>
 
+                <!-- levando o id do produto via POST -->
+                <input name="id_produto" id="id-produto" style="display: none;" required>
+
                 <div class="modal-footer">
                     <button type="button" class="close" data-dismiss="modal">
                         Cancelar

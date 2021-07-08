@@ -17,6 +17,7 @@
     <?php include("./../app/include/parts/navbar.php") ?>
 
     <div id="container">
+        <?= Sessao::mensagem('produto') ?>
 
         <!-- menu lateral -->
         <?php include("./../app/include/parts/menubar.php") ?>
@@ -89,7 +90,7 @@
                                             <button type="button" title="Exluir produto" onclick="deleteProduto('<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="Exluir produto">
                                             </button>
-                                            <a href="<?= URL.'/ProdutosController/visualizar/'.$produto->id_produto ?>">TESTE</a>
+                                            <a href="<?= URL . '/ProdutosController/visualizar/' . $produto->id_produto ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -105,32 +106,24 @@
 
     </div>
 
-    <!-- <div class="toast fade show bg-success" id="myToast" data-bs-autohide="true" data-bs-delay="1000" style="position: absolute; top: 14%; right: 1%;">
-        <div class="d-flex">
-            <div class="toast-body" style="color: white">
-                Sucesso!
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-        </div>
-    </div> -->
-
 </body>
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php") ?>
 
 <script>
-
     var produtos = [];
 
     <?php
 
-        foreach($dados['produtos'] as $produto) { ?>
-            produtos["<?= $produto->id_produto ?>"] = {
-                idCategoria: "<?= $produto->id_categoria ?>",
-                nome: "<?= $produto->nome_produto ?>"
-            }; <?php
-        } 
+    foreach ($dados['produtos'] as $produto) { ?>
+        produtos["<?= $produto->id_produto ?>"] = {
+            id: "<?= $produto->id_produto ?>",
+            idCategoria: "<?= $produto->id_categoria ?>",
+            nome: "<?= $produto->nome_produto ?>"
+        };
+    <?php
+    }
 
     ?>
 
@@ -141,21 +134,22 @@
         var produtoEdit;
 
         produtos.forEach(produto => {
-            if(produto.idCategoria == idCategoria){
+            if (produto.idCategoria == idCategoria) {
                 produtoEdit = produto;
             }
         });
 
         var inputEdit = {
+            idProduto: editProdutoModal.querySelector("#id-produto"),
             nome: editProdutoModal.querySelector("#nome-produto"),
             categoria: editProdutoModal.querySelector("#categoria")
         }
 
+        inputEdit.idProduto.value = produtoEdit.id;
         inputEdit.nome.value = produtoEdit.nome;
         inputEdit.categoria.value = produtoEdit.idCategoria;
 
     }
-
 </script>
 
 </html>
