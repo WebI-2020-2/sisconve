@@ -78,6 +78,7 @@
                                             <a title="Exluir compra" href="#">
                                                 <img src="../public/img/trash-icon.svg" alt="">
                                             </a>
+                                            <a href="<?= URL?>/CompraController/visualizar/<?= $compra->id_compra ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

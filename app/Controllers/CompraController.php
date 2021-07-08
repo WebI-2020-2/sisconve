@@ -350,4 +350,13 @@ class CompraController extends Controller
         endif;
         $this->view('compra/cadastarComprasComProduto');
     }
+    public function visualizar($id)
+    {
+        $compra = $this->compraModel->selectById($id);
+        $dados = [
+            'comprasListar' => $compra
+        ];
+
+        $this->view('compra/visualizar', $dados);
+    }
 }
