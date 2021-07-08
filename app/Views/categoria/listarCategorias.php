@@ -13,7 +13,7 @@
 
 <body>
 
-    <?= Sessao::mensagem('categoria')?>
+    <?= Sessao::mensagem('categoria') ?>
     <!-- navbar topo -->
     <?php include("./../app/include/parts/navbar.php") ?>
 

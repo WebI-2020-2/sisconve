@@ -21,6 +21,9 @@ class CategoriaController extends Controller
     public function cadastrarCategoria()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
+
         if (isset($formulario)) :
             $dados = [
                 'nomecategoria' => trim($formulario['nomecategoria']),
@@ -36,15 +39,20 @@ class CategoriaController extends Controller
             else :
                 if (Validar::validarCampoString($formulario['nomecategoria'])) :
                     $dados['nomecategoria_erro'] = "Nome informado é invalido";
+                    Sessao::mensagem('categoria', 'Erro! Nome informado inválido!'.$imgError, 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
+
                 elseif ($this->categoriaModel->validarCategoria($formulario['nomecategoria'])) :
                     //$dados['nomecategoria_erro'] = "Nome informado já existe";
-                    Sessao::mensagem('categoria', 'Erro! O nome informado já existe!', 'bg-red');
+                    Sessao::mensagem('categoria', 'Erro! O nome informado já existe!'.$imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
+
                 else :
                     if ($this->categoriaModel->insert($dados)) :
-                        Sessao::mensagem('categoria', 'Cadastro realizado como sucesso!', 'bg-green');
+                        Sessao::mensagem('categoria', 'Cadastro realizado como sucesso!'.$imgSuccess, 'bg-green');
                         header("Location:".URL.DIRECTORY_SEPARATOR.'CategoriaController/listarCategoria');
                         // URL::redirecionar('CategoriaController/listarCategoria');
+
                     else :
                         die("Erro");
 

@@ -19,6 +19,8 @@
 
     <div id="container">
 
+        <?php Sessao::mensagem('fornecedor') ?>
+
         <!-- menu lateral -->
         <?php include("./../app/include/parts/menubar.php") ?>
 

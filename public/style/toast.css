@@ -1,11 +1,22 @@
 body .toast,
 body .toast-body{
-    border-radius: .5rem !important;
+    border-radius: .4rem !important;
 }
 
 body .toast-body{
     color: #fff !important;
     font-weight: bold !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body .toast-body #success{
+    width: 20px;
+}
+
+body .toast-body #error{
+    width: 14px;
 }
 
 body .toast{

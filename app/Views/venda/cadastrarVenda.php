@@ -12,6 +12,25 @@
     <?php include("./../app/include/etc/styles.php") ?>
 </head>
 
+<?php 
+
+    // trazer a variavel $dados['clientes'] pra cá
+    include_once './../app/Models/ClienteModel.php';
+    $cliente = new ClienteModel();
+    $lista_cliente = $cliente->selectAll();
+
+    // trazer a variavel $dados['produtos'] pra cá
+    include_once './../app/Models/ProdutoModel.php';
+    $produto = new ProdutoModel();
+    $lista_produtos = $produto->selectAll();
+
+    // trazer a variavel $dados['metodo_pagamento'] pra cá
+    include_once './../app/Models/FormaPagamentoModel.php';
+    $formaDePagamento = new FormaPagamentoModel();
+    $lista_formaDePagamento = $formaDePagamento->selectAll();
+
+?>
+
 <body onload="countTableRows()">
 
     <!-- navbar topo -->
@@ -65,34 +84,141 @@
                             </div>
                             <div class="sell-info">
                                 <div class="client">
-                                    <a href="#" data-toggle="modal" data-target="#client-modal">
+                                    <button type="button" id="btn" data-toggle="modal" data-target="#client-modal">
                                         <img src="../public/img/Selecionar-Cliente.svg" alt="Cliente">
                                         Cliente
-                                    </a>
+                                    </button>
                                     <div class="data-sell-info">
                                         <input type="text" id="name-client" value="CLIENTE PADRÃO" disabled>
                                     </div>
-                                    <!-- modal para o metodo de pagamento -->
-                                    <?php include('./../app/include/modal/cliente-modal.php'); ?>
+
+                                    <!-- modal para selecionar o cliente -->
+                                    <div class="modal fade" id="client-modal" tabindex="-1" aria-labelledby="client-modalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header float-right">
+                                                    <h5>Cliente</h5>
+                                                    <div class="close-modal">
+                                                        <img data-dismiss="modal" src="../public/img/block-icon-black.svg" alt="Fechar">
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-select">
+                                                    <label for="cliente">Selecione um cliente</label>
+                                                    <select name="cliente" id="nome-cliente">
+                                                        <option value="0" selected>CLIENTE PADRÃO</option>
+                                                        <?php foreach ($lista_cliente as $cliente) : ?>
+                                                            <option value="<?= $cliente->id_cliente ?>"><?= mb_strtoupper($cliente->nome_cliente) ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="confirm" data-dismiss="modal">
+                                                        <img src="../public/img/check-icon.svg" alt="Confirmar">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fim modal -->
+
                                 </div>
                                 <div class="payment">
-                                    <a href="#" data-toggle="modal" data-target="#payment-modal">
+                                    <button type="button" id="btn" data-toggle="modal" data-target="#payment-modal">
                                         <img src="../public/img/Meio-Pagamento.svg" alt="Metodo de Pagamento">
                                         Pagamento
-                                    </a>
+                                    </button>
                                     <div class="data-sell-info">
                                         <input type="text" id="met-pag" value="À VISTA" disabled required>
                                     </div>
+
                                     <!-- modal para o metodo de pagamento -->
-                                    <?php include('./../app/include/modal/metodo-pagamento-modal.php'); ?>
+                                    <div class="modal fade" id="payment-modal" tabindex="-1" aria-labelledby="logoff-modalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header float-right">
+                                                    <h5>Método de Pagamento</h5>
+                                                    <div class="close-modal">
+                                                        <img data-dismiss="modal" src="../public/img/block-icon-black.svg" alt="Fechar">
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-select d-flex">
+                                                    <div class="input-met-pag">
+                                                        <label for="metodo-pagamento">Selecione o método de pagamento</label>
+                                                        <select name="metodo-pagamento" id="metodo-pagamento" required>
+                                                            <option value="1" selected>À VISTA</option>
+                                                            <?php foreach ($lista_formaDePagamento as $formaDePagamentos) : ?>
+                                                                <option value="<?= $formaDePagamentos->id_forma_pagamento ?>"><?= mb_strtoupper($formaDePagamentos->tipo_pagamento) ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-parcel">
+                                                        <label for="num-parcelas">Número de parcelas</label>
+                                                        <input type="text" name="num-parcelas" oninput="validaInput(this)" maxlength="2" value="1" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="confirm" data-dismiss="modal">
+                                                        <img src="../public/img/check-icon.svg" alt="Confirmar">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fim modal -->
+
                                 </div>
                                 <div class="add-product">
                                     <button type="button" id="btn-add-item" data-toggle="modal" data-target="#add-item-modal">
                                         <img src="../public/img/adicionar-item.svg" alt="Adicionar Item">
                                         Adicionar Item
                                     </button>
-                                    <!-- chamada do modal add-items -->
-                                    <?php include("./../app/include/modal/add-item-modal.php"); ?>
+
+                                    <!-- modal add-items -->
+                                    <div class="modal fade" id="add-item-modal" tabindex="-1" aria-labelledby="logoff-modalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content modal-content-add-items">
+                                                <div class="modal-header float-right">
+                                                    <h5>Adicionar um item a venda</h5>
+                                                    <div class="close-modal">
+                                                        <img data-dismiss="modal" src="../public/img/block-icon-black.svg" alt="Fechar">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-select">
+                                                    <div class="input-modal-add-item">
+                                                        <div class="input-product">
+                                                            <label for="nome-produto">Nome do produto</label>
+                                                            <select name="nome-produto" id="nome-produto" class="select name-product" required>
+                                                                <option value="" disabled selected>Selecione um produto</option>
+                                                                <?php foreach ($lista_produtos as $produtos) : ?>
+                                                                    <option value="<?= $produtos->id_produto ?>"><?= $produtos->nome_produto ?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-quantidade">
+                                                            <label for="quantidade-item">Quantidade</label>
+                                                            <input name="quantidade-item" id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="text" min="1" value="1" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="exit-add" data-dismiss="modal" class="cancel btn-modal">
+                                                        Cancelar
+                                                        <img src="../public/img/block-icon.svg" alt="Cancelar">
+                                                    </button>
+                                                    <button type="button" class="confirm-add" id="btn-add-item-modal" data-dismiss="modal" class="confirm btn-modal">
+                                                        Adicionar
+                                                        <img src="../public/img/check-icon.svg" alt="Confirmar">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fim modal  -->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -127,27 +253,19 @@
 <?php include("./../app/include/etc/scripts.php"); ?>
 
 <script>
-
     var produtos = [];
     var estoqueProduto = [];
-    
-    <?php 
-        include_once './../app/Models/ProdutoModel.php';
-        $produto = new ProdutoModel();
-        $lista_produtos = $produto->selectAll();
 
-        // trazer a variavel $dados['produtos'] pra cá
-
-        foreach($lista_produtos as $produto): ?>
+    <?php
+        foreach ($lista_produtos as $produto) { ?>
             produtos["<?= $produto->id_produto ?>"] = {
-                id : parseInt("<?= $produto->id_produto ?>"),
-                nome : "<?= $produto->nome_produto ?>",
-                valor : parseFloat("<?= $produto->preco_venda ?>"),
-                quantidade : parseInt("<?= $produto->quantidade ?>")
-            }; 
-            estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>");
-            <?php
-        endforeach;
+                id: parseInt("<?= $produto->id_produto ?>"),
+                nome: "<?= $produto->nome_produto ?>",
+                valor: parseFloat("<?= $produto->preco_venda ?>"),
+                quantidade: parseInt("<?= $produto->quantidade ?>")
+            };
+            estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>"); <?php
+        }
     ?>
 
     var buttonAddItem = document.getElementById("btn-add-item");
@@ -170,7 +288,7 @@
 
         if (inputQuantProduto.value > estoqueProduto[inputNomeProduto.value]) {
             return alert("Não existe essa quantidade para esse produto cadastrado em estoque!");
-        } 
+        }
 
         if (inputNomeProduto.value != "" && inputQuantProduto.value != "") {
 
@@ -262,23 +380,18 @@
     //                 modal clientes
 
     var clientes = [];
-    clientes[0] = {id: null, nome: "Cliente Padrão"}
+    clientes[0] = {
+        id: null,
+        nome: "Cliente Padrão"
+    }
 
     <?php
-
-        include_once './../app/Models/ClienteModel.php';
-        $cliente = new ClienteModel();
-        $lista_cliente = $cliente->selectAll();
-
-        // trazer a variavel $dados['clientes'] pra cá
-
-        foreach($lista_cliente as $cliente): ?>
+        foreach ($lista_cliente as $cliente) { ?>
             clientes["<?= $cliente->id_cliente ?>"] = {
-                id : parseInt("<?= $cliente->id_cliente ?>"),
-                nome : "<?= $cliente->nome_cliente ?>"
+                id: parseInt("<?= $cliente->id_cliente ?>"),
+                nome: "<?= $cliente->nome_cliente ?>"
             }; <?php
-        endforeach;
-
+        }
     ?>
 
     var spanTxtSC = document.getElementById("name-client");
@@ -292,23 +405,18 @@
     //           modal metodo de pagamento
 
     var metPag = [];
-    metPag[1] = {id: 1, tipo: "à vista"}
+    metPag[1] = {
+        id: 1,
+        tipo: "à vista"
+    }
 
     <?php
-
-        include_once './../app/Models/FormaPagamentoModel.php';
-        $formaDePagamento = new FormaPagamentoModel();
-        $lista_formaDePagamento = $formaDePagamento->selectAll(); 
-
-        // trazer a variavel $dados['metodo_pagamento'] pra cá
-
-        foreach($lista_formaDePagamento as $formaDePagamento): ?>
+        foreach ($lista_formaDePagamento as $formaDePagamento) { ?>
             metPag["<?= $formaDePagamento->id_forma_pagamento ?>"] = {
-                id : parseInt("<?= $formaDePagamento->id_forma_pagamento ?>"),
-                tipo : "<?= $formaDePagamento->tipo_pagamento ?>"
+                id: parseInt("<?= $formaDePagamento->id_forma_pagamento ?>"),
+                tipo: "<?= $formaDePagamento->tipo_pagamento ?>"
             }; <?php
-        endforeach;
-
+        }
     ?>
 
     var spanTxtMP = document.getElementById("met-pag");
@@ -318,28 +426,6 @@
         spanTxtMP.value = metPag[parseInt(metodoPagamento.value)].tipo.toUpperCase();
     });
 
-
 </script>
 
 </html>
-
-<!-- <form name="cadastrar" action="<?= URL ?>/VendaController/cadastrar" method="post" class="text-center">
-    <label for="">Quantidade</label>
-    <input type="text" id="quantidade" name="quantidade">
-
-    <br>
-
-    <label for="">Valor</label>
-    <input type="number" name="valor_unitario" id="valor_unitario">
-
-
-    <br>
-
-    <label for="">Numero de parcelas</label>
-    <input type="number" name="num_parcelas" id="num_parcelas">
-
-    <br>
-
-    <input type="submit" class="btn btn-primary" value="Enviar">
-
-</form> -->

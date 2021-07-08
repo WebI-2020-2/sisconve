@@ -1,5 +1,4 @@
 <?php
-
 class VendaModel
 {
     private $Id;
@@ -112,19 +111,28 @@ class VendaModel
 
     public function selectAll()
     {
-        $this->db->query("SELECT
-        cliente.id_cliente,
-        caixa.id_caixa,
-        venda.id_venda,
-        venda.num_parcelas,
-        venda.valor_total,
-        venda.data_venda
-        From
-        cliente,
-        caixa,
-        venda ");
+        $this->db->query('
+            SELECT
+                cliente.id_cliente,
+                cliente.nome_cliente,
+                caixa.id_caixa,
+                venda.id_venda,
+                venda.num_parcelas,
+                venda.valor_total,
+                venda.data_venda
+            FROM
+                cliente,
+                caixa,
+                venda
+            WHERE
+                venda.id_cliente = cliente.id_cliente
+            AND
+                venda.id_caixa = caixa.id_caixa
+        ');
+
         return $this->db->resultados();
     }
+
     public function insert($dados)
     {
         $this->setCaixaId(1);

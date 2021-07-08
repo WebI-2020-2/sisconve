@@ -20,7 +20,7 @@ class VendaController extends Controller
         $dados = [
             'vendas' => $this->vendaModel->selectAll()
         ];
-        $this->view('venda/listarVendas', $dados);
+        $this->view('venda/listarVenda', $dados);
     }
 
     public function cadastrar()

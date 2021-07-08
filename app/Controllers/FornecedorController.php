@@ -24,6 +24,9 @@ class FornecedorController extends Controller
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
+
         if (isset($formulario)) :
             $dados = [
                 "nome" =>  trim($formulario['nome-fornecedor']),
@@ -55,18 +58,28 @@ class FornecedorController extends Controller
                 endif;
             else :
                 if (Validar::validarCampoString($formulario['nome-fornecedor'])) :
-                    $dados['nome_erro'] = "Nome informado é <b>invalido</b>";
+                    //$dados['nome_erro'] = "Nome informado é <b>invalido</b>";
+                    Sessao::mensagem('fornecedor', 'Erro! O nome informado é inválido! ', 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (Validar::validarCampoNumerico($formulario['telefone-fornecedor'])) :
-                    $dados['telefone_erro'] = "Telefone informado é <b>invalido</b>";
+                    //$dados['telefone_erro'] = "Telefone informado é <b>invalido</b>";
+                    Sessao::mensagem('fornecedor', 'Erro! O telefone informado é inválido!'.$imgError, 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (Validar::validarCampoString($formulario['estado-fornecedor'])) :
-                    $dados['estado_erro'] = "Estado informado é <b>invalido</b>";
+                    //$dados['estado_erro'] = "Estado informado é <b>invalido</b>";
+                    Sessao::mensagem('fornecedor', 'Erro! O estado informado é inválido!'.$imgError, 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
+
                 elseif (Validar::validarCampoString($formulario['cidade-fornecedor'])) :
-                    $dados['cidade_erro'] = "Cidade informado é <b>invalido</b>";
+                    //$dados['cidade_erro'] = "Cidade informado é <b>invalido</b>";
+                    Sessao::mensagem('fornecedor', 'Erro! A cidade informada é inválida!'.$imgError, 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
+
                 else :
                     if ($this->fornecedorModel->insert($dados)) :
-                        Sessao::mensagem('fornecedor','Cadastrado com sucesso','alert alert-danger');
+                        Sessao::mensagem('fornecedor', 'Cadastrado realizado com sucesso!'.$imgSuccess, 'bg-green');
                         header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                     else :
@@ -75,7 +88,7 @@ class FornecedorController extends Controller
                     endif;
                 endif;
             endif;
-            var_dump($formulario);
+            //var_dump($formulario);
         else :
             $dados = [
                 "nome" =>  '',
