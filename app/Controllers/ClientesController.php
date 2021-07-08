@@ -5,8 +5,8 @@ class ClientesController extends Controller
     public function __construct()
     {
         if (!Sessao::estaLogado()) :
-            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
-            // URL::redirecionar('UsuarioController/login');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
         endif;
         $this->clienteModel = $this->model('ClienteModel');
         $this->enderecoModel = $this->model('EnderecoModel');
@@ -140,9 +140,9 @@ class ClientesController extends Controller
                     endif;
 
                     if ($this->enderecoModel->insert($dados, $ultimoid) && $this->telefoneModel->insert($dados, $ultimoid)) :
-                        Sessao::mensagem('cliente','Usuario ou senha invalidos','alert alert-danger');
-                        header("Location:".URL.DIRECTORY_SEPARATOR.'ClientesController/listarClientes');
-                        // URL::redirecionar('UsuarioController/login');
+                        Sessao::mensagem('cliente', 'Usuario ou senha invalidos', 'alert alert-danger');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+                    // URL::redirecionar('UsuarioController/login');
                     else :
                         die("Erro");
                     endif;
@@ -181,5 +181,14 @@ class ClientesController extends Controller
         endif;
         $this->viewModal('modal/cadastrar-cliente-modal', $dados);
         // $this->view('clientes/cadastraClientes', $dados);
+    }
+    public function visualizar($id)
+    {
+        $clientes = $this->clienteModel->selectById($id);
+        $dados = [
+            'clientesListar' => $clientes
+        ];
+
+        $this->view('clientes/visualizar', $dados);
     }
 }

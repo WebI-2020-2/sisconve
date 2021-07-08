@@ -92,6 +92,7 @@
                                             <button title="Exluir cliente" onclick="deleteCliente('<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
                                                 <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
                                             </button>
+                                            <a href="<?= URL?>/ClientesController/visualizar/<?= $cliente->id_cliente ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
