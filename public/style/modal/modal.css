@@ -44,6 +44,40 @@
     margin: .5rem 0;
 }
 
+.modal-select{
+    margin: 1rem;
+}
+
+.modal-select .input-met-pag,
+.modal-select .input-parcel{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-select .input-met-pag{
+    width: 100%;
+}
+
+.modal-select .input-parcel{
+    width: 220px;
+    margin-left: 1rem;
+}
+
+.modal-select .input-parcel input{
+    text-align: center;
+}
+
+.modal-select select,
+.modal-select input{
+    height: 33px;
+    outline: none;
+    padding: 0 .5rem;
+    border: 0.5px solid #9db9bb;
+    background-color: #f6f6f6;
+    border-radius: .4rem;
+    width: 100%;
+}
+
 .modal-center h2{
     margin: 0;
 }
@@ -52,11 +86,13 @@
     background-color: #CD0000;
 }
 
-.modal-footer .cancel{
+.modal-footer .cancel,
+.modal-footer .confirm{
     background-color: #00AC4F;
 }
 
 .modal-footer .exit,
+.modal-footer .confirm,
 .modal-footer .cancel{
     display: flex;
     align-items: center;
@@ -72,6 +108,12 @@
 }
 
 .modal-footer .exit:hover,
+.modal-footer .confirm:hover,
 .modal-footer .cancel:hover{
     opacity: 90%;
+}
+
+.modal-footer .confirm img{
+    width: 22px;
+    margin-left: .5rem;
 }

@@ -20,7 +20,7 @@
                 <span><img src="../public/img/vendas.svg" alt="">Vendas</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuVendas">
                     <li><a href="<?= URL ?>/VendaController/cadastrar">Realizar venda</a></li>
-                    <li><a href="#">Ver vendas</a></li>
+                    <li><a href="<?= URL ?>/VendaController/listarVenda">Ver vendas</a></li>
                 </ul>
             </li>
 

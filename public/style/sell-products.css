@@ -111,20 +111,23 @@
     outline: none;
 }
 
-.sell-area .sell-info .client a,
-.sell-area .sell-info .payment a{
+.sell-area .sell-info .client #btn,
+.sell-area .sell-info .payment #btn{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 45%;
     height: 100%;
     border-radius: .5rem;
-    background-color: #2D595B;
+    border: 0;
+    color: #fff;
+    outline: none;
+    background-color: #2D595B !important;
     transition: background-color .3s;
 }
 
-.sell-area .sell-info .client a:hover,
-.sell-area .sell-info .payment a:hover{
+.sell-area .sell-info .client #btn:hover,
+.sell-area .sell-info .payment #btn:hover{
     background-color: #1f3b3d;
 }
 
@@ -149,11 +152,36 @@
     font-size: 17px;
 }
 
-.sell-area .sell-info .client a img,
-.sell-area .sell-info .payment a img,
+.sell-area .sell-info .client #btn img,
+.sell-area .sell-info .payment #btn img,
 .sell-area .sell-info .add-product #btn-add-item img{
     width: 17px;
     margin: 0 0.3rem 0.2rem 0;
+}
+
+.sell-area .sell-info .client #btn,
+.sell-area .sell-info .payment #btn,
+.sell-area .sell-info .add-product #btn{
+    border-radius: .5rem;
+    transform: scale(1);
+	animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.99);
+		box-shadow: 0 0 0 0 rgba(45, 89, 91, 1);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 5px rgba(45, 89, 91, 0);
+	}
+
+	100% {
+		transform: scale(0.99);
+		box-shadow: 0 0 0 0 rgba(45, 89, 91, 0);
+	}
 }
 
 .sell-products .sell-attributes{
