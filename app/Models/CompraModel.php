@@ -167,4 +167,22 @@ class CompraModel
             return false;
         endif;
     }
+
+    public function selectById($id)
+    {
+        $this->setId($id);
+        $this->db->query("SELECT compra.id_compra, funcionario.nome_funcionario,
+			 fornecedor.nome_fornecedor, produto.nome_produto, compra.valor_total,
+			 item_compra.ipi, item_compra.icms,
+			 item_compra.frete, item_compra.preco_compra,
+			 item_compra.quantidade, compra.data_compra
+        FROM compra, funcionario, fornecedor, item_compra, produto
+        WHERE compra.id_fornecedor = fornecedor.id_fornecedor
+        AND compra.id_funcionario = funcionario.id_funcionario
+		AND item_compra.id_compra = compra.id_compra
+		AND item_compra.id_produto = produto.id_produto
+		AND compra.id_compra = :id_compra");
+        $this->db->bind(":id_compra", $this->getId());
+        return $this->db->resultados();
+    }
 }
