@@ -26,19 +26,32 @@ class VendaController extends Controller
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
+
         if (isset($formulario)) :
             $dados = [
                 // item_venda
-                'quantidade' => trim($formulario['quantidade']),
-                'valor_unitario' => trim($formulario['valor_unitario']),
+                'id_produto' => [],         // $formulario['id-produto'],
+                'quantidade' => [],         // $formulario['quantidade-produto'],
+                'valor_unitario' => [],     // $formulario['valor-unitario'],
 
                 // venda
-                'num_parcelas' => trim($formulario['num_parcelas']),
+                'id_cliente' => (int) $formulario['cliente'],
+                'num_parcelas' => (int) $formulario['num-parcelas'],
+                'metodo_pagamento' => (int) $formulario['metodo-pagamento'],
 
                 'quantidade_erro' => '',
                 'valor_unitario_erro' => '',
                 'num_parcelas_erro' => ''
             ];
+
+            for ($i = 0; $i < count($formulario['id-produto']); $i++) :
+                $dados['id_produto'][$i]     = (int) $formulario['id-produto'][$i];
+                $dados['quantidade'][$i]     = (int) $formulario['quantidade-produto'][$i];
+                $dados['valor_unitario'][$i] = (float) $formulario['valor-unitario'][$i];
+            endfor;
+
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['quantidade'])) :
@@ -53,21 +66,21 @@ class VendaController extends Controller
                     $dados['num_parcelas_erro'] = "Preencha o campo";
                 endif;
             else :
-                if (Validar::validarCampoNumerico($formulario['quantidade'])) :
-                    $dados['quantidade_erro'] = "Formato informado é <b>invalido</b>";
+                // if (Validar::validarCampoNumerico($formulario['quantidade-produto'])) :
+                //   $dados['quantidade_erro'] = "Formato informado é <b>invalido</b>";
 
-                elseif ($this->produtoModel->validarQuantidade($formulario['quantidade'])) :
-                    $dados['quantidade_erro'] = "Quantidade <b>acima</b> do estoque";
+                // elseif ($this->produtoModel->validarQuantidade($formulario['quantidade-produto'])) :
+                //    $dados['quantidade_erro'] = "Quantidade <b>acima</b> do estoque";
 
-                elseif (Validar::validarCampoNumerico($formulario['valor_unitario'])) :
-                    $dados['valor_unitario_erro'] = "Formato informado é <b>invalido</b>";
+                // elseif (Validar::validarCampoNumerico($formulario['valor_unitario'])) :
+                //    $dados['valor_unitario_erro'] = "Formato informado é <b>invalido</b>";
 
-                elseif (Validar::validarCampoNumerico($formulario['num_parcelas'])) :
-                    $dados['num_parcelas_erro'] = "Formato informado é <b>invalido</b>";
-                else :
+                // elseif (Validar::validarCampoNumerico($formulario['num_parcelas'])) :
+                //    $dados['num_parcelas_erro'] = "Formato informado é <b>invalido</b>";
+                // else :
                     if ($this->vendaModel->insert($dados)) :
                         $ultimoId = $this->vendaModel->getUltimoId();
-                        echo 'Cadastro realizado como sucesso <hr>';
+                        //echo 'Cadastro realizado como sucesso <hr>';
 
                     else :
                         die("Erro");
@@ -75,16 +88,18 @@ class VendaController extends Controller
                     endif;
 
                     if ($this->itemVendaModel->insert($dados, $ultimoId)) :
-
-                        echo 'Cadastro realizado como sucesso <hr>';
+                        //echo 'Cadastro realizado como sucesso <hr>';
+                        Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
+                        header("Location:".URL.DIRECTORY_SEPARATOR.'VendaController/cadastrar');
+                        // URL::redirecionar('VendaController/cadastrar');
 
                     else :
                         die("Erro");
 
                     endif;
-                endif;
+                //endif;
             endif;
-            var_dump($formulario);
+            //var_dump($formulario);
         else :
             $dados = [
                 'quantidade' => '',

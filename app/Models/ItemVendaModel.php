@@ -100,28 +100,31 @@ class ItemVendaModel
 
     public function insert($dados, $ultimoId)
     {
-        $quantidadeInt = (int)$dados['quantidade'];
-        $valorUnitarioFloat = (float)$dados['valor_unitario'];
-        $this->setQuantidade($quantidadeInt);
-        $this->setProdutoId(1);
+
+        $quantidade = $dados['quantidade'];
+        $valorUnitario = $dados['valor_unitario'];
+        $idProduto = $dados['id_produto'];
+
+        $this->setQuantidade($quantidade);
+        $this->setValorUnitario($valorUnitario);
+        $this->setProdutoId($idProduto);
         $this->setVendaId($ultimoId);
-        $this->setValorUnitario($valorUnitarioFloat);
         
+        for ($i = 0; $i < count($idProduto); $i++) :
+            $this->db->query("INSERT INTO item_venda(id_produto, id_venda, valor_unitario,quantidade) VALUES (:id_produto, :id_venda, :valor_unitario, :quantidade)");
+            $this->db->bind(":id_produto", $this->getProdutoId()[$i]);
+            $this->db->bind(":id_venda", $this->getVendaId());
+            $this->db->bind(":valor_unitario", $this->getValorUnitario()[$i]);
+            $this->db->bind(":quantidade", $this->getQuantidade()[$i]);
 
-        $this->db->query("INSERT INTO item_venda(id_produto, id_venda, valor_unitario,quantidade) VALUES (:id_produto, :id_venda, :valor_unitario, :quantidade)");
+            try {
+                $this->db->executa();
+            } catch (PDOException $err) {
+                return false;
+            }
+        endfor;
 
-        $this->db->bind(":id_produto", $this->getProdutoId());
-        $this->db->bind(":id_venda", $this->getVendaId());
-        $this->db->bind(":valor_unitario", $this->getValorUnitario());
-        $this->db->bind(":quantidade", $this->getQuantidade());
-
-        if ($this->db->executa()) :
-            return true;
-        else :
-            return false;
-        endif;
-        
-
+        return true;
 
     }
 }

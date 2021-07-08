@@ -33,6 +33,8 @@
 
 <body onload="countTableRows()">
 
+    <?php Sessao::mensagem('venda'); ?>
+
     <!-- navbar topo -->
     <?php include("./../app/include/parts/navbar.php") ?>
 
@@ -61,7 +63,7 @@
                     </div>
                 </div>
 
-                <form action="#" method="POST" class="sell">
+                <form action="<?= URL?>/VendaController/cadastrar" method="POST" class="sell">
                     <div class="sell-area">
                         <div class="section section-sell-area p-0 m-0">
                             <div class="title-section">
@@ -106,7 +108,7 @@
                                                 <div class="modal-select">
                                                     <label for="cliente">Selecione um cliente</label>
                                                     <select name="cliente" id="nome-cliente">
-                                                        <option value="0" selected>CLIENTE PADRÃO</option>
+                                                        <option value="1" selected>CLIENTE PADRÃO</option>
                                                         <?php foreach ($lista_cliente as $cliente) : ?>
                                                             <option value="<?= $cliente->id_cliente ?>"><?= mb_strtoupper($cliente->nome_cliente) ?></option>
                                                         <?php endforeach; ?>
@@ -190,8 +192,8 @@
                                                 <div class="modal-select">
                                                     <div class="input-modal-add-item">
                                                         <div class="input-product">
-                                                            <label for="nome-produto">Nome do produto</label>
-                                                            <select name="nome-produto" id="nome-produto" class="select name-product" required>
+                                                            <label>Nome do produto</label>
+                                                            <select id="nome-produto" class="select name-product" required>
                                                                 <option value="" disabled selected>Selecione um produto</option>
                                                                 <?php foreach ($lista_produtos as $produtos) : ?>
                                                                     <option value="<?= $produtos->id_produto ?>"><?= $produtos->nome_produto ?></option>
@@ -199,8 +201,8 @@
                                                             </select>
                                                         </div>
                                                         <div class="input-quantidade">
-                                                            <label for="quantidade-item">Quantidade</label>
-                                                            <input name="quantidade-item" id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="text" min="1" value="1" required>
+                                                            <label>Quantidade</label>
+                                                            <input id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="text" min="1" value="1" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -253,6 +255,7 @@
 <?php include("./../app/include/etc/scripts.php"); ?>
 
 <script>
+    
     var produtos = [];
     var estoqueProduto = [];
 
@@ -302,6 +305,7 @@
                         ${produtos[inputNomeProduto.value].nome}
                     </td>
                     <td>
+                        <input type="text" name="valor-unitario[]" value="${(produtos[inputNomeProduto.value].valor).toFixed(2)}" required style="display: none">
                         R$ ${(produtos[inputNomeProduto.value].valor).toFixed(2)}
                     </td>
                     <td>
@@ -381,7 +385,7 @@
 
     var clientes = [];
     clientes[0] = {
-        id: null,
+        id: 1,
         nome: "Cliente Padrão"
     }
 

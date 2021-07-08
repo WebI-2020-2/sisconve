@@ -52,12 +52,11 @@
                                     <th>Cliente</th>
                                     <th>Parcelas</th>
                                     <th>Valor total</th>
-                                    <th>Data / Hora</th>
+                                    <th>Data</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <!-- //include_once './../app/Controllers/VendaController.php'; -->
                             <?php foreach ($dados['vendas'] as $venda) : ?>
                                 <tr>
                                     <td><?= $venda->id_venda ?></td>
@@ -65,7 +64,7 @@
                                     <td><?= $venda->nome_cliente ?></td>
                                     <td><?= $venda->num_parcelas ?></td>
                                     <td><?= $venda->valor_total ?></td>
-                                    <td><?= $venda->data_venda ?></td>
+                                    <td><?= Validar::dataBr($venda->data_venda) ?></td>
                                     <td>
                                         <a title="Ver venda" href="#">
                                             <img src="../public/img/eye-icon.svg" alt="">

@@ -135,11 +135,13 @@ class VendaModel
 
     public function insert($dados)
     {
+
+        $num_parcelas_int = $dados['num_parcelas'];
+        
         $this->setCaixaId(1);
         $this->setClienteId(1);
-        $num_parcelas_int = (int)$dados['num_parcelas'];
         $this->setNumParcelas($num_parcelas_int);
-        $this->db->query("INSERT INTO venda(id_caixa, id_cliente, num_parcelas) VALUES (:id_caixa, :id_cliente, :num_parcelas)RETURNING id_venda");
+        $this->db->query("INSERT INTO venda(id_caixa, id_cliente, num_parcelas) VALUES (:id_caixa, :id_cliente, :num_parcelas) RETURNING id_venda");
 
         $this->db->bind(":id_caixa", $this->getCaixaId());
         $this->db->bind(":id_cliente", $this->getClienteId());
