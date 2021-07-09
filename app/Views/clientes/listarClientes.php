@@ -90,9 +90,11 @@
                                             <button title="Editar cliente" onclick="editCliente(this)" data-toggle="modal" data-target="#editar-cliente-modal">
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
                                             </button>
+                                            
                                             <button title="Exluir cliente" onclick="deleteCliente('<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
                                                 <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
                                             </button>
+
                                             <a href="<?= URL?>/ClientesController/visualizar/<?= $cliente->id_cliente ?>">TESTE</a>
                                         </td>
                                     </tr>

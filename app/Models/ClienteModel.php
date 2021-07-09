@@ -199,4 +199,16 @@ WHERE
         $this->db->bind(":id_cliente", $this->getId());
         return $this->db->resultados();
     }
+
+    public function deletar($id)
+    {
+        $this->setId($id);
+        $this->db->query("DELETE FROM cliente WHERE id_cliente = :id_cliente");
+        $this->db->bind(":id_cliente", $this->getId());
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

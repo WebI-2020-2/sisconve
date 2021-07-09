@@ -191,4 +191,17 @@ class ClientesController extends Controller
 
         $this->view('clientes/visualizar', $dados);
     }
+
+    public function deletar($id)
+    {
+        $idInt = (int) $id;
+        if (is_int($idInt)) :
+            if ($this->clienteModel->deletar($idInt)) :
+                Sessao::mensagem('cliente', 'Cliente apagado com sucesso!', 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+            else:
+                Sessao::mensagem('cliente', 'Erro!', 'bg-red');
+            endif;
+        endif;
+    }
 }
