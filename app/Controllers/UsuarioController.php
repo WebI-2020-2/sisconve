@@ -9,6 +9,10 @@ class UsuarioController extends Controller
 
     public function cadastrar()
     {
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
+        endif;
 
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
@@ -139,10 +143,10 @@ class UsuarioController extends Controller
 
                     if ($login) :
                         $this->sesaoUsuario($login);
-                        header("Location:".URL.DIRECTORY_SEPARATOR.'DashboardController/dashboard');
-                        // URL::redirecionar('CategoriaController/listarCategoria');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
+                    // URL::redirecionar('CategoriaController/listarCategoria');
                     else :
-                        Sessao::mensagem('usuario','Usuario ou senha invalidos','alert alert-danger');
+                        Sessao::mensagem('usuario', 'Usuario ou senha invalidos', 'alert alert-danger');
                     endif;
 
                 endif;
@@ -163,13 +167,17 @@ class UsuarioController extends Controller
         $this->view('usuarios/login', $dados);
     }
 
-    public function listar(){
+    public function listar()
+    {
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
+        endif;
         $dados = [
             'usuarios' => $this->usuarioModel->selectAll()
         ];
 
         $this->view('usuarios/listar', $dados);
-
     }
 
     private function sesaoUsuario($login)
@@ -185,6 +193,11 @@ class UsuarioController extends Controller
 
     public function sair()
     {
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
+        endif;
+
         unset($_SESSION["USUARIO_ID"]);
         unset($_SESSION["USUARIO_NOME_COMPLETO"]);
         unset($_SESSION["USUARIO_USER"]);
@@ -195,7 +208,7 @@ class UsuarioController extends Controller
 
         session_destroy();
 
-        header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
+        header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
         URL::redirecionar('UsuarioController/login');
     }
 

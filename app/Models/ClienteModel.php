@@ -166,7 +166,8 @@ FROM
 	endereco 
 WHERE
 	telefone.id_cliente = cliente.id_cliente 
-	AND endereco.id_cliente = cliente.id_cliente");
+	AND endereco.id_cliente = cliente.id_cliente
+    AND cliente.ativo <> false");
         return $this->db->resultados();
     }
 
@@ -195,6 +196,7 @@ FROM
 WHERE
 	telefone.id_cliente = cliente.id_cliente 
 	AND endereco.id_cliente = cliente.id_cliente
+    AND cliente.ativo <> false
     AND cliente.id_cliente = :id_cliente");
         $this->db->bind(":id_cliente", $this->getId());
         return $this->db->resultados();
@@ -203,7 +205,7 @@ WHERE
     public function deletar($id)
     {
         $this->setId($id);
-        $this->db->query("DELETE FROM cliente WHERE id_cliente = :id_cliente");
+        $this->db->query("UPDATE cliente SET ativo = false WHERE id_cliente = :id_cliente");
         $this->db->bind(":id_cliente", $this->getId());
         if ($this->db->executa()) :
             return true;
