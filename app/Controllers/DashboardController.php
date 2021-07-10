@@ -14,10 +14,15 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
+        $hoje = date('Y-m-d');
 
         $produtosAbaixoEstoque = $this->dashboardModel->produtoAbaixoEstoque();
+        $clientesParcelaVencendo = $this->dashboardModel->clienteParcelaVencendo($hoje);
+        
+
         $dados = [
-            'produtoAbaixoEstoque' => $produtosAbaixoEstoque
+            'produtoAbaixoEstoque' => $produtosAbaixoEstoque,
+            'clienteParcelaVencendo' => $clientesParcelaVencendo
         ];
 
 

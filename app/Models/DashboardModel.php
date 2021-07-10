@@ -15,4 +15,12 @@ class DashboardModel
         return $this->db->resultados();
            
     }
+
+    public function clienteParcelaVencendo($dataHoje)
+    {
+        $this->db->query("SELECT * FROM clienteParcelaVencendo(:dataHoje);");
+        $this->db->bind(":dataHoje", $dataHoje);
+        return $this->db->resultados();
+
+    }
 }

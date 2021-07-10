@@ -145,24 +145,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($dados['clienteParcelaVencendo'] as $clientesParcelaVencendo) :?>
                                         <tr>
-                                            <td>0001</td>
-                                            <td>Maria Devedora da Silva</th>
-                                            <td>R$ 24,99</td>
-                                            <td>25/02/2021</td>
+                                            <td><?= $clientesParcelaVencendo->id_cliente ?></td>
+                                            <td><?= $clientesParcelaVencendo->nome_cliente ?></td>th>
+                                            <td><?= $clientesParcelaVencendo->valor_parcela ?></td>
+                                            <td><?= Validar::dataBr($clientesParcelaVencendo->data_vencimento) ?></td>
                                             <td>
                                                 <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>0002</td>
-                                            <td>José Bonifácil de Nogueira</td>
-                                            <td>R$ 30,99</td>
-                                            <td>32/13/1999</td>
-                                            <td>
-                                                <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                                            </td>
-                                        </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
