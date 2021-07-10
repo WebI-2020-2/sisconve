@@ -113,4 +113,17 @@ class FornecedorController extends Controller
 
         $this->view('fornecedor/visualizar', $dados);
     }
+
+    public function deletar($id)
+    {
+        $idInt = (int) $id;
+        if (is_int($idInt)) :
+            if ($this->fornecedorModel->deletar($idInt)) :
+                Sessao::mensagem('fornecedor', 'Fornecedor apagado com sucesso!', 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'FornecedorController/listarFornecedor');
+            else:
+                Sessao::mensagem('cliente', 'Erro!', 'bg-red');
+            endif;
+        endif;
+    }
 }

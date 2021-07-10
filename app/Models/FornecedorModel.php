@@ -136,7 +136,7 @@ class FornecedorModel
     }
     public function selectAll()
     {
-        $this->db->query("SELECT * FROM fornecedor");
+        $this->db->query("SELECT * FROM fornecedor WHERE ativo <> false");
         return $this->db->resultados();
     }
 
@@ -168,5 +168,17 @@ class FornecedorModel
         $this->db->query("SELECT * FROM fornecedor WHERE id_fornecedor = :id_fornecedor");
         $this->db->bind(":id_fornecedor", $this->getId());
         return $this->db->resultados();
+    }
+
+    public function deletar($id)
+    {
+        $this->setId($id);
+        $this->db->query("UPDATE fornecedor SET ativo = false WHERE id_fornecedor = :id_fornecedor");
+        $this->db->bind(":id_fornecedor", $this->getId());
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
     }
 }
