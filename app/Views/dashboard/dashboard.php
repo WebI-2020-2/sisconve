@@ -115,24 +115,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>0001</td>
-                                            <td>Caneca Porcelana Branca 500ml Porcelux</td>
-                                            <td>R$ 24,99</td>
-                                            <td>5 unidades</td>
-                                            <td>
-                                                <a href=""><img src="../public/img/edit-tabela.svg" alt=""></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0002</td>
-                                            <td>Vaso de Barro marrom Ceramica do Valdir</td>
-                                            <td>R$ 30,99</td>
-                                            <td>4 unidades</td>
-                                            <td>
-                                                <a href="#"><img src="../public/img/edit-tabela.svg" alt=""></a>
-                                            </td>
-                                        </tr>
+                                        <?php foreach ($dados['produtoAbaixoEstoque'] as $produtosAbaixoEstoque) : ?>
+                                            <tr>
+                                                <td><?= $produtosAbaixoEstoque->id_produto?></td>
+                                                <td><?= $produtosAbaixoEstoque->nome_produto?></td>
+                                                <td><?= $produtosAbaixoEstoque->preco_venda?></td>
+                                                <td><?= $produtosAbaixoEstoque->quantidade?></td>
+                                                <td>
+                                                    <a href=""><img src="../public/img/edit-tabela.svg" alt=""></a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

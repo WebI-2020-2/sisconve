@@ -8,12 +8,19 @@ class DashboardController extends Controller
             header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
             // URL::redirecionar('UsuarioController/login');
         endif;
-        $this->caixaModel = $this->model('DashboardModel');
+        $this->dashboardModel = $this->model('DashboardModel');
 
     }
 
     public function dashboard()
     {
-         $this->view('dashboard/dashboard');
+
+        $produtosAbaixoEstoque = $this->dashboardModel->produtoAbaixoEstoque();
+        $dados = [
+            'produtoAbaixoEstoque' => $produtosAbaixoEstoque
+        ];
+
+
+        $this->view('dashboard/dashboard', $dados);
     }
 }
