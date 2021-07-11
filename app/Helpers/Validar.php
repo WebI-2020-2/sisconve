@@ -45,18 +45,29 @@ class Validar
 
     public static function validarCampoNumerico($salario)
     {
-        if (!preg_replace('/[^0-9]/is','', $salario)) :
+        if (!preg_replace('/[^0-9]/is', '', $salario)) :
             return true;
         else :
             return false;
         endif;
     }
 
-    public static function dataBr($data){
-        if(isset($data)):
-            return date('d/m/Y',strtotime($data));
-        else:
+    public static function dataBr($data)
+    {
+        if (isset($data)) :
+            return date('d/m/Y', strtotime($data));
+        else :
             return false;
         endif;
     }
+
+    // public static function lucro($mediadeLucroDia)
+    // {
+    //     foreach ($mediadeLucroDia as $lucro) {
+    //         str_replace(".", ",", $lucro);
+    //         $lucroFloat = (float) $lucro;
+    //         $tes = ;
+    //     }
+    //     return $tes;
+    // }
 }

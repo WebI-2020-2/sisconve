@@ -84,8 +84,9 @@
                                         </div>
                                         <div class="card-body">
                                             <span>R$</span>
-                                            <strong>9999,99</strong>
-
+                                            <?php foreach ($dados['mediadeLucroDia'] as $mediadeLucroDia) : ?>
+                                                <strong><?= number_format($mediadeLucroDia, 2, ',', '') ?></strong>
+                                            <?php endforeach ?>
                                         </div>
                                     </div>
                                     <div class="card" style="background-color: #11858C !important;">
@@ -93,7 +94,9 @@
                                             <span>Total de Clientes</span>
                                         </div>
                                         <div class="card-body">
-                                            <strong>9999</strong>
+                                            <?php foreach ($dados['totaldeClientes'] as $totaldeClientes) : ?>
+                                                <strong><?= $totaldeClientes ?></strong>
+                                            <?php endforeach ?>
                                             <span>clientes</span>
                                         </div>
                                     </div>
@@ -117,10 +120,10 @@
                                     <tbody>
                                         <?php foreach ($dados['produtoAbaixoEstoque'] as $produtosAbaixoEstoque) : ?>
                                             <tr>
-                                                <td><?= $produtosAbaixoEstoque->id_produto?></td>
-                                                <td><?= $produtosAbaixoEstoque->nome_produto?></td>
-                                                <td><?= $produtosAbaixoEstoque->preco_venda?></td>
-                                                <td><?= $produtosAbaixoEstoque->quantidade?></td>
+                                                <td><?= $produtosAbaixoEstoque->id_produto ?></td>
+                                                <td><?= $produtosAbaixoEstoque->nome_produto ?></td>
+                                                <td><?= $produtosAbaixoEstoque->preco_venda ?></td>
+                                                <td><?= $produtosAbaixoEstoque->quantidade ?></td>
                                                 <td>
                                                     <a href=""><img src="../public/img/edit-tabela.svg" alt=""></a>
                                                 </td>
@@ -145,16 +148,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($dados['clienteParcelaVencendo'] as $clientesParcelaVencendo) :?>
-                                        <tr>
-                                            <td><?= $clientesParcelaVencendo->id_cliente ?></td>
-                                            <td><?= $clientesParcelaVencendo->nome_cliente ?></td>th>
-                                            <td><?= $clientesParcelaVencendo->valor_parcela ?></td>
-                                            <td><?= Validar::dataBr($clientesParcelaVencendo->data_vencimento) ?></td>
-                                            <td>
-                                                <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                                            </td>
-                                        </tr>
+                                        <?php foreach ($dados['clienteParcelaVencendo'] as $clientesParcelaVencendo) : ?>
+                                            <tr>
+                                                <td><?= $clientesParcelaVencendo->id_cliente ?></td>
+                                                <td><?= $clientesParcelaVencendo->nome_cliente ?></td>th>
+                                                <td><?= $clientesParcelaVencendo->valor_parcela ?></td>
+                                                <td><?= Validar::dataBr($clientesParcelaVencendo->data_vencimento) ?></td>
+                                                <td>
+                                                    <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
+                                                </td>
+                                            </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
