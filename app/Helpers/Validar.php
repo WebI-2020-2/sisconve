@@ -61,13 +61,8 @@ class Validar
         endif;
     }
 
-    // public static function lucro($mediadeLucroDia)
-    // {
-    //     foreach ($mediadeLucroDia as $lucro) {
-    //         str_replace(".", ",", $lucro);
-    //         $lucroFloat = (float) $lucro;
-    //         $tes = ;
-    //     }
-    //     return $tes;
-    // }
+    public static function lucro($mediadeLucroDia)
+    {
+        return number_format($mediadeLucroDia, 2, ',', '');
+    }
 }

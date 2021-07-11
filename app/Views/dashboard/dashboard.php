@@ -85,7 +85,7 @@
                                         <div class="card-body">
                                             <span>R$</span>
                                             <?php foreach ($dados['mediadeLucroDia'] as $mediadeLucroDia) : ?>
-                                                <strong><?= number_format($mediadeLucroDia, 2, ',', '') ?></strong>
+                                                <strong><?= Validar::lucro($mediadeLucroDia) ?></strong>
                                             <?php endforeach ?>
                                         </div>
                                     </div>
