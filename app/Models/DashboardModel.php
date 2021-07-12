@@ -34,4 +34,11 @@ class DashboardModel
         $this->db->bind(":dia", $dia);
         return $this->db->resultado();
     }
+
+    public function totalVendaDia($dia)
+    {
+        $this->db->query("SELECT count(id_venda) as totalVendaDia from venda WHERE to_char(venda.data_venda, 'DD') = :dia");
+        $this->db->bind(":dia", $dia);
+        return $this->db->resultado();
+    }
 }

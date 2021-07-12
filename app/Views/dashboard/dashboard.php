@@ -71,10 +71,12 @@
                                 <div class="section-card">
                                     <div class="card" style="background-color: #00A3FF !important;">
                                         <div class="title-card" style="background-color: #0095E9 !important;">
-                                            <span>Média de Venda / dia</span>
+                                            <span>Total de Venda / dia</span>
                                         </div>
                                         <div class="card-body">
-                                            <strong>9999</strong>
+                                            <?php foreach ($dados['totalVendaDia'] as $totalVendaDia) : ?>
+                                                <strong><?= $totalVendaDia ?></strong>
+                                            <?php endforeach; ?>
                                             <span>vendas</span>
                                         </div>
                                     </div>
