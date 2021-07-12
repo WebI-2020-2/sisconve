@@ -65,4 +65,8 @@ class Validar
     {
         return number_format($mediadeLucroDia, 2, ',', '');
     }
+    public static function upperCase($upperCase)
+    {
+        return mb_strtoupper($upperCase);
+    }
 }
