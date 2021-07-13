@@ -11,7 +11,7 @@
 | Caixa              |    ❌    |    ❌    |     ❌    |     ❌     |
 | Categorias         |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Cliente            |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Compra             |    ❌    |    ❌     |     ❌    |     ❌     |
+| Compra             |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ❌     |     ❌    |     ❌     |
 | Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
