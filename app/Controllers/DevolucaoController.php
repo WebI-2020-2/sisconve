@@ -14,7 +14,7 @@ class DevolucaoController extends Controller
         
     }
     public function listardevolucaos(){
-        $dados =[
+        $dados = [
             'devolucoes' => $this->devolucaoModel->selectAll()
         ];
         $this->view('devolucao/listardevolucoes', $dados);

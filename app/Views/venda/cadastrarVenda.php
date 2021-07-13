@@ -1,3 +1,17 @@
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISCONVE - Realizar Venda</title>
+    <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/style/sell-products.css">
+    <link rel="stylesheet" href="../public/style/modal/add-item.css">
+    <!-- Estilos -->
+    <?php include("./../app/include/etc/styles.php") ?>
+</head>
+
 <?php 
 
     // trazer a variavel $dados['clientes'] pra cá
@@ -17,27 +31,13 @@
 
 ?>
 
-<html lang="pt_br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISCONVE - Realizar Venda</title>
-    <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../public/style/sell-products.css">
-    <link rel="stylesheet" href="../public/style/modal/add-item.css">
-    <!-- Estilos -->
-    <?php include("./../app/include/etc/styles.php") ?>
-</head>
 <body onload="countTableRows()">
-
-    <?php Sessao::mensagem('venda'); ?>
 
     <!-- navbar topo -->
     <?php include("./../app/include/parts/navbar.php") ?>
 
     <div id="container">
+        <?= Sessao::mensagem('venda') ?>
 
         <!-- inicio menu-bar (barra lateral)-->
         <?php include("./../app/include/parts/menubar.php") ?>
@@ -109,7 +109,7 @@
                                                     <select name="cliente" id="nome-cliente">
                                                         <option value="1" selected>CLIENTE PADRÃO</option>
                                                         <?php foreach ($lista_cliente as $cliente) : ?>
-                                                            <option value="<?= $cliente->id_cliente ?>"><?= Validar::upperCase($cliente->nome_cliente) ?></option>
+                                                            <option value="<?= $cliente->id_cliente ?>"><?= $cliente->nome_cliente ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -150,7 +150,7 @@
                                                         <label for="metodo-pagamento">Selecione o método de pagamento</label>
                                                         <select name="metodo-pagamento" id="metodo-pagamento" required>
                                                             <?php foreach ($lista_formaDePagamento as $formaDePagamentos) : ?>
-                                                                <option value="<?= $formaDePagamentos->id_forma_pagamento ?>"><?= Validar::upperCase($formaDePagamentos->tipo_pagamento) ?></option>
+                                                                <option value="<?= $formaDePagamentos->id_forma_pagamento ?>"><?= $formaDePagamentos->tipo_pagamento ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>

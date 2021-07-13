@@ -64,7 +64,8 @@
                                     <th>#</th>
                                     <th>Nome do Produto</th>
                                     <th>Categoria</th>
-                                    <th>Preço</th>
+                                    <th>Preço de Compra</th>
+                                    <th>Preço de Venda</th>
                                     <th>Quantidade</th>
                                     <th>Ações</th>
                                 </tr>
@@ -78,6 +79,7 @@
                                         </td>
                                         <td><?= $produto->nome_produto ?></td>
                                         <td><?= $produto->nome_categoria ?></td>
+                                        <td><?= $produto->preco_compra ?></td>
                                         <td><?= $produto->preco_venda ?></td>
                                         <td><?= $produto->quantidade ?></td>
                                         <td>

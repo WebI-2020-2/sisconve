@@ -99,6 +99,7 @@
 .table-item-area table td{
     border: 1px solid #9db9bb;
     height: 30px;
+    text-transform: uppercase;
 }
 
 .table-item-area table td button,

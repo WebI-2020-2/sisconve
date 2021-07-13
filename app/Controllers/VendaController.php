@@ -80,6 +80,7 @@ class VendaController extends Controller
                 // else :
                     if ($this->vendaModel->insert($dados)) :
                         $ultimoId = $this->vendaModel->getUltimoId();
+                        Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
                         //echo 'Cadastro realizado como sucesso <hr>';
 
                     else :
@@ -89,7 +90,7 @@ class VendaController extends Controller
 
                     if ($this->itemVendaModel->insert($dados, $ultimoId)) :
                         //echo 'Cadastro realizado como sucesso <hr>';
-                        Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
+                        //Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
                         header("Location:".URL.DIRECTORY_SEPARATOR.'VendaController/cadastrar');
                         // URL::redirecionar('VendaController/cadastrar');
 

@@ -35,6 +35,10 @@ nav .user-area span{
     font-size: 18px;
 }
 
+nav .user-area .username{
+    text-transform: uppercase;
+}
+
 nav .user-area .divisor{
     width: 1px;
     margin: 10px;

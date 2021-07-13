@@ -5,7 +5,7 @@
     <div class="user-area">
         <span id="date-time"></span>
         <img class="divisor" src="../public/img/separador.svg" alt="Separador">
-        <span class="username"><?= Validar::upperCase($_SESSION["USUARIO_NOME_COMPLETO"]) ?></span>
+        <span class="username"><?= $_SESSION["USUARIO_NOME_COMPLETO"] ?></span>
         <img class="user-img" src="../public/img/default-user.svg" alt="Usuário">
 
         <div class="dropdown show">
