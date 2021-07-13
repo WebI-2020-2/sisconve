@@ -10,17 +10,17 @@
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
 | Caixa              |    ❌    |    ❌    |     ❌    |     ❌     |
 | Categorias         |    ✔️    |    ✔️     |     ❌    |     ❌     |
-| Cliente            |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Cliente            |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Compra             |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
-| Endereço           |    ✔️    |    ❌     |     ❌    |     ❌     |
+| Endereço           |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
-| Fornecedor         |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Fornecedor         |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Funcionario        |    ❌    |    ❌     |     ❌    |     ❌     |
 | Parcelas           |    ❌    |    ❌     |     ❌    |     ❌     |
-| Produto            |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Produto            |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Contato            |    ✔️    |    ❌     |     ❌    |     ❌     |
-| Usuário            |    ❌    |    ❌     |     ❌    |     ❌     |
+| Usuário            |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Venda              |    ❌    |    ❌     |     ❌    |     ❌     |
 
 # 
