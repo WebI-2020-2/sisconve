@@ -146,28 +146,29 @@ class ClienteModel
     public function selectAll()
     {
         $this->db->query("SELECT
-	cliente.id_cliente,
-	cliente.nome_cliente,
-	cliente.cpf,
-	cliente.credito,
-	cliente.debito,
-	telefone.num_telefone,
-	telefone.ddd,
-	telefone.whatsapp,
-	endereco.rua,
-	endereco.bairro,
-	endereco.cidade,
-	endereco.estado,
-	endereco.numero,
-    cliente.criado_em
-FROM
-	cliente,
-	telefone,
-	endereco 
-WHERE
-	telefone.id_cliente = cliente.id_cliente 
-	AND endereco.id_cliente = cliente.id_cliente
-    AND cliente.ativo <> false");
+        cliente.id_cliente,
+        cliente.nome_cliente,
+        cliente.cpf,
+        cliente.credito,
+        cliente.debito,
+        telefone.num_telefone,
+        telefone.ddd,
+        telefone.whatsapp,
+        endereco.rua,
+        endereco.bairro,
+        endereco.cidade,
+        endereco.estado,
+        endereco.numero,
+        cliente.criado_em 
+    FROM
+        cliente,
+        telefone,
+        endereco 
+    WHERE
+        telefone.id_cliente = cliente.id_cliente 
+    AND endereco.id_cliente = cliente.id_cliente 
+    AND cliente.ativo <> FALSE 
+	ORDER BY cliente.id_cliente ASC");
         return $this->db->resultados();
     }
 
@@ -207,6 +208,24 @@ WHERE
         $this->setId($id);
         $this->db->query("UPDATE cliente SET ativo = false WHERE id_cliente = :id_cliente");
         $this->db->bind(":id_cliente", $this->getId());
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
+    public function update($dados, $idInt)
+    {
+        $this->setNomeCliente($dados['nome']);
+        $this->setCpf($dados['cpf']);
+        $this->setId($idInt);
+
+        $this->db->query("UPDATE cliente SET nome_cliente = :nome_cliente, cpf = :cpf WHERE id_cliente = :id_cliente");
+        $this->db->bind(":id_cliente", $this->getId());
+        $this->db->bind(":nome_cliente", $this->getNomeCliente());
+        $this->db->bind(":cpf", $this->getCpf());
+
         if ($this->db->executa()) :
             return true;
         else :

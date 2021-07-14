@@ -21,3 +21,12 @@ function deleteFornecedor(id, nome) {
         window.location.href = `/sisconve/FornecedorController/deletar/${id}`;
     } //return alert(`ok! id = ${id}`)
 }
+
+function deleteVenda(id){
+    var res = confirm(`Deseja realmente excluir a venda ${id}?`)
+    if (res){
+        window.location.href = `/sisconve/VendaController/deletar/${id}`;
+        // return alert(`ok! id = ${id}`);
+    }
+    
+}

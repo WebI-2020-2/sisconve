@@ -137,5 +137,25 @@ class TelefoneModel
         endif;
     }
 
+    public function update($dados, $idInt)
+    {
+        $this->setNumTelefone($dados['num_telefone']);
+        $this->setDdd($dados['ddd']);
+        $this->setIdCliente($idInt);
+        
+
+        $this->db->query("UPDATE telefone SET num_telefone = :num_telefone, ddd = :ddd WHERE id_cliente = :id_cliente");
+
+        $this->db->bind(":id_cliente", $this->getIdCliente());
+        $this->db->bind(":num_telefone", $this->getNumTelefone());
+        $this->db->bind(":ddd", $this->getDdd());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
 }
 

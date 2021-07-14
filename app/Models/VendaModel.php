@@ -111,8 +111,7 @@ class VendaModel
 
     public function selectAll()
     {
-        $this->db->query('
-            SELECT
+        $this->db->query('SELECT
                 cliente.id_cliente,
                 cliente.nome_cliente,
                 caixa.id_caixa,
@@ -128,6 +127,8 @@ class VendaModel
                 venda.id_cliente = cliente.id_cliente
             AND
                 venda.id_caixa = caixa.id_caixa
+            AND 
+                venda.apagado = false
         ');
 
         return $this->db->resultados();
@@ -149,6 +150,18 @@ class VendaModel
 
         if ($this->db->executa()) :
             $this->setUltimoId($this->db->ultimoId()['id_venda']);
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
+    public function deletar($id)
+    {
+        $this->setId($id);
+        $this->db->query("UPDATE venda SET apagado = true WHERE id_venda = :id_venda");
+        $this->db->bind(":id_venda", $this->getId());
+        if ($this->db->executa()) :
             return true;
         else :
             return false;

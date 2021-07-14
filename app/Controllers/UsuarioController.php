@@ -209,7 +209,7 @@ class UsuarioController extends Controller
         session_destroy();
 
         header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
-        URL::redirecionar('UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
     }
 
     public function minhaConta()

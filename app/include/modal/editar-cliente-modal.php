@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="form">
-                <form action="" method="POST">
+                <form action="<?= URL ?>/ClientesController/update" method="POST">
                     <div class="input input-nome-cliente">
                         <label for="nome-cliente">Nome do cliente</label>
                         <input type="text" oninput="validaInput(this)" name="nome" id="nome" placeholder="José da Silva" required>
@@ -69,7 +69,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

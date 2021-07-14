@@ -1,3 +1,22 @@
+<?php
+
+// trazer a variavel $dados['clientes'] pra cá
+include_once './../app/Models/ClienteModel.php';
+$cliente = new ClienteModel();
+$lista_cliente = $cliente->selectAll();
+
+// trazer a variavel $dados['produtos'] pra cá
+include_once './../app/Models/ProdutoModel.php';
+$produto = new ProdutoModel();
+$lista_produtos = $produto->selectAll();
+
+// trazer a variavel $dados['metodo_pagamento'] pra cá
+include_once './../app/Models/FormaPagamentoModel.php';
+$formaDePagamento = new FormaPagamentoModel();
+$lista_formaDePagamento = $formaDePagamento->selectAll();
+
+?>
+
 <html lang="pt_br">
 
 <head>
@@ -12,24 +31,6 @@
     <?php include("./../app/include/etc/styles.php") ?>
 </head>
 
-<?php 
-
-    // trazer a variavel $dados['clientes'] pra cá
-    include_once './../app/Models/ClienteModel.php';
-    $cliente = new ClienteModel();
-    $lista_cliente = $cliente->selectAll();
-
-    // trazer a variavel $dados['produtos'] pra cá
-    include_once './../app/Models/ProdutoModel.php';
-    $produto = new ProdutoModel();
-    $lista_produtos = $produto->selectAll();
-
-    // trazer a variavel $dados['metodo_pagamento'] pra cá
-    include_once './../app/Models/FormaPagamentoModel.php';
-    $formaDePagamento = new FormaPagamentoModel();
-    $lista_formaDePagamento = $formaDePagamento->selectAll();
-
-?>
 
 <body onload="countTableRows()">
 
@@ -37,7 +38,7 @@
     <?php include("./../app/include/parts/navbar.php") ?>
 
     <div id="container">
-        <?= Sessao::mensagem('venda') ?>
+        <?= Sessao::mensagem('vendas'); ?>
 
         <!-- inicio menu-bar (barra lateral)-->
         <?php include("./../app/include/parts/menubar.php") ?>
@@ -62,7 +63,7 @@
                     </div>
                 </div>
 
-                <form action="<?= URL?>/VendaController/cadastrar" method="POST" class="sell">
+                <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell">
                     <div class="sell-area">
                         <div class="section section-sell-area p-0 m-0">
                             <div class="title-section">
@@ -218,7 +219,7 @@
                                         </div>
                                     </div>
                                     <!-- fim modal  -->
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -253,20 +254,20 @@
 <?php include("./../app/include/etc/scripts.php"); ?>
 
 <script>
-    
     var produtos = [];
     var estoqueProduto = [];
 
     <?php
-        foreach ($lista_produtos as $produto) { ?>
-            produtos["<?= $produto->id_produto ?>"] = {
-                id: parseInt("<?= $produto->id_produto ?>"),
-                nome: "<?= $produto->nome_produto ?>",
-                valor: parseFloat("<?= $produto->preco_venda ?>"),
-                quantidade: parseInt("<?= $produto->quantidade ?>")
-            };
-            estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>"); <?php
-        }
+    foreach ($lista_produtos as $produto) { ?>
+        produtos["<?= $produto->id_produto ?>"] = {
+            id: parseInt("<?= $produto->id_produto ?>"),
+            nome: "<?= $produto->nome_produto ?>",
+            valor: parseFloat("<?= $produto->preco_venda ?>"),
+            quantidade: parseInt("<?= $produto->quantidade ?>")
+        };
+        estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>");
+    <?php
+    }
     ?>
 
     var buttonAddItem = document.getElementById("btn-add-item");
@@ -388,12 +389,13 @@
     }
 
     <?php
-        foreach ($lista_cliente as $cliente) { ?>
-            clientes["<?= $cliente->id_cliente ?>"] = {
-                id: parseInt("<?= $cliente->id_cliente ?>"),
-                nome: "<?= $cliente->nome_cliente ?>"
-            }; <?php
-        }
+    foreach ($lista_cliente as $cliente) { ?>
+        clientes["<?= $cliente->id_cliente ?>"] = {
+            id: parseInt("<?= $cliente->id_cliente ?>"),
+            nome: "<?= $cliente->nome_cliente ?>"
+        };
+    <?php
+    }
     ?>
 
     var spanTxtSC = document.getElementById("name-client");
@@ -413,12 +415,13 @@
     }
 
     <?php
-        foreach ($lista_formaDePagamento as $formaDePagamento) { ?>
-            metPag["<?= $formaDePagamento->id_forma_pagamento ?>"] = {
-                id: parseInt("<?= $formaDePagamento->id_forma_pagamento ?>"),
-                tipo: "<?= $formaDePagamento->tipo_pagamento ?>"
-            }; <?php
-        }
+    foreach ($lista_formaDePagamento as $formaDePagamento) { ?>
+        metPag["<?= $formaDePagamento->id_forma_pagamento ?>"] = {
+            id: parseInt("<?= $formaDePagamento->id_forma_pagamento ?>"),
+            tipo: "<?= $formaDePagamento->tipo_pagamento ?>"
+        };
+    <?php
+    }
     ?>
 
     var spanTxtMP = document.getElementById("met-pag");
@@ -427,7 +430,6 @@
     metodoPagamento.addEventListener("change", () => {
         spanTxtMP.value = metPag[parseInt(metodoPagamento.value)].tipo.toUpperCase();
     });
-
 </script>
 
 </html>

@@ -78,29 +78,29 @@ class VendaController extends Controller
                 // elseif (Validar::validarCampoNumerico($formulario['num_parcelas'])) :
                 //    $dados['num_parcelas_erro'] = "Formato informado é <b>invalido</b>";
                 // else :
-                    if ($this->vendaModel->insert($dados)) :
-                        $ultimoId = $this->vendaModel->getUltimoId();
-                        Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
-                        //echo 'Cadastro realizado como sucesso <hr>';
+                if ($this->vendaModel->insert($dados)) :
+                    $ultimoId = $this->vendaModel->getUltimoId();
+                    Sessao::mensagem('venda', 'Venda realizada com sucesso!' . $imgSuccess, 'bg-green');
+                //echo 'Cadastro realizado como sucesso <hr>';
 
-                    else :
-                        die("Erro");
+                else :
+                    die("Erro");
 
-                    endif;
+                endif;
 
-                    if ($this->itemVendaModel->insert($dados, $ultimoId)) :
-                        //echo 'Cadastro realizado como sucesso <hr>';
-                        //Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
-                        header("Location:".URL.DIRECTORY_SEPARATOR.'VendaController/cadastrar');
-                        // URL::redirecionar('VendaController/cadastrar');
+                if ($this->itemVendaModel->insert($dados, $ultimoId)) :
+                //echo 'Cadastro realizado como sucesso <hr>';
+                //Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
+                // header("Location:".URL.DIRECTORY_SEPARATOR.'VendaController/cadastrar');
+                // URL::redirecionar('VendaController/cadastrar');
 
-                    else :
-                        die("Erro");
+                else :
+                    die("Erro");
 
-                    endif;
-                //endif;
+                endif;
+            //endif;
             endif;
-            //var_dump($formulario);
+        //var_dump($formulario);
         else :
             $dados = [
                 'quantidade' => '',
@@ -113,5 +113,17 @@ class VendaController extends Controller
             ];
         endif;
         $this->view('venda/cadastrarVenda');
+    }
+    public function deletar($id)
+    {
+        $idInt = (int) $id;
+        if (is_int($idInt)) :
+            if ($this->vendaModel->deletar($idInt)) :
+                Sessao::mensagem('venda', 'Venda apagada com sucesso!', 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'VendaController/listarvenda');
+            else :
+                Sessao::mensagem('venda', 'Erro!', 'bg-red');
+            endif;
+        endif;
     }
 }

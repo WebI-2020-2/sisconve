@@ -72,7 +72,7 @@
                                         <a title="Editar venda" href="#">
                                             <img src="../public/img/pencil-icon.svg" alt="">
                                         </a>
-                                        <a title="Exluir venda" href="#">
+                                        <a title="Exluir venda" href="#" onclick="deleteVenda(<?= $venda->id_venda ?>)">
                                             <img src="../public/img/trash-icon.svg" alt="">
                                         </a>
                                     </td>

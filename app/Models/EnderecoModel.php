@@ -179,4 +179,29 @@ class EnderecoModel
             return false;
         endif;
     }
+
+    public function update($dados, $idInt)
+    {
+        $this->setRua($dados['rua']);
+        $this->setBairro($dados['bairro']);
+        $this->setCidade($dados['cidade']);
+        $this->setEstado($dados['estado']);
+        $this->setNumero($dados['numero']);
+        $this->setIdCliente($idInt);
+
+        $this->db->query("UPDATE endereco SET rua = :rua, bairro = :bairro, cidade = :cidade, estado = :estado, numero = :numero WHERE id_cliente = :id_cliente");
+
+        $this->db->bind(":id_cliente", $this->getIdCliente());
+        $this->db->bind(":rua", $this->getRua());
+        $this->db->bind(":bairro", $this->getBairro());
+        $this->db->bind(":cidade", $this->getCidade());
+        $this->db->bind(":estado", $this->getEstado());
+        $this->db->bind(":numero", $this->getNumero());
+        
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }
