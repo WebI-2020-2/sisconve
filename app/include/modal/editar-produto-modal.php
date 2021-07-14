@@ -15,7 +15,7 @@ $lista_categorias = $categoria->selectAll();
                 </div>
             </div>
 
-            <form action="" method="POST">
+            <form action="<?= URL ?>/ProdutosController/update" method="POST">
                 <div class="form">
                     <div class="input input-nome-produto">
                         <label for="nome-produto">Nome do produto</label>

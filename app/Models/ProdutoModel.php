@@ -327,4 +327,36 @@ class ProdutoModel
         $this->db->bind(":id_produto", $this->getId());
         return $this->db->resultados();
     }
+
+    public function verificarNomeProduto($produto)
+    {
+        $this->setNome_produto($produto);
+
+        $this->db->query("SELECT nome_produto from produto WHERE nome_produto = :nome_produto");
+        $this->db->bind(":nome_produto", $this->getNome_produto());
+
+        if ($this->db->resultado()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+    public function update($dados, $idInt)
+    {
+        $categoriaInt = (int)$dados['categoria'];
+        $this->setCategoria_id($categoriaInt);
+        $this->setNome_produto($dados['nome_produto']);
+        $this->setId($idInt);
+
+        $this->db->query("UPDATE produto SET id_categoria = :id_categoria, nome_produto = :nome_produto WHERE id_produto = :id_produto");
+        $this->db->bind(":id_produto", $this->getId());
+        $this->db->bind(":id_categoria", $this->getCategoria_id());
+        $this->db->bind(":nome_produto", $this->getNome_produto());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }

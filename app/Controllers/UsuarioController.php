@@ -111,6 +111,12 @@ class UsuarioController extends Controller
     public function login()
     {
 
+        if (Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
+        // URL::redirecionar('CategoriaController/listarCategoria');
+        endif;
+
+
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
             $dados = [
