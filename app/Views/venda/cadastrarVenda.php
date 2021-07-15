@@ -50,7 +50,7 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
                 <div class="title-content">
                     <div class="title-text">
                         <span>
-                            <a href="./dashboard.php">
+                            <a href="<?= URL ?>/DashboardController/dashboard">
                                 <img src="../public/img/dashboard-verde.svg" alt="Dashboard">
                                 Dashboard
                             </a>
