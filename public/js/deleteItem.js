@@ -7,7 +7,9 @@ function deleteCliente(id, nome) {
 
 function deleteProduto(id, nome) {
     var resp = confirm(`Deseja realmente excluir o produto ${nome}?`);
-    if (resp) return alert(`ok! id = ${id}`);
+    if (resp) {
+        window.location.href = `/sisconve/ProdutosController/deletar/${id}`;
+    } //return alert(`ok! id = ${id}`)
 }
 
 function deleteCategoria(id, nome) {
@@ -22,11 +24,10 @@ function deleteFornecedor(id, nome) {
     } //return alert(`ok! id = ${id}`)
 }
 
-function deleteVenda(id){
-    var res = confirm(`Deseja realmente excluir a venda ${id}?`)
-    if (res){
+function deleteVenda(id) {
+    var res = confirm(`Deseja realmente excluir a venda ${id}?`);
+    if (res) {
         window.location.href = `/sisconve/VendaController/deletar/${id}`;
         // return alert(`ok! id = ${id}`);
     }
-    
 }

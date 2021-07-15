@@ -266,6 +266,7 @@ class ProdutoModel
         categoria 
     WHERE
         produto.id_categoria = categoria.id_categoria 
+    AND produto.ativo = true 
     ORDER BY
         produto.id_produto ASC
         ");
@@ -353,6 +354,17 @@ class ProdutoModel
         $this->db->bind(":id_categoria", $this->getCategoria_id());
         $this->db->bind(":nome_produto", $this->getNome_produto());
 
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+    public function deletar($id)
+    {
+        $this->setId($id);
+        $this->db->query("UPDATE produto SET ativo = false WHERE id_produto = :id_produto");
+        $this->db->bind(":id_produto", $this->getId());
         if ($this->db->executa()) :
             return true;
         else :

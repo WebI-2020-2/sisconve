@@ -115,4 +115,17 @@ class ProdutosController extends Controller
 
         $this->viewModal('modal/editar-produto-modal', $dados);
     }
+
+    public function deletar($id)
+    {
+        $idInt = (int) $id;
+        if (is_int($idInt)) :
+            if ($this->produtoModel->deletar($idInt)) :
+                Sessao::mensagem('produto', 'Produto apagado com sucesso!', 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'ProdutosController/listarProdutos');
+            else :
+                Sessao::mensagem('produto', 'Erro!', 'bg-red');
+            endif;
+        endif;
+    }
 }
