@@ -18,7 +18,7 @@
 | Fornecedor         |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Funcionario        |    ❌    |    ❌     |     ❌    |     ❌     |
 | Parcelas           |    ❌    |    ❌     |     ❌    |     ❌     |
-| Produto            |    ✔️    |    ✔️     |     ❌    |     ✔️     |
+| Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Usuário            |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Venda              |    ✔️    |    ✔️     |     ❌    |     ✔️     |
