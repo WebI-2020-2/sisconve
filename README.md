@@ -16,7 +16,7 @@
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
 | Fornecedor         |    ✔️    |    ✔️     |     ❌    |     ✔️     |
-| Funcionario        |    ❌    |    ❌     |     ❌    |     ❌     |
+| Funcionario        |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Parcelas           |    ❌    |    ❌     |     ❌    |     ❌     |
 | Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
