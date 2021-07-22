@@ -100,11 +100,26 @@ class CategoriaModel
         $this->db->query("UPDATE categoria SET nomecategoria = :nomecategoria WHERE id = :id");
         $this->db->bind(":nomecategoria", $this->getNomeCategoria());
         $this->db->bind(":id", $this->getId());
+        
         if ($this->db->executa()) :
 
             return true;
         else :
             return false;
         endif;
+    }
+
+    public function delete($id)
+    {
+        $this->setId($id);
+        $this->db->query("UPDATE categoria SET ativo = false WHERE id_categoria = :id_categoria");
+        $this->db->bind(":id", $this->getId());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+
     }
 }

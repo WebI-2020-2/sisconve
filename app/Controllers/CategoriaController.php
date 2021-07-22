@@ -97,4 +97,17 @@ class CategoriaController extends Controller
 
         $this->viewModal('modal/editar-cliente-modal');
     }
+
+    public function deletar($id)
+    {
+        $idInt = (int) $id;
+        if (is_int($idInt)) :
+            if ($this->categoriaModel->deletar($idInt)) :
+                Sessao::mensagem('categoria', 'Categoria apagado com sucesso!', 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategorias');
+            else :
+                Sessao::mensagem('categoria', 'Erro!', 'bg-red');
+            endif;
+        endif;
+    }
 }
