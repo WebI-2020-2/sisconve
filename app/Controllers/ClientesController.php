@@ -240,7 +240,6 @@ class ClientesController extends Controller
             'cidade_erro',
             'estado_erro',
         ];
-        var_dump($formulario);
         if (Validar::validarCampoString($formulario['nome'])) :
             Sessao::mensagem('cliente', 'Nome informado é invalido!' . $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
@@ -289,7 +288,7 @@ class ClientesController extends Controller
             endif;
 
             if ($this->enderecoModel->update($dados, $idInt) && $this->telefoneModel->update($dados, $idInt)) :
-                Sessao::mensagem('cliente', 'Cliente atuazado com sucesso!', 'bg-green');
+                Sessao::mensagem('cliente', 'Cliente atuazado com sucesso!' .$imgSuccess, 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
             // URL::redirecionar('UsuarioController/login');
             else :

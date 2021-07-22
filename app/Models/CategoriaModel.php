@@ -76,11 +76,11 @@ class CategoriaModel
 
         $this->db->query("INSERT INTO categoria (nome_categoria) VALUES (:nomecategoria) RETURNING id_categoria");
         $this->db->bind(":nomecategoria", $this->getNomeCategoria());
-        
+
         // print $this->db->ultimoIdInserido();
-        
+
         if ($this->db->executa()) :
-            $this->setUltimoId($this->db->ultimoId()['id_categoria']); 
+            $this->setUltimoId($this->db->ultimoId()['id_categoria']);
             return true;
         else :
             return false;
@@ -90,5 +90,21 @@ class CategoriaModel
     {
         $this->db->query('SELECT * FROM categoria');
         return $this->db->resultados();
+    }
+
+    public function update($dados, $id)
+    {
+        $this->setNomeCategoria($dados['nomecategoria']);
+        $this->setId($id);
+
+        $this->db->query("UPDATE categoria SET nomecategoria = :nomecategoria WHERE id = :id");
+        $this->db->bind(":nomecategoria", $this->getNomeCategoria());
+        $this->db->bind(":id", $this->getId());
+        if ($this->db->executa()) :
+
+            return true;
+        else :
+            return false;
+        endif;
     }
 }
