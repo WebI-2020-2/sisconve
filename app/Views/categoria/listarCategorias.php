@@ -72,7 +72,8 @@
                                     <tr>
                                         <td><?= $categoria->id_categoria ?></td>
                                         <td><?= $categoria->nome_categoria ?></td>
-                                        <td>Quantidade de produtos aqui</td>
+                                        <td><?= $categoria->qunatidade_categoria ?></td>
+                                        
                                         <td>
                                             <button title="Ver categoria" onclick="">
                                                 <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">

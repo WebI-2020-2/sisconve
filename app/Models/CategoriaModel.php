@@ -88,7 +88,11 @@ class CategoriaModel
     }
     public function selectAll()
     {
-        $this->db->query('SELECT * FROM categoria');
+        $this->db->query('SELECT c.id_categoria, c.nome_categoria, sum(p.quantidade) as qunatidade_categoria FROM produto p, categoria c 
+        WHERE p.id_categoria = c.id_categoria
+        AND c.ativo <> false
+        GROUP BY c.nome_categoria, c.id_categoria
+        ORDER BY c.id_categoria ASC');
         return $this->db->resultados();
     }
 
@@ -100,7 +104,7 @@ class CategoriaModel
         $this->db->query("UPDATE categoria SET nomecategoria = :nomecategoria WHERE id = :id");
         $this->db->bind(":nomecategoria", $this->getNomeCategoria());
         $this->db->bind(":id", $this->getId());
-        
+
         if ($this->db->executa()) :
 
             return true;
@@ -120,6 +124,5 @@ class CategoriaModel
         else :
             return false;
         endif;
-
     }
 }
