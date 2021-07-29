@@ -9,19 +9,19 @@
 |      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
 | Caixa              |    ✔️    |    ❌    |     ❌    |     ❌     |
-| Categorias         |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Compra             |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
-| Fornecedor         |    ✔️    |    ✔️     |     ❌    |     ✔️     |
-| Funcionario        |    ✔️    |    ✔️     |     ❌    |     ❌     |
+| Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
+| Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Parcelas           |    ❌    |    ❌     |     ❌    |     ❌     |
 | Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Usuário            |    ✔️    |    ✔️     |     ✔️    |     ❌     |
-| Venda              |    ✔️    |    ✔️     |     ❌    |     ✔️     |
+| Venda              |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 
 
 # Linguagens
