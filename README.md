@@ -8,7 +8,7 @@
 
 |      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
-| Caixa              |    ❌    |    ❌    |     ❌    |     ❌     |
+| Caixa              |    ✔️    |    ❌    |     ❌    |     ❌     |
 | Categorias         |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Compra             |    ✔️    |    ✔️     |     ❌    |     ❌     |
