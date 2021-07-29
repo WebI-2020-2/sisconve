@@ -275,10 +275,12 @@ class UsuarioController extends Controller
 
                 elseif ($this->usuarioModel->ValidarUsuario($formulario['usuario'])) :
                     $dados['usuario_erro'] = "Usuario <b>invalido</b>";
-                    
+
                 else :
-                    // if ($this->usuarioModel->insert($dados)) :
+                    // if ($this->usuarioModel->update($dados, $_SESSION["USUARIO_ID"])) :
+                    //  // $this->sesaoUsuario->$_SESSION["USUARIO_ID"];
                     //     echo 'Cadastro realizado como sucesso <hr>';
+                    //     $this->sair();
 
                     // else :
                     //     die("Erro");
@@ -304,6 +306,6 @@ class UsuarioController extends Controller
 
         endif;
 
-        $this->view('usuarios/cadastrar', $dados);
+        $this->view('usuarios/editar', $dados);
     }
 }
