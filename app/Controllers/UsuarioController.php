@@ -226,4 +226,84 @@ class UsuarioController extends Controller
 
         $this->view('usuarios/MeusDados', $dados);
     }
+
+    public function editar()
+    {
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
+        // URL::redirecionar('UsuarioController/login');
+        endif;
+
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($formulario)) :
+            $dados = [
+
+                'nome' => trim($formulario['nome']),
+                'usuario' => trim($formulario['usuario']),
+                'email' => trim($formulario['email']),
+
+                'nome_erro' => '',
+                'usuario_erro' => '',
+                'email_erro' => '',
+
+            ];
+            if (in_array("", $formulario)) :
+
+                if (empty($formulario['nome'])) :
+                    $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
+                endif;
+
+                if (empty($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Preencha o campo <b>usuario</b>";
+                endif;
+
+                if (empty($formulario['email'])) :
+                    $dados['email_erro'] = "Preencha o campo <b>email</b>";
+                endif;
+            else :
+                if (Validar::validarCampoString($formulario['nome'])) :
+                    $dados['nome_erro'] = "Nome informado é <b>invalido</b>";
+
+                elseif (Validar::validarCampoEmail($formulario['email'])) :
+                    $dados['email_erro'] = "E-mail informado é <b>invalido</b>";
+
+                elseif (Validar::validarCampoString($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Usuario <b>invalido</b>";
+
+                elseif ($this->usuarioModel->ValidarEmailUsuario($formulario['email'])) :
+                    $dados['email_erro'] = "E-mail ja <b>cadastrado</b>";
+
+                elseif ($this->usuarioModel->ValidarUsuario($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Usuario <b>invalido</b>";
+                    
+                else :
+                    // if ($this->usuarioModel->insert($dados)) :
+                    //     echo 'Cadastro realizado como sucesso <hr>';
+
+                    // else :
+                    //     die("Erro");
+
+                    // endif;
+                endif;
+            endif;
+
+        else :
+            $dados = [
+                'nome' => '',
+                'usuario' => '',
+                'email' => '',
+                'senha' => '',
+                'confirmar_senha' => '',
+
+                'nome_erro' => '',
+                'usuario_erro' => '',
+                'email_erro' => '',
+                'senha_erro' => '',
+                'confirmar_senha_erro' => ''
+            ];
+
+        endif;
+
+        $this->view('usuarios/cadastrar', $dados);
+    }
 }

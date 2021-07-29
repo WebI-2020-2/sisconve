@@ -158,11 +158,7 @@ class EnderecoModel
         $this->setCidade($dados['cidade']);
         $this->setEstado($dados['estado']);
         $this->setNumero($dados['numero']);
-
-        // trasformando cliente_id em int
-        // $cliente_id_int = (int)$dados['cliente_id_endereco'];
         $this->setIdCliente($ultimoid);
-        // fim
 
         $this->db->query("INSERT INTO endereco(id_cliente, rua, bairro, cidade, estado, numero) VALUES (:id_cliente, :rua, :bairro, :cidade, :estado, :numero)");
 

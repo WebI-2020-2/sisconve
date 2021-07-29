@@ -134,9 +134,7 @@ class CompraModel
         $this->db->bind(':parcelas', $this->getParcelas());
 
         if ($this->db->executa()) :
-            // print_r($this->db->ultimoId());
             $this->setUltimoId($this->db->ultimoId()['id_compra']);
-            // print_r($this->getUltimoId());
             return true;
         else :
             return false;

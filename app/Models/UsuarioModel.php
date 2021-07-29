@@ -39,7 +39,7 @@ class UsuarioModel
     {
         $this->Id = $Id;
     }
-    
+
     /**
      * @return mixed
      */
@@ -156,27 +156,26 @@ class UsuarioModel
         $this->db->query("SELECT email from usuario WHERE email = :email");
         $this->db->bind(":email", $this->getEmail());
 
-        if($this->db->resultado()):
+        if ($this->db->resultado()) :
             return true;
-        else:
+        else :
             return false;
         endif;
-
     }
-    
+
     public function ValidarUsuario($usuario)
     {
         $this->setUsuario($usuario);
         $this->db->query("SELECT usuario from usuario WHERE usuario = :usuario");
         $this->db->bind(":usuario", $this->getUsuario());
 
-        if($this->db->resultado()):
+        if ($this->db->resultado()) :
             return true;
-        else:
+        else :
             return false;
         endif;
     }
-    
+
     public function login($usuario, $senha)
     {
         $this->setUsuario($usuario);
@@ -185,28 +184,48 @@ class UsuarioModel
         $this->db->query("SELECT * FROM usuario WHERE usuario = :usuario AND ativo <> false");
         $this->db->bind(":usuario", $this->getUsuario());
 
-        if ($this->db->resultado()) : 
+        if ($this->db->resultado()) :
             $resultado = $this->db->resultado();
-            if(password_verify($this->getSenha(), $resultado->senha)): 
+            if (password_verify($this->getSenha(), $resultado->senha)) :
                 return $resultado;
-            else:
+            else :
                 return false;
             endif;
         else :
             return false;
         endif;
     }
-    
-    public function selectAll(){
+
+    public function selectAll()
+    {
         $this->db->query("SELECT * FROM usuario");
         return $this->db->resultados();
     }
-    
+
     public function selectById($id)
     {
         $this->setId($id);
         $this->db->query("SELECT * FROM usuario WHERE id_usuario = :id_usuario");
         $this->db->bind(":id_usuario", $this->getId());
         return $this->db->resultados();
+    }
+
+    public function update($dados, $id)
+    {
+        $this->setId($id);
+        $this->setUsuario($dados['usuario']);
+        $this->setEmail($dados['email']);
+        $this->setNomeCompleto($dados['nome_completo']);
+        
+        $this->db->query("UPDATE usuario SET usuario = :usuario, email = :email, nome_completo = :nome_completo where id_usuario = :id_usuario");
+        $this->db->bind(":usuario", $this->getUsuario());
+        $this->db->bind(":email", $this->getEmail());
+        $this->db->bind(":nome_completo", $this->getNomeCompleto());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
     }
 }
