@@ -24,7 +24,7 @@ class DashboardModel
 
     public function totaldeClientes()
     {
-        $this->db->query("SELECT count(*) AS totalcliente FROM cliente");
+        $this->db->query("SELECT count(*) AS totalcliente FROM cliente WHERE id_cliente <> 1");
         return $this->db->resultado();
     }
 

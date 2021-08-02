@@ -15,7 +15,7 @@ class ClientesController extends Controller
     public function listarClientes()
     {
         $dados = [
-            'clientes' => $this->clienteModel->selectAll()
+            'clientes' => $this->clienteModel->selectAllToSell()
             // 'telefones' => $this->telefoneModel->selectAll(),
 
         ];
@@ -194,10 +194,12 @@ class ClientesController extends Controller
 
     public function deletar($id)
     {
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         $idInt = (int) $id;
         if (is_int($idInt)) :
             if ($this->clienteModel->deletar($idInt)) :
-                Sessao::mensagem('cliente', 'Cliente apagado com sucesso!', 'bg-green');
+                Sessao::mensagem('cliente', 'Cliente apagado com sucesso!'. $imgSuccess, 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
             else :
                 Sessao::mensagem('cliente', 'Erro!', 'bg-red');

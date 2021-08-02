@@ -82,21 +82,22 @@
                                         <td><?= $fornecedor->estado ?></td>
                                         <td>
                                             <button title="Ver fornecedor" onclick="">
-                                                <img src="../public/img/eye-icon.svg" alt="">
+                                                <img src="../public/img/eye-icon.svg" alt="Ver fornecedor">
                                             </button>
                                             <button title="Editar fornecedor" onclick="">
-                                                <img src="../public/img/pencil-icon.svg" alt="">
+                                                <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-fornecedor-modal" alt="Editar fornecedor">
                                             </button>
                                             <button title="Exluir fornecedor" onclick="deleteFornecedor('<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
-                                                <img src="../public/img/trash-icon.svg" alt="">
+                                                <img src="../public/img/trash-icon.svg" alt="Excluir fornecedor">
                                             </button>
-                                            <a href="<?= URL.'/FornecedorController/visualizar/'.$fornecedor->id_fornecedor
-                                            ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+
+                        <?php include('./../app/include/modal/editar-fornecedor-modal.php'); ?>
+
                     </div>
                 </div>
             </div>

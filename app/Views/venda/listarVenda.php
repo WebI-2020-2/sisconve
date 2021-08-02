@@ -33,6 +33,8 @@
                             <img src="../public/img/car-compra.svg" alt="Vendas">
                             Vendas
                         </span>
+                        <span>/</span>
+                        <span>Ver vendas</span>
                     </div>
                 </div>
 

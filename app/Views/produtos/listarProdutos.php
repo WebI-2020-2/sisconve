@@ -79,8 +79,8 @@
                                         </td>
                                         <td><?= $produto->nome_produto ?></td>
                                         <td><?= $produto->nome_categoria ?></td>
-                                        <td><?= $produto->preco_compra ?></td>
-                                        <td><?= $produto->preco_venda ?></td>
+                                        <td>R$ <?= $produto->preco_compra ?></td>
+                                        <td>R$ <?= $produto->preco_venda ?></td>
                                         <td><?= $produto->quantidade ?></td>
                                         <td>
                                             <button type="button" title="Ver produto" onclick="">
@@ -92,7 +92,6 @@
                                             <button type="button" title="Exluir produto" onclick="deleteProduto('<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="Exluir produto">
                                             </button>
-                                            <a href="<?= URL . '/ProdutosController/visualizar/' . $produto->id_produto ?>">TESTE</a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

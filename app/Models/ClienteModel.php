@@ -172,33 +172,67 @@ class ClienteModel
         return $this->db->resultados();
     }
 
+    public function selectAllToSell()
+    {
+        $this->db->query('
+            SELECT
+                cliente.id_cliente,
+                cliente.nome_cliente,
+                cliente.cpf,
+                cliente.credito,
+                cliente.debito,
+                telefone.num_telefone,
+                telefone.ddd,
+                telefone.whatsapp,
+                endereco.rua,
+                endereco.bairro,
+                endereco.cidade,
+                endereco.estado,
+                endereco.numero,
+                cliente.criado_em 
+            FROM
+                cliente,
+                telefone,
+                endereco 
+            WHERE
+            telefone.id_cliente = cliente.id_cliente 
+            AND endereco.id_cliente = cliente.id_cliente 
+            AND cliente.ativo <> FALSE 
+            AND cliente.id_cliente <> 1
+            ORDER BY cliente.nome_cliente ASC
+        ');
+        return $this->db->resultados();
+    }
+
     public function selectById($id)
     {
         $this->setId($id);
-        $this->db->query("SELECT
-	cliente.id_cliente,
-	cliente.nome_cliente,
-	cliente.cpf,
-	cliente.credito,
-	cliente.debito,
-	telefone.num_telefone,
-	telefone.ddd,
-	telefone.whatsapp,
-	endereco.rua,
-	endereco.bairro,
-	endereco.cidade,
-	endereco.estado,
-	endereco.numero,
-    cliente.criado_em
-FROM
-	cliente,
-	telefone,
-	endereco 
-WHERE
-	telefone.id_cliente = cliente.id_cliente 
-	AND endereco.id_cliente = cliente.id_cliente
-    AND cliente.ativo <> false
-    AND cliente.id_cliente = :id_cliente");
+        $this->db->query('
+            SELECT
+                cliente.id_cliente,
+                cliente.nome_cliente,
+                cliente.cpf,
+                cliente.credito,
+                cliente.debito,
+                telefone.num_telefone,
+                telefone.ddd,
+                telefone.whatsapp,
+                endereco.rua,
+                endereco.bairro,
+                endereco.cidade,
+                endereco.estado,
+                endereco.numero,
+                cliente.criado_em
+            FROM
+                cliente,
+                telefone,
+                endereco 
+            WHERE
+                telefone.id_cliente = cliente.id_cliente 
+                AND endereco.id_cliente = cliente.id_cliente
+                AND cliente.ativo <> false
+                AND cliente.id_cliente = :id_cliente
+        ');
         $this->db->bind(":id_cliente", $this->getId());
         return $this->db->resultados();
     }

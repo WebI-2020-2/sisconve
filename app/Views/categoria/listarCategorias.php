@@ -76,19 +76,22 @@
                                         
                                         <td>
                                             <button title="Ver categoria" onclick="">
-                                                <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
+                                                <img src="<?= URL ?>/public/img/eye-icon.svg" alt="Ver categoria">
                                             </button>
                                             <button title="Editar categoria" onclick="">
-                                                <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
+                                                <img src="<?= URL ?>/public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-categoria-modal" alt="Editar categoria">
                                             </button>
                                             <button title="Exluir categoria" onclick="deleteCategoria('<?= $categoria->id_categoria ?>', '<?= $categoria->nome_categoria ?>')">
-                                                <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
+                                                <img src="<?= URL ?>/public/img/trash-icon.svg" alt="Excluir categoria">
                                             </button>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+
+                        <?php include('./../app/include/modal/editar-categoria-modal.php'); ?>
+
                     </div>
                 </div>
             </div>

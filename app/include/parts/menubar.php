@@ -39,8 +39,13 @@
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/financas.svg" alt="">Finanças</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedoa">
-                    <li><a href="#">Ver relatorios</a></li>
+                    <li><a href="#">Cobranças</a></li>
+                    <li><a href="#">Pagamentos</a></li>
                 </ul>
+            </li>
+
+            <li href="#pageSubmenuFuncionarios" data-toggle="collapse" aria-expanded="false" class="dropdown">
+                <a href="#"><img src="../public/img/funcionario.svg" alt="Funcionários">Funcionários</a>
             </li>
 
             <li href="#pageSubmenuRelatório" data-toggle="collapse" aria-expanded="false" class="dropdown">

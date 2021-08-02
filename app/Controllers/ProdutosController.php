@@ -89,6 +89,8 @@ class ProdutosController extends Controller
 
     public function update()
     {
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $dados = [
             'categoria' => trim($formulario['categoria']),

@@ -105,65 +105,65 @@
                                 </div>
                             </div>
                             <!-- Produtos que tem baixa no estoque... -->
-                            <div class="section">
-                                <div class="section-title">
-                                    <span><img src="../public/img/probaixoestoque-btn.svg" alt="">Produtos com baixa no Estoque</span>
-                                </div>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nome do Produto</th>
-                                            <th>Valor Unitario</th>
-                                            <th>Quantidade</th>
-                                            <th>Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($dados['produtoAbaixoEstoque'] as $produtosAbaixoEstoque) : ?>
+                            <?php if(sizeof($dados['produtoAbaixoEstoque']) > 0) : ?>
+                                <div class="section">
+                                    <div class="section-title">
+                                        <span><img src="../public/img/probaixoestoque-btn.svg" alt="">Produtos com baixa no Estoque</span>
+                                    </div>
+                                    <table>
+                                        <thead>
                                             <tr>
-                                                <td><?= $produtosAbaixoEstoque->id_produto ?></td>
-                                                <td><?= $produtosAbaixoEstoque->nome_produto ?></td>
-                                                <td><?= $produtosAbaixoEstoque->preco_venda ?></td>
-                                                <td><?= $produtosAbaixoEstoque->quantidade ?></td>
-                                                <td>
-                                                    <a href=""><img src="../public/img/edit-tabela.svg" alt=""></a>
-                                                </td>
+                                                <th>#</th>
+                                                <th>Nome do Produto</th>
+                                                <th>Valor Unitario</th>
+                                                <th>Quantidade</th>
                                             </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($dados['produtoAbaixoEstoque'] as $produtosAbaixoEstoque) : ?>
+                                                <tr>
+                                                    <td><?= $produtosAbaixoEstoque->id_produto ?></td>
+                                                    <td><?= $produtosAbaixoEstoque->nome_produto ?></td>
+                                                    <td>R$ <?= $produtosAbaixoEstoque->preco_venda ?></td>
+                                                    <td><?= $produtosAbaixoEstoque->quantidade ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
+
                             <!-- clientes que devem... -->
-                            <div class="section">
-                                <div class="section-title">
-                                    <span><img src="../public/img/cliParcleasVencendo.svg" alt="">Clientes com parcelas vencendo</span>
-                                </div>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nome do Cliente</th>
-                                            <th scope="col">Valor da Parcela</th>
-                                            <th scope="col">Vencimento</th>
-                                            <th scope="col">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($dados['clienteParcelaVencendo'] as $clientesParcelaVencendo) : ?>
+                            <?php if(sizeof($dados['clienteParcelaVencendo']) > 0) : ?>
+                                <div class="section">
+                                    <div class="section-title">
+                                        <span><img src="../public/img/cliParcleasVencendo.svg" alt="">Clientes com parcelas vencendo</span>
+                                    </div>
+                                    <table>
+                                        <thead>
                                             <tr>
-                                                <td><?= $clientesParcelaVencendo->id_cliente ?></td>
-                                                <td><?= $clientesParcelaVencendo->nome_cliente ?></td>th>
-                                                <td><?= $clientesParcelaVencendo->valor_parcela ?></td>
-                                                <td><?= Validar::dataBr($clientesParcelaVencendo->data_vencimento) ?></td>
-                                                <td>
-                                                    <a href=""><img src="../public/img/ver-table.svg" alt=""></a>
-                                                </td>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Nome do Cliente</th>
+                                                <th scope="col">Valor da Parcela</th>
+                                                <th scope="col">Vencimento</th>
                                             </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($dados['clienteParcelaVencendo'] as $clientesParcelaVencendo) : ?>
+                                                <tr>
+                                                    <td><?= $clientesParcelaVencendo->id_cliente ?></td>
+                                                    <td><?= $clientesParcelaVencendo->nome_cliente ?></td>th>
+                                                    <td><?= $clientesParcelaVencendo->valor_parcela ?></td>
+                                                    <td><?= Validar::dataBr($clientesParcelaVencendo->data_vencimento) ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
+
+                            <canvas id="myChart" width="400" height="400"></canvas>
+                            
                         </div>
                     </div>
                 </div>
@@ -176,5 +176,8 @@
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 
 </html>

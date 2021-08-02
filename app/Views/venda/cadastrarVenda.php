@@ -1,19 +1,19 @@
 <?php
 
-// trazer a variavel $dados['clientes'] pra cá
-include_once './../app/Models/ClienteModel.php';
-$cliente = new ClienteModel();
-$lista_cliente = $cliente->selectAll();
+    // trazer a variavel $dados['clientes'] pra cá
+    include_once './../app/Models/ClienteModel.php';
+    $cliente = new ClienteModel();
+    $lista_cliente = $cliente->selectAllToSell();
 
-// trazer a variavel $dados['produtos'] pra cá
-include_once './../app/Models/ProdutoModel.php';
-$produto = new ProdutoModel();
-$lista_produtos = $produto->selectAll();
+    // trazer a variavel $dados['produtos'] pra cá
+    include_once './../app/Models/ProdutoModel.php';
+    $produto = new ProdutoModel();
+    $lista_produtos = $produto->selectAll();
 
-// trazer a variavel $dados['metodo_pagamento'] pra cá
-include_once './../app/Models/FormaPagamentoModel.php';
-$formaDePagamento = new FormaPagamentoModel();
-$lista_formaDePagamento = $formaDePagamento->selectAll();
+    // trazer a variavel $dados['metodo_pagamento'] pra cá
+    include_once './../app/Models/FormaPagamentoModel.php';
+    $formaDePagamento = new FormaPagamentoModel();
+    $lista_formaDePagamento = $formaDePagamento->selectAll();
 
 ?>
 
@@ -58,11 +58,22 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
                         <span>/</span>
                         <span>
                             <img src="../public/img/car-compra.svg" alt="Realizar venda">
-                            Realizar venda
+                            Venda
                         </span>
+                        <span>/</span>
+                        <span>Realizar Venda</span>
                     </div>
                 </div>
 
+                <?php 
+                
+                    if($_POST){
+                        print_r($_POST);
+                    }
+
+                ?>
+
+                <!-- <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell"> -->
                 <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell">
                     <div class="sell-area">
                         <div class="section section-sell-area p-0 m-0">
@@ -150,6 +161,7 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
                                                     <div class="input-met-pag">
                                                         <label for="metodo-pagamento">Selecione o método de pagamento</label>
                                                         <select name="metodo-pagamento" id="metodo-pagamento" required>
+                                                            <option value="1" selected>À VISTA</option>
                                                             <?php foreach ($lista_formaDePagamento as $formaDePagamentos) : ?>
                                                                 <option value="<?= $formaDePagamentos->id_forma_pagamento ?>"><?= $formaDePagamentos->tipo_pagamento ?></option>
                                                             <?php endforeach; ?>
@@ -157,7 +169,7 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
                                                     </div>
                                                     <div class="input-parcel">
                                                         <label for="num-parcelas">Número de parcelas</label>
-                                                        <input type="text" name="num-parcelas" oninput="validaInput(this)" maxlength="2" value="1" required>
+                                                        <input type="number" name="num-parcelas" min="1" max="99" oninput="validaInput(this)" maxlength="2" value="1" required>
                                                     </div>
                                                 </div>
 
@@ -201,7 +213,7 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
                                                         </div>
                                                         <div class="input-quantidade">
                                                             <label>Quantidade</label>
-                                                            <input id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="text" min="1" value="1" required>
+                                                            <input id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="number" min="1" value="1" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -383,7 +395,7 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
     //                 modal clientes
 
     var clientes = [];
-    clientes[0] = {
+    clientes[1] = {
         id: 1,
         nome: "Cliente Padrão"
     }
@@ -393,10 +405,8 @@ $lista_formaDePagamento = $formaDePagamento->selectAll();
         clientes["<?= $cliente->id_cliente ?>"] = {
             id: parseInt("<?= $cliente->id_cliente ?>"),
             nome: "<?= $cliente->nome_cliente ?>"
-        };
-    <?php
-    }
-    ?>
+        }; <?php
+    } ?>
 
     var spanTxtSC = document.getElementById("name-client");
     var selectCliente = document.getElementById("nome-cliente");
