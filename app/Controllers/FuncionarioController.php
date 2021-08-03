@@ -18,145 +18,226 @@ class FuncionarioController extends Controller
         endif;
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
-            $dados = [
-                'nome_funcionario' => trim($formulario['nome_funcionario']),
-                'telefone' => trim($formulario['telefone']),
-                'cpf' => trim($formulario['cpf']),
-                'endereco' => trim($formulario['endereco']),
-                'cargo' => trim($formulario['cargo']),
-                'salario' => trim($formulario['salario']),
+            if (isset($formulario['usuario'])) :
+                $dados = [
+                    'nome_funcionario' => trim($formulario['nome_funcionario']),
+                    'telefone' => trim($formulario['telefone']),
+                    'cpf' => trim($formulario['cpf']),
+                    'endereco' => trim($formulario['endereco']),
+                    'cargo' => trim($formulario['cargo']),
+                    'salario' => trim($formulario['salario']),
 
-                'usuario' => trim($formulario['usuario']),
-                'senha' => trim($formulario['senha']),
-                'email' => trim($formulario['email']),
-                'caixa' => trim($formulario['caixa']),
+                    'usuario' => trim($formulario['usuario']),
+                    'senha' => trim($formulario['senha']),
+                    'senha' => trim($formulario['confirma_senha']),
+                    'email' => trim($formulario['email']),
 
+                    'nivel_acesso' => trim($formulario['acess-level']),
 
-                'nome_funcionario_erro',
-                'telefone_erro' => '',
-                'cpf_erro' => '',
-                'endereco_erro' => '',
-                'cargo_erro' => '',
-                'salario_erro' => '',
+                    'nome_funcionario_erro',
+                    'telefone_erro' => '',
+                    'cpf_erro' => '',
+                    'endereco_erro' => '',
+                    'cargo_erro' => '',
+                    'salario_erro' => '',
 
-                'usuario_erro' => '',
-                'senha_erro' => '',
-                'email_erro' => '',
-                'caixa_errro' => '',
-            ];
-            if (in_array("", $formulario)) :
+                    'usuario_erro' => '',
+                    'senha_erro' => '',
+                    'email_erro' => '',
+                    'confirma_senha_erro' => '',
+                ];
+                if (in_array("", $formulario)) :
 
-                if (empty($formulario['nome_funcionario'])) :
-                    $dados['nome_funcionario_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['nome_funcionario'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['telefone'])) :
-                    $dados['telefone_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['telefone'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['cpf'])) :
-                    $dados['cpf_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['cpf'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['endereco'])) :
-                    $dados['endereco_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['endereco'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['cargo'])) :
-                    $dados['cargo_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['cargo'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['salario'])) :
-                    $dados['salario_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['salario'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['caixa'])) :
-                    $dados['caixa_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['caixa'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['usuario'])) :
-                    $dados['usuario_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['usuario'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['email'])) :
-                    $dados['email_erro'] = 'Preencha o campo';
-                endif;
+                    if (empty($formulario['email'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-                if (empty($formulario['senha'])) :
-                    $dados['senha_erro'] = 'Preencha o campo';
-                endif;
-                if (empty($formulario['confirma_senha'])) :
-                    $dados['confirma_senha_erro'] = 'Confirme a Senha';
-                endif;
+                    if (empty($formulario['senha'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
+                    if (empty($formulario['confirma_senha'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                    endif;
 
-            else :
-                if (Validar::validarCampoString($formulario['nome_funcionario'])) :
-                    $dados['nome_funcionario_erro'] = "Nome informado <b>inavlido</b>";
-
-                elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "Formato informado <b>inavlido</b>";
-
-                elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
-                    $dados['telefone_erro'] = "Formato informado <b>inavlido</b>";
-
-                elseif (Validar::validarCampoCPF($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
-
-                elseif (Validar::validarCampoNumerico($formulario['salario'])) :
-                    $dados['salario_erro'] = "Formato informado <b>inavlido</b>";
-
-                elseif (Validar::validarCampoString($formulario['cargo'])) :
-                    $dados['cargo_erro'] = "Formato informado <b>inavlido</b>";
-
-                elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
-                    $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
-
-                elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
-                    $dados['telefone_erro'] = "Telefone  informado <b>pertence</b> a outro funcionário";
-                
-                elseif (strlen($formulario['senha']) < 6) :
-                    $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
-                
-                elseif ($formulario['senha'] != $formulario['confirma_senha']) :
-                    $dados['confirma_senha_erro'] = 'As senhas são diferentes';
                 else :
-                    $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
-                    if ($this->funcionarioModel->insert($dados)) :
-                        echo 'Cadastro realizado como sucesso <hr>';
+                    if (Validar::validarCampoString($formulario['nome_funcionario'])) :
+                        Sessao::mensagem('funcionario', 'Formato em <b>Nome do funcionario</b> informado!', 'bg-danger');
+
+                    elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
+                        Sessao::mensagem('funcionario', 'Formato em <b>CPF</b> informado!', 'bg-danger');
+
+                    elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
+                        Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-danger');
+
+                    elseif (Validar::validarCampoCPF($formulario['cpf'])) :
+                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-danger');
+
+                    elseif (Validar::validarCampoNumerico($formulario['salario'])) :
+                        Sessao::mensagem('funcionario', 'Formato em <b>Salario</b> informado!', 'bg-danger');
+
+                    elseif (Validar::validarCampoString($formulario['cargo'])) :
+                        Sessao::mensagem('funcionario', 'Formato em <b>Cargo</b> informado!', 'bg-danger');
+
+                    elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
+                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-danger');
+
+                    elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
+                        Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-danger');
+
+                    elseif (Validar::validarCampoEmail($formulario['email'])) :
+                        Sessao::mensagem('funcionario', 'Email invalido!', 'bg-danger');
+
+                    elseif (strlen($formulario['senha']) < 6) :
+                        Sessao::mensagem('funcionario', 'A senha deve ter no minimo 6 caracteres!', 'bg-danger');
+
+                    elseif ($formulario['senha'] != $formulario['confirma_senha']) :
+                        Sessao::mensagem('funcionario', 'As senhas são diferentes!', 'bg-danger');
                     else :
-                        die("Erro");
+                        $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
+                        if ($this->funcionarioModel->insertDois($dados)) :
+                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-danger');
+                            header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
+                        else :
+                            die("Erro");
+                        endif;
                     endif;
                 endif;
+            else :
+                // Sem acesso ao sistema
+                $dados = [
+                    'nome_funcionario' => trim($formulario['nome_funcionario']),
+                    'telefone' => trim($formulario['telefone']),
+                    'cpf' => trim($formulario['cpf']),
+                    'endereco' => trim($formulario['endereco']),
+                    'cargo' => trim($formulario['cargo']),
+                    'salario' => trim($formulario['salario']),
+                    'email' => trim($formulario['email']),
+
+                    'nome_funcionario_erro',
+                    'telefone_erro' => '',
+                    'cpf_erro' => '',
+                    'endereco_erro' => '',
+                    'cargo_erro' => '',
+                    'salario_erro' => '',
+
+                    'usuario_erro' => '',
+                    'senha_erro' => '',
+                    'email_erro' => '',
+                ];
+                if (in_array("", $formulario)) :
+
+                    if (empty($formulario['nome_funcionario'])) :
+                        $dados['nome_funcionario_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['telefone'])) :
+                        $dados['telefone_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['cpf'])) :
+                        $dados['cpf_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['endereco'])) :
+                        $dados['endereco_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['cargo'])) :
+                        $dados['cargo_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['salario'])) :
+                        $dados['salario_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['caixa'])) :
+                        $dados['caixa_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['usuario'])) :
+                        $dados['usuario_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['email'])) :
+                        $dados['email_erro'] = 'Preencha o campo';
+                    endif;
+
+                    if (empty($formulario['senha'])) :
+                        $dados['senha_erro'] = 'Preencha o campo';
+                    endif;
+                    if (empty($formulario['confirma_senha'])) :
+                        $dados['confirma_senha_erro'] = 'Confirme a Senha';
+                    endif;
+
+                else :
+                    if (Validar::validarCampoString($formulario['nome_funcionario'])) :
+                        $dados['nome_funcionario_erro'] = "Nome informado <b>inavlido</b>";
+
+                    elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
+                        $dados['cpf_erro'] = "Formato informado <b>inavlido</b>";
+
+                    elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
+                        $dados['telefone_erro'] = "Formato informado <b>inavlido</b>";
+
+                    elseif (Validar::validarCampoCPF($formulario['cpf'])) :
+                        $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
+
+                    elseif (Validar::validarCampoNumerico($formulario['salario'])) :
+                        $dados['salario_erro'] = "Formato informado <b>inavlido</b>";
+
+                    elseif (Validar::validarCampoString($formulario['cargo'])) :
+                        $dados['cargo_erro'] = "Formato informado <b>inavlido</b>";
+
+                    elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
+                        $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
+
+                    elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
+                        $dados['telefone_erro'] = "Telefone  informado <b>pertence</b> a outro funcionário";
+
+                    else :
+                        if ($this->funcionarioModel->insert($dados)) :
+                            echo 'Cadastro realizado como sucesso <hr>';
+                        else :
+                            die("Erro");
+                        endif;
+                    endif;
+                endif;
+
             endif;
-        else :
-            $dados = [
-                'nome_funcionario' => '',
-                'telefone' => '',
-                'cpf' => '',
-                'endereco' => '',
-                'cargo' => '',
-                'salario' => '',
-
-                'usuario' => '',
-                'senha' => '',
-                'email' => '',
-                'caixa' => '',
-
-                'nome_funcionario_erro',
-                'telefone_erro' => '',
-                'cpf_erro' => '',
-                'endereco_erro' => '',
-                'cargo_erro' => '',
-                'salario_erro' => '',
-
-                'usuario_erro' => '',
-                'senha_erro' => '',
-                'email_erro' => '',
-                'caixa_errro' => '',
-            ];
         endif;
-
-        $this->view('funcionario/cadastrarFuncionario', $dados);
+        $this->viewModal('modal/cadastrar-funcionario-modal');
     }
 
     public function login()
@@ -267,13 +348,11 @@ class FuncionarioController extends Controller
 
     public function listarFuncionario()
     {
-
-        if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 2) :
-            Sessao::mensagem('funcionario', 'Erro! Você não tem acesso!' . $this->imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
-        // URL::redirecionar('CategoriaController/listarCategoria');
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+        // URL::redirecionar('FuncionarioController/login');
         endif;
-        
+
         $dados = [
             'funcionarios' => $this->funcionarioModel->selectAll()
         ];

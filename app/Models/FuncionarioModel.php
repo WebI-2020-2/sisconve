@@ -9,6 +9,7 @@ class FuncionarioModel
     private $endereco;
     private $cargo;
     private $salario;
+    private $nivel_acesso;
 
     public function __construct()
     {
@@ -172,6 +173,22 @@ class FuncionarioModel
         return $this->senha;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNivel_acesso()
+    {
+        return $this->nivel_acesso;
+    }
+
+    /**
+     * @param mixed $nivel_acesso
+     */
+    public function setNivel_acesso($nivel_acesso)
+    {
+        $this->nivel_acesso = $nivel_acesso;
+    }
+
     public function validarCpf($cpf)
     {
         $this->setCpf($cpf);
@@ -215,8 +232,9 @@ class FuncionarioModel
         $this->setEndereco($dados['endereco']);
         $this->setCargo($dados['cargo']);
         $this->setSalario($dados['salario']);
+        $this->setEmail($dados['email']);
 
-        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario)");
+        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario, email) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario, :email)");
 
         $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
         $this->db->bind(":telefone", $this->getTelefone());
@@ -224,15 +242,16 @@ class FuncionarioModel
         $this->db->bind(":endereco", $this->getEndereco());
         $this->db->bind(":cargo", $this->getCargo());
         $this->db->bind(":salario", $this->getSalario());
+        $this->db->bind(":email", $this->getEmail());
+        
 
         if ($this->db->executa()) :
             return true;
         else :
             return false;
         endif;
-
-    
     }
+
     public function selectAll(){
         $this->db->query("SELECT * FROM funcionario");
         return $this->db->resultados();
@@ -257,4 +276,38 @@ class FuncionarioModel
             return false;
         endif;
     }
+
+    public function insertDois($dados)
+    {
+        $nivel_acesso = intval($dados['nivel_acesso']);
+
+        $this->setNomeFuncionario($dados['nome_funcionario']);
+        $this->setTelefone($dados['telefone']);
+        $this->setCpf($dados['cpf']);
+        $this->setEndereco($dados['endereco']);
+        $this->setCargo($dados['cargo']);
+        $this->setSalario($dados['salario']);
+        $this->setUsuario($dados['usuario']);
+        $this->setSenha($dados['senha']);
+        $this->setNivel_acesso($nivel_acesso);
+
+        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario, usuario, senha, nivel_acesso) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario, :usuario, :senha, :nivel_acesso)");
+
+        $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
+        $this->db->bind(":telefone", $this->getTelefone());
+        $this->db->bind(":cpf", $this->getCpf());
+        $this->db->bind(":endereco", $this->getEndereco());
+        $this->db->bind(":cargo", $this->getCargo());
+        $this->db->bind(":salario", $this->getSalario());
+        $this->db->bind(":usuario", $this->getUsuario());
+        $this->db->bind(":senha", $this->getSenha());
+        $this->db->bind(":nivel_acesso", $this->getNivel_acesso());
+        
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
 }

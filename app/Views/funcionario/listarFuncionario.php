@@ -67,19 +67,19 @@
                                     <th>#</th>
                                     <th>Nome do Funcionário</th>
                                     <th>Telefone</th>
-                                    <th>Cidade</th>
-                                    <th>Estado</th>
+                                    <th>Cargo</th>
+                                    <th>Nivel de Acesso</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <?php foreach ($dados['fornecedores'] as $fornecedor) : ?>
+                                <?php foreach ($dados['funcionarios'] as $fornecedor) : ?>
                                     <tr>
-                                        <td><?= $fornecedor->id_fornecedor ?></td>
-                                        <td><?= $fornecedor->nome_fornecedor ?></td>
+                                        <td><?= $fornecedor->id_funcionario ?></td>
+                                        <td><?= $fornecedor->nome_funcionario ?></td>
                                         <td><?= $fornecedor->telefone ?></td>
-                                        <td><?= $fornecedor->cidade ?></td>
-                                        <td><?= $fornecedor->estado ?></td>
+                                        <td><?= $fornecedor->cargo ?></td>
+                                        <td><?= $fornecedor->nivel_acesso ?></td>
                                         <td>
                                             <button title="Ver fornecedor" onclick="">
                                                 <img src="../public/img/eye-icon.svg" alt="Ver fornecedor">
@@ -92,12 +92,9 @@
                                             </button>
                                         </td>
                                     </tr>
-                                <?php endforeach ?>  -->
+                                <?php endforeach ?>  
                             </tbody>
                         </table>
-
-                        <?php //include('./../app/include/modal/editar-funcionario-modal.php'); ?>
-
                     </div>
                 </div>
             </div>
