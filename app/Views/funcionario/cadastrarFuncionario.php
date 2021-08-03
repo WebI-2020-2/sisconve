@@ -33,12 +33,15 @@
         <?= $dados['cargo_erro'] ?>
     </div>
     <br>
+
     <label for="">salario</label>
     <input type="text" id="salario" name="salario" class="<?= $dados['salario_erro'] ? 'is-invalid' : '' ?>">
     <div class="invalid-feedback">
         <?= $dados['salario_erro'] ?>
     </div>
     <br>
+
+    <label for=""></label>
     <button type="submit">Cadastrar</button>
     <a href="<?= URL ?>/funcionario/listarFuncionario">listar</a>
 </form>

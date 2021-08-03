@@ -4,12 +4,12 @@ class FuncionarioController extends Controller
 {
     public function __construct()
     {
-                
+
         $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
         $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         $this->funcionarioModel = $this->model('FuncionarioModel');
     }
-    
+
 
     public function cadastrar()
     {
@@ -27,37 +27,64 @@ class FuncionarioController extends Controller
                 'cargo' => trim($formulario['cargo']),
                 'salario' => trim($formulario['salario']),
 
+                'usuario' => trim($formulario['usuario']),
+                'senha' => trim($formulario['senha']),
+                'email' => trim($formulario['email']),
+                'caixa' => trim($formulario['caixa']),
+
+
                 'nome_funcionario_erro',
                 'telefone_erro' => '',
                 'cpf_erro' => '',
                 'endereco_erro' => '',
                 'cargo_erro' => '',
                 'salario_erro' => '',
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+                'email_erro' => '',
+                'caixa_errro' => '',
             ];
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome_funcionario'])) :
-                    $dados['nome_funcionario_erro'] = 'Preencha o campo <b>nome do funcionario</b>';
+                    $dados['nome_funcionario_erro'] = 'Preencha o campo';
                 endif;
 
                 if (empty($formulario['telefone'])) :
-                    $dados['telefone_erro'] = 'Preencha o campo <b>telefone</b>';
+                    $dados['telefone_erro'] = 'Preencha o campo';
                 endif;
 
                 if (empty($formulario['cpf'])) :
-                    $dados['cpf_erro'] = 'Preencha o campo <b>cpf</b>';
+                    $dados['cpf_erro'] = 'Preencha o campo';
                 endif;
 
                 if (empty($formulario['endereco'])) :
-                    $dados['endereco_erro'] = 'Preencha o campo <b>endereco</b>';
+                    $dados['endereco_erro'] = 'Preencha o campo';
                 endif;
 
                 if (empty($formulario['cargo'])) :
-                    $dados['cargo_erro'] = 'Preencha o campo <b>cargo</b>';
+                    $dados['cargo_erro'] = 'Preencha o campo';
                 endif;
 
                 if (empty($formulario['salario'])) :
-                    $dados['salario_erro'] = 'Preencha o campo <b>salario</b>';
+                    $dados['salario_erro'] = 'Preencha o campo';
+                endif;
+
+                if (empty($formulario['caixa'])) :
+                    $dados['caixa_erro'] = 'Preencha o campo';
+                endif;
+
+                if (empty($formulario['usuario'])) :
+                    $dados['usuario_erro'] = 'Preencha o campo';
+                endif;
+
+                if (empty($formulario['email'])) :
+                    $dados['email_erro'] = 'Preencha o campo';
+                endif;
+
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = 'Preencha o campo';
                 endif;
 
             else :
@@ -103,12 +130,22 @@ class FuncionarioController extends Controller
                 'cargo' => '',
                 'salario' => '',
 
+                'usuario' => '',
+                'senha' => '',
+                'email' => '',
+                'caixa' => '',
+
                 'nome_funcionario_erro',
                 'telefone_erro' => '',
                 'cpf_erro' => '',
                 'endereco_erro' => '',
                 'cargo_erro' => '',
                 'salario_erro' => '',
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+                'email_erro' => '',
+                'caixa_errro' => '',
             ];
         endif;
 
@@ -227,7 +264,7 @@ class FuncionarioController extends Controller
         if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 2) :
             Sessao::mensagem('funcionario', 'Erro! Você não tem acesso!' . $this->imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
-            // URL::redirecionar('CategoriaController/listarCategoria');
+        // URL::redirecionar('CategoriaController/listarCategoria');
         endif;
         var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
         $dados = [

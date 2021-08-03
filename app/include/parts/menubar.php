@@ -2,10 +2,10 @@
     <div class="sidebar">
         <ul class="menu-items">
             <li href="#" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="<?= URL?>/DashboardController/dashboard"><img src="../public/img/dashboard.svg" alt="">Dashboard</a>
+                <a href="<?= URL ?>/DashboardController/dashboard"><img src="../public/img/dashboard.svg" alt="">Dashboard</a>
             </li>
             <li href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="<?= URL?>/ClientesController/listarClientes"><img src="../public/img/clientes.svg" alt="">Clientes</a>
+                <a href="<?= URL ?>/ClientesController/listarClientes"><img src="../public/img/clientes.svg" alt="">Clientes</a>
             </li>
 
             <li href="#pageSubmenuProdutos" data-toggle="collapse" aria-expanded="false" class="dropdown">
@@ -13,7 +13,7 @@
             </li>
 
             <li href="#pageSubmenuCategorias" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="<?= URL?>/CategoriaController/listarCategoria"><img src="../public/img/categorias.svg" alt="">Categorias</a>
+                <a href="<?= URL ?>/CategoriaController/listarCategoria"><img src="../public/img/categorias.svg" alt="">Categorias</a>
             </li>
 
             <li href="#pageSubmenuVendas" data-toggle="collapse" aria-expanded="false" class="dropdown">
@@ -44,9 +44,11 @@
                 </ul>
             </li>
 
-            <li href="#pageSubmenuFuncionarios" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="<?= URL?>/FuncionarioController/listarFuncionario"><img src="../public/img/funcionario.svg" alt="Funcionários">Funcionários</a>
-            </li>
+            <?php if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 1) : ?>
+                <li href="#pageSubmenuFuncionarios" data-toggle="collapse" aria-expanded="false" class="dropdown">
+                    <a href="<?= URL ?>/FuncionarioController/listarFuncionario"><img src="../public/img/funcionario.svg" alt="Funcionários">Funcionários</a>
+                </li>
+            <?php endif; ?>
 
             <li href="#pageSubmenuRelatório" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/relatorios.svg" alt="">Relatório</span>
@@ -58,12 +60,12 @@
                     <img src="../public/img/logout.svg" alt="Logout">
                     Sair do sistema
                 </button>
-                <?php 
-                    // chamando o modal de logoff
-                    include('./../app/include/modal/logoff-modal.php'); 
+                <?php
+                // chamando o modal de logoff
+                include('./../app/include/modal/logoff-modal.php');
                 ?>
                 <span id="clock"></span>
-            </div>            
+            </div>
         </ul>
     </div>
 </div>

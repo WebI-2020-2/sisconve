@@ -22,7 +22,6 @@
         <?php include("./../app/include/parts/menubar.php"); ?>
 
         <div class="content-center">
-        <?= Sessao::mensagem('funcionario')?>
             <!-- conteudo do centro -->
             <div class="dashboard">
                 <div class="title-content">
