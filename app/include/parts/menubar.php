@@ -45,7 +45,7 @@
             </li>
 
             <li href="#pageSubmenuFuncionarios" data-toggle="collapse" aria-expanded="false" class="dropdown">
-                <a href="#"><img src="../public/img/funcionario.svg" alt="Funcionários">Funcionários</a>
+                <a href="<?= URL?>/FuncionarioController/listarFuncionario"><img src="../public/img/funcionario.svg" alt="Funcionários">Funcionários</a>
             </li>
 
             <li href="#pageSubmenuRelatório" data-toggle="collapse" aria-expanded="false" class="dropdown">

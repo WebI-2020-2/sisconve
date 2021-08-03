@@ -22,7 +22,7 @@
         <?php include("./../app/include/parts/menubar.php"); ?>
 
         <div class="content-center">
-
+        <?= Sessao::mensagem('funcionario')?>
             <!-- conteudo do centro -->
             <div class="dashboard">
                 <div class="title-content">
@@ -161,9 +161,6 @@
                                     </table>
                                 </div>
                             <?php endif; ?>
-
-                            <canvas id="myChart" width="400" height="400"></canvas>
-                            
                         </div>
                     </div>
                 </div>

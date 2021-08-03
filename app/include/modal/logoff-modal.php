@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer">
                 <button class="cancel" type="button" data-dismiss="modal">Não</button>
-                <a class="exit" type="submit" href="<?= URL ?>/UsuarioController/sair">Sim</a>
+                <a class="exit" type="submit" href="<?= URL ?>/FuncionarioController/sair">Sim</a>
             </div>
         </div>
     </div>

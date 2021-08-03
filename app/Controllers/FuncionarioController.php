@@ -4,24 +4,19 @@ class FuncionarioController extends Controller
 {
     public function __construct()
     {
-        if (!Sessao::estaLogado()) :
-            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
-            // URL::redirecionar('UsuarioController/login');
-        endif;
+                
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         $this->funcionarioModel = $this->model('FuncionarioModel');
     }
-
-    public function listarFuncionario(){
-        $dados = [
-            'funcionarios' => $this->funcionarioModel->selectAll()
-        ];
-
-        $this->view('funcionario/listarFuncionario', $dados);
-
-    }
+    
 
     public function cadastrar()
     {
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+        // URL::redirecionar('FuncionarioController/login');
+        endif;
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
             $dados = [
@@ -118,5 +113,127 @@ class FuncionarioController extends Controller
         endif;
 
         $this->view('funcionario/cadastrarFuncionario', $dados);
+    }
+
+    public function login()
+    {
+
+        if (Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
+        // URL::redirecionar('CategoriaController/listarCategoria');
+        endif;
+
+
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($formulario)) :
+            $dados = [
+
+                'usuario' => trim($formulario['usuario']),
+                'senha' => trim($formulario['senha']),
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+
+            ];
+            if (in_array("", $formulario)) :
+
+                if (empty($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Preencha o campo usuario";
+                endif;
+
+
+                if (empty($formulario['senha'])) :
+                    $dados['senha_erro'] = "Preencha o campo senha";
+
+                endif;
+
+            else :
+                if (Validar::validarCampoString($formulario['usuario'])) :
+                    $dados['usuario_erro'] = "Usuario invalido";
+
+                else :
+                    $login = $this->funcionarioModel->login($formulario['usuario'], $formulario['senha']);
+                    $this->sesaoFuncionario($login);
+                    if ($login) :
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
+                    // URL::redirecionar('CategoriaController/listarCategoria');
+                    else :
+                        Sessao::mensagem('funcionario', 'Usuario ou senha invalidos', 'alert alert-danger');
+                    endif;
+
+                endif;
+            endif;
+
+        else :
+            $dados = [
+
+                'usuario' => '',
+                'senha' => '',
+
+                'usuario_erro' => '',
+                'senha_erro' => '',
+            ];
+
+        endif;
+
+        $this->view('funcionario/login');
+    }
+
+
+    private function sesaoFuncionario($login)
+    {
+        $_SESSION["FUNCIONARIO_ID"] = $login->id_funcionario;
+        $_SESSION["FUNCIONARIO_NOME_COMPLETO"] = $login->nome_funcionario;
+
+        $_SESSION["FUNCIONARIO_CPF"] = $login->cpf;
+        $_SESSION["FUNCIONARIO_TELEFONE"] = $login->telefone;
+        $_SESSION["FUNCIONARIO_ENDERECO"] = $login->endereco;
+        $_SESSION["FUNCIONARIO_CARGO"] = $login->cargo;
+        $_SESSION["FUNCIONARIO_SALARIO"] = $login->salario;
+        $_SESSION["FUNCIONARIO_NIVEL_ACESSO"] = $login->nivel_acesso;
+
+        $_SESSION["FUNCIONARIO_USER"] = $login->usuario;
+        $_SESSION["FUNCIONARIO_EMAIL"] = $login->email;
+        $_SESSION["FUNCIONARIO_STATUS"] = $login->ativo;
+        $_SESSION["FUNCIONARIO_DATA_CRIACAO"] = $login->criado_em;
+    }
+
+    public function sair()
+    {
+        if (!Sessao::estaLogado()) :
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+        // URL::redirecionar('FuncionarioController/login');
+        endif;
+
+        unset($_SESSION["FUNCIONARIO_ID"]);
+        unset($_SESSION["FUNCIONARIO_NOME_COMPLETO"]);
+        unset($_SESSION["FUNCIONARIO_USER"]);
+        unset($_SESSION["FUNCIONARIO_EMAIL"]);
+        unset($_SESSION["FUNCIONARIO_STATUS"]);
+        unset($_SESSION["FUNCIONARIO_DATA_CRIACAO"]);
+
+        unset($_SESSION["FUNCIONARIO_CPF"]);
+        unset($_SESSION["FUNCIONARIO_TELEFONE"]);
+
+        session_destroy();
+
+        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+        // URL::redirecionar('FuncionarioController/login');
+    }
+
+    public function listarFuncionario()
+    {
+
+        if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 2) :
+            Sessao::mensagem('funcionario', 'Erro! Você não tem acesso!' . $this->imgError, 'bg-red');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
+            // URL::redirecionar('CategoriaController/listarCategoria');
+        endif;
+        var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
+        $dados = [
+            'funcionarios' => $this->funcionarioModel->selectAll()
+        ];
+
+        $this->view('funcionario/listarFuncionario', $dados);
     }
 }

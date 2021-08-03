@@ -5,8 +5,8 @@ class ClientesController extends Controller
     public function __construct()
     {
         if (!Sessao::estaLogado()) :
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'UsuarioController/login');
-        // URL::redirecionar('UsuarioController/login');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+        // URL::redirecionar('FuncionarioController/login');
         endif;
         $this->clienteModel = $this->model('ClienteModel');
         $this->enderecoModel = $this->model('EnderecoModel');
@@ -142,7 +142,7 @@ class ClientesController extends Controller
                     if ($this->enderecoModel->insert($dados, $ultimoid) && $this->telefoneModel->insert($dados, $ultimoid)) :
                         Sessao::mensagem('cliente', 'Cadastro realizado com sucesso!', 'bg-green');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
-                    // URL::redirecionar('UsuarioController/login');
+                    // URL::redirecionar('FuncionarioController/login');
                     else :
                         die("Erro");
                     endif;
@@ -292,7 +292,7 @@ class ClientesController extends Controller
             if ($this->enderecoModel->update($dados, $idInt) && $this->telefoneModel->update($dados, $idInt)) :
                 Sessao::mensagem('cliente', 'Cliente atuazado com sucesso!' .$imgSuccess, 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
-            // URL::redirecionar('UsuarioController/login');
+            // URL::redirecionar('FuncionarioController/login');
             else :
                 die("Erro");
             endif;

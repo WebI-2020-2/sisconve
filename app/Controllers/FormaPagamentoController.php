@@ -4,8 +4,8 @@ class FormaPagamentoController extends Controller
     public function __construct()
     {
         if (!Sessao::estaLogado()) :
-            header("Location:".URL.DIRECTORY_SEPARATOR.'UsuarioController/login');
-            // URL::redirecionar('UsuarioController/login');
+            header("Location:".URL.DIRECTORY_SEPARATOR.'FuncionarioController/login');
+            // URL::redirecionar('FuncionarioController/login');
         endif;
         $this->formaPagamentoModel = $this->model('FormaPagamentoModel');
     }

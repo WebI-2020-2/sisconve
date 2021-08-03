@@ -11,5 +11,3 @@ const USER = 'user';
 const PASSWORD = 'password';
 const DATABASE = 'database';
 const PORT = '5432';
-
-const APP_VERSAO = '1.0.0';

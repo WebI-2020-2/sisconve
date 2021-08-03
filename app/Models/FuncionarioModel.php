@@ -126,6 +126,52 @@ class FuncionarioModel
         $this->salario = $salario;
     }
 
+    
+    /**
+     * @param mixed $usuario
+     */
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
+    }
+
+    /**
+     * @param mixed $senha
+     */
+    public function setSenha($senha)
+    {
+        $this->senha = $senha;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSenha()
+    {
+        return $this->senha;
+    }
+
     public function validarCpf($cpf)
     {
         $this->setCpf($cpf);
@@ -190,5 +236,25 @@ class FuncionarioModel
     public function selectAll(){
         $this->db->query("SELECT * FROM funcionario");
         return $this->db->resultados();
+    }
+
+    public function login($usuario, $senha)
+    {
+        $this->setUsuario($usuario);
+        $this->setSenha($senha);
+
+        $this->db->query("SELECT * FROM funcionario WHERE usuario = :usuario AND ativo <> false");
+        $this->db->bind(":usuario", $this->getUsuario());
+
+        if ($this->db->resultado()) :
+            $resultado = $this->db->resultado();
+            if (password_verify($this->getSenha(), $resultado->senha)) :
+                return $resultado;
+            else :
+                return false;
+            endif;
+        else :
+            return false;
+        endif;
     }
 }

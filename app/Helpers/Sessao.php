@@ -32,7 +32,7 @@ class Sessao {
     }
 
     public static function estaLogado(){
-        if (isset($_SESSION['USUARIO_ID'])) :
+        if (isset($_SESSION['FUNCIONARIO_ID'])) :
             return true;
         else:
             return false;
