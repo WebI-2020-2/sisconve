@@ -69,4 +69,13 @@ class Validar
     {
         return mb_strtoupper($upperCase);
     }
+
+    public static function validarCampoTelefone($telefone)
+    {
+        if(strlen($telefone) != 9):
+            return true;
+        else:
+            return false;
+        endif;
+    }
 }

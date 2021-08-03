@@ -49,85 +49,85 @@ class FuncionarioController extends Controller
                 if (in_array("", $formulario)) :
 
                     if (empty($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['endereco'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['caixa'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['usuario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['email'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                     if (empty($formulario['senha'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
                     if (empty($formulario['confirma_senha'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
                     endif;
 
                 else :
                     if (Validar::validarCampoString($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Nome do funcionario</b> informado!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Formato em <b>Nome do funcionario</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>CPF</b> informado!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Formato em <b>CPF</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoCPF($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
 
                     elseif (Validar::validarCampoNumerico($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Salario</b> informado!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Formato em <b>Salario</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoString($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Cargo</b> informado!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Formato em <b>Cargo</b> informado!', 'bg-red');
 
                     elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
 
                     elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-red');
 
                     elseif (Validar::validarCampoEmail($formulario['email'])) :
-                        Sessao::mensagem('funcionario', 'Email invalido!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'Email invalido!', 'bg-red');
 
                     elseif (strlen($formulario['senha']) < 6) :
-                        Sessao::mensagem('funcionario', 'A senha deve ter no minimo 6 caracteres!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'A senha deve ter no minimo 6 caracteres!', 'bg-red');
 
                     elseif ($formulario['senha'] != $formulario['confirma_senha']) :
-                        Sessao::mensagem('funcionario', 'As senhas são diferentes!', 'bg-danger');
+                        Sessao::mensagem('funcionario', 'As senhas são diferentes!', 'bg-red');
                     else :
                         $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                         if ($this->funcionarioModel->insertDois($dados)) :
-                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-danger');
+                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-red');
                             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         else :
                             die("Erro");
