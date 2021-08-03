@@ -1,6 +1,6 @@
 <?php
 
-class clienteController extends Controller
+class ClientesController extends Controller
 {
     public function __construct()
     {
@@ -12,15 +12,15 @@ class clienteController extends Controller
         $this->enderecoModel = $this->model('EnderecoModel');
         $this->telefoneModel = $this->model('TelefoneModel');
     }
-    public function listarcliente()
+    public function listarClientes()
     {
         $dados = [
-            'cliente' => $this->clienteModel->selectAllToSell()
+            'clientes' => $this->clienteModel->selectAllToSell()
             // 'telefones' => $this->telefoneModel->selectAll(),
 
         ];
 
-        $this->view('cliente/listarcliente', $dados);
+        $this->view('clientes/listarClientes', $dados);
     }
 
 
@@ -57,107 +57,79 @@ class clienteController extends Controller
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>nome</b>!', 'bg-red');
-                    // $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
+                    $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
                 endif;
 
                 if (empty($formulario['cpf'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>CPF</b>!', 'bg-red');
                     $dados['cpf_erro'] = "Preencha o campo <b>CPF</b>";
                 endif;
 
                 if (empty($formulario['num_telefone'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Numero de Telefone</b>!', 'bg-red');
-
                     $dados['num_telefone_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['ddd'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>DDD</b>!', 'bg-red');
-
                     $dados['ddd_erro'] = "Preencha o campo";
                 endif;
 
-                // if (empty($formulario['cliente_id'])) :
-                //     Sessao::mensagem('cliente', 'Preencha o campo <b>CPF</b>!', 'bg-red');
+                if (empty($formulario['cliente_id'])) :
+                    $dados['cliente_id_erro'] = "Preencha o campo";
+                endif;
 
-                //     $dados['cliente_id_erro'] = "Preencha o campo";
-                // endif;
-
-                // if (empty($formulario['cliente_id'])) :
-                    
-                //     $dados['cliente_id_erro'] = "Preencha o campo";
-                // endif;
+                if (empty($formulario['cliente_id'])) :
+                    $dados['cliente_id_erro'] = "Preencha o campo";
+                endif;
 
                 if (empty($formulario['rua'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Rua</b>!', 'bg-red');
-
                     $dados['rua_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['bairro'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Bairro</b>!', 'bg-red');
-
                     $dados['bairro_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['cidade'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Cidade</b>!', 'bg-red');
                     $dados['cidade_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['estado'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Estado</b>!', 'bg-red');
                     $dados['estado_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['numero'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Número</b>!', 'bg-red');
                     $dados['numero_erro'] = "Preencha o campo";
                 endif;
 
             else :
                 if (Validar::validarCampoString($formulario['nome'])) :
-                    Sessao::mensagem('cliente', 'Formato de nome informado <b>invalido</b>!', 'bg-red');
                     $dados['nome_erro'] = "Nome informado é <b>invalido</b>";
 
                 elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                    Sessao::mensagem('cliente', 'Formato de CPF informado <b>invalido</b>!', 'bg-red');
+
                     $dados['cpf_erro'] = "CPF informado é <b>invalido</b>";
 
                 elseif ($this->clienteModel->VerificarCpf($formulario['cpf'])) :
-                    Sessao::mensagem('cliente', 'Usuario já <b>cadastrado</b>!', 'bg-red');
                     $dados['cpf_erro'] = "Usuario já <b>cadastrado</b>";
 
                 elseif (Validar::validarCampoString($formulario['rua'])) :
-                    Sessao::mensagem('cliente', 'Formato de Rua informado <b>invalido</b>!', 'bg-red');
                     $dados['rua_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoString($formulario['bairro'])) :
-                    Sessao::mensagem('cliente', 'Formato de Bairro informado <b>invalido</b>!', 'bg-red');
                     $dados['bairro_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoString($formulario['cidade'])) :
-                    Sessao::mensagem('cliente', 'Formato de Cidade informado <b>invalido</b>!', 'bg-red');
                     $dados['cidade_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoString($formulario['estado'])) :
-                    Sessao::mensagem('cliente', 'Formato de Estado informado <b>invalido</b>!', 'bg-red');
                     $dados['estado_erro'] = "Formato invalido";
 
                 // elseif (Validar::validarCampoNumerico($formulario['numero'])) :
                 //    $dados['numero_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoNumerico($formulario['num_telefone'])) :
-                    Sessao::mensagem('cliente', 'Formato de Numero de Telefone informado <b>invalido</b>!', 'bg-red');
                     $dados['num_telefone_erro'] = "Formato invalido";
-                
-                elseif (Validar::validarCampoTelefone($formulario['num_telefone'])):
-                    Sessao::mensagem('cliente', 'Formato de Numero de Telefone informado <b>invalido</b>!', 'bg-red');
-                    $dados['num_telefone_erro'] = "O tanho do campo tenha que ser 9 digitos";
 
                 elseif (Validar::validarCampoNumerico($formulario['ddd'])) :
-                    Sessao::mensagem('cliente', 'Formato de DDD informado <b>invalido</b>!', 'bg-red');
                     $dados['ddd_erro'] = "Formato invalido";
 
                 else :
@@ -169,7 +141,7 @@ class clienteController extends Controller
 
                     if ($this->enderecoModel->insert($dados, $ultimoid) && $this->telefoneModel->insert($dados, $ultimoid)) :
                         Sessao::mensagem('cliente', 'Cadastro realizado com sucesso!', 'bg-green');
-                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     // URL::redirecionar('FuncionarioController/login');
                     else :
                         die("Erro");
@@ -208,16 +180,16 @@ class clienteController extends Controller
             ];
         endif;
         $this->viewModal('modal/cadastrar-cliente-modal', $dados);
-        // $this->view('cliente/cadastracliente', $dados);
+        // $this->view('clientes/cadastraClientes', $dados);
     }
     public function visualizar($id)
     {
-        $cliente = $this->clienteModel->selectById($id);
+        $clientes = $this->clienteModel->selectById($id);
         $dados = [
-            'clienteListar' => $cliente
+            'clientesListar' => $clientes
         ];
 
-        $this->view('cliente/visualizar', $dados);
+        $this->view('clientes/visualizar', $dados);
     }
 
     public function deletar($id)
@@ -228,7 +200,7 @@ class clienteController extends Controller
         if (is_int($idInt)) :
             if ($this->clienteModel->deletar($idInt)) :
                 Sessao::mensagem('cliente', 'Cliente apagado com sucesso!'. $imgSuccess, 'bg-green');
-                header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
             else :
                 Sessao::mensagem('cliente', 'Erro!', 'bg-red');
             endif;
@@ -272,43 +244,43 @@ class clienteController extends Controller
         ];
         if (Validar::validarCampoString($formulario['nome'])) :
             Sessao::mensagem('cliente', 'Nome informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
             Sessao::mensagem('cliente', 'CPF informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['rua'])) :
             Sessao::mensagem('cliente', 'Rua informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['bairro'])) :
             Sessao::mensagem('cliente', 'Bairro informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['cidade'])) :
             Sessao::mensagem('cliente', 'Cidade informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['estado'])) :
             Sessao::mensagem('cliente', 'Estado informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoNumerico($formulario['num_telefone'])) :
             Sessao::mensagem('cliente', 'Telefone informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoNumerico($formulario['ddd'])) :
             Sessao::mensagem('cliente', 'DDD informado é invalido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
-        // URL::redirecionar('clienteController/listarcliente');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+        // URL::redirecionar('ClientesController/listarClientes');
         else :
             $idInt = (int)$dados['id_cliente'];
             if ($this->clienteModel->update($dados, $idInt)) :
@@ -319,7 +291,7 @@ class clienteController extends Controller
 
             if ($this->enderecoModel->update($dados, $idInt) && $this->telefoneModel->update($dados, $idInt)) :
                 Sessao::mensagem('cliente', 'Cliente atuazado com sucesso!' .$imgSuccess, 'bg-green');
-                header("Location:" . URL . DIRECTORY_SEPARATOR . 'clienteController/listarcliente');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
             // URL::redirecionar('FuncionarioController/login');
             else :
                 die("Erro");
@@ -328,3 +300,4 @@ class clienteController extends Controller
         $this->viewModal('modal/editar-cliente-modal');
     }
 }
+
