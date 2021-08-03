@@ -161,7 +161,7 @@ class CompraController extends Controller
 
                 endif;
             endif;
-            var_dump($formulario);
+            // var_dump($formulario);
             echo '<hr>';
         else :
             $dados = [

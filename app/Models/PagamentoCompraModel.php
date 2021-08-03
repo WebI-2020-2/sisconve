@@ -3,8 +3,8 @@
 class PagamentoCompraModel
 {
     private $Id;
-    private CompraModel $compra;
-    private FormaPagamentoModel $formaDePagamento;
+    private $compraId;
+    private $formaDePagamentoId;
     private $parcelas;
     private $prazo;
     private $status;
@@ -23,27 +23,19 @@ class PagamentoCompraModel
     }
 
     /**
-     * @param mixed $Id
-     */
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    }
-    
-    /**
      * @return mixed
      */
-    public function getCompra()
+    public function getCompraId()
     {
-        return $this->compra;
+        return $this->compraId;
     }
 
     /**
      * @return mixed
      */
-    public function getFormaDePagamento()
+    public function getFormaDePagamentoId()
     {
-        return $this->formaDePagamento;
+        return $this->formaDePagamentoId;
     }
 
     /**
@@ -71,19 +63,27 @@ class PagamentoCompraModel
     }
 
     /**
-     * @param mixed $compra
+     * @param mixed $Id
      */
-    public function setCompra($compra)
+    public function setId($Id)
     {
-        $this->compra = $compra;
+        $this->Id = $Id;
     }
 
     /**
-     * @param mixed $formaDePagamento
+     * @param mixed $compraId
      */
-    public function setFormaDePagamento($formaDePagamento)
+    public function setCompraId($compraId)
     {
-        $this->formaDePagamento = $formaDePagamento;
+        $this->compraId = $compraId;
+    }
+
+    /**
+     * @param mixed $formaDePagamentoId
+     */
+    public function setFormaDePagamentoId($formaDePagamentoId)
+    {
+        $this->formaDePagamentoId = $formaDePagamentoId;
     }
 
     /**
