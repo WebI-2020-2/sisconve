@@ -3,8 +3,8 @@
 class PagamentoVendaModel
 {
     private $Id;
-    private VendaModel $venda;
-    private FormaPagamentoModel $formaPagamento;
+    private $vendaId;
+    private $formaPagamentoId;
     private $numeroDeParcelas;
     private $valorAPagar;
     private $valorPago;
@@ -22,27 +22,19 @@ class PagamentoVendaModel
     }
 
     /**
-     * @param mixed $Id
-     */
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    }
-    
-    /**
      * @return mixed
      */
-    public function getVenda()
+    public function getVendaId()
     {
-        return $this->venda;
+        return $this->vendaId;
     }
 
     /**
      * @return mixed
      */
-    public function getFormaPagamento()
+    public function getFormaPagamentoId()
     {
-        return $this->formaPagamento;
+        return $this->formaPagamentoId;
     }
 
     /**
@@ -70,19 +62,27 @@ class PagamentoVendaModel
     }
 
     /**
-     * @param mixed $venda
+     * @param mixed $Id
      */
-    public function setVenda($venda)
+    public function setId($Id)
     {
-        $this->venda = $venda;
+        $this->Id = $Id;
     }
 
     /**
-     * @param mixed $formaPagamento
+     * @param mixed $vendaId
      */
-    public function setFormaPagamento($formaPagamento)
+    public function setVendaId($vendaId)
     {
-        $this->formaPagamento = $formaPagamento;
+        $this->vendaId = $vendaId;
+    }
+
+    /**
+     * @param mixed $formaPagamentoId
+     */
+    public function setFormaPagamentoId($formaPagamentoId)
+    {
+        $this->formaPagamentoId = $formaPagamentoId;
     }
 
     /**
@@ -108,8 +108,29 @@ class PagamentoVendaModel
     {
         $this->valorPago = $valorPago;
     }
+
     public function selectAll(){
         $this->db->query("SELECT * FROM pagamento_venda");
         return $this->db->resultados();
+    }
+
+    public function insert($ultimoId, $dados, $valor_total)
+    {
+        $this->setVendaId($ultimoId);
+        $this->setFormaPagamentoId($dados['metodo_pagamento']);
+        $this->setNumeroDeParcelas($dados['num_parcelas']);
+        $this->setValorAPagar($valor_total);
+
+        $this->db->query("INSERT INTO pagamento_venda(id_venda, id_forma_pagamento, numero_de_parcelas, valor_a_pagar) VALUES (:id_venda,:id_forma_pagamento, :numero_de_parcelas, :valor_a_pagar)");
+        $this->db->bind(":id_venda", $this->getVendaId());
+        $this->db->bind(":id_forma_pagamento", $this->getFormaPagamentoId());
+        $this->db->bind(":numero_de_parcelas", $this->getNumeroDeParcelas());
+        $this->db->bind(":valor_a_pagar", $this->getValorAPagar());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
     }
 }

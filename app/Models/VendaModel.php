@@ -172,4 +172,19 @@ class VendaModel
             return false;
         endif;
     }
+
+    public function valorTotal($id)
+    {
+        
+        $this->setId($id);
+        $this->db->query("SELECT valor_total from venda where id_venda = :id_venda");
+        $this->db->bind(":id_venda", $this->getId());
+        $valor_total_for = $this->db->resultados();
+
+        foreach ($valor_total_for as $valor_total_f):
+            $valor_total_string = $valor_total_f->valor_total;
+        endforeach;
+        $valor_total = (float)$valor_total_string; 
+        return $valor_total;
+    }
 }

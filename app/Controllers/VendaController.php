@@ -10,6 +10,7 @@ class VendaController extends Controller
         $this->vendaModel = $this->model('VendaModel');
         $this->itemVendaModel = $this->model('ItemVendaModel');
         $this->produtoModel = $this->model('ProdutoModel');
+        $this->pagamentoVendaModel = $this->model('PagamentoVendaModel');
     }
 
     public function index()
@@ -66,41 +67,29 @@ class VendaController extends Controller
                     $dados['num_parcelas_erro'] = "Preencha o campo";
                 endif;
             else :
-                // if (Validar::validarCampoNumerico($formulario['quantidade-produto'])) :
-                //   $dados['quantidade_erro'] = "Formato informado é <b>invalido</b>";
-
-                // elseif ($this->produtoModel->validarQuantidade($formulario['quantidade-produto'])) :
-                //    $dados['quantidade_erro'] = "Quantidade <b>acima</b> do estoque";
-
-                // elseif (Validar::validarCampoNumerico($formulario['valor_unitario'])) :
-                //    $dados['valor_unitario_erro'] = "Formato informado é <b>invalido</b>";
-
-                // elseif (Validar::validarCampoNumerico($formulario['num_parcelas'])) :
-                //    $dados['num_parcelas_erro'] = "Formato informado é <b>invalido</b>";
-                // else :
                 if ($this->vendaModel->insert($dados)) :
                     $ultimoId = $this->vendaModel->getUltimoId();
                     Sessao::mensagem('venda', 'Venda realizada com sucesso!' . $imgSuccess, 'bg-green');
-                //echo 'Cadastro realizado como sucesso <hr>';
-
                 else :
                     die("Erro");
 
                 endif;
 
                 if ($this->itemVendaModel->insert($dados, $ultimoId)) :
-                //echo 'Cadastro realizado como sucesso <hr>';
-                //Sessao::mensagem('venda', 'Venda realizada com sucesso!'.$imgSuccess, 'bg-green');
-                // header("Location:".URL.DIRECTORY_SEPARATOR.'VendaController/cadastrar');
-                // URL::redirecionar('VendaController/cadastrar');
-
+                    
                 else :
                     die("Erro");
 
                 endif;
-            //endif;
+                $valor_total = $this->vendaModel->valorTotal($ultimoId);
+                
+                if ($this->pagamentoVendaModel->insert($ultimoId, $dados, $valor_total)) :
+                else :
+                    die("Erro");
+                endif;
+
             endif;
-        //var_dump($formulario);
+        // var_dump($formulario);
         else :
             $dados = [
                 'quantidade' => '',
