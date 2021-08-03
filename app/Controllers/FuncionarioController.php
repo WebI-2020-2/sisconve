@@ -120,7 +120,7 @@ class FuncionarioController extends Controller
                 endif;
 
             endif;
-            var_dump($formulario);
+            // var_dump($formulario);
         else :
             $dados = [
                 'nome_funcionario' => '',
@@ -266,7 +266,7 @@ class FuncionarioController extends Controller
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
         // URL::redirecionar('CategoriaController/listarCategoria');
         endif;
-        var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
+        // var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
         $dados = [
             'funcionarios' => $this->funcionarioModel->selectAll()
         ];

@@ -52,7 +52,7 @@ class CaixaController extends Controller
                     endif;
                 endif;
             endif;
-            var_dump($formulario);
+            // var_dump($formulario);
         else:
             $dados = [
                 'valor_em_caixa' => '',
