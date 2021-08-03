@@ -127,12 +127,7 @@ class FuncionarioController extends Controller
                         die("Erro");
                     endif;
                 endif;
-
             endif;
-<<<<<<< HEAD
-=======
-            // var_dump($formulario);
->>>>>>> 6d32c9881e92a31b898e356aec41669a19e54102
         else :
             $dados = [
                 'nome_funcionario' => '',
@@ -278,11 +273,7 @@ class FuncionarioController extends Controller
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
         // URL::redirecionar('CategoriaController/listarCategoria');
         endif;
-<<<<<<< HEAD
-        //var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
-=======
-        // var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
->>>>>>> 6d32c9881e92a31b898e356aec41669a19e54102
+        
         $dados = [
             'funcionarios' => $this->funcionarioModel->selectAll()
         ];
