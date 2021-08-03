@@ -1,5 +1,4 @@
 <?php
-
 class FuncionarioController extends Controller
 {
     public function __construct()
@@ -86,6 +85,9 @@ class FuncionarioController extends Controller
                 if (empty($formulario['senha'])) :
                     $dados['senha_erro'] = 'Preencha o campo';
                 endif;
+                if (empty($formulario['confirma_senha'])) :
+                    $dados['confirma_senha_erro'] = 'Confirme a Senha';
+                endif;
 
             else :
                 if (Validar::validarCampoString($formulario['nome_funcionario'])) :
@@ -111,7 +113,14 @@ class FuncionarioController extends Controller
 
                 elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
                     $dados['telefone_erro'] = "Telefone  informado <b>pertence</b> a outro funcionário";
+                
+                elseif (strlen($formulario['senha']) < 6) :
+                    $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
+                
+                elseif ($formulario['senha'] != $formulario['confirma_senha']) :
+                    $dados['confirma_senha_erro'] = 'As senhas são diferentes';
                 else :
+                    $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                     if ($this->funcionarioModel->insert($dados)) :
                         echo 'Cadastro realizado como sucesso <hr>';
                     else :
@@ -120,7 +129,6 @@ class FuncionarioController extends Controller
                 endif;
 
             endif;
-            var_dump($formulario);
         else :
             $dados = [
                 'nome_funcionario' => '',
@@ -266,7 +274,7 @@ class FuncionarioController extends Controller
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
         // URL::redirecionar('CategoriaController/listarCategoria');
         endif;
-        var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
+        //var_dump($_SESSION["FUNCIONARIO_NIVEL_ACESSO"]);
         $dados = [
             'funcionarios' => $this->funcionarioModel->selectAll()
         ];

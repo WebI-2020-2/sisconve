@@ -1,0 +1,112 @@
+.modal .modal-cad-funcionario{
+    max-width: 600px !important;
+}
+
+.modal-content .form{
+    margin: 0 1rem;
+}
+
+form{
+    margin-top: 15px;
+}
+
+.modal-content .form form input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form .input{
+    margin: .2rem 0;
+    width: 100%;
+}
+
+form .input input,
+form .input select{
+    height: 33px;
+    outline: none;
+    padding: 0 .5rem;
+    border: 0.5px solid #9db9bb;
+    background-color: #f6f6f6;
+    border-radius: .4rem;
+    width: 100%;
+}
+
+form .input-nome-funcionario input{
+    width: 100%;
+}
+
+form .input-account{
+    margin-top: 1rem;
+}
+
+form .input-usuario-nivel,
+form .input-senha-confirm,
+form .input-cargo-salario,
+form .input-cpf-tel{
+    display: flex;
+}
+
+form .input-account{
+    display: flex;
+    align-items: center;
+}
+
+.modal-content .form form #acc{
+    display: block !important;
+}
+
+form .input-account #acc{
+    height: 16px;
+    outline: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    width: 5%;
+}
+
+form .input-usuario-nivel .input-acesso,
+form .input-senha-confirm .input-conf-senha,
+form .input-cargo-salario .input-salario,
+form .input-cpf-tel .input-num-telefone{
+    margin-left: 1rem;
+}
+
+form .modal-footer{
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+form .modal-footer button{
+    outline: none;
+    border: 0;
+    width: 120px;
+    height: 35px;
+    color: #fff;
+    border-radius: .3rem;
+}
+
+form .modal-footer .close img{
+    width: 13px;
+    margin: 2px;
+}
+
+form .modal-footer .submit img{
+    width: 17px;
+    margin: 2px;
+}
+
+form .modal-footer .close{
+    background-color: #CD0000;
+    transition: opacity .3s;
+}
+
+form .modal-footer .submit{
+    background-color: #00AC4F;
+    transition: opacity .3s;
+}
+
+form .modal-footer .close:hover,
+form .modal-footer .submit:hover{
+    opacity: 80%;
+}

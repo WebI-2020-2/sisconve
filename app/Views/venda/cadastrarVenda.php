@@ -63,17 +63,11 @@
                         <span>/</span>
                         <span>Realizar Venda</span>
                     </div>
+                    <div class="caixa-id">
+                        <span>Caixa ativo: <strong>01</strong></span>
+                    </div>
                 </div>
 
-                <?php 
-                
-                    if($_POST){
-                        print_r($_POST);
-                    }
-
-                ?>
-
-                <!-- <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell"> -->
                 <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell">
                     <div class="sell-area">
                         <div class="section section-sell-area p-0 m-0">
