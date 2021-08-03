@@ -228,7 +228,8 @@ class FuncionarioController extends Controller
 
                     else :
                         if ($this->funcionarioModel->insert($dados)) :
-                            echo 'Cadastro realizado como sucesso <hr>';
+                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-red');
+                            header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         else :
                             die("Erro");
                         endif;

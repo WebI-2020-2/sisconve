@@ -73,22 +73,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($dados['funcionarios'] as $fornecedor) : ?>
+                                <?php foreach ($dados['funcionarios'] as $funcionario) : ?>
                                     <tr>
-                                        <td><?= $fornecedor->id_funcionario ?></td>
-                                        <td><?= $fornecedor->nome_funcionario ?></td>
-                                        <td><?= $fornecedor->telefone ?></td>
-                                        <td><?= $fornecedor->cargo ?></td>
-                                        <td><?= $fornecedor->nivel_acesso ?></td>
+                                        <td><?= $funcionario->id_funcionario ?></td>
+                                        <td><?= $funcionario->nome_funcionario ?></td>
+                                        <td><?= $funcionario->telefone ?></td>
+                                        <td><?= $funcionario->cargo ?></td>
+                                        <td><?= $funcionario->nivel_acesso ?></td>
                                         <td>
-                                            <button title="Ver fornecedor" onclick="">
-                                                <img src="../public/img/eye-icon.svg" alt="Ver fornecedor">
+                                            <button title="Ver funcionario" onclick="">
+                                                <img src="../public/img/eye-icon.svg" alt="Ver funcionario">
                                             </button>
-                                            <button title="Editar fornecedor" onclick="">
-                                                <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-fornecedor-modal" alt="Editar fornecedor">
+                                            <button title="Editar funcionario" onclick="">
+                                                <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-funcionario-modal" alt="Editar funcionario">
                                             </button>
-                                            <button title="Exluir fornecedor" onclick="deleteFornecedor('<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
-                                                <img src="../public/img/trash-icon.svg" alt="Excluir fornecedor">
+                                            <button title="Exluir funcionario" onclick="deletefuncionario('<?= $funcionario->id_funcionario ?>', '<?= $funcionario->nome_funcionario ?>')">
+                                                <img src="../public/img/trash-icon.svg" alt="Excluir funcionario">
                                             </button>
                                         </td>
                                     </tr>
