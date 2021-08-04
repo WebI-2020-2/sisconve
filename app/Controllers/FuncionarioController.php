@@ -147,7 +147,7 @@ class FuncionarioController extends Controller
                         Sessao::mensagem('funcionario', 'As senhas são diferentes!', 'bg-red');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
-                    elseif ($this->funcionarioModel->validarUsuario($formulario['usuario'])):
+                    elseif ($this->funcionarioModel->validarUsuario($formulario['usuario'])) :
                         Sessao::mensagem('funcionario', 'Usúario indisponivel!', 'bg-red');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     else :
@@ -255,7 +255,7 @@ class FuncionarioController extends Controller
                     elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
                         Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-red');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
-                        
+
                     elseif (Validar::validarCampoEmail($formulario['email'])) :
                         Sessao::mensagem('funcionario', 'Email invalido!', 'bg-red');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
@@ -286,55 +286,37 @@ class FuncionarioController extends Controller
 
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
-            $dados = [
-
-                'usuario' => trim($formulario['usuario']),
-                'senha' => trim($formulario['senha']),
-
-                'usuario_erro' => '',
-                'senha_erro' => '',
-
-            ];
             if (in_array("", $formulario)) :
-
                 if (empty($formulario['usuario'])) :
-                    $dados['usuario_erro'] = "Preencha o campo usuario";
+                    Sessao::mensagem('funcionario', 'Preencha o campo usuario', 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
                 endif;
-
-
                 if (empty($formulario['senha'])) :
-                    $dados['senha_erro'] = "Preencha o campo senha";
-
+                    Sessao::mensagem('funcionario', 'Preencha o campo senha', 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
                 endif;
-
             else :
                 if (Validar::validarCampoString($formulario['usuario'])) :
-                    $dados['usuario_erro'] = "Usuario invalido";
-
+                    Sessao::mensagem('funcionario', 'Formato informado em usuario incorreto', 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
                 else :
-                    $login = $this->funcionarioModel->login($formulario['usuario'], $formulario['senha']);
-                    $this->sesaoFuncionario($login);
-                    if ($login) :
-                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
-                    // URL::redirecionar('CategoriaController/listarCategoria');
-                    else :
-                        Sessao::mensagem2('funcionario', 'Usuario ou senha invalidos', 'alert alert-danger');
-                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
-                    endif;
+                    $usuario = $this->funcionarioModel->login($formulario['usuario'], $formulario['senha']);
 
+                    if ($usuario) :
+                        $this->sesaoFuncionario($usuario);
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
+                    else :
+                        echo '
+                        <script>
+                            {
+                                alert("Usuario ou senha incorretos!");
+                            }
+                        </script>';
+                        Sessao::mensagem('funcionario', 'Usuario ou senha incorretos', 'bg-red');
+                        // header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+                    endif;
                 endif;
             endif;
-
-        else :
-            $dados = [
-
-                'usuario' => '',
-                'senha' => '',
-
-                'usuario_erro' => '',
-                'senha_erro' => '',
-            ];
-
         endif;
 
         $this->view('funcionario/login');
@@ -385,7 +367,7 @@ class FuncionarioController extends Controller
     {
         if (!Sessao::estaLogado()) :
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
-        
+
         endif;
 
         $dados = [
@@ -408,5 +390,4 @@ class FuncionarioController extends Controller
             endif;
         endif;
     }
-
 }
