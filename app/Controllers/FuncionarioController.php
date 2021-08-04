@@ -146,6 +146,10 @@ class FuncionarioController extends Controller
                     elseif ($formulario['senha'] != $formulario['confirma_senha']) :
                         Sessao::mensagem('funcionario', 'As senhas são diferentes!', 'bg-red');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
+
+                    elseif ($this->funcionarioModel->validarUsuario($formulario['usuario'])):
+                        Sessao::mensagem('funcionario', 'Usúario indisponivel!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     else :
                         $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                         if ($this->funcionarioModel->insertDois($dados)) :
@@ -374,20 +378,34 @@ class FuncionarioController extends Controller
         session_destroy();
 
         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
-        // URL::redirecionar('FuncionarioController/login');
     }
 
     public function listarFuncionario()
     {
         if (!Sessao::estaLogado()) :
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
-        // URL::redirecionar('FuncionarioController/login');
+        
         endif;
 
         $dados = [
-            'funcionarios' => $this->funcionarioModel->selectAll()
+            'funcionarios' => $this->funcionarioModel->selectTodos()
         ];
 
         $this->view('funcionario/listarFuncionario', $dados);
     }
+    public function deletar($id)
+    {
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
+        $idInt = (int) $id;
+        if (is_int($idInt)) :
+            if ($this->funcionarioModel->deletar($idInt)) :
+                Sessao::mensagem('funcionario', 'Funcionario apagado com sucesso!' . $imgSuccess, 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
+            else :
+                Sessao::mensagem('funcionario', 'Erro!', 'bg-red');
+            endif;
+        endif;
+    }
+
 }

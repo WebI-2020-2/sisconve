@@ -31,3 +31,10 @@ function deleteVenda(id) {
         // return alert(`ok! id = ${id}`);
     }
 }
+
+function deletefuncionario(id) {
+    var res = confirm(`Deseja realmente excluir o funcionario ${id}?`);
+    if (res) {
+        window.location.href = `/sisconve/FuncionarioController/deletar/${id}`;
+    }
+}

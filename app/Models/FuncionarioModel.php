@@ -215,6 +215,19 @@ class FuncionarioModel
         endif;
     }
 
+    public function validarUsuario($username)
+    {
+        $this->setUsuario($username);
+        $this->db->query("SELECT usuario FROM funcionario WHERE usuario = :usuario");
+        $this->db->bind(":usuario", $this->getUsuario($username));
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
     public function findByAll(){
         $this->db->query("SELECT * FROM funcionario");
         if($this->db->resultado()):
@@ -254,6 +267,16 @@ class FuncionarioModel
 
     public function selectAll(){
         $this->db->query("SELECT * FROM funcionario");
+        return $this->db->resultados();
+    }
+
+    public function selectTodos()
+    {
+        $this->setUsuario('admin');
+        $this->setId($_SESSION["FUNCIONARIO_ID"]);
+        $this->db->query("SELECT * FROM funcionario WHERE nome_funcionario <> :nome_funcionario AND id_funcionario <> :id_funcionario");
+        $this->db->bind(":nome_funcionario", $this->getUsuario());
+        $this->db->bind(":id_funcionario", $this->getId());
         return $this->db->resultados();
     }
 
@@ -303,6 +326,19 @@ class FuncionarioModel
         $this->db->bind(":senha", $this->getSenha());
         $this->db->bind(":nivel_acesso", $this->getNivel_acesso());
         
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+
+    public function deletar($id) 
+    {
+        $this->setId($id);
+        $this->db->query("UPDATE funcionario SET ativo = false WHERE id_funcionario = :id");
+        $this->db->bind(":id", $this->getId());
+
         if ($this->db->executa()) :
             return true;
         else :
