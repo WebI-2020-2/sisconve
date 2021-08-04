@@ -22,21 +22,21 @@
     color: #CD0000;
 }
 
-.sell-products{
+.buy{
     height: 92%;
     /* margin: 15px;
     padding: 1px; */
     background-color: #f6f6f6;
 }
 
-.sell{
+.buy{
     height: 92%;
     background-color: #fff;
     margin: .5rem .5rem 0 .5rem;
     padding-top: .25rem;
 }
 
-.sell-products .sell-area{
+.buy .buy-area{
     /* display: flex;
     flex-direction: column; */
     height: 85%;
@@ -45,27 +45,27 @@
     padding: .5%;
 }
 
-.sell-products .sell-area .section-sell-area{
+.buy .buy-area .section-buy-area{
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.sell-area .title-section{
+.buy-area .title-section{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 5%;
 }
 
-.sell-area .title-section h3{
+.buy-area .title-section h3{
     font-size: 25px;
     color: #25767B;
     text-transform: uppercase;
     margin: 5px;
 }
 
-.sell-area .table-section{
+.buy-area .table-section{
     height: 85%;
     margin-top: 5px;
     overflow-y: scroll;
@@ -85,19 +85,19 @@
     background: #25767B;
 }
 
-.sell-area .table-scroll thead th{
+.buy-area .table-scroll thead th{
     height: 35px;
 }
 
-.sell-area .sell-info{
+.buy-area .buy-info{
     display: flex;
     width: 100%;
     height: 8%;
     margin-top: 5px;
 }
 
-.sell-area .sell-info .client,
-.sell-area .sell-info .payment{
+.buy-area .buy-info .fornecedor,
+.buy-area .buy-info .payment{
     display: flex;
     align-items: center;
     width: 40%;
@@ -106,26 +106,26 @@
     border-radius: .5rem;
 }
 
-.sell-area .sell-info .client a,
-.sell-area .sell-info .payment a,
-.sell-area .sell-info .add-product #btn-add-item{
+.buy-area .buy-info .fornecedor a,
+.buy-area .buy-info .payment a,
+.buy-area .buy-info .add-product #btn-add-item{
     color: #fff;
     text-decoration: none;
     font-size: 16px;
 }
 
-.sell-area .sell-info .add-product{
+.buy-area .buy-info .add-product{
     width: 20%;
     border-radius: .5rem;
     background-color: #00CDE9;
     transition: background-color .3s;
 }
 
-.sell-area .sell-info .add-product:hover{
+.buy-area .buy-info .add-product:hover{
     background-color: #00aac0;
 }
 
-.sell-area .sell-info .add-product #btn-add-item{
+.buy-area .buy-info .add-product #btn-add-item{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,8 +136,8 @@
     outline: none;
 }
 
-.sell-area .sell-info .client #btn,
-.sell-area .sell-info .payment #btn{
+.buy-area .buy-info .fornecedor #btn,
+.buy-area .buy-info .payment #btn{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,13 +151,13 @@
     transition: background-color .3s;
 }
 
-.sell-area .sell-info .client #btn:hover,
-.sell-area .sell-info .payment #btn:hover{
+.buy-area .buy-info .fornecedor #btn:hover,
+.buy-area .buy-info .payment #btn:hover{
     background-color: #1f3b3d;
 }
 
-.sell-area .sell-info .client .data-sell-info,
-.sell-area .sell-info .payment .data-sell-info{
+.buy-area .buy-info .fornecedor .data-buy-info,
+.buy-area .buy-info .payment .data-buy-info{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -167,8 +167,8 @@
     text-transform: uppercase;
 }
 
-.sell-area .sell-info .client .data-sell-info input,
-.sell-area .sell-info .payment .data-sell-info input{
+.buy-area .buy-info .fornecedor .data-buy-info input,
+.buy-area .buy-info .payment .data-buy-info input{
     text-align: center;
     background-color: transparent;
     border: 0;
@@ -177,16 +177,16 @@
     font-size: 17px;
 }
 
-.sell-area .sell-info .client #btn img,
-.sell-area .sell-info .payment #btn img,
-.sell-area .sell-info .add-product #btn-add-item img{
+.buy-area .buy-info .fornecedor #btn img,
+.buy-area .buy-info .payment #btn img,
+.buy-area .buy-info .add-product #btn-add-item img{
     width: 17px;
     margin: 0 0.3rem 0.2rem 0;
 }
 
-.sell-area .sell-info .client #btn,
-.sell-area .sell-info .payment #btn,
-.sell-area .sell-info .add-product #btn{
+.buy-area .buy-info .fornecedor #btn,
+.buy-area .buy-info .payment #btn,
+.buy-area .buy-info .add-product #btn{
     border-radius: .5rem;
     transform: scale(1);
 	animation: pulse 1s infinite;
@@ -209,13 +209,13 @@
 	}
 }
 
-.sell-products .sell-attributes{
+.buy .buy-attributes{
     height: 10%;
     display: flex;
     padding: 5px;
 }
 
-.sell-products .sell-attributes .value-cart{
+.buy .buy-attributes .value-cart{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -226,18 +226,18 @@
     border-radius: 10px;
 }
 
-.sell-products .sell-attributes .value-cart span{
+.buy .buy-attributes .value-cart span{
     margin: 0px 20px;
     color: #fff;
     font-size: 23px;
 }
 
-.sell-products .buttons{
+.buy .buttons{
     display: flex;
     width: 40%;
 }
 
-.sell-products .buttons .cancel{
+.buy .buttons .cancel{
     background-color: #CD0000;
     margin-left: 5px;
     margin-right: 5px;
@@ -246,7 +246,7 @@
     transition: box-shadow .3s;
 }
 
-.sell-products .buttons .accept{
+.buy .buttons .accept{
     background-color: #00AC4F;
     margin-left: 5px;
     border: 0;
@@ -254,13 +254,13 @@
     transition: box-shadow .3s;
 }
 
-.sell-products .buttons .cancel:hover,
-.sell-products .buttons .accept:hover{
+.buy .buttons .cancel:hover,
+.buy .buttons .accept:hover{
     box-shadow: 0px 0px 4px #000;
 }
 
-.sell-products .sell-attributes a,
-.sell-products .sell-attributes button{
+.buy .buy-attributes a,
+.buy .buy-attributes button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -270,43 +270,43 @@
     border-radius: 10px;
 }
 
-.sell-products .buttons .cancel img{
+.buy .buttons .cancel img{
     margin: 5px;
     width: 20px;
 }
 
-.sell-products .buttons .accept img{
+.buy .buttons .accept img{
     margin: 5px;
     width: 30px;
 }
 
-.sell-products .sell-attributes a span,
-.sell-products .sell-attributes button span{
+.buy .buy-attributes a span,
+.buy .buy-attributes button span{
     color: #fff;
     margin: 5px;
     font-size: 22px;
 }
 
 @media (max-width: 1400px) {
-    .sell-products .sell-attributes .value-cart,
-    .sell-products .sell-attributes a,
-    .sell-products .sell-attributes button{
+    .buy .buy-attributes .value-cart,
+    .buy .buy-attributes a,
+    .buy .buy-attributes button{
         border-radius: .4rem;
     }
-    .sell-products .sell-attributes a span,
-    .sell-products .sell-attributes button span{
+    .buy .buy-attributes a span,
+    .buy .buy-attributes button span{
         font-size: 17px;
     }
 
-    .sell-products .buttons .cancel img{
+    .buy .buttons .cancel img{
         width: 13px;
     }
     
-    .sell-products .buttons .accept img{
+    .buy .buttons .accept img{
         width: 20px;
     }
 
-    .sell-products .sell-attributes .value-cart span{
+    .buy .buy-attributes .value-cart span{
         font-size: 20px;
     }
 }
