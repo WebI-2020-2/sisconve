@@ -49,80 +49,103 @@ class FuncionarioController extends Controller
                 if (in_array("", $formulario)) :
 
                     if (empty($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Nome do Funcionario</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Nome do Funcionario!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Telefone</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Telefone!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>CPF</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos CPF!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['endereco'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Endereço</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Endereço!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Cargo</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Cargo!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Salario</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Salario!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
 
                     if (empty($formulario['usuario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Usuario</br>!!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Usuario!!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['email'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Email</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Email!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['senha'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Senha</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Senha!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
                     if (empty($formulario['confirma_senha'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Comfirma Senha</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Comfirma Senha!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                 else :
                     if (Validar::validarCampoString($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Nome do funcionario</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Nome do funcionario informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>CPF</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em CPF informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Telefone informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
-                    elseif (Validar::validarCampoTelefoneDDD($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Tamanho de <b>Telefone</b> tenha que ser 11 numeros!', 'bg-red');
+                    elseif (strlen($formulario['telefone']) != 11) :
+                        Sessao::mensagem('funcionario', 'Tamanho de Telefone tenha que ser 11 numeros!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
+
                     elseif (Validar::validarCampoCPF($formulario['cpf'])) :
                         Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoNumerico($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Salario</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Salario informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoString($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Cargo</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Cargo informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
                         Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
                         Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoEmail($formulario['email'])) :
                         Sessao::mensagem('funcionario', 'Email invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (strlen($formulario['senha']) < 6) :
                         Sessao::mensagem('funcionario', 'A senha deve ter no minimo 6 caracteres!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif ($formulario['senha'] != $formulario['confirma_senha']) :
                         Sessao::mensagem('funcionario', 'As senhas são diferentes!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     else :
                         $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                         if ($this->funcionarioModel->insertDois($dados)) :
@@ -158,65 +181,80 @@ class FuncionarioController extends Controller
                 if (in_array("", $formulario)) :
 
                     if (empty($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Nome do Funcionario</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Nome do Funcionario!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         $dados['nome_funcionario_erro'] = 'Preencha o campo';
                     endif;
 
                     if (empty($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Telefone</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Telefone!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         $dados['telefone_erro'] = 'Preencha o campo';
                     endif;
 
                     if (empty($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>CPF</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos CPF!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         $dados['cpf_erro'] = 'Preencha o campo';
                     endif;
 
                     if (empty($formulario['endereco'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Endereço</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Endereço!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Cargo</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Cargo!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Salario</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Salario!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     endif;
 
                     if (empty($formulario['email'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Email</br>!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos Email!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         $dados['email_erro'] = 'Preencha o campo';
                     endif;
 
                 else :
                     if (Validar::validarCampoString($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Nome do funcionario</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Nome do funcionario informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>CPF</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em CPF informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-red');
-                        Sessao::mensagem('funcionario', 'Tamanho de <b>Telefone</b> tenha que ser 11 numeros!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Telefone informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoCPF($formulario['cpf'])) :
                         Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoNumerico($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Salario</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Salario informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif (Validar::validarCampoString($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Formato em <b>Cargo</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Formato em Cargo informado!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
                         Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
                         Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         
                     elseif (Validar::validarCampoEmail($formulario['email'])) :
                         Sessao::mensagem('funcionario', 'Email invalido!', 'bg-red');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
 
                     else :
                         if ($this->funcionarioModel->insert($dados)) :

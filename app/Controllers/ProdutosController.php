@@ -26,17 +26,19 @@ class ProdutosController extends Controller
             ];
             if (in_array("", $formulario)) :
                 if (empty($formulario['categoria'])) :
-                    Sessao::mensagem('produto', 'Preencha o campo <br>Categoria</br>', 'bg-green');
+                    Sessao::mensagem('produto', 'Preencha o campo Categoria', 'bg-green');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                     $dados['categoria_erro'] = "Preencha o campo ";
                 endif;
 
                 if (empty($formulario['nome_produto'])) :
-                    Sessao::mensagem('produto', 'Preencha o campo <br>Nome do Produto</br>', 'bg-green');
+                    Sessao::mensagem('produto', 'Preencha o campo Nome do Produto', 'bg-green');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                     $dados['nome_produto_erro'] = "Preencha o campo";
                 endif;
             else :
                 if (Validar::validarCampoString($formulario['nome_produto'])) :
-                    Sessao::mensagem('produto', 'Formato informado <b>inavalido</b>', 'bg-red');
+                    Sessao::mensagem('produto', 'Formato informado inavalido', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ProdutosController/listarProdutos');
                 // URL::redirecionar('ProdutosController/listarProdutos');
 
@@ -104,7 +106,7 @@ class ProdutosController extends Controller
 
         ];
         if (Validar::validarCampoString($formulario['nome_produto'])) :
-            $dados['nome_produto_erro'] = "Formato informado <b>inavalido</b>";
+            $dados['nome_produto_erro'] = "Formato informado inavalido";
         else :
             $idInt = (int)$dados['id_produto'];
             if ($this->produtoModel->update($dados, $idInt)) :

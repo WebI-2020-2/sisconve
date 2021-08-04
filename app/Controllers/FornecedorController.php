@@ -44,20 +44,24 @@ class FornecedorController extends Controller
                 if (empty($formulario['nome'])) :
                     Sessao::mensagem('Preencha o campo <b>Nome</b>!', 'bg-red');
                     $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                 endif;
 
                 if (empty($formulario['telefone'])) :
                     Sessao::mensagem('Preencha o campo <b>Nome</b>!', 'bg-red');
                     $dados['telefone_erro'] = "Preencha o campo <b>telefone</b>";
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                 endif;
 
                 if (empty($formulario['estado'])) :
                     Sessao::mensagem('Preencha o campo <b>Estado</b>!', 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                     $dados['estado_erro'] = "Preencha o campo <b>estado</b>";
                 endif;
 
                 if (empty($formulario['cidade'])) :
                     Sessao::mensagem('Preencha o campo <b>Cidade</b>! ', 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                     $dados['cidade_erro'] = "Preencha o campo <b>cidade</b>";
                 endif;
             else :
