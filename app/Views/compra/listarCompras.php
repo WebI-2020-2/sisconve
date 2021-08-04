@@ -66,7 +66,7 @@
                                         <td><?= $compra->id_compra ?></td>
                                         <td><?= $compra->nome_funcionario ?></td>
                                         <td><?= $compra->nome_fornecedor ?></td>
-                                        <td><?= $compra->valor_total ?></td>
+                                        <td><?= Validar::lucro($compra->valor_total) ?></td>
                                         <td><?= Validar::dataBr($compra->data_compra) ?></td>
                                         <td>
                                             <a title="Ver compra" href="#">

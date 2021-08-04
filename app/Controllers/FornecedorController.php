@@ -75,6 +75,11 @@ class FornecedorController extends Controller
                     Sessao::mensagem('fornecedor', 'Erro! O telefone informado é inválido!'.$imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
+                elseif (strlen($formulario['telefone-fornecedor']) != 11) :
+                    //$dados['telefone_erro'] = "Telefone informado é <b>invalido</b>";
+                    Sessao::mensagem('fornecedor', 'Erro! O tamnho do telefone informado é inválido!'.$imgError, 'bg-red');
+                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
+
                 elseif (Validar::validarCampoString($formulario['estado-fornecedor'])) :
                     //$dados['estado_erro'] = "Estado informado é <b>invalido</b>";
                     Sessao::mensagem('fornecedor', 'Erro! O estado informado é inválido!'.$imgError, 'bg-red');

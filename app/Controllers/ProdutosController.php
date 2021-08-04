@@ -9,8 +9,8 @@ class ProdutosController extends Controller
         // URL::redirecionar('FuncionarioController/login');
         endif;
         $this->produtoModel = $this->model('ProdutoModel');
+        $this->categoriaModal = $this->model('CategoriaModel');
     }
-
 
     public function cadastrarProduto()
     {
@@ -19,7 +19,7 @@ class ProdutosController extends Controller
             $dados = [
                 'categoria' => trim($formulario['categoria']),
                 'nome_produto' => trim($formulario['nome_produto']),
-
+                'lista_categorias' => $this->categoriaModal->todos(),
                 'categoria_erro' => '',
                 'nome_produto_erro' => '',
 
@@ -27,13 +27,13 @@ class ProdutosController extends Controller
             if (in_array("", $formulario)) :
                 if (empty($formulario['categoria'])) :
                     Sessao::mensagem('produto', 'Preencha o campo Categoria', 'bg-green');
-                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'FornecedorController/listarFornecedor');
                     $dados['categoria_erro'] = "Preencha o campo ";
                 endif;
 
                 if (empty($formulario['nome_produto'])) :
                     Sessao::mensagem('produto', 'Preencha o campo Nome do Produto', 'bg-green');
-                    header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'FornecedorController/listarFornecedor');
                     $dados['nome_produto_erro'] = "Preencha o campo";
                 endif;
             else :

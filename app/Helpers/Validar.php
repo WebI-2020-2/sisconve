@@ -61,9 +61,9 @@ class Validar
         endif;
     }
 
-    public static function lucro($mediadeLucroDia)
+    public static function lucro($numero)
     {
-        return number_format($mediadeLucroDia, 2, ',', '');
+        return number_format($numero, 2, ',', '');
     }
     public static function upperCase($upperCase)
     {

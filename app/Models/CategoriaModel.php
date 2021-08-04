@@ -96,6 +96,12 @@ class CategoriaModel
         return $this->db->resultados();
     }
 
+    public function todos() 
+    {
+        $this->db->query('SELECT * FROM categoria');
+        return $this->db->resultados();
+    }
+
     public function update($dados, $id)
     {
         $this->setNomeCategoria($dados['nomecategoria']);

@@ -69,6 +69,7 @@
                                     <th>Telefone</th>
                                     <th>Cargo</th>
                                     <th>Nivel de Acesso</th>
+                                    <th>Salario</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -80,6 +81,8 @@
                                         <td><?= $funcionario->telefone ?></td>
                                         <td><?= $funcionario->cargo ?></td>
                                         <td><?= $funcionario->nivel_acesso ?></td>
+                                        <td>R$ <?= Validar::lucro($funcionario->salario) ?></td>
+                                        
                                         <td>
                                             <button title="Ver funcionario" onclick="">
                                                 <img src="../public/img/eye-icon.svg" alt="Ver funcionario">

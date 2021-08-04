@@ -123,7 +123,7 @@
                                                 <tr>
                                                     <td><?= $produtosAbaixoEstoque->id_produto ?></td>
                                                     <td><?= $produtosAbaixoEstoque->nome_produto ?></td>
-                                                    <td>R$ <?= $produtosAbaixoEstoque->preco_venda ?></td>
+                                                    <td>R$ <?= Validar::lucro($produtosAbaixoEstoque->preco_venda) ?></td>
                                                     <td><?= $produtosAbaixoEstoque->quantidade ?></td>
                                                 </tr>
                                             <?php endforeach; ?>

@@ -1,7 +1,7 @@
 <?php
 include_once './../app/Models/CategoriaModel.php';
 $categoria = new CategoriaModel();
-$lista_categorias = $categoria->selectAll();
+$lista_categorias = $categoria->todos();
 ?>
 <div class="modal fade" id="cadastrar-produto-modal" tabindex="-1" aria-labelledby="cadastrar-produto-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-cad-produto modal-dialog-centered modal-md">
@@ -27,7 +27,7 @@ $lista_categorias = $categoria->selectAll();
                             <option value="" disabled selected>Selecione uma categoria</option>
                             <?php foreach($lista_categorias as $categorias) : ?>
                                 <option value="<?= $categorias->id_categoria ?>">
-                                    <?= $categorias->nome_categoria  ?>
+                                    <?= Validar::upperCase($categorias->nome_categoria)?>
                                 </option>
                             <?php endforeach ?>
                         </select>

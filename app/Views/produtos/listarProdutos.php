@@ -79,8 +79,8 @@
                                         </td>
                                         <td><?= $produto->nome_produto ?></td>
                                         <td><?= $produto->nome_categoria ?></td>
-                                        <td>R$ <?= $produto->preco_compra ?></td>
-                                        <td>R$ <?= $produto->preco_venda ?></td>
+                                        <td>R$ <?= Validar::lucro($produto->preco_compra) ?></td>
+                                        <td>R$ <?= Validar::lucro($produto->preco_venda) ?></td>
                                         <td><?= $produto->quantidade ?></td>
                                         <td>
                                             <button type="button" title="Ver produto" onclick="">

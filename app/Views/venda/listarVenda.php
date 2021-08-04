@@ -65,7 +65,7 @@
                                     <!-- <td><?= $venda->id_caixa ?></td> -->
                                     <td><?= $venda->nome_cliente ?></td>
                                     <td><?= $venda->num_parcelas ?></td>
-                                    <td><?= $venda->valor_total ?></td>
+                                    <td>R$ <?= Validar::lucro($venda->valor_total) ?></td>
                                     <td><?= Validar::dataBr($venda->data_venda) ?></td>
                                     <td>
                                         <a title="Ver venda" href="#">

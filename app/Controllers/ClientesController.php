@@ -133,6 +133,11 @@ class ClientesController extends Controller
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cpf_erro'] = "CPF informado é invalido";
 
+                elseif (strlen($formulario['cpf']) != 11) :
+                    Sessao::mensagem('cliente', 'Tamanho de CPF informado é invalido!', 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
+                    $dados['cpf_erro'] = "CPF informado é invalido";
+
                 elseif ($this->clienteModel->VerificarCpf($formulario['cpf'])) :
                     Sessao::mensagem('cliente', 'Cliene já Cadastrado!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');

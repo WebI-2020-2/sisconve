@@ -81,8 +81,8 @@
                                         <td><?= $cliente->nome_cliente ?></td>
                                         <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
                                         <td><?= $cliente->cpf ?></td>
-                                        <td><?= $cliente->credito ?></td>
-                                        <td><?= $cliente->debito ?></td>
+                                        <td><?= Validar::lucro($cliente->credito) ?></td>
+                                        <td><?= Validar::lucro($cliente->debito) ?></td>
                                         <td>
                                             <button title="Ver cliente" onclick="">
                                                 <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
