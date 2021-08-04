@@ -26,10 +26,12 @@ class ProdutosController extends Controller
             ];
             if (in_array("", $formulario)) :
                 if (empty($formulario['categoria'])) :
+                    Sessao::mensagem('produto', 'Preencha o campo <br>Categoria</br>', 'bg-green');
                     $dados['categoria_erro'] = "Preencha o campo ";
                 endif;
 
                 if (empty($formulario['nome_produto'])) :
+                    Sessao::mensagem('produto', 'Preencha o campo <br>Nome do Produto</br>', 'bg-green');
                     $dados['nome_produto_erro'] = "Preencha o campo";
                 endif;
             else :
