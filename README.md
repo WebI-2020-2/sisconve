@@ -8,19 +8,18 @@
 
 |      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
 | ------------------ |:-------:|:--------:|:--------:|:---------:|
-| Caixa              |    ✔️    |    ❌    |     ❌    |     ❌     |
+| Caixa              |    ✔️    |    ✔️    |     ❌    |     ✔️     |
 | Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Compra             |    ✔️    |    ✔️     |     ❌    |     ❌     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
+| Forma de Pagamento |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Parcelas           |    ❌    |    ❌     |     ❌    |     ❌     |
+| Parcelas           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Usuário            |    ✔️    |    ✔️     |     ✔️    |     ❌     |
 | Venda              |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 
 
