@@ -1,3 +1,17 @@
+<?php
+
+    $fornecedor = new FornecedorModel();
+    $lista_fornecedor = $fornecedor->selectAll();
+
+    $produto = new ProdutoModel();
+    $lista_produtos = $produto->selectAll();
+
+    include_once './../app/Models/FormaPagamentoModel.php';
+    $formaPagamento = new FormaPagamentoModel();
+    $lista_formaDePagamento = $formaPagamento->selectAll();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt_br">
 
@@ -10,6 +24,7 @@
     <!-- estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
     <link rel="stylesheet" href="../public/style/buy-products.css">
+    <link rel="stylesheet" href="../public/style/modal/add-item.css">
 </head>
 
 <body>
@@ -23,7 +38,6 @@
         <?php include("./../app/include/parts/menubar.php"); ?>
 
         <div class="content-center">
-
             <div class="dashboard buy-page">
                 <div class="title-content">
                     <div class="title-text">
@@ -43,7 +57,9 @@
                     </div>
                 </div>
 
-                <form action="" class="buy">
+                <?php if($_POST) print_r($_POST); ?>
+
+                <form action="<?= URL ?>/CompraController/cadastrarCompra" class="buy" method="POST">
                     <div class="buy-area">
                         <div class="section section-buy-area p-0 m-0">
                             <div class="title-section">
@@ -64,30 +80,7 @@
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="table-body-items-compra">
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="table-body-items-compra"></tbody>
                                 </table>
                             </div>
                             <div class="buy-info">
@@ -97,7 +90,7 @@
                                         Fornecedor
                                     </button>
                                     <div class="data-buy-info">
-                                        <input type="text" value="TESTE" disabled>
+                                        <input type="text" id="name-fornecedor" value="SELECIONE UM FORNECEDOR" disabled>
                                     </div>
                                 </div>
 
@@ -113,10 +106,12 @@
                                                 </div>
 
                                                 <div class="modal-select">
-                                                    <label for="fornecedore">Selecione um fornecedor</label>
-                                                    <select name="fornecedore" id="nome-fornecedore">
-                                                        <option value="1" selected>FORNECEDOR PADRÃO</option>
-                                                       
+                                                    <label for="fornecedor">Selecione um fornecedor</label>
+                                                    <select name="fornecedor" id="nome-fornecedor">
+                                                        <option value="" selected disabled>SELECIONE UM FORNECEDOR</option>
+                                                        <?php foreach ($lista_fornecedor as $fornecedor) : ?>
+                                                            <option value="<?= $fornecedor->id_fornecedor?>"><?= $fornecedor->nome_fornecedor ?></option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
 
@@ -156,7 +151,9 @@
                                                         <label for="metodo-pagamento">Selecione o método de pagamento</label>
                                                         <select name="metodo-pagamento" id="metodo-pagamento" required>
                                                             <option value="1" selected>À VISTA</option>
-                                                            
+                                                            <?php foreach ($lista_formaDePagamento as $formaDePagamentos) : ?>
+                                                                <option value="<?= $formaDePagamentos->id_forma_pagamento ?>"><?= $formaDePagamentos->tipo_pagamento ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <div class="input-parcel">
@@ -180,6 +177,73 @@
                                         <img src="../public/img/adicionar-item.svg" alt="Adicionar Item">
                                         Adicionar Item
                                     </button>
+
+                                    <!-- modal add-items -->
+                                    <div class="modal fade" id="add-item-modal" tabindex="-1" aria-labelledby="logoff-modalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-add-items-buy modal-dialog-centered">
+                                            <div class="modal-content modal-content-add-items">
+                                                <div class="modal-header float-right">
+                                                    <h5>Adicionar um item a lista de compra</h5>
+                                                    <div class="close-modal">
+                                                        <img data-dismiss="modal" src="../public/img/block-icon-black.svg" alt="Fechar">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-select">
+                                                    <div class="input-modal-add-item">
+                                                        <div class="input-produt-quant">
+                                                            <div class="input input-product">
+                                                                <label>Nome do produto</label>
+                                                                <select id="nome-produto" class="select name-product">
+                                                                    <option value="" disabled selected>Selecione um produto</option>
+                                                                    <?php foreach ($lista_produtos as $produtos) : ?>
+                                                                        <option value="<?= $produtos->id_produto ?>"><?= Validar::upperCase($produtos->nome_produto) ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </div>
+                                                            <div class="input input-quant">
+                                                                <label>Quantidade <small>(somente números)</small></label>
+                                                                <input id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="number" min="1" value="1">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="input-frete-unidad">
+                                                            <div class="input input-valor-unit">
+                                                                <label>Valor R$ <strong>UNID</strong> <small>(somente números)</small></label>
+                                                                <input id="valor-unit" oninput="validaInput(this)" class="valor-unit" type="number" step="0.1" min="0" value="0.00">
+                                                            </div>
+                                                            <div class="input input-frete">
+                                                                <label>Valor R$ <strong>FRETE</strong> <small>(somente números)</small></label>
+                                                                <input id="frete" oninput="validaInput(this)" class="frete" type="number" step="0.1" min="0" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-ipi-icms">
+                                                            <div class="input input-ipi">
+                                                                <label>Valor R$ <strong>IPI</strong> <small>(somente números)</small></label>
+                                                                <input id="ipi" oninput="validaInput(this)" class="ipi" type="number" step="0.1" min="0" value="0.00">
+                                                            </div>
+                                                            <div class="input input-icms">
+                                                                <label>Valor R$ <strong>ICMS</strong> <small>(somente números)</small></label>
+                                                                <input id="icms" oninput="validaInput(this)" class="icms" type="number" step="0.1" min="0" value="0.00">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="exit-add" data-dismiss="modal" class="cancel btn-modal">
+                                                        Cancelar
+                                                        <img src="../public/img/block-icon.svg" alt="Cancelar">
+                                                    </button>
+                                                    <button type="button" class="confirm-add" id="btn-add-item-modal" data-dismiss="modal" class="confirm btn-modal">
+                                                        Adicionar
+                                                        <img src="../public/img/check-icon.svg" alt="Confirmar">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fim modal  -->
+
                                 </div>
                             </div>
                         </div>
@@ -188,12 +252,12 @@
                     <div class="buy-attributes">
                         <div class="value-cart">
                             <span id="total-value">Valor total R$</span>
-                            <span id="value-cart">0.00</span>
+                            <span id="value-cart">0,00</span>
                         </div>
                         <div class="buttons">
                             <button type="button" id="cancelar-compra" class="cancel">
-                                <span>Cancelar Compra</span>
-                                <img src="../public/img/block-icon.svg" alt="Cancelar compra">
+                                <span>Limpar Lista</span>
+                                <img src="../public/img/block-icon.svg" alt="Limpar Lista">
                             </button>
                             <button type="submit" id="finalizar-compra" class="accept">
                                 <span>Registrar Compra</span>
@@ -202,90 +266,6 @@
                         </div>
                     </div>
                 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <?php
-                    include './../app/Models/FuncionarioModel.php';
-                    $fornecedor = new FornecedorModel();
-                    $lista_fornecedor = $fornecedor->selectAll();
-
-                    $funcionario = new FuncionarioModel();
-                    $lista_funcionario = $funcionario->selectAll();
-
-                    $produto = new ProdutoModel();
-                    $lista_produtos = $produto->selectAll();
-                ?>
-
-                <!-- <form name="cadastrar" action="<?= URL ?>/CompraController/CompraComProduto" method="post" class="text-center">
-
-
-
-                    <label for="">Funcionario</label>
-                    <select name="funcionario" id="funcionario">
-                        <?php foreach ($lista_funcionario as $funcionarios) : ?>
-                            <option value="<?= $funcionarios->id_funcionario ?>"><?= $funcionarios->nome_funcionario ?></option>
-                        <?php endforeach; ?>
-                    </select>
-
-                    <br>
-                    <label for="">Parcelas</label>
-                    <input type="text" name="parcelas" id="parcelas">
-
-                    <br>
-
-
-                    <label for="">Produto</label>
-                    <select name="produto" id="produto">
-                        <?php foreach ($lista_produtos as $produtos) : ?>
-                            <option value="<?= $produtos->id_produto ?>"><?= $produtos->nome_produto ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <br>
-
-                    <label for="">Ipi</label>
-                    <input type="text" name="ipi" id="ipi">
-
-                    <br>
-
-                    <label for="">Frete</label>
-                    <input type="text" name="frete" id="frete">
-
-                    <br>
-
-                    <label for="">Icms</label>
-                    <input type="text" name="icms" id="icms">
-
-                    <br>
-
-                    <label for="">Quantidade</label>
-                    <input type="text" name="quantidade" id="quantidade">
-
-                    <br>
-
-                    <label for="">Preco de compra</label>
-                    <input type="text" name="preco_compra" id="preco_compra">
-
-                    <br>
-                    <input type="submit" value="Comprar" class="btn btn-primary">
-
-
-                </form> -->
-
-                
             </div>
         </div>
     </div>
@@ -293,21 +273,135 @@
 </body>
 
 <?php include("./../app/include/etc/scripts.php"); ?>
+<script>
+
+    var produtos = [];
+
+    <?php
+    foreach ($lista_produtos as $produto) { ?>
+        produtos["<?= $produto->id_produto ?>"] = {
+            id: parseInt("<?= $produto->id_produto ?>"),
+            nome: "<?= $produto->nome_produto ?>"
+        }; <?php
+    } ?>
+
+    var buttonAddItem = document.getElementById("btn-add-item");
+    var buttonAddItemModal = document.getElementById("btn-add-item-modal");
+    var tableBodyItems = document.getElementById("table-body-items-compra");
+
+    var inputNomeProduto = document.getElementById("nome-produto");
+    var inputQuantProduto = document.getElementById("quantidade-item");
+    var inputIcms = document.getElementById("icms");
+    var inputIpi = document.getElementById("ipi");
+    var inputFrete = document.getElementById("frete");
+    var inputPrecoUni = document.getElementById("valor-unit");
+
+
+    buttonAddItem.addEventListener("click", () => {
+        inputNomeProduto.value = "";
+        inputQuantProduto.value = 1;
+        inputFrete.value = "0.00";
+        inputIcms.value = "0.00";
+        inputPrecoUni.value = "0.00";
+        inputIpi.value = "0.00";
+    });
+
+    buttonAddItemModal.addEventListener("click", () => {
+
+        if (inputNomeProduto.value != "" && inputQuantProduto.value != "") {
+
+            tableBodyItems.innerHTML += `
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <input type="text" name="id-produto[]" value="${inputNomeProduto.value}" required style="display: none">
+                        ${produtos[inputNomeProduto.value].nome}
+                    </td>
+                    <td>
+                        <input type="text" name="ipi[]" value="${inputIpi.value}" required style="display: none">
+                        R$ ${parseFloat(inputIpi.value).toFixed(2)}
+                    </td>
+                    <td>
+                        <input type="text" name="icms[]" value="${inputIcms.value}" required style="display: none">
+                        R$ ${parseFloat(inputIcms.value).toFixed(2)}
+                    </td>
+                    <td>
+                        <input type="text" name="frete[]" value="${inputFrete.value}" required style="display: none">
+                        R$ ${parseFloat(inputFrete.value).toFixed(2)}
+                    </td>
+                    <td>
+                        <input type="text" id="quantidade-produto" name="quantidade-produto[]" value="${inputQuantProduto.value}" required style="display: none">
+                        ${inputQuantProduto.value} unid
+                    </td>
+                    <td>
+                        <input type="text" name="valor-unitario[]" value="${inputPrecoUni.value}" required style="display: none">
+                        R$ ${parseFloat(inputPrecoUni.value).toFixed(2)}
+                    </td>
+                    <td>
+                        R$ ${parseFloat(inputPrecoUni.value*inputQuantProduto.value).toFixed(2)}
+                    </td>
+                    <td>
+                        <button title="Remover item" onclick="removeRow(this)">
+                            <img src="../public/img/lixeira-btn.svg" alt="Remover Produto">
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }
+    });
+
+
+    function removeRow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.remove(row);
+        //countTableRows();
+        //setTotalValue();
+    }
+
+    //////////////////////////////////////////////////
+    //             modal para fornecedor
+
+    var fornecedor = [];
+
+    <?php
+    foreach ($lista_fornecedor as $fornecedor) { ?>
+        fornecedor["<?= $fornecedor->id_fornecedor ?>"] = {
+            id: parseInt("<?= $fornecedor->id_fornecedor ?>"),
+            nome: "<?= $fornecedor->nome_fornecedor ?>"
+        }; <?php
+    } ?>
+
+    var spanTxtSC = document.getElementById("name-fornecedor");
+    var selectFornecedor = document.getElementById("nome-fornecedor");
+
+    selectFornecedor.addEventListener("change", () => {
+        spanTxtSC.value = fornecedor[parseInt(selectFornecedor.value)].nome.toUpperCase();
+    });
+    
+    //////////////////////////////////////////////////
+    //           modal metodo de pagamento
+
+    var metPag = [];
+    metPag[1] = {
+        id: 1,
+        tipo: "à vista"
+    }
+
+    <?php
+    foreach ($lista_formaDePagamento as $pagamento) { ?>
+        metPag["<?= $pagamento->id_forma_pagamento ?>"] = {
+            id: parseInt("<?= $pagamento->id_forma_pagamento ?>"),
+            tipo: "<?= $pagamento->tipo_pagamento ?>"
+        }; <?php
+    } ?>
+
+    var spanTxtMP = document.getElementById("met-pag");
+    var metodoPagamento = document.getElementById("metodo-pagamento");
+
+    metodoPagamento.addEventListener("change", () => {
+        spanTxtMP.value = metPag[parseInt(metodoPagamento.value)].tipo.toUpperCase();
+    });
+
+</script>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

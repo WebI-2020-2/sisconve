@@ -190,7 +190,7 @@
 
                                     <!-- modal add-items -->
                                     <div class="modal fade" id="add-item-modal" tabindex="-1" aria-labelledby="logoff-modalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-dialog modal-add-items-sell modal-dialog-centered">
                                             <div class="modal-content modal-content-add-items">
                                                 <div class="modal-header float-right">
                                                     <h5>Adicionar um item a venda</h5>
@@ -275,10 +275,8 @@
             valor: parseFloat("<?= $produto->preco_venda ?>"),
             quantidade: parseInt("<?= $produto->quantidade ?>")
         };
-        estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>");
-    <?php
-    }
-    ?>
+        estoqueProduto["<?= $produto->id_produto ?>"] = parseInt("<?= $produto->quantidade ?>"); <?php
+    } ?>
 
     var buttonAddItem = document.getElementById("btn-add-item");
     var inputNomeProduto = document.getElementById("nome-produto");
@@ -351,7 +349,6 @@
 
     function removeRow(btn) {
         var row = btn.parentNode.parentNode;
-        estoqueProduto[row.querySelector("input").value] += parseInt(row.querySelector("#quantidade-produto").value);
         row.remove(row);
         countTableRows();
         setTotalValue();

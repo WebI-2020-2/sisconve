@@ -203,7 +203,7 @@ class CompraController extends Controller
 
     public function cadastrarCompra()
     {
-        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        /* $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
             $dados = [
                 // Compra
@@ -347,7 +347,7 @@ class CompraController extends Controller
                 'quantidade_erro' => '',
                 'preco_compra_erro' => '',
             ];
-        endif;
+        endif; */
         $this->view('compra/cadastarCompra');
     }
     public function visualizar($id)

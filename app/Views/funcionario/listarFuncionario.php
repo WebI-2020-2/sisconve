@@ -19,7 +19,7 @@
 
     <div id="container">
 
-        <?php //Sessao::mensagem('funcionario') ?>
+        <?php Sessao::mensagem('funcionario') ?>
 
         <!-- menu lateral -->
         <?php include("./../app/include/parts/menubar.php") ?>
