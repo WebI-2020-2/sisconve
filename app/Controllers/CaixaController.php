@@ -18,7 +18,7 @@ class CaixaController extends Controller
     public function listarCaixa()
     {
         $dados = [
-            'caixas' => $this->CaixaModel->selectAll()
+            'caixas' => $this->caixaModel->selectAll()
         ];
         $this->view('caixa/listarCaixas', $dados);
     }

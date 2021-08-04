@@ -13,7 +13,7 @@
             <form action="<?= URL ?>/FornecedorController/cadastrar" method="POST">
                 <div class="form">
                     <div class="input input-nome-fornecedor">
-                        <label for="nome">Nome da fornecedor</label>
+                        <label for="nome">Nome do fornecedor</label>
                         <input type="text" id="nome" name="nome-fornecedor" oninput="validaInput(this)" placeholder="Brinquedos LTDA" required>
                     </div>
                     <div class="input-tel-cid-est">

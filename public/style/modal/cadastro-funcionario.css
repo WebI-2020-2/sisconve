@@ -72,6 +72,11 @@ form .input-cpf-tel .input-num-telefone{
     margin-left: 1rem;
 }
 
+form .input-senha-confirm .input-conf-senha #pw-wrong{
+    height: 25px;
+    color: #CD0000;
+}
+
 form .modal-footer{
     margin: 1.5rem 0;
     padding: 0;

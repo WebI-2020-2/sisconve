@@ -39,7 +39,7 @@
                             <input type="text" oninput="validaInput(this)" name="cargo" placeholder="Caixa" required>
                         </div>
                         <div class="input input-salario">
-                            <label for="salario">Salário <small>(R$)</small></label>
+                            <label for="salario">Salário R$ <small>(somente números)</small></label>
                             <input type="number" oninput="validaInput(this)" name="salario" placeholder="1500,00" required>
                         </div>
                     </div>
@@ -69,6 +69,7 @@
                         <div class="input input-conf-senha">
                             <label for="confirma_senha">Confirmar senha</label>
                             <input type="password" oninput="validaInput(this)" style="background-color: #e5e5e5;" name="confirma_senha" id="confi-senha" placeholder="•••••••••••" required disabled>
+                            <div id="pw-wrong"></div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -76,7 +77,7 @@
                             Cancelar
                             <img src="../public/img/block-icon.svg" alt="Cancelar">
                         </button>
-                        <button type="submit" class="submit">
+                        <button type="submit" class="submit" id="submit">
                             Cadastrar
                             <img src="../public/img/check-icon.svg" alt="Cadastrar">
                         </button>

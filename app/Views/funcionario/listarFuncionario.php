@@ -106,4 +106,6 @@
 
 <?php include("./../app/include/etc/scripts.php"); ?>
 <script src="../public/js/checkerLogin.js"></script>
+<script src="../public/js/checkPassword.js"></script>
+
 </html>
