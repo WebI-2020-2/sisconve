@@ -95,8 +95,10 @@ class CaixaModel
     public function insert($dados)
     {
         $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
+        $funcionarioIdInt = (int) $dados['id_funcionario'];
         $this->setValorEmCaixa($valorEmCaixaFloat);
-        $this->setFuncionarioId(1);
+        $this->setFuncionarioId($funcionarioIdInt);
+        
         $this->setStatus(true);
         $this->db->query("INSERT INTO caixa(id_funcionario, valor_em_caixa, status) VALUES (:id_funcionario, :valor_em_caixa, :status)");
         $this->db->bind(":id_funcionario", $this->getFuncionarioId());
