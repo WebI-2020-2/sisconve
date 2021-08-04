@@ -39,7 +39,7 @@
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/financas.svg" alt="">Finanças</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedoa">
-                    <li><a href="#">Caixa</a></li>
+                    <li><a href="<?= URL?>/CaixaController/listarCaixa">Caixa</a></li>
                     <li><a href="#">Cobranças</a></li>
                     <li><a href="#">Pagamentos</a></li>
                 </ul>

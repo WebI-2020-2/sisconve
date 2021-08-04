@@ -49,46 +49,43 @@ class FuncionarioController extends Controller
                 if (in_array("", $formulario)) :
 
                     if (empty($formulario['nome_funcionario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Nome do Funcionario</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['telefone'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Telefone</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['cpf'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>CPF</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['endereco'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Endereço</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['cargo'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Cargo</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['salario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Salario</br>!', 'bg-red');
                     endif;
 
-                    if (empty($formulario['caixa'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
-                    endif;
 
                     if (empty($formulario['usuario'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Usuario</br>!!', 'bg-red');
                     endif;
 
                     if (empty($formulario['email'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Email</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['senha'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Senha</br>!', 'bg-red');
                     endif;
                     if (empty($formulario['confirma_senha'])) :
-                        Sessao::mensagem('funcionario', 'Preencha os campos!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Comfirma Senha</br>!', 'bg-red');
                     endif;
 
                 else :
@@ -101,6 +98,8 @@ class FuncionarioController extends Controller
                     elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
                         Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-red');
 
+                    elseif (Validar::validarCampoTelefoneDDD($formulario['telefone'])) :
+                        Sessao::mensagem('funcionario', 'Tamanho de <b>Telefone</b> tenha que ser 11 numeros!', 'bg-red');
                     elseif (Validar::validarCampoCPF($formulario['cpf'])) :
                         Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
 
@@ -159,72 +158,65 @@ class FuncionarioController extends Controller
                 if (in_array("", $formulario)) :
 
                     if (empty($formulario['nome_funcionario'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Nome do Funcionario</br>!', 'bg-red');
                         $dados['nome_funcionario_erro'] = 'Preencha o campo';
                     endif;
 
                     if (empty($formulario['telefone'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Telefone</br>!', 'bg-red');
                         $dados['telefone_erro'] = 'Preencha o campo';
                     endif;
 
                     if (empty($formulario['cpf'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>CPF</br>!', 'bg-red');
                         $dados['cpf_erro'] = 'Preencha o campo';
                     endif;
 
                     if (empty($formulario['endereco'])) :
-                        $dados['endereco_erro'] = 'Preencha o campo';
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Endereço</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['cargo'])) :
-                        $dados['cargo_erro'] = 'Preencha o campo';
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Cargo</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['salario'])) :
-                        $dados['salario_erro'] = 'Preencha o campo';
-                    endif;
-
-                    if (empty($formulario['caixa'])) :
-                        $dados['caixa_erro'] = 'Preencha o campo';
-                    endif;
-
-                    if (empty($formulario['usuario'])) :
-                        $dados['usuario_erro'] = 'Preencha o campo';
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Salario</br>!', 'bg-red');
                     endif;
 
                     if (empty($formulario['email'])) :
+                        Sessao::mensagem('funcionario', 'Preencha os campos <br>Email</br>!', 'bg-red');
                         $dados['email_erro'] = 'Preencha o campo';
-                    endif;
-
-                    if (empty($formulario['senha'])) :
-                        $dados['senha_erro'] = 'Preencha o campo';
-                    endif;
-                    if (empty($formulario['confirma_senha'])) :
-                        $dados['confirma_senha_erro'] = 'Confirme a Senha';
                     endif;
 
                 else :
                     if (Validar::validarCampoString($formulario['nome_funcionario'])) :
-                        $dados['nome_funcionario_erro'] = "Nome informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'Formato em <b>Nome do funcionario</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                        $dados['cpf_erro'] = "Formato informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'Formato em <b>CPF</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoNumerico($formulario['telefone'])) :
-                        $dados['telefone_erro'] = "Formato informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'Formato em <b>Telefone</b> informado!', 'bg-red');
+                        Sessao::mensagem('funcionario', 'Tamanho de <b>Telefone</b> tenha que ser 11 numeros!', 'bg-red');
 
                     elseif (Validar::validarCampoCPF($formulario['cpf'])) :
-                        $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
 
                     elseif (Validar::validarCampoNumerico($formulario['salario'])) :
-                        $dados['salario_erro'] = "Formato informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'Formato em <b>Salario</b> informado!', 'bg-red');
 
                     elseif (Validar::validarCampoString($formulario['cargo'])) :
-                        $dados['cargo_erro'] = "Formato informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'Formato em <b>Cargo</b> informado!', 'bg-red');
 
                     elseif ($this->funcionarioModel->validarCpf($formulario['cpf'])) :
-                        $dados['cpf_erro'] = "CPF informado <b>inavlido</b>";
+                        Sessao::mensagem('funcionario', 'CPf invalido!', 'bg-red');
 
                     elseif ($this->funcionarioModel->validarTelefone($formulario['telefone'])) :
-                        $dados['telefone_erro'] = "Telefone  informado <b>pertence</b> a outro funcionário";
+                        Sessao::mensagem('funcionario', 'Telefone invalido!', 'bg-red');
+                        
+                    elseif (Validar::validarCampoEmail($formulario['email'])) :
+                        Sessao::mensagem('funcionario', 'Email invalido!', 'bg-red');
 
                     else :
                         if ($this->funcionarioModel->insert($dados)) :

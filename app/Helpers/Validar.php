@@ -72,7 +72,16 @@ class Validar
 
     public static function validarCampoTelefone($telefone)
     {
-        if(strlen($telefone) != 9):
+        if(strlen($telefone) == 9):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
+    public static function validarCampoTelefoneDDD($telefone)
+    {
+        if(strlen($telefone) == 11):
             return true;
         else:
             return false;
