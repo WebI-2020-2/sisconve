@@ -318,7 +318,8 @@ class FuncionarioController extends Controller
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
                     // URL::redirecionar('CategoriaController/listarCategoria');
                     else :
-                        Sessao::mensagem('funcionario', 'Usuario ou senha invalidos', 'alert alert-danger');
+                        Sessao::mensagem2('funcionario', 'Usuario ou senha invalidos', 'alert alert-danger');
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
                     endif;
 
                 endif;

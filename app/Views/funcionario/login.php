@@ -36,7 +36,7 @@
                                     <input type="password" name="senha" maxlength="50" required>
                                 </div>
                                 <div class="alert">
-                                    <small><?= Sessao::mensagem('funcionario'); ?></small>
+                                    <small><?= Sessao::mensagem2('funcionario'); ?></small>
                                 </div>
                             </div>
                         </div>

@@ -39,7 +39,9 @@
             <li href="#pageSubmenuFornecedoa" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/financas.svg" alt="">Finanças</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedoa">
-                    <li><a href="<?= URL?>/CaixaController/listarCaixa">Caixa</a></li>
+                    <?php if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 1) : ?>
+                        <li><a href="<?= URL ?>/CaixaController/listarCaixa">Caixa</a></li>
+                    <?php endif; ?>
                     <li><a href="#">Cobranças</a></li>
                     <li><a href="#">Pagamentos</a></li>
                 </ul>

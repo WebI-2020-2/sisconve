@@ -15,6 +15,10 @@
     $formaDePagamento = new FormaPagamentoModel();
     $lista_formaDePagamento = $formaDePagamento->selectAll();
 
+    include_once './../app/Models/CaixaModel.php';
+    $caixa = new CaixaModel();
+    
+
 ?>
 
 <html lang="pt_br">
@@ -64,7 +68,7 @@
                         <span>Realizar Venda</span>
                     </div>
                     <div class="caixa-id">
-                        <span>Caixa ativo: <strong>01</strong></span>
+                        <span>Caixa ativo: <strong>0<?= $caixaCliente = $caixa->caixaFuncionario();?></strong></span>
                     </div>
                 </div>
 
