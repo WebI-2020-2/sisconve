@@ -7,15 +7,37 @@
     height: 100%;
 }
 
+#container .landing-page{
+    display: flex;
+}
+
+.landing-page .img-sistema{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10rem;
+}
+
+.landing-page .img-sistema .mini-footer{
+    color: #f6f6f6;
+    margin-top: 3rem;
+    text-shadow: 0px 0px 15px rgb(0 0 0 / 40%);
+}
+
+.landing-page .img-sistema img{
+    width: 70vh;
+    pointer-events: none;
+}
+
 .login-form{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 520px;
-    height: 500px;
+    height: 100vh;
     background: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.50);
 }
 
 .main-items{
