@@ -86,11 +86,11 @@ class CategoriaController extends Controller
         if (Validar::validarCampoString($formulario['nomecategoria'])) :
             // $dados['nomecategoria_erro'] = "Nome informado é invalido";
             Sessao::mensagem('categoria', 'Erro! Nome informado inválido!' . $imgError, 'bg-red');
-            header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');;
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');
         else:
             if ($this->categoriaModel->update($dados)) :
                 Sessao::mensagem('categoria', 'Categoria atualizado com sucesso!' . $imgError, 'bg-green');
-                header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');;
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');
             else :
                 die("Erro");
             endif;
