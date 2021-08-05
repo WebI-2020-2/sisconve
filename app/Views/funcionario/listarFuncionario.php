@@ -87,7 +87,7 @@
                                             <button title="Ver funcionario" onclick="">
                                                 <img src="../public/img/eye-icon.svg" alt="Ver funcionario">
                                             </button>
-                                            <button title="Editar funcionario" onclick="">
+                                            <button title="Editar funcionario" onclick="editFuncionario('<?= $funcionario->id_funcionario ?>')">
                                                 <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-funcionario-modal" alt="Editar funcionario">
                                             </button>
                                             <button title="Exluir funcionario" onclick="deletefuncionario('<?= $funcionario->id_funcionario ?>', '<?= $funcionario->nome_funcionario ?>')">
@@ -98,6 +98,9 @@
                                 <?php endforeach ?>  
                             </tbody>
                         </table>
+
+                        <?php include('./../app/include/modal/editar-funcionario-modal.php'); ?>
+                        
                     </div>
                 </div>
             </div>
@@ -110,5 +113,74 @@
 <?php include("./../app/include/etc/scripts.php"); ?>
 <script src="../public/js/checkerLogin.js"></script>
 <script src="../public/js/checkPassword.js"></script>
+<script>
+
+    var funcionarios = [];
+
+    <?php
+    
+        foreach ($dados['funcionarios'] as $funcionario) { ?>
+            funcionarios["<?= $funcionario->id_funcionario ?>"] = {
+                id: "<?= $funcionario->id_funcionario ?>",
+                nome: "<?= $funcionario->nome_funcionario ?>",
+                cpf: "<?= $funcionario->cpf ?>",
+                telefone: "<?= $funcionario->telefone ?>",
+                email: "<?= $funcionario->email ?>",
+                endereco: "<?= $funcionario->endereco ?>",
+                cargo: "<?= $funcionario->cargo ?>",
+                salario: "<?= $funcionario->salario ?>",
+                acesso: "<?= $funcionario->nivel_acesso ?>"
+            }; <?php
+        }
+
+    ?>
+
+    function editFuncionario(idFuncionario) {
+
+        var editFuncionarioModal = document.getElementById("editar-funcionario-modal");
+        var funcionarioEdit;
+
+        funcionarios.forEach(funcionario => {
+            if(funcionario.id == idFuncionario) {
+                funcionarioEdit = funcionario;
+            }
+        });
+
+        var inputEdit = {
+            id: editFuncionarioModal.querySelector("#id-funcionario"),
+            nome: editFuncionarioModal.querySelector("#nome"),
+            cpf: editFuncionarioModal.querySelector("#cpf"),
+            telefone: editFuncionarioModal.querySelector("#telefone"),
+            email: editFuncionarioModal.querySelector("#email"),
+            endereco: editFuncionarioModal.querySelector("#endereco"),
+            cargo: editFuncionarioModal.querySelector("#cargo"),
+            salario: editFuncionarioModal.querySelector("#salario"),
+            acesso: editFuncionarioModal.querySelector("#acesso")
+        }
+
+        inputEdit.id.value = funcionarioEdit.id;
+        inputEdit.nome.value = funcionarioEdit.nome;
+        inputEdit.cpf.value = funcionarioEdit.cpf;
+        inputEdit.telefone.value = funcionarioEdit.telefone;
+        inputEdit.email.value = funcionarioEdit.email;
+        inputEdit.endereco.value = funcionarioEdit.endereco;
+        inputEdit.cargo.value = funcionarioEdit.cargo;
+        inputEdit.salario.value = funcionarioEdit.salario;
+
+        var divAcesso = document.getElementById("input-acesso");
+        var inputAcesso = document.getElementById("acesso");
+
+        if(parseInt(funcionarioEdit.acesso) < 3) {
+            inputAcesso.disabled = false;
+            divAcesso.style.display = "block"
+            inputEdit.acesso.value = funcionarioEdit.acesso;
+        } else {
+            inputAcesso.disabled = true;
+            divAcesso.style.display = "none"
+        }
+        
+    }
+
+</script>
 
 </html>

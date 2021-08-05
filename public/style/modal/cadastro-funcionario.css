@@ -65,11 +65,20 @@ form .input-account #acc{
     width: 5%;
 }
 
+form #input-acesso,
 form .input-usuario-nivel .input-acesso,
 form .input-senha-confirm .input-conf-senha,
 form .input-cargo-salario .input-salario,
 form .input-cpf-tel .input-num-telefone{
     margin-left: 1rem;
+}
+
+form #input-cargo-salario{
+    display: flex;
+}
+
+form #input-cargo{
+    width: 470px;
 }
 
 form .input-senha-confirm .input-conf-senha #pw-wrong{
