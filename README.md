@@ -54,7 +54,7 @@
         <td>
             <a target="_blank" href="https://github.com/cleitondcarmo">
                 <img src="https://github.com/cleitondcarmo.png?size=70">
-                <h5>Testador</h5>
+                <h5>Tester</h5>
             </a>
         </td>
         <td>

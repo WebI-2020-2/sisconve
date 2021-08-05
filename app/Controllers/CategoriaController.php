@@ -88,7 +88,7 @@ class CategoriaController extends Controller
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');
         else:
             if ($this->categoriaModel->update($dados)) :
-                Sessao::mensagem('categoria', 'Categoria atualizado com sucesso!' . $imgError, 'bg-green');
+                Sessao::mensagem('categoria', 'Categoria atualizado com sucesso!' . $imgSuccess, 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');
             else :
                 die("Erro");

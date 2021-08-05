@@ -38,7 +38,7 @@ class ProdutosController extends Controller
                 endif;
             else :
                 if (Validar::validarCampoString($formulario['nome_produto'])) :
-                    Sessao::mensagem('produto', 'Formato informado inavalido', 'bg-red');
+                    Sessao::mensagem('produto', 'Formato informado invalido', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ProdutosController/listarProdutos');
                 // URL::redirecionar('ProdutosController/listarProdutos');
 
