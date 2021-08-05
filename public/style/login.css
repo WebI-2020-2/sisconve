@@ -20,9 +20,22 @@
 }
 
 .landing-page .img-sistema .mini-footer{
+    display: flex;
     color: #f6f6f6;
     margin-top: 3rem;
     text-shadow: 0px 0px 15px rgb(0 0 0 / 40%);
+}
+
+.landing-page .img-sistema .mini-footer a{
+    display: flex;
+    align-items: center;
+    color: #f6f6f6;
+    text-decoration: none;
+    margin-left: .3rem;
+}
+
+.landing-page .img-sistema .mini-footer a img{
+    width: 17px;
 }
 
 .landing-page .img-sistema img{

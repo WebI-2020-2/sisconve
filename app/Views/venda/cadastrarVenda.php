@@ -42,7 +42,7 @@
     <?php include("./../app/include/parts/navbar.php") ?>
 
     <div id="container">
-        <?= Sessao::mensagem('vendas'); ?>
+        <?= Sessao::mensagem('venda'); ?>
 
         <!-- inicio menu-bar (barra lateral)-->
         <?php include("./../app/include/parts/menubar.php") ?>

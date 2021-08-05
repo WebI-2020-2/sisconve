@@ -72,7 +72,7 @@
                                     <tr>
                                         <td><?= $categoria->id_categoria ?></td>
                                         <td><?= $categoria->nome_categoria ?></td>
-                                        <td><?= $categoria->qunatidade_categoria ?></td>
+                                        <td><?= $categoria->quantidade_categoria ?></td>
                                         
                                         <td>
                                             <button title="Ver categoria" onclick="">
