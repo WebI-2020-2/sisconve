@@ -181,4 +181,26 @@ class FornecedorModel
             return false;
         endif;
     }
+
+    public function update($dados)
+    {
+        $this->setId($dados['id_fornecedor']);
+        $this->setTelefone($dados['telefone']);
+        $this->setEstado($dados['estado']);
+        $this->setCidade($dados['cidade']);
+        $this->setNomeFornecedor($dados['nome']);
+
+        $this->db->query("UPDATE fornecedor SET nome_fornecedor = :nome_fornecedor, telefone = :telefone, cidade = :cidade, estado = :estado WHERE id_fornecedor = :id_fornecedor");
+        $this->db->bind(":nome_fornecedor", $this->getNomeFornecedor());
+        $this->db->bind(":telefone", $this->getTelefone());
+        $this->db->bind(":cidade", $this->getCidade());
+        $this->db->bind(":estado", $this->getEstado());
+        $this->db->bind(":id_fornecedor", $this->getId());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }
