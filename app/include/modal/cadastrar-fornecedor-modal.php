@@ -14,7 +14,7 @@
                 <div class="form">
                     <div class="input input-nome-fornecedor">
                         <label for="nome">Nome do fornecedor</label>
-                        <input type="text" id="nome" name="nome-fornecedor" oninput="validaInput(this)" placeholder="Brinquedos LTDA" maxlength="100" required>
+                        <input type="text" name="nome-fornecedor" oninput="validaInput(this)" placeholder="Brinquedos LTDA" maxlength="100" required>
                     </div>
                     <div class="input-tel-cid-est">
                         <div class="input input-telefone-fornecedor">
