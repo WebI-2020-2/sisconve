@@ -12,10 +12,10 @@
 | Caixa              |    ✔️    |    ✔️    |     ✔️    |     ✔️     |
 | Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Compra             |    ✔️    |    ❌     |     ✔️    |     ✔️     |
+| Compra             |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Forma de Pagamento |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
+| Forma de Pagamento |    ❌    |    ✔️     |     ❌    |     ❌     |
 | Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Parcelas           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
@@ -48,7 +48,7 @@
         <td>
             <a target="_blank" href="https://github.com/netosep">
                 <img src="https://github.com/netosep.png?size=70">
-                <h5>Font-end</h5>
+                <h5>Front-end</h5>
             </a>
         </td>
         <td>
