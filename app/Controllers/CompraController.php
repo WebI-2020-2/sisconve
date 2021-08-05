@@ -134,7 +134,7 @@ class CompraController extends Controller
                 else :
 
                     if ($this->compraModel->insertDois($dados)) :
-                        echo 'Cadastro realizado como sucesso <hr>';
+                        // echo 'Cadastro realizado como sucesso <hr>';
                         $ultimoidCompra = $this->compraModel->getUltimoId();
                     else :
                         die("Erro");
@@ -142,14 +142,14 @@ class CompraController extends Controller
                     endif;
 
                     if ($this->itemCompraModel->insertDois($dados, $ultimoidCompra)) :
-                        echo 'Cadastro realizado como sucesso <hr>';
+                        // echo 'Cadastro realizado como sucesso <hr>';
 
                     else :
-                        die("Erro certo");
+                        die("Erro");
 
                     endif;
                     if ($this->pagamentoCompraModel->insert($dados, $ultimoidCompra)) :
-                        echo 'Cadastro realizado como sucesso <hr>';
+                        // echo 'Cadastro realizado como sucesso <hr>';
 
                     else :
                         die("Erro");
