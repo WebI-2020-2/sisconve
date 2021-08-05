@@ -312,9 +312,10 @@ class FuncionarioModel
         $this->setSalario($dados['salario']);
         $this->setUsuario($dados['usuario']);
         $this->setSenha($dados['senha']);
+        $this->setEmail($dados['email']);
         $this->setNivel_acesso($nivel_acesso);
 
-        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario, usuario, senha, nivel_acesso) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario, :usuario, :senha, :nivel_acesso)");
+        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario, usuario, senha, nivel_acesso, email) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario, :usuario, :senha, :nivel_acesso, :email)");
 
         $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
         $this->db->bind(":telefone", $this->getTelefone());
@@ -325,6 +326,8 @@ class FuncionarioModel
         $this->db->bind(":usuario", $this->getUsuario());
         $this->db->bind(":senha", $this->getSenha());
         $this->db->bind(":nivel_acesso", $this->getNivel_acesso());
+        $this->db->bind(":email", $this->getEmail());
+
         
         if ($this->db->executa()) :
             return true;
@@ -344,6 +347,36 @@ class FuncionarioModel
         else :
             return false;
         endif;
+    }
+
+    public function updateDois($dados)
+    {
+        $this->setId($dados['id_funcionario']);
+        $this->setNomeFuncionario($dados['nome_funcionario']);
+        $this->setCpf($dados['cpf']);
+        $this->setTelefone($dados['telefone']);
+        $this->setEmail($dados['email']);
+        $this->setEndereco($dados['endereco']);
+        $this->setCargo($dados['cargo']);
+        $this->setSalario($dados['salario']);
+
+        $this->db->query("UPDATE funcionario SET nome_funcionario = :nome_funcionario, cpf = :cpf, telefone = :telefone, email = :email, endereco = :endereco, cargo = :cargo, salario = :salario WHERE id_funcionario = :id_funcionario");
+
+        $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
+        $this->db->bind(":telefone", $this->getTelefone());
+        $this->db->bind(":cpf", $this->getCpf());
+        $this->db->bind(":endereco", $this->getEndereco());
+        $this->db->bind(":cargo", $this->getCargo());
+        $this->db->bind(":salario", $this->getSalario());
+        $this->db->bind(":email", $this->getEmail());
+        $this->db->bind(":id_funcionario", $this->getId());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+
     }
 
 }

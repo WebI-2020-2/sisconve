@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="form">
-                <form action="" method="POST">
+                <form action="<?= URL ?>/FuncionarioController/editar" method="POST">
                     <div class="input input-nome-funcionario">
                         <label for="nome_funcionario">Nome</label>
                         <input type="text" oninput="validaInput(this)" name="nome_funcionario" id="nome" placeholder="José da Silva" maxlength="100" required>
