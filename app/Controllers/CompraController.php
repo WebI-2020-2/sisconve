@@ -28,6 +28,8 @@ class CompraController extends Controller
     public function cadastrarCompra()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         if (isset($formulario)) :
             $dados = [
                 // funcionario
@@ -39,7 +41,7 @@ class CompraController extends Controller
                 // Produto
                 'id-produto' => [], // $formulario['id-produto'],
 
-                //pagamento venda
+                //pagamento compra
                 'metodo_pagamento' => (int) $formulario['metodo-pagamento'],
 
                 // item_compra
@@ -79,62 +81,62 @@ class CompraController extends Controller
 
             if (in_array("", $formulario)) :
                 if (empty($formulario['fornecedor'])) :
-                    $dados['fornecedor_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['num-parcelas'])) :
-                    $dados['parcelas_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['id-produto'])) :
-                    $dados['produto_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['ipi'])) :
-                    $dados['ipi_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['frete'])) :
-                    $dados['frete_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['icms'])) :
-                    $dados['icms_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['quantidade'])) :
-                    $dados['quantidade_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
 
                 if (empty($formulario['valor-unitario'])) :
-                    $dados['preco_compra_erro'] = "Preencha o campo";
+                    Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
                 endif;
             else :
                 if (Validar::validarCampoNumerico($formulario['fornecedor'])) :
-                    $dados['fornecedor_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 elseif (Validar::validarCampoNumerico($formulario['num-parcelas'])) :
-                    $dados['parcelas_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 elseif (Validar::validarCampoNumerico($formulario['id-produto'])) :
-                    $dados['produto_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 elseif (Validar::validarCampoNumerico($formulario['ipi'])) :
-                    $dados['ipi_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 elseif (Validar::validarCampoNumerico($formulario['frete'])) :
-                    $dados['frete_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 elseif (Validar::validarCampoNumerico($formulario['icms'])) :
-                    $dados['icms_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 elseif (Validar::validarCampoNumerico($formulario['valor-unitario'])) :
-                    $dados['preco_compra_erro'] = "Formato informado <b>invalido</b>";
+                    Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
 
                 else :
 
                     if ($this->compraModel->insertDois($dados)) :
-                        // echo 'Cadastro realizado como sucesso <hr>';
+                        Sessao::mensagem('compra', 'Compra realizada com sucesso!' . $imgSuccess, 'bg-green');
                         $ultimoidCompra = $this->compraModel->getUltimoId();
                     else :
                         die("Erro");
@@ -142,24 +144,16 @@ class CompraController extends Controller
                     endif;
 
                     if ($this->itemCompraModel->insertDois($dados, $ultimoidCompra)) :
-                        // echo 'Cadastro realizado como sucesso <hr>';
-
                     else :
                         die("Erro");
 
                     endif;
                     if ($this->pagamentoCompraModel->insert($dados, $ultimoidCompra)) :
-                        // echo 'Cadastro realizado como sucesso <hr>';
-
                     else :
                         die("Erro");
-
                     endif;
-                    echo 'chego<hr>';
-
                 endif;
             endif;
-            var_dump($formulario);
         else :
             $dados = [
                 // Compra

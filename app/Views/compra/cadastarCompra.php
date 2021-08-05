@@ -33,6 +33,7 @@
     <?php include("./../app/include/parts/navbar.php"); ?>
 
     <div id="container">
+        <?= Sessao::mensagem("compra")?>
 
         <!-- menu lateral -->
         <?php include("./../app/include/parts/menubar.php"); ?>
@@ -56,8 +57,6 @@
                         </span>
                     </div>
                 </div>
-
-                <?php if($_POST) print_r($_POST); ?>
 
                 <form action="<?= URL ?>/CompraController/cadastrarCompra" class="buy" method="POST">
                     <div class="buy-area">
