@@ -153,7 +153,7 @@ class FuncionarioController extends Controller
                     else :
                         $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
                         if ($this->funcionarioModel->insertDois($dados)) :
-                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-red');
+                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-green');
                             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         else :
                             die("Erro");
@@ -262,7 +262,7 @@ class FuncionarioController extends Controller
 
                     else :
                         if ($this->funcionarioModel->insert($dados)) :
-                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-red');
+                            Sessao::mensagem('funcionario', 'Cadastro realizado como sucesso!', 'bg-green');
                             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                         else :
                             die("Erro");

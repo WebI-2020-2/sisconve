@@ -174,8 +174,7 @@ class ClienteModel
 
     public function selectAllToSell()
     {
-        $this->db->query('
-            SELECT
+        $this->db->query('SELECT
                 cliente.id_cliente,
                 cliente.nome_cliente,
                 cliente.cpf,
@@ -207,8 +206,7 @@ class ClienteModel
     public function selectById($id)
     {
         $this->setId($id);
-        $this->db->query('
-            SELECT
+        $this->db->query('SELECT
                 cliente.id_cliente,
                 cliente.nome_cliente,
                 cliente.cpf,

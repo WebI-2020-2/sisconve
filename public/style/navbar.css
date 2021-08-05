@@ -1,57 +1,57 @@
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     height: 10%;
-    background-color: #25767B;
+    background-color: #25767b;
     box-shadow: 3px 5px 5px rgba(152, 73, 73, 0.3);
 }
 
-nav .logo{
+nav .logo {
     padding: 15px 35px;
 }
 
-nav .logo a{
+nav .logo a {
     font-size: 35px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-transform: inherit;
     text-decoration: none;
-
+    font-weight: bold;
     letter-spacing: 3px;
 }
 
-nav .user-area{
+nav .user-area {
     display: flex;
     align-items: center;
     padding: 15px 35px;
 }
 
-nav .user-area span{
-    color: #FFFFFF;
+nav .user-area span {
+    color: #ffffff;
     padding: 7px;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
     font-size: 18px;
 }
 
-nav .user-area .username{
+nav .user-area .username {
     text-transform: uppercase;
 }
 
-nav .user-area .divisor{
+nav .user-area .divisor {
     width: 1px;
     margin: 10px;
 }
 
-nav .user-area .user-img{
+nav .user-area .user-img {
     padding: 7px;
     border-radius: 500px;
     width: 50px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.3));
 }
 
-nav .user-area .arrow-icon{
+nav .user-area .arrow-icon {
     width: 25px;
     cursor: pointer;
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
@@ -61,13 +61,13 @@ nav .user-area .arrow-icon{
     width: 180px;
 }
 
-.dropdown-menu a{
+.dropdown-menu a {
     text-decoration: none;
-    color: #25767B;
+    color: #25767b;
     font-size: 18px;
 }
 
-.dropdown-menu a .item-menu{
+.dropdown-menu a .item-menu {
     width: 100%;
     margin: 0;
     padding: 3px 10px;
@@ -75,16 +75,16 @@ nav .user-area .arrow-icon{
     align-items: center;
 }
 
-.dropdown-menu a .item-menu i{
+.dropdown-menu a .item-menu i {
     margin-right: 5px;
     margin-left: 10px;
 }
 
-.dropdown-menu a .item-menu p{
+.dropdown-menu a .item-menu p {
     margin: 3px 0 0 0;
 }
 
-.dropdown .item-menu:hover{
-    color: #FFFFFF;
-    background-color: #73A5A8;
-} 
+.dropdown .item-menu:hover {
+    color: #ffffff;
+    background-color: #73a5a8;
+}
