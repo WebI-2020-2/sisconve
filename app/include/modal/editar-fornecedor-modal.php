@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <form action="" method="POST">
+            <form action="<?= URL ?>/FornecedorController/editar" method="POST">
                 <div class="form">
                     <div class="input input-nome-fornecedor">
                         <label for="nome">Nome da fornecedor</label>
