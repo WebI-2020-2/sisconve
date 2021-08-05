@@ -114,5 +114,22 @@ class PagamentoCompraModel
         $this->db->query("SELECT * FROM pagamento_compra");
         return $this->db->resultados();
     }
+    public function insert($dados, $ultimoidCompra)
+    {
+        $this->setCompraId($ultimoidCompra);
+        $this->setFormaDePagamentoId($dados['metodo_pagamento']);
+        $this->setParcelas($dados['num-parcelas']);
+
+        $this->db->query("INSERT INTO pagamento_compra(id_compra, id_forma_de_pagamento, parcelas) VALUES (:id_compra,:id_forma_pagamento, :numero_de_parcelas)");
+        $this->db->bind(":id_compra", $this->getCompraId());
+        $this->db->bind(":id_forma_pagamento", $this->getFormaDePagamentoId());
+        $this->db->bind(":numero_de_parcelas", $this->getParcelas());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 }
 

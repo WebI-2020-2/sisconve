@@ -197,42 +197,51 @@ class ItemCompraModel
         $this->setCompraId($ultimoidCompra);
 
         
-        $ipiString = str_replace(",",".", $dados['ipi']);
-        $ipiFloat = (float)$ipiString;
+        // $ipiString = str_replace(",",".", $dados['ipi']);
+        // $ipiFloat = (float)$ipiString;
+        $ipiFloat = $dados['ipi'];
 
-        $freteString = str_replace(",",".", $dados['frete']);
-        $freteFloat = (float)$freteString;
+        // $freteString = str_replace(",",".", $dados['frete']);
+        // $freteFloat = (float)$freteString;
+        $freteFloat = $dados['frete'];
 
-        $icmsString = str_replace(",",".", $dados['icms']);
-        $icmsFloat = (float)$icmsString;
+        // $icmsString = str_replace(",",".", $dados['icms']);
+        // $icmsFloat = (float)$icmsString;
+        $icmsFloat = $dados['icms'];
 
-        $precoCompraString = str_replace(",",".", $dados['preco_compra']);
-        $precoCompraFloat = (float) $precoCompraString;
+        // $precoCompraString = str_replace(",",".", $dados['valor-unitario']);
+        // $precoCompraFloat = (float) $precoCompraString;
+        $precoCompraFloat = $dados['valor-unitario'];
 
-        $quantidadeInt = (int)$dados['quantidade'];
-        $produtoInt = (int)$dados['produto'];
+        $quantidadeInt = $dados['quantidade-produto'];
+        $produtoInt = $dados['id-produto'];
+
 
         $this->setIpi($ipiFloat);
-        $this->setFrete($freteFloat);
+        $this->setFrete($freteFloat); 
         $this->setIcms($icmsFloat);
         $this->setPreco_compra($precoCompraFloat);
         $this->setQuantidade($quantidadeInt);
         $this->setProdutoId($produtoInt);
 
-        $this->db->query("INSERT INTO item_compra(id_produto, id_compra, ipi, frete, icms, preco_compra, quantidade) VALUES (:id_produto, :id_compra, :ipi, :frete, :icms, :preco_compra, :quantidade)");
-        
-        $this->db->bind(":id_produto", $this->getProdutoId());
-        $this->db->bind(":id_compra", $this->getCompraId());
-        $this->db->bind(":ipi", $this->getIpi());
-        $this->db->bind(":frete", $this->getFrete());
-        $this->db->bind(":icms", $this->getIcms());
-        $this->db->bind(":preco_compra", $this->getPreco_compra());
-        $this->db->bind(":quantidade", $this->getQuantidade());
+        for ($i = 0; $i < count($produtoInt); $i++) :
 
-        if ($this->db->executa()) :
-            return true;
-        else :
-            return false;
-        endif;
+            $this->db->query("INSERT INTO item_compra(id_produto, id_compra, ipi, frete, icms, preco_compra, quantidade) VALUES (:id_produto, :id_compra, :ipi, :frete, :icms, :preco_compra, :quantidade)");
+        
+            $this->db->bind(":id_produto", $this->getProdutoId()[$i]);
+            $this->db->bind(":id_compra", $this->getCompraId());
+            $this->db->bind(":ipi", $this->getIpi()[$i]);
+            $this->db->bind(":frete", $this->getFrete()[$i]);
+            $this->db->bind(":icms", $this->getIcms()[$i]);
+            $this->db->bind(":preco_compra", $this->getPreco_compra()[$i]);
+            $this->db->bind(":quantidade", $this->getQuantidade()[$i]);
+
+            try {
+                $this->db->executa();
+                return true;
+            } catch (PDOException $err) {
+                return false;
+            }
+        endfor;
     }
 }

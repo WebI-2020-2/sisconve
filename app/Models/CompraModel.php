@@ -120,8 +120,8 @@ class CompraModel
     public function insert($dados)
     {
         $parcelas_int = (int) $dados['parcelas'];
-        $fornecedorint = (int) $dados['fornecedor'];
-        $funcionarioInt = (int) $dados['funcionario'];
+        $fornecedorint = (int) $dados['id_fornecedor'];
+        $funcionarioInt = (int) $dados['id_funcionario'];
 
         $this->setFornecedor_id($fornecedorint);
         $this->setFuncionario_id($funcionarioInt);
@@ -141,20 +141,21 @@ class CompraModel
         endif;
     }
 
-    public function insertDois($dados, $idFornecedorModel)
+    public function insertDois($dados)
     {
-        $parcelasInt = (int) $dados['parcelas'];
-        $funcionarioInt = (int) $dados['funcionario'];
 
-        $this->setFuncionario_id($funcionarioInt);
+        // $funcionarioInt =  $dados['funcionario'];
+        $parcelasInt =  $dados['num-parcelas'];
         $this->setParcelas($parcelasInt);
-        $this->setFornecedor_id($idFornecedorModel);
+        $this->setFuncionario_id($dados['funcionario']);
+        $this->setFornecedor_id($dados['fornecedor']);
 
-        $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:id_funcionario, :id_fornecedor, :parcelas) RETURNING id_compra");
+        $this->db->query("INSERT INTO compra(id_funcionario, id_fornecedor, parcelas) VALUES (:funcionario, :fornecedor, :parcelas) RETURNING id_compra");
 
-        $this->db->bind(':id_funcionario', $this->getFuncionario_id());
-        $this->db->bind(':id_fornecedor', $this->getFornecedor_id());
+        $this->db->bind(':funcionario', $this->getFuncionario_id());
+        $this->db->bind(':fornecedor', $this->getFornecedor_id());
         $this->db->bind(':parcelas', $this->getParcelas());
+
 
         if ($this->db->executa()) :
             // print_r($this->db->ultimoId());
