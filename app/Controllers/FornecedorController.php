@@ -79,7 +79,7 @@ class FornecedorController extends Controller
 
                 elseif (strlen($formulario['telefone-fornecedor']) != 11) :
                     //$dados['telefone_erro'] = "Telefone informado é invalido";
-                    Sessao::mensagem('fornecedor', 'Erro! O tamnho do telefone informado é inválido!'.$imgError. $this->imgError, 'bg-red');
+                    Sessao::mensagem('fornecedor', 'Erro! O tamanho do telefone informado é inválido!'.$imgError. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (Validar::validarCampoString($formulario['estado-fornecedor'])) :
@@ -94,7 +94,7 @@ class FornecedorController extends Controller
 
                 else :
                     if ($this->fornecedorModel->insert($dados)) :
-                        Sessao::mensagem('fornecedor', 'Cadastrado realizado com sucesso!'.$imgSuccess, 'bg-green');
+                        Sessao::mensagem('fornecedor', 'Cadastro realizado com sucesso!'.$imgSuccess, 'bg-green');
                         header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                     else :
