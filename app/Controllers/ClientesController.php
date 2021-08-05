@@ -26,6 +26,9 @@ class ClientesController extends Controller
 
     public function cadastrar()
     {
+        $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+        $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
+
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
             $dados = [
@@ -57,109 +60,109 @@ class ClientesController extends Controller
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo nome!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo nome!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['nome_erro'] = "Preencha o campo nome";
                 endif;
 
                 if (empty($formulario['cpf'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo CPF!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo CPF!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cpf_erro'] = "Preencha o campo CPF";
                 endif;
 
                 if (empty($formulario['num_telefone'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo Número de Telefone!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Número de Telefone!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['num_telefone_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['ddd'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo DDD!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo DDD!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['ddd_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['cliente_id'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo nome!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo nome!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cliente_id_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['cliente_id'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>nome!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo nome!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cliente_id_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['rua'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Rua!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Rua!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['rua_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['bairro'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Bairro!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Bairro!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['bairro_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['cidade'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Cidade!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Cidade!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cidade_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['estado'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Estado!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Estado!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['estado_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['numero'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Número!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Número!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['numero_erro'] = "Preencha o campo";
                 endif;
 
             else :
                 if (Validar::validarCampoString($formulario['nome'])) :
-                    Sessao::mensagem('cliente', 'Formato do Nome invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato do Nome invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['nome_erro'] = "Nome informado é invalido";
 
                 elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-                    Sessao::mensagem('cliente', 'CPF informado é invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'CPF informado é invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cpf_erro'] = "CPF informado é invalido";
 
                 elseif (strlen($formulario['cpf']) != 11) :
-                    Sessao::mensagem('cliente', 'Tamanho de CPF informado é invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Tamanho de CPF informado é invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cpf_erro'] = "CPF informado é invalido";
 
                 elseif ($this->clienteModel->VerificarCpf($formulario['cpf'])) :
-                    Sessao::mensagem('cliente', 'Cliene já Cadastrado!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Cliente já Cadastrado!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cpf_erro'] = "Usuario já cadastrado";
 
                 elseif (Validar::validarCampoString($formulario['rua'])) :
-                    Sessao::mensagem('cliente', 'Formato de Rua invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato de Rua invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['rua_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoString($formulario['bairro'])) :
-                    Sessao::mensagem('cliente', 'Formato de Bairro invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato de Bairro invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['bairro_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoString($formulario['cidade'])) :
-                    Sessao::mensagem('cliente', 'Formato de Cidade invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato de Cidade invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cidade_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoString($formulario['estado'])) :
-                    Sessao::mensagem('cliente', 'Formato de Estado invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato de Estado invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['estado_erro'] = "Formato invalido";
 
@@ -167,21 +170,21 @@ class ClientesController extends Controller
                 //    $dados['numero_erro'] = "Formato invalido";
 
                 elseif (Validar::validarCampoNumerico($formulario['num_telefone'])) :
-                    Sessao::mensagem('cliente', 'Formato de Número de Telefone invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato de Número de Telefone invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['num_telefone_erro'] = "Formato invalido";
 
                 elseif(strlen($formulario['num_telefone']) != 9):
-                    Sessao::mensagem('cliente', 'Tamanho de Número de Telefone invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Tamanho de Número de Telefone invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
 
                 elseif (Validar::validarCampoNumerico($formulario['ddd'])) :
-                    Sessao::mensagem('cliente', 'Formato de DDD invalido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Formato de DDD invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['ddd_erro'] = "Formato invalido";
 
                 elseif (strlen($formulario['ddd']) != 2) :
-                    Sessao::mensagem('cliente', 'Tamnho do DDD inavlido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Tamanho do DDD invalido!'. $imgError, 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['ddd_erro'] = "Formato invalido";
 
@@ -255,7 +258,7 @@ class ClientesController extends Controller
                 Sessao::mensagem('cliente', 'Cliente apagado com sucesso!' . $imgSuccess, 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
             else :
-                Sessao::mensagem('cliente', 'Erro!', 'bg-red');
+                Sessao::mensagem('cliente', 'Erro!'. $imgError, 'bg-red');
             endif;
         endif;
     }
@@ -296,42 +299,42 @@ class ClientesController extends Controller
             'estado_erro',
         ];
         if (Validar::validarCampoString($formulario['nome'])) :
-            Sessao::mensagem('cliente', 'Nome informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'Nome informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoNumerico($formulario['cpf'])) :
-            Sessao::mensagem('cliente', 'CPF informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'CPF informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['rua'])) :
-            Sessao::mensagem('cliente', 'Rua informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'Rua informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['bairro'])) :
-            Sessao::mensagem('cliente', 'Bairro informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'Bairro informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['cidade'])) :
-            Sessao::mensagem('cliente', 'Cidade informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'Cidade informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoString($formulario['estado'])) :
-            Sessao::mensagem('cliente', 'Estado informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'Estado informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoNumerico($formulario['num_telefone'])) :
-            Sessao::mensagem('cliente', 'Telefone informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'Telefone informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
 
         elseif (Validar::validarCampoNumerico($formulario['ddd'])) :
-            Sessao::mensagem('cliente', 'DDD informado é invalido!' . $imgError, 'bg-red');
+            Sessao::mensagem('cliente', 'DDD informado é invalido!' . $imgError. $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
         // URL::redirecionar('ClientesController/listarClientes');
         else :
@@ -343,7 +346,7 @@ class ClientesController extends Controller
             endif;
 
             if ($this->enderecoModel->update($dados, $idInt) && $this->telefoneModel->update($dados, $idInt)) :
-                Sessao::mensagem('cliente', 'Cliente atuazado com sucesso!' . $imgSuccess, 'bg-green');
+                Sessao::mensagem('cliente', 'Cliente atualizado com sucesso!' . $imgSuccess, 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
             // URL::redirecionar('FuncionarioController/login');
             else :

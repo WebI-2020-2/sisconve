@@ -7,6 +7,8 @@ class FornecedorController extends Controller
     {
         if (!Sessao::estaLogado()) :
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
+            $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
+            $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         // URL::redirecionar('FuncionarioController/login');
         endif;
         $this->fornecedorModel = $this->model('FornecedorModel');
@@ -42,52 +44,52 @@ class FornecedorController extends Controller
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome'])) :
-                    Sessao::mensagem('Preencha o campo <b>Nome</b>!', 'bg-red');
-                    $dados['nome_erro'] = "Preencha o campo <b>nome</b>";
+                    Sessao::mensagem('Preencha o campo Nome!'. $this->imgError, 'bg-red');
+                    $dados['nome_erro'] = "Preencha o campo nome";
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                 endif;
 
                 if (empty($formulario['telefone'])) :
-                    Sessao::mensagem('Preencha o campo <b>Nome</b>!', 'bg-red');
-                    $dados['telefone_erro'] = "Preencha o campo <b>telefone</b>";
+                    Sessao::mensagem('Preencha o campo Telefone!'. $this->imgError, 'bg-red');
+                    $dados['telefone_erro'] = "Preencha o campo telefone";
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
                 endif;
 
                 if (empty($formulario['estado'])) :
-                    Sessao::mensagem('Preencha o campo <b>Estado</b>!', 'bg-red');
+                    Sessao::mensagem('Preencha o campo Estado!'. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
-                    $dados['estado_erro'] = "Preencha o campo <b>estado</b>";
+                    $dados['estado_erro'] = "Preencha o campo estado";
                 endif;
 
                 if (empty($formulario['cidade'])) :
-                    Sessao::mensagem('Preencha o campo <b>Cidade</b>! ', 'bg-red');
+                    Sessao::mensagem('Preencha o campo Cidade! '. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
-                    $dados['cidade_erro'] = "Preencha o campo <b>cidade</b>";
+                    $dados['cidade_erro'] = "Preencha o campo cidade";
                 endif;
             else :
                 if (Validar::validarCampoString($formulario['nome-fornecedor'])) :
-                    //$dados['nome_erro'] = "Nome informado é <b>invalido</b>";
-                    Sessao::mensagem('fornecedor', 'Erro! O nome informado é inválido! ', 'bg-red');
+                    //$dados['nome_erro'] = "Nome informado é invalido";
+                    Sessao::mensagem('fornecedor', 'Erro! O nome informado é inválido! '. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (Validar::validarCampoNumerico($formulario['telefone-fornecedor'])) :
-                    //$dados['telefone_erro'] = "Telefone informado é <b>invalido</b>";
-                    Sessao::mensagem('fornecedor', 'Erro! O telefone informado é inválido!'.$imgError, 'bg-red');
+                    //$dados['telefone_erro'] = "Telefone informado é invalido";
+                    Sessao::mensagem('fornecedor', 'Erro! O telefone informado é inválido!'.$imgError. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (strlen($formulario['telefone-fornecedor']) != 11) :
-                    //$dados['telefone_erro'] = "Telefone informado é <b>invalido</b>";
-                    Sessao::mensagem('fornecedor', 'Erro! O tamnho do telefone informado é inválido!'.$imgError, 'bg-red');
+                    //$dados['telefone_erro'] = "Telefone informado é invalido";
+                    Sessao::mensagem('fornecedor', 'Erro! O tamnho do telefone informado é inválido!'.$imgError. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (Validar::validarCampoString($formulario['estado-fornecedor'])) :
-                    //$dados['estado_erro'] = "Estado informado é <b>invalido</b>";
-                    Sessao::mensagem('fornecedor', 'Erro! O estado informado é inválido!'.$imgError, 'bg-red');
+                    //$dados['estado_erro'] = "Estado informado é invalido";
+                    Sessao::mensagem('fornecedor', 'Erro! O estado informado é inválido!'.$imgError. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 elseif (Validar::validarCampoString($formulario['cidade-fornecedor'])) :
-                    //$dados['cidade_erro'] = "Cidade informado é <b>invalido</b>";
-                    Sessao::mensagem('fornecedor', 'Erro! A cidade informada é inválida!'.$imgError, 'bg-red');
+                    //$dados['cidade_erro'] = "Cidade informado é invalido";
+                    Sessao::mensagem('fornecedor', 'Erro! A cidade informada é inválida!'.$imgError. $this->imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
 
                 else :
@@ -135,7 +137,7 @@ class FornecedorController extends Controller
                 Sessao::mensagem('fornecedor', 'Fornecedor apagado com sucesso!', 'bg-green');
                 header("Location:" . URL . DIRECTORY_SEPARATOR . 'FornecedorController/listarFornecedor');
             else:
-                Sessao::mensagem('cliente', 'Erro!', 'bg-red');
+                Sessao::mensagem('cliente', 'Erro!'. $this->imgError, 'bg-red');
             endif;
         endif;
     }
