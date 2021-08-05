@@ -73,14 +73,14 @@ class CategoriaController extends Controller
         endif;
         $this->view('categoria/cadastrarCategoria', $dados);
     }
-    public function editar($id)
+    public function editar()
     {
         $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
         $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $dados = [
             'nomecategoria' => trim($formulario['nomecategoria']),
-            'nomecategoria_erro' => ''
+            'id_categoria' => (int) trim($formulario['id_categoria']),
         ];
 
         if (Validar::validarCampoString($formulario['nomecategoria'])) :
@@ -88,13 +88,12 @@ class CategoriaController extends Controller
             Sessao::mensagem('categoria', 'Erro! Nome informado inválido!' . $imgError, 'bg-red');
             header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');;
         else:
-            echo 'Pode cadastar';
-            // $idInte (int) $id;
-            // if ($this->categoriaModel->update($dados, $id)) :
-
-            // else :
-            //     die("Erro");
-            // endif;
+            if ($this->categoriaModel->update($dados)) :
+                Sessao::mensagem('categoria', 'Categoria atualizado com sucesso!' . $imgError, 'bg-green');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');;
+            else :
+                die("Erro");
+            endif;
         endif;
 
         $this->viewModal('modal/editar-cliente-modal');

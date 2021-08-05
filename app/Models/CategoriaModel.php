@@ -102,12 +102,12 @@ class CategoriaModel
         return $this->db->resultados();
     }
 
-    public function update($dados, $id)
+    public function update($dados)
     {
         $this->setNomeCategoria($dados['nomecategoria']);
-        $this->setId($id);
+        $this->setId($dados['id_categoria']);
 
-        $this->db->query("UPDATE categoria SET nomecategoria = :nomecategoria WHERE id = :id");
+        $this->db->query("UPDATE categoria SET nome_categoria = :nomecategoria WHERE id_categoria = :id");
         $this->db->bind(":nomecategoria", $this->getNomeCategoria());
         $this->db->bind(":id", $this->getId());
 

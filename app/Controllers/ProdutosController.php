@@ -107,6 +107,8 @@ class ProdutosController extends Controller
         ];
         if (Validar::validarCampoString($formulario['nome_produto'])) :
             $dados['nome_produto_erro'] = "Formato informado inavalido";
+            Sessao::mensagem('produto', 'Erro! Nome de produto invalido!', 'bg-green');
+            header("Location:" . URL . DIRECTORY_SEPARATOR . 'ProdutosController/listarProdutos');
         else :
             $idInt = (int)$dados['id_produto'];
             if ($this->produtoModel->update($dados, $idInt)) :
