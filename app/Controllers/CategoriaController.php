@@ -33,9 +33,9 @@ class CategoriaController extends Controller
 
             if (in_array("", $formulario)) :
                 if (empty($formulario['nomecategoria'])) :
-                    Sessao::mensagem('categoria', 'Preencha o campo <b>nomecategoria</b>!' . $imgError, 'bg-red');
+                    Sessao::mensagem('categoria', 'Preencha o campo nomecategoria!' . $imgError, 'bg-red');
                     header("Location:".URL.DIRECTORY_SEPARATOR.'FornecedorController/listarFornecedor');
-                    $dados['nomecategoria_erro'] = "Preencha o campo <b>nomecategoria</b>";
+                    $dados['nomecategoria_erro'] = "Preencha o campo nomecategoria";
 
                 endif;
 

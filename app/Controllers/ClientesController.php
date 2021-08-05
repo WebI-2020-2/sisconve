@@ -181,7 +181,7 @@ class ClientesController extends Controller
                     $dados['ddd_erro'] = "Formato invalido";
 
                 elseif (strlen($formulario['ddd']) != 2) :
-                    Sessao::mensagem('cliente', 'Tamnho do DDD inavlido!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Tamanho do DDD invalido!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['ddd_erro'] = "Formato invalido";
 
