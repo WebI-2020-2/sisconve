@@ -18,7 +18,6 @@
                 <img src="../public/img/inv.png" alt="">
                 <div class="mini-footer">
                     <p><strong>© SISCONVE</strong> - Todos os direitos reservados</p>
-                    <a href="https://github.com/sisconve/sisconve" target="_blank"><img src="../public/img/github-logo.svg" alt="Repositório github"></a>
                 </div>
             </div>
             <form action="" method="POST">

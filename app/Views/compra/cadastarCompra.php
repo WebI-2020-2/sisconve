@@ -211,17 +211,17 @@
                                                                 <input id="valor-unit" oninput="validaInput(this)" class="valor-unit" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                             <div class="input input-frete">
-                                                                <label><strong><small>%</small> de FRETE</strong> <small>(somente números)</small></label>
+                                                                <label>Valor R$ <strong>FRETE</strong> <small>(somente números)</small></label>
                                                                 <input id="frete" oninput="validaInput(this)" class="frete" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                         </div>
                                                         <div class="input-ipi-icms">
                                                             <div class="input input-ipi">
-                                                                <label><strong><small>%</small> de IPI</strong> <small>(somente números)</small></label>
+                                                                <label>Valor R$ <strong>IPI</strong> <small>(somente números)</small></label>
                                                                 <input id="ipi" oninput="validaInput(this)" class="ipi" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                             <div class="input input-icms">
-                                                                <label><strong><small>%</small> de ICMS</strong> <small>(somente números)</small></label>
+                                                                <label>Valor R$ <strong>ICMS</strong> <small>(somente números)</small></label>
                                                                 <input id="icms" oninput="validaInput(this)" class="icms" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                         </div>

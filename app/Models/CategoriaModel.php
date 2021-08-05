@@ -88,7 +88,7 @@ class CategoriaModel
     }
     public function selectAll()
     {
-        $this->db->query('SELECT c.id_categoria, c.nome_categoria, sum(p.quantidade) as quantidade_categoria FROM produto p, categoria c 
+        $this->db->query('SELECT c.id_categoria, c.nome_categoria, sum(p.quantidade) as qunatidade_categoria FROM produto p, categoria c 
         WHERE p.id_categoria = c.id_categoria
         AND c.ativo <> false
         GROUP BY c.nome_categoria, c.id_categoria
@@ -98,7 +98,7 @@ class CategoriaModel
 
     public function todos() 
     {
-        $this->db->query('SELECT * FROM categoria WHERE ativo <> false');
+        $this->db->query('SELECT * FROM categoria');
         return $this->db->resultados();
     }
 
