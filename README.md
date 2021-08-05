@@ -55,7 +55,7 @@
             </a>
         </td>
         <td>
-            <a target="_blank" href="https://github.com/fcnando45">
+            <a target="_blank" href="https://github.com/joaomarcosns">
                 <img src="https://github.com/joaomarcosns.png?size=70">
             </a>
         </td>
