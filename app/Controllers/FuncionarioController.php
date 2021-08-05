@@ -306,12 +306,7 @@ class FuncionarioController extends Controller
                         $this->sesaoFuncionario($usuario);
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'DashboardController/dashboard');
                     else :
-                        echo '
-                        <script>
-                            {
-                                alert("Usuario ou senha incorretos!");
-                            }
-                        </script>';
+                        
                         Sessao::mensagem('funcionario', 'Usuario ou senha incorretos', 'bg-red');
                         // header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/login');
                     endif;
