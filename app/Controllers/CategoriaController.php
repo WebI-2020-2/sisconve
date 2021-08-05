@@ -105,7 +105,7 @@ class CategoriaController extends Controller
         if (is_int($idInt)) :
             if ($this->categoriaModel->deletar($idInt)) :
                 Sessao::mensagem('categoria', 'Categoria apagado com sucesso!', 'bg-green');
-                header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategorias');
+                header("Location:" . URL . DIRECTORY_SEPARATOR . 'CategoriaController/listarCategoria');
             else :
                 Sessao::mensagem('categoria', 'Erro!', 'bg-red');
             endif;

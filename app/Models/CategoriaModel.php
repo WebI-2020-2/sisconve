@@ -119,11 +119,11 @@ class CategoriaModel
         endif;
     }
 
-    public function delete($id)
+    public function deletar($id)
     {
         $this->setId($id);
         $this->db->query("UPDATE categoria SET ativo = false WHERE id_categoria = :id_categoria");
-        $this->db->bind(":id", $this->getId());
+        $this->db->bind(":id_categoria", $this->getId());
 
         if ($this->db->executa()) :
             return true;
