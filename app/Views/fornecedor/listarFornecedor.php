@@ -84,7 +84,7 @@
                                             <button title="Ver fornecedor" onclick="">
                                                 <img src="../public/img/eye-icon.svg" alt="Ver fornecedor">
                                             </button>
-                                            <button title="Editar fornecedor" onclick="">
+                                            <button title="Editar fornecedor" onclick="editFornecedor('<?= $fornecedor->id_fornecedor ?>')">
                                                 <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-fornecedor-modal" alt="Editar fornecedor">
                                             </button>
                                             <button title="Exluir fornecedor" onclick="deleteFornecedor('<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
@@ -108,5 +108,50 @@
 </body>
 
 <?php include("./../app/include/etc/scripts.php"); ?>
+<script>
+
+    var fornecedores = [];
+
+    <?php
+    
+        foreach ($dados['fornecedores'] as $fornecedor) { ?>
+            fornecedores["<?= $fornecedor->id_fornecedor ?>"] = {
+                id: "<?= $fornecedor->id_fornecedor ?>",
+                nome: "<?= $fornecedor->nome_fornecedor ?>",
+                telefone: "<?= $fornecedor->telefone ?>",
+                cidade: "<?= $fornecedor->cidade ?>",
+                estado: "<?= $fornecedor->estado ?>"
+            }; <?php
+        }
+
+    ?>
+
+    function editFornecedor(idFornecedor) {
+        var editFornecedorModal = document.getElementById("editar-fornecedor-modal");
+        var fornecedorEdit;
+
+        fornecedores.forEach(fornecedor => {
+            if(fornecedor.id == idFornecedor){
+                fornecedorEdit = fornecedor;
+            }
+        });
+
+        var inputEdit = {
+            id: editFornecedorModal.querySelector("#id-fornecedor"),
+            nome: editFornecedorModal.querySelector("#nome-fornecedor"),
+            telefone: editFornecedorModal.querySelector("#telefone"),
+            cidade: editFornecedorModal.querySelector("#cidade"),
+            estado: editFornecedorModal.querySelector("#estado")
+        }
+
+        inputEdit.id.value = fornecedorEdit.id;
+        inputEdit.nome.value = fornecedorEdit.nome;
+        inputEdit.telefone.value = fornecedorEdit.telefone;
+        inputEdit.cidade.value = fornecedorEdit.cidade;
+        inputEdit.estado.value = fornecedorEdit.estado;
+
+    }
+
+</script>
 
 </html>
