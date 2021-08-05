@@ -87,37 +87,37 @@ class ClientesController extends Controller
                 endif;
 
                 if (empty($formulario['cliente_id'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>nome!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo nome!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cliente_id_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['rua'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Rua!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Rua!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['rua_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['bairro'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Bairro!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Bairro!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['bairro_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['cidade'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Cidade!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Cidade!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['cidade_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['estado'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Estado!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Estado!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['estado_erro'] = "Preencha o campo";
                 endif;
 
                 if (empty($formulario['numero'])) :
-                    Sessao::mensagem('cliente', 'Preencha o campo <b>Número!', 'bg-red');
+                    Sessao::mensagem('cliente', 'Preencha o campo Número!', 'bg-red');
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'ClientesController/listarClientes');
                     $dados['numero_erro'] = "Preencha o campo";
                 endif;
