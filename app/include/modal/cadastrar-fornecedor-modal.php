@@ -14,16 +14,16 @@
                 <div class="form">
                     <div class="input input-nome-fornecedor">
                         <label for="nome">Nome do fornecedor</label>
-                        <input type="text" id="nome" name="nome-fornecedor" oninput="validaInput(this)" placeholder="Brinquedos LTDA" required>
+                        <input type="text" id="nome" name="nome-fornecedor" oninput="validaInput(this)" placeholder="Brinquedos LTDA" maxlength="100" required>
                     </div>
                     <div class="input-tel-cid-est">
                         <div class="input input-telefone-fornecedor">
                             <label for="telefone">Telefone</label>
-                            <input type="text" name="telefone-fornecedor" oninput="validaInput(this)" placeholder="11 9 12345678" required>
+                            <input type="text" name="telefone-fornecedor" oninput="validaInputNumber(this)" placeholder="11 9 12345678" maxlength="11" required>
                         </div>
                         <div class="input input-cidade-fornecedor">
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade-fornecedor" oninput="validaInput(this)" placeholder="Guarabira" required>
+                            <input type="text" name="cidade-fornecedor" oninput="validaInput(this)" placeholder="Guarabira" maxlength="30" required>
                         </div>
                         <div class="input input-estado-fornecedor">
                             <label for="estado-fornecedor">Estado</label>
