@@ -70,7 +70,9 @@
                             <tbody>
                                 <?php foreach ($dados['categorias'] as $categoria) : ?>
                                     <tr>
-                                        <td><?= $categoria->id_categoria ?></td>
+                                        <td>
+                                            <?= $categoria->id_categoria ?>
+                                        </td>
                                         <td><?= $categoria->nome_categoria ?></td>
                                         <td><?= $categoria->qunatidade_categoria ?></td>
                                         
@@ -78,7 +80,7 @@
                                             <button title="Ver categoria" onclick="">
                                                 <img src="<?= URL ?>/public/img/eye-icon.svg" alt="Ver categoria">
                                             </button>
-                                            <button title="Editar categoria" onclick="">
+                                            <button title="Editar categoria" onclick="editCategoria('<?= $categoria->id_categoria ?>')">
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-categoria-modal" alt="Editar categoria">
                                             </button>
                                             <button title="Exluir categoria" onclick="deleteCategoria('<?= $categoria->id_categoria ?>', '<?= $categoria->nome_categoria ?>')">
@@ -102,5 +104,42 @@
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
+<script>
+
+    var categorias = [];
+
+    <?php 
+        
+        foreach ($dados['categorias'] as $categoria) { ?>
+            categorias["<?= $categoria->id_categoria ?>"] = {
+                id: "<?= $categoria->id_categoria ?>",
+                nome: "<?= $categoria->nome_categoria ?>"
+            }; <?php
+        }
+
+    ?>
+
+    function editCategoria(idCategoria) {
+        var editCategoriaModal = document.getElementById("editar-categoria-modal");
+        var categoriaEdit;
+
+        categorias.forEach(categoria => {
+            if(categoria.id == idCategoria){
+                categoriaEdit = categoria;
+            }
+        });
+
+        var inputEdit = {
+            id: editCategoriaModal.querySelector("#id-categoria"),
+            nome: editCategoriaModal.querySelector("#nome-categoria")
+        }
+
+        inputEdit.id.value = categoriaEdit.id;
+        inputEdit.nome.value = categoriaEdit.nome;
+
+    }
+
+
+</script>
 
 </html>

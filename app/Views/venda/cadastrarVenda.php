@@ -42,7 +42,7 @@
     <?php include("./../app/include/parts/navbar.php") ?>
 
     <div id="container">
-        <?= Sessao::mensagem('vendas'); ?>
+        <?= Sessao::mensagem('venda'); ?>
 
         <!-- inicio menu-bar (barra lateral)-->
         <?php include("./../app/include/parts/menubar.php") ?>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell">
+                <form action="<?= URL ?>/VendaController/cadastrar" method="POST" class="sell" onsubmit="setFormSubmitting()">
                     <div class="sell-area">
                         <div class="section section-sell-area p-0 m-0">
                             <div class="title-section">
@@ -167,7 +167,7 @@
                                                     </div>
                                                     <div class="input-parcel">
                                                         <label for="num-parcelas">Número de parcelas</label>
-                                                        <input type="number" name="num-parcelas" min="1" max="99" oninput="validaInput(this)" maxlength="2" value="1" required>
+                                                        <input type="text" name="num-parcelas" min="1" max="99" oninput="validaInputNumber(this)" maxlength="2" value="1" required>
                                                     </div>
                                                 </div>
 
@@ -211,7 +211,7 @@
                                                         </div>
                                                         <div class="input-quantidade">
                                                             <label>Quantidade</label>
-                                                            <input id="quantidade-item" oninput="validaInput(this)" class="quant-product" type="number" min="1" value="1" required>
+                                                            <input id="quantidade-item" oninput="validaInputNumber(this)" class="quant-product" type="text" min="1" value="1" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -262,7 +262,7 @@
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
-
+<script src="../public/js/checkReload.js"></script>
 <script>
     var produtos = [];
     var estoqueProduto = [];

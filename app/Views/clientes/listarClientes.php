@@ -76,18 +76,17 @@
                                     <tr>
                                         <td>
                                             <?= $cliente->id_cliente ?>
-                                            <input value="<?= $cliente->id_cliente ?>" style="display: none;">
                                         </td>
                                         <td><?= $cliente->nome_cliente ?></td>
                                         <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
                                         <td><?= $cliente->cpf ?></td>
-                                        <td><?= Validar::lucro($cliente->credito) ?></td>
-                                        <td><?= Validar::lucro($cliente->debito) ?></td>
+                                        <td>R$ <?= Validar::lucro($cliente->credito) ?></td>
+                                        <td>R$ <?= Validar::lucro($cliente->debito) ?></td>
                                         <td>
                                             <button title="Ver cliente" onclick="">
                                                 <img src="<?= URL ?>/public/img/eye-icon.svg" alt="">
                                             </button>
-                                            <button title="Editar cliente" onclick="editCliente(this)" data-toggle="modal" data-target="#editar-cliente-modal">
+                                            <button title="Editar cliente" onclick="editCliente('<?= $cliente->id_cliente ?>')" data-toggle="modal" data-target="#editar-cliente-modal">
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
                                             </button>
                                             
@@ -138,14 +137,13 @@
     ?>
 
     function editCliente(idCliente) {
-        idCliente = idCliente.parentNode.parentNode.querySelector("input").value;
 
         var editClientModal = document.getElementById("editar-cliente-modal");
         var clienteEdit;
 
         clientes.forEach(cliente => {
             if(cliente.id == idCliente){
-                clienteEdit = cliente
+                clienteEdit = cliente;
             }
         });
 

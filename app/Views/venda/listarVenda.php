@@ -15,7 +15,8 @@
     <?php include("../app/include/parts/navbar.php"); ?>
 
     <div id="container">
-
+        <?= Sessao::mensagem('venda'); ?>
+        
         <?php include("../app/include/parts/menubar.php"); ?>
 
         <div class="content-center">

@@ -13,40 +13,40 @@
                 <form action="<?= URL ?>/ClientesController/update" method="POST">
                     <div class="input input-nome-cliente">
                         <label for="nome-cliente">Nome do cliente</label>
-                        <input type="text" oninput="validaInput(this)" name="nome" id="nome" placeholder="José da Silva" required>
+                        <input type="text" oninput="validaInput(this)" name="nome" id="nome" placeholder="José da Silva" maxlength="100" required>
                     </div>
                     <div class="input-ddd-tel-cpf">
                         <div class="input input-catagoria">
                             <label for="cpf">CPF</label>
-                            <input type="text" oninput="validaInput(this)" name="cpf" id="cpf" placeholder="123.456.789-10" required>
+                            <input type="text" oninput="validaInputNumber(this)" name="cpf" id="cpf" placeholder="123.456.789-10" maxlength="11" required>
                         </div>
                         <div class="input input-ddd">
                             <label for="ddd">DDD</label>
-                            <input type="text" oninput="validaInput(this)" name="ddd" id="ddd" maxlength="2" placeholder="38" required>
+                            <input type="text" oninput="validaInputNumber(this)" name="ddd" id="ddd" maxlength="2" placeholder="38" required>
                         </div>
                         <div class="input input-num-telefone">
                             <label for="num_telefone">Telefone</label>
-                            <input type="text" oninput="validaInput(this)" name="num_telefone" id="telefone" placeholder="9 12345678" required>
+                            <input type="text" oninput="validaInputNumber(this)" name="num_telefone" id="telefone" placeholder="9 12345678" maxlength="9" required>
                         </div>
                     </div>
                     <div class="input-endereco-num">
                         <div class="input input-rua">
                             <label for="rua">Endereço</label>
-                            <input type="text" oninput="validaInput(this)" name="rua" id="rua" placeholder="Rua dos Cocais" required>
+                            <input type="text" oninput="validaInput(this)" name="rua" id="rua" placeholder="Rua dos Cocais" maxlength="100" required>
                         </div>
                         <div class="input input-numero">
                             <label for="numero">Número</label>
-                            <input type="text" oninput="validaInput(this)" name="numero" id="numero" placeholder="123" required>
+                            <input type="text" oninput="validaInputNumber(this)" name="numero" id="numero" placeholder="123" maxlength="5" required>
                         </div>
                     </div>
                     <div class="input-bairro-cidade-estado">
                         <div class="input input-bairro">
                             <label for="bairro">Bairro</label>
-                            <input type="text" oninput="validaInput(this)" name="bairro" id="bairro" placeholder="Vila Nova" required>
+                            <input type="text" oninput="validaInput(this)" name="bairro" id="bairro" placeholder="Vila Nova" maxlength="30" required>
                         </div>
                         <div class="input input-cidade">
                             <label for="cidade">Cidade</label>
-                            <input type="text" oninput="validaInput(this)" name="cidade" id="cidade" placeholder="Americana" required>
+                            <input type="text" oninput="validaInput(this)" name="cidade" id="cidade" placeholder="Americana" maxlength="30" required>
                         </div>
                         <div class="input input-estado">
                             <label for="estado">Estado</label>

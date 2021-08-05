@@ -10,13 +10,16 @@
                 </div>
             </div>
 
-            <form action="" method="POST">
+            <form action="<?= URL ?>/CategoriaController/editar" method="POST">
                 <div class="form">
                     <div class="input-nome-categoria">
                         <label for="nomecategoria">Nome da categoria</label>
-                        <input type="text" name="nomecategoria" oninput="validaInput(this)" placeholder="Brinquedos" required>
+                        <input type="text" name="nomecategoria" id="nome-categoria" oninput="validaInput(this)" maxlength="20" placeholder="Brinquedos" required>
                     </div>
                 </div>
+
+                <!-- levando o id da categoria via POST -->
+                <input name="id_categoria" id="id-categoria" style="display: none;" required>
 
                 <div class="modal-footer">
                     <button type="button" class="close" data-dismiss="modal">

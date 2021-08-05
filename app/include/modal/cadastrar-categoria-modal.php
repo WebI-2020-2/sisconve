@@ -14,7 +14,7 @@
                 <div class="form">
                     <div class="input-nome-categoria">
                         <label for="nomecategoria">Nome da categoria</label>
-                        <input type="text" name="nomecategoria" oninput="validaInput(this)" placeholder="Brinquedos" required>
+                        <input type="text" name="nomecategoria" oninput="validaInput(this)" maxlength="20" placeholder="Brinquedos" required>
                     </div>
                 </div>
 

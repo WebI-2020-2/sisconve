@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <form action="<?= URL ?>/CompraController/cadastrarCompra" class="buy" method="POST">
+                <form action="<?= URL ?>/CompraController/cadastrarCompra" class="buy" method="POST" onsubmit="setFormSubmitting()">
                     <div class="buy-area">
                         <div class="section section-buy-area p-0 m-0">
                             <div class="title-section">
@@ -272,6 +272,7 @@
 </body>
 
 <?php include("./../app/include/etc/scripts.php"); ?>
+<script src="../public/js/checkReload.js"></script>
 <script>
 
     var produtos = [];
