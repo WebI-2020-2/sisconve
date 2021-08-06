@@ -12,10 +12,10 @@
 | Caixa              |    ✔️    |    ✔️    |     ✔️    |     ✔️     |
 | Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Compra             |    ✔️    |    ✔️     |     ❌    |     ✔️     |
+| Compra             |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Forma de Pagamento |    ❌    |    ✔️     |     ❌    |     ❌     |
+| Forma de Pagamento |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Parcelas           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
@@ -77,5 +77,19 @@
         </td>
     </tr>
 </table>
+
+# Telas do sistema
+### Tela de Login
+![Captura de tela de 2021-08-06 00-44-19](https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png)
+
+### Tela de Dashboard
+![Captura de tela de 2021-08-06 00-52-49](https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png)
+
+### Tela de cadastro de clientes
+![Captura de tela de 2021-08-06 00-57-25](https://user-images.githubusercontent.com/69218604/128453892-4588ec27-a30d-4103-8fe1-8fba7949f2f8.png)
+
+
+
+
 
 
