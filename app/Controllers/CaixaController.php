@@ -90,7 +90,7 @@ class CaixaController extends Controller
                     header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixa');
                 else:
                     if ($this->caixaModel->update($dados)) :
-                        Sessao::mensagem('caixa', 'Caixa Cadastrado com sucesso!' . $this->$imgSuccess, 'bg-green');
+                        Sessao::mensagem('caixa', 'Caixa atualizado com sucesso!' . $this->$imgSuccess, 'bg-green');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixa');
                     else :
                         die("Erro");
