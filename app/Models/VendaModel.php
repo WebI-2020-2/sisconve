@@ -144,7 +144,7 @@ class VendaModel
         // arrumar o caixa da venda do banco
         ////////////////////////////////////
 
-        $this->setCaixaId(1);
+        $this->setCaixaId($_SESSION["FUNCIONARIO_CAIXA"]);
         $this->setClienteId($id_cliente);
         $this->setNumParcelas($num_parcelas_int);
         $this->db->query("INSERT INTO venda(id_caixa, id_cliente, num_parcelas) VALUES (:id_caixa, :id_cliente, :num_parcelas) RETURNING id_venda");

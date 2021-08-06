@@ -324,7 +324,7 @@ class FuncionarioController extends Controller
     {
         $_SESSION["FUNCIONARIO_ID"] = $login->id_funcionario;
         $_SESSION["FUNCIONARIO_NOME_COMPLETO"] = $login->nome_funcionario;
-
+        $_SESSION["FUNCIONARIO_CAIXA"] = $login->id_caixa;
         $_SESSION["FUNCIONARIO_CPF"] = $login->cpf;
         $_SESSION["FUNCIONARIO_TELEFONE"] = $login->telefone;
         $_SESSION["FUNCIONARIO_ENDERECO"] = $login->endereco;
@@ -354,6 +354,7 @@ class FuncionarioController extends Controller
 
         unset($_SESSION["FUNCIONARIO_CPF"]);
         unset($_SESSION["FUNCIONARIO_TELEFONE"]);
+        unset($_SESSION["FUNCIONARIO_CAIXA"]);
 
         session_destroy();
 
