@@ -12,10 +12,10 @@
 | Caixa              |    ✔️    |    ✔️    |     ✔️    |     ✔️     |
 | Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Compra             |    ✔️    |    ✔️     |     ❌    |     ✔️     |
+| Compra             |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Forma de Pagamento |    ❌    |    ✔️     |     ❌    |     ❌     |
+| Forma de Pagamento |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Parcelas           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
