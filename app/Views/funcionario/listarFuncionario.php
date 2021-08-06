@@ -129,6 +129,7 @@
                 telefone: "<?= $funcionario->telefone ?>",
                 email: "<?= $funcionario->email ?>",
                 endereco: "<?= $funcionario->endereco ?>",
+                caixa: "<?= $funcionario->id_caixa ?>",
                 cargo: "<?= $funcionario->cargo ?>",
                 salario: "<?= $funcionario->salario ?>",
                 acesso: "<?= $funcionario->nivel_acesso ?>"
@@ -155,6 +156,7 @@
             telefone: editFuncionarioModal.querySelector("#telefone"),
             email: editFuncionarioModal.querySelector("#email"),
             endereco: editFuncionarioModal.querySelector("#endereco"),
+            caixa: editFuncionarioModal.querySelector("#caixa"),
             cargo: editFuncionarioModal.querySelector("#cargo"),
             salario: editFuncionarioModal.querySelector("#salario"),
             acesso: editFuncionarioModal.querySelector("#acesso")
@@ -169,16 +171,20 @@
         inputEdit.cargo.value = funcionarioEdit.cargo;
         inputEdit.salario.value = funcionarioEdit.salario;
 
-        var divAcesso = document.getElementById("input-acesso");
+        var divAcessoCaixa = document.getElementById("input-acesso-caixa");
         var inputAcesso = document.getElementById("acesso");
+        var inputCaixa = document.getElementById("caixa");
 
         if(parseInt(funcionarioEdit.acesso) < 3) {
             inputAcesso.disabled = false;
-            divAcesso.style.display = "block"
+            inputCaixa.disabled = false;
+            divAcessoCaixa.style.display = "block"
             inputEdit.acesso.value = funcionarioEdit.acesso;
+            inputEdit.caixa.value = funcionarioEdit.caixa;
         } else {
             inputAcesso.disabled = true;
-            divAcesso.style.display = "none"
+            inputCaixa.disabled = true;
+            divAcessoCaixa.style.display = "none"
         }
         
     }

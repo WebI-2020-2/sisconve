@@ -27,7 +27,7 @@
             <li href="#pageSubmenuCompras" data-toggle="collapse" aria-expanded="false" class="dropdown">
                 <span><img src="../public/img/Compras.svg" alt="">Compras</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuCompras">
-                    <li><a href="<?= URL ?>/CompraController/cadastrarCompra">Registrar uma compra</a></li>
+                    <li><a href="<?= URL ?>/CompraController/cadastrarCompra">Registrar compra</a></li>
                     <li><a href="<?= URL ?>/CompraController/listarCompras">Ver compras</a></li>
                 </ul>
             </li>
@@ -40,7 +40,7 @@
                 <span><img src="../public/img/financas.svg" alt="">Finanças</span>
                 <ul class="collapse list-unstyled" id="pageSubmenuFornecedoa">
                     <?php if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 1) : ?>
-                        <li><a href="<?= URL ?>/CaixaController/listarCaixa">Caixa</a></li>
+                        <li><a href="<?= URL ?>/CaixaController/listarCaixa">Ver caixas</a></li>
                     <?php endif; ?>
                     <li><a href="#">Cobranças</a></li>
                     <li><a href="#">Pagamentos</a></li>

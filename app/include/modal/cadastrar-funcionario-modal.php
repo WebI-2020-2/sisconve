@@ -60,6 +60,14 @@
                                 <option value="2">Usuário caixa</option>
                             </select>
                         </div>
+                        <div class="input input-caixa">
+                            <label for="caixa">Caixa</label>
+                            <select name="caixa" id="caixa-cadastro" style="background-color: #e5e5e5;" disabled>
+                                <option value="" selected disabled>Selecione</option>
+                                <option value="1">Caixa root</option>
+                                <option value="2">Caixa 0001</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="input-senha-confirm">
                         <div class="input input-senha">

@@ -53,9 +53,11 @@
                         <a href="<?= URL ?>/FornecedorController/listarFornecedor" style="background-color: #00A3FF;" class="button">
                             <span><img src="../public/img/fornecedor-btn.svg" alt="">Fornecedor</span>
                         </a>
-                        <a href="#" style="background-color: #FF0099;" class="button">
-                            <span><img src="../public/img/relatorio-btn.svg" alt="">Relatorios</span>
-                        </a>
+                        <?php if ($_SESSION["FUNCIONARIO_NIVEL_ACESSO"] == 1) : ?>
+                            <a href="<?= URL ?>/FuncionarioController/listarFuncionario" style="background-color: #FF0099;" class="button">
+                                <span><img src="../public/img/funcionario.svg" alt="">Funcionário</span>
+                            </a>
+                        <?php endif; ?>
                         <a href="#" style="background-color: #47948F;" class="button">
                             <span><img src="../public/img/financas-btn.svg" alt="">Finanças</span>
                         </a>

@@ -34,7 +34,7 @@
                         </span>
                         <span>/</span>
                         <span>
-                            <img src="../public/img/car-compra.svg" alt="Compras">
+                            <img src="../public/img/plus-icon-dark.svg" alt="Compras">
                             Compras
                         </span>
                     </div>

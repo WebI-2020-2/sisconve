@@ -18,7 +18,9 @@
                 <img src="../public/img/inv.png" alt="">
                 <div class="mini-footer">
                     <p><strong>© SISCONVE</strong> - Todos os direitos reservados</p>
-                    <a href="https://github.com/sisconve/sisconve" target="_blank"><img src="../public/img/github-logo.svg" alt="Repositório github"></a>
+                    <a href="https://github.com/sisconve/sisconve" target="_blank" title="Acessar repositório no github">
+                        <img src="../public/img/github-logo.svg" alt="Repositório github">
+                    </a>
                 </div>
             </div>
             <form action="" method="POST">
@@ -45,7 +47,7 @@
                                     <input type="password" name="senha" maxlength="50" required>
                                 </div>
                                 <div class="alert">
-                                    <small><?= Sessao::mensagem('funcionario'); ?></small>
+                                    <small><strong><?= Sessao::mensagem('funcionario'); ?></strong></small>
                                 </div>
                             </div>
                         </div>

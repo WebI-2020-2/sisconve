@@ -33,22 +33,32 @@
                         <label for="endereco">Endereço <small>(completo)</small></label>
                         <input type="text" oninput="validaInput(this)" name="endereco" id="endereco" placeholder="Rua dos Cocais, num 25 Bairro Centro, Espinosa-MG" maxlength="100" required>
                     </div>
-                    <div class="input-cargo-salario" id="input-cargo-salario">
+                    <div class="input-cargo-salario">
                         <div class="input input-cargo" id="input-cargo">
                             <label for="cargo">Cargo</label>
                             <input type="text" oninput="validaInput(this)" name="cargo" id="cargo" placeholder="Caixa" maxlength="20" required>
                         </div>
-                        <div class="input input-acesso" id="input-acesso" style="display: none;">
+                        <div class="input input-salario" id="input-salario">
+                            <label for="salario">Salário R$ <small>(somente números)</small></label>
+                            <input type="number" oninput="validaInput(this)" name="salario" id="salario" placeholder="1500,00" min="0" max="99999" required>
+                        </div>
+                    </div>
+                    <div class="input-acesso-caixa" id="input-acesso-caixa" style="display: none;">
+                        <div class="input input-caixa">
+                            <label for="caixa">Caixa</label>
+                            <select name="caixa" id="caixa" disabled>
+                                <option value="" selected disabled>Selecione</option>
+                                <option value="1">Caixa root</option>
+                                <option value="2">Caixa 0001</option>
+                            </select>
+                        </div>
+                        <div class="input input-acesso">
                             <label for="acess-level">Nível de acesso sistema</label>
                             <select name="acess-level" id="acesso" disabled>
                                 <option value="" selected disabled>Selecione</option>
                                 <option value="1">Usuário gerente</option>
                                 <option value="2">Usuário caixa</option>
                             </select>
-                        </div>
-                        <div class="input input-salario" id="input-salario">
-                            <label for="salario">Salário R$ <small>(somente números)</small></label>
-                            <input type="number" oninput="validaInput(this)" name="salario" id="salario" placeholder="1500,00" min="0" max="99999" required>
                         </div>
                     </div>
 

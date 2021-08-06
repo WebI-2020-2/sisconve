@@ -40,11 +40,12 @@ form .input-account{
     margin-top: 1rem;
 }
 
+form .input-acesso-caixa,
 form .input-usuario-nivel,
 form .input-senha-confirm,
 form .input-cargo-salario,
 form .input-cpf-tel{
-    display: flex;
+    display: flex !important;
 }
 
 form .input-account{
@@ -66,11 +67,13 @@ form .input-account #acc{
 }
 
 form #input-acesso,
+form .input-acesso-caixa .input-acesso,
 form .input-usuario-nivel .input-acesso,
+form .input-usuario-nivel .input-caixa,
 form .input-senha-confirm .input-conf-senha,
 form .input-cargo-salario .input-salario,
 form .input-cpf-tel .input-num-telefone{
-    margin-left: 1rem;
+    margin-left: 1rem !important;
 }
 
 form #input-cargo-salario{
