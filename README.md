@@ -97,7 +97,7 @@
     <h3>Tela de visualizar venda / Realizar Compra
     <br>
     <img src="https://user-images.githubusercontent.com/69218604/128454467-5f99b841-c56f-41d2-bb46-b3eb9ebc7e82.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128454515-fb09b4a2-d3ec-4161-bd76-d16b452b05a1.png" width="45%" />
+    <img src="https://user-images.githubusercontent.com/69218604/128456774-3db4d166-3c82-473b-bb0e-a9f22a06baeb.png" width="45%" />
     <br>
     <h3>Tela de visualizar Compra / cadastrar Fornecedor
     <br>
