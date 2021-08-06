@@ -80,7 +80,7 @@
 
 # Telas do sistema
 ### Tela de Login
-## ![Captura de tela de 2021-08-06 00-44-19](https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png)
+
 <div align="center">
 <img src="https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png" width="50%" />
 </div>
