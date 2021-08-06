@@ -120,7 +120,7 @@ class CaixaModel
     public function update($dados)
     {
         $this->setNumeroCaixa($dados['num-caixa']);
-        $this->setId($dados['caixa']);
+        $this->setId($dados['id_caixa']);
         
         $this->db->query("UPDATE caixa SET numero_caixa = :numero_caixa WHERE id_caixa = :id_caixa");
         $this->db->bind(":numero_caixa", $this->getNumeroCaixa());
@@ -144,5 +144,18 @@ class CaixaModel
             $caixa = $caixa_i->numero_caixa;
         endforeach;
         return $caixa;
+    }
+
+    public function validarCaixa($caixa) 
+    {
+        $this->setNumeroCaixa($caixa);
+        $this->db->query("SELECT numero_caixa FROM caixa WHERE numero_caixa = :numero_caixa");
+        $this->db->bind(":numero_caixa", $this->getNumeroCaixa());
+
+        if($this->db->resultado()):
+            return true;
+        else:
+            return false;
+        endif;
     }
 }

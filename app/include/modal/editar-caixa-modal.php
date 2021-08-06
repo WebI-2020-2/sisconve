@@ -10,7 +10,7 @@
                 </div>
             </div>
 
-            <form action="" method="POST">
+            <form action="<?= URL?>/CaixaController/editar" method="POST">
                 <div class="form">
                     <div class="input-num-caixa">
                         <label for="num-caixa">Número do caixa <small>(somente números)</small></label>
