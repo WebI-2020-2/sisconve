@@ -56,7 +56,7 @@ $lista_caixas = $caixa->selectAll();
                                     <option value="" selected disabled>Selecione</option>
                                     <?php foreach ($lista_caixas as $caixas) : ?>
                                         <option value="<?= $caixas->id_caixa ?>">
-                                            Caixa: 0<?= $caixas->id_caixa ?>
+                                            Caixa: 0<?= $caixas->numero_caixa ?>
                                         </option>
                                     <?php endforeach ?>
                                 </select>

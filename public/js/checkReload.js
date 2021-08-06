@@ -1,4 +1,4 @@
-var formSubmitting = false;
+/* var formSubmitting = false;
 var setFormSubmitting = function() { formSubmitting = true; };
 
 window.addEventListener("beforeunload", function (e) {
@@ -8,4 +8,4 @@ window.addEventListener("beforeunload", function (e) {
 
     (e || window.event).returnValue = confirmationMessage; 
     return confirmationMessage; 
-});
+}); */

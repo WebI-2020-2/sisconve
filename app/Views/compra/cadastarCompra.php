@@ -73,9 +73,9 @@
                                             <th>IPI</th>
                                             <th>ICMS</th>
                                             <th>Frete</th>
-                                            <th>Quantidade</th>
                                             <th>Valor Unitário</th>
-                                            <th>Valor Total</th>
+                                            <th>Quantidade</th>
+                                            <th>Valor Total <small>(+ impostos)</small></th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
@@ -211,17 +211,17 @@
                                                                 <input id="valor-unit" oninput="validaInput(this)" class="valor-unit" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                             <div class="input input-frete">
-                                                                <label>Valor R$ <strong>FRETE</strong> <small>(somente números)</small></label>
+                                                                <label><strong>Valor em <small>%</small> de FRETE</strong> <small>(somente números)</small></label>
                                                                 <input id="frete" oninput="validaInput(this)" class="frete" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                         </div>
                                                         <div class="input-ipi-icms">
                                                             <div class="input input-ipi">
-                                                                <label>Valor R$ <strong>IPI</strong> <small>(somente números)</small></label>
+                                                                <label><strong>Valor em <small>%</small> de IPI</strong> <small>(somente números)</small></label>
                                                                 <input id="ipi" oninput="validaInput(this)" class="ipi" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                             <div class="input input-icms">
-                                                                <label>Valor R$ <strong>ICMS</strong> <small>(somente números)</small></label>
+                                                                <label><strong>Valor em <small>%</small> de ICMS</strong> <small>(somente números)</small></label>
                                                                 <input id="icms" oninput="validaInput(this)" class="icms" type="number" step="0.1" min="0" value="0.00">
                                                             </div>
                                                         </div>
@@ -297,7 +297,6 @@
     var inputFrete = document.getElementById("frete");
     var inputPrecoUni = document.getElementById("valor-unit");
 
-
     buttonAddItem.addEventListener("click", () => {
         inputNomeProduto.value = "";
         inputQuantProduto.value = 1;
@@ -311,35 +310,46 @@
 
         if (inputNomeProduto.value != "" && inputQuantProduto.value != "") {
 
+            var idProduto = produtos[inputNomeProduto.value].id;
+            var nomeProduto = produtos[inputNomeProduto.value].nome;
+            var quantidadeProduto = parseInt(inputQuantProduto.value)
+            // valores em %
+            var ipi = parseFloat(inputIpi.value)/100;
+            var icms = parseFloat(inputIcms.value)/100;
+            var frete = parseFloat(inputFrete.value)/100;
+            // valor unitario e total da compra  do produto
+            var valorUni = parseFloat(inputPrecoUni.value);
+            //var valorTotal = 
+
             tableBodyItems.innerHTML += `
                 <tr>
                     <td>1</td>
                     <td>
-                        <input type="text" name="id-produto[]" value="${inputNomeProduto.value}" required style="display: none">
-                        ${produtos[inputNomeProduto.value].nome}
+                        <input type="text" name="id-produto[]" value="${idProduto}" required style="display: none">
+                        ${nomeProduto}
                     </td>
                     <td>
-                        <input type="text" name="ipi[]" value="${inputIpi.value}" required style="display: none">
-                        R$ ${parseFloat(inputIpi.value).toFixed(2)}
+                        <input type="text" name="ipi[]" value="${ipi}" required style="display: none">
+                        <strong>${ipi.toFixed(2)} <small>%</small></strong>
                     </td>
                     <td>
-                        <input type="text" name="icms[]" value="${inputIcms.value}" required style="display: none">
-                        R$ ${parseFloat(inputIcms.value).toFixed(2)}
+                        <input type="text" name="icms[]" value="${icms}" required style="display: none">
+                        <strong>${icms.toFixed(2)} <small>%</small></strong>
                     </td>
                     <td>
-                        <input type="text" name="frete[]" value="${inputFrete.value}" required style="display: none">
-                        R$ ${parseFloat(inputFrete.value).toFixed(2)}
+                        <input type="text" name="frete[]" value="${frete}" required style="display: none">
+                        <strong>${frete.toFixed(2)} <small>%</small></strong>
                     </td>
                     <td>
-                        <input type="text" id="quantidade-produto" name="quantidade-produto[]" value="${inputQuantProduto.value}" required style="display: none">
-                        ${inputQuantProduto.value} unid
+                        <input type="text" name="valor-unitario[]" value="${valorUni}" required style="display: none">
+                        R$ ${valorUni.toFixed(2)}
                     </td>
                     <td>
-                        <input type="text" name="valor-unitario[]" value="${inputPrecoUni.value}" required style="display: none">
-                        R$ ${parseFloat(inputPrecoUni.value).toFixed(2)}
+                        <input type="text" id="quantidade-produto" name="quantidade-produto[]" value="${quantidadeProduto}" required style="display: none">
+                        ${quantidadeProduto} unid
                     </td>
                     <td>
-                        R$ ${parseFloat(inputPrecoUni.value*inputQuantProduto.value).toFixed(2)}
+                        R$ ${((((ipi+icms+frete)*valorUni)+valorUni)*quantidadeProduto).toFixed(2)}
                     </td>
                     <td>
                         <button title="Remover item" onclick="removeRow(this)">
