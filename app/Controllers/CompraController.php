@@ -27,9 +27,14 @@ class CompraController extends Controller
 
     public function cadastrarCompra()
     {
-        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $imgSuccess = '<img id="success" src="../public/img/check-icon.svg" alt="Sucesso">';
         $imgError = '<img id="error" src="../public/img/block-icon.svg" alt="Erro">';
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // if ($formulario == null) {
+        //     Sessao::mensagem('compra', 'Preencha os Campos' . $imgError, 'bg-red');
+        //     header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
+        // }
+
         if (isset($formulario)) :
             $dados = [
                 // funcionario
@@ -82,56 +87,71 @@ class CompraController extends Controller
             if (in_array("", $formulario)) :
                 if (empty($formulario['fornecedor'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['num-parcelas'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['id-produto'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['ipi'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['frete'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['icms'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['quantidade'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
 
                 if (empty($formulario['valor-unitario'])) :
                     Sessao::mensagem('compra', 'Preencha o Campo' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
                 endif;
             else :
                 if (Validar::validarCampoNumerico($formulario['fornecedor'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 elseif (Validar::validarCampoNumerico($formulario['num-parcelas'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 elseif (Validar::validarCampoNumerico($formulario['id-produto'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 elseif (Validar::validarCampoNumerico($formulario['ipi'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 elseif (Validar::validarCampoNumerico($formulario['frete'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 elseif (Validar::validarCampoNumerico($formulario['icms'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 elseif (Validar::validarCampoNumerico($formulario['valor-unitario'])) :
                     Sessao::mensagem('compra', 'Formato informado invalido' . $imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CompraController/cadastrarCompra');
 
                 else :
 
