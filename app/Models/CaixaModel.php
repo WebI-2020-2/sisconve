@@ -82,25 +82,36 @@ class CaixaModel
         return $this->db->resultados();
     }
 
-    // public function insert($dados)
-    // {
-    //     $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
-    //     $funcionarioIdInt = (int) $dados['id_funcionario'];
-    //     $this->setValorEmCaixa($valorEmCaixaFloat);
-    //     $this->setFuncionarioId($funcionarioIdInt);
+    public function insert($dados)
+    {
+        $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
+        $this->setValorEmCaixa($valorEmCaixaFloat);
         
-    //     $this->setStatus(true);
-    //     $this->db->query("INSERT INTO caixa(id_funcionario, valor_em_caixa, status) VALUES (:id_funcionario, :valor_em_caixa, :status)");
-    //     $this->db->bind(":id_funcionario", $this->getFuncionarioId());
-    //     $this->db->bind(":valor_em_caixa", $this->getValorEmCaixa());
-    //     $this->db->bind(":status", $this->getStatus());
+        $this->db->query("INSERT INTO caixa(valor_em_caixa) VALUES (:valor_em_caixa)");
+        $this->db->bind(":valor_em_caixa", $this->getValorEmCaixa());
 
-    //     if ($this->db->executa()) :
-    //         return true;
-    //     else :
-    //         return false;
-    //     endif;
-    // }
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
+    public function update($dados)
+    {
+        $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
+        $this->setValorEmCaixa($valorEmCaixaFloat);
+        $this->setId($dados['caixa']);
+        
+        $this->db->query("UPDATE caixa SET valor_em_caixa = :valor_em_caixa WHERE id_caixa = :id_caixa");
+        $this->db->bind(":valor_em_caixa", $this->getValorEmCaixa());
+        $this->db->bind(":id_caixa", $this->getId());
+
+        if ($this->db->executa()) :
+            return true;
+        else :
+            return false;
+        endif;
+    }
 
     public function caixaFuncionario() 
     {
