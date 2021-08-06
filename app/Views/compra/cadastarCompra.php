@@ -251,7 +251,7 @@
                     <div class="buy-attributes">
                         <div class="value-cart">
                             <span id="total-value">Valor total R$</span>
-                            <span id="value-cart">0,00</span>
+                            <span id="value-cart">0.00</span>
                         </div>
                         <div class="buttons">
                             <button type="button" id="cancelar-compra" class="cancel">
@@ -289,6 +289,7 @@
     var buttonAddItem = document.getElementById("btn-add-item");
     var buttonAddItemModal = document.getElementById("btn-add-item-modal");
     var tableBodyItems = document.getElementById("table-body-items-compra");
+    var valorTotalVenda = document.getElementById("value-cart");
 
     var inputNomeProduto = document.getElementById("nome-produto");
     var inputQuantProduto = document.getElementById("quantidade-item");
@@ -319,6 +320,7 @@
             var frete = parseFloat(inputFrete.value)/100;
             // valor unitario e total da compra  do produto
             var valorUni = parseFloat(inputPrecoUni.value);
+            var valorTotal = parseFloat((((ipi+icms+frete)*valorUni)+valorUni)*quantidadeProduto);
             //var valorTotal = 
 
             tableBodyItems.innerHTML += `
@@ -349,7 +351,8 @@
                         ${quantidadeProduto} unid
                     </td>
                     <td>
-                        R$ ${((((ipi+icms+frete)*valorUni)+valorUni)*quantidadeProduto).toFixed(2)}
+                        <input type="text" id="valor-total" value="${valorTotal}" style="display: none">
+                        R$ ${valorTotal.toFixed(2)}
                     </td>
                     <td>
                         <button title="Remover item" onclick="removeRow(this)">
@@ -359,14 +362,26 @@
                 </tr>
             `;
         }
+
+        setTotalValue();
     });
+
+    function setTotalValue() {
+        var valores = document.querySelectorAll("#valor-total");
+        var valorTotal = 0;
+        valores.forEach((valor) => {
+            valorTotal += parseFloat(valor.value);
+        });
+
+        valorTotalVenda.innerHTML = valorTotal.toFixed(2);
+    }
 
 
     function removeRow(btn) {
         var row = btn.parentNode.parentNode;
         row.remove(row);
         //countTableRows();
-        //setTotalValue();
+        setTotalValue();
     }
 
     //////////////////////////////////////////////////
