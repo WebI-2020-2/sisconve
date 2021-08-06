@@ -32,20 +32,20 @@
     <link rel="stylesheet" href="../public/style/sell-products.css">
     <link rel="stylesheet" href="../public/style/modal/add-item.css">
     <!-- Estilos -->
-    <?php include("./../app/include/etc/styles.php") ?>
+    <?php include("./../app/Include/etc/styles.php") ?>
 </head>
 
 
 <body onload="countTableRows()">
 
     <!-- navbar topo -->
-    <?php include("./../app/include/parts/navbar.php") ?>
+    <?php include("./../app/Include/parts/navbar.php") ?>
 
     <div id="container">
         <?= Sessao::mensagem('venda'); ?>
 
         <!-- inicio menu-bar (barra lateral)-->
-        <?php include("./../app/include/parts/menubar.php") ?>
+        <?php include("./../app/Include/parts/menubar.php") ?>
 
         <!-- box-center início (area central) -->
         <div class="content-center">
@@ -261,7 +261,7 @@
 </body>
 
 <!-- scripts -->
-<?php include("./../app/include/etc/scripts.php"); ?>
+<?php include("./../app/Include/etc/scripts.php"); ?>
 <script src="../public/js/checkReload.js"></script>
 <script src="../public/js/metPagamento.js"></script>
 <script>

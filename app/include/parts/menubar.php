@@ -65,7 +65,7 @@
                 </button>
                 <?php
                 // chamando o modal de logoff
-                include('./../app/include/modal/logoff-modal.php');
+                include('./../app/Include/modal/logoff-modal.php');
                 ?>
                 <span id="clock"></span>
             </div>

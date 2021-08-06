@@ -214,7 +214,7 @@ ALTER TABLE "parcelas" ADD FOREIGN KEY ("id_pagamento_venda") REFERENCES "pagame
 ------------------------------------------------------------------------------------------------------------------
 
 alter table "venda" ADD COLUMN apagado BOOLEAN DEFAULT false;
-alter table "venda" ADD COLUMN desvolvido BOOLEAN DEFAULT false;
+alter table "venda" ADD COLUMN devolvido BOOLEAN DEFAULT false;
 alter table "produto" ADD COLUMN "ativo" BOOLEAN DEFAULT true;
 alter table "categoria" ADD COLUMN  "ativo" BOOLEAN DEFAULT true;
 

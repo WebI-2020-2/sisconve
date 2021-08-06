@@ -8,18 +8,18 @@
     <link rel="shortcut icon" href="<?= URL ?>/public/img/favicon.svg" type="image/x-icon">
     <title>SISCONVE - Dashboard</title>
     <!-- estilos -->
-    <?php include("./../app/include/etc/styles.php"); ?>
+    <?php include("./../app/Include/etc/styles.php"); ?>
 </head>
 
 <body>
 
     <!-- navbar topo -->
-    <?php include("./../app/include/parts/navbar.php"); ?>
+    <?php include("./../app/Include/parts/navbar.php"); ?>
 
     <div id="container">
 
         <!-- menu lateral -->
-        <?php include("./../app/include/parts/menubar.php"); ?>
+        <?php include("./../app/Include/parts/menubar.php"); ?>
 
         <div class="content-center">
             <!-- conteudo do centro -->
@@ -173,7 +173,7 @@
 </body>
 
 <!-- scripts -->
-<?php include("./../app/include/etc/scripts.php"); ?>
+<?php include("./../app/Include/etc/scripts.php"); ?>
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>

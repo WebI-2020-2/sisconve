@@ -9,20 +9,20 @@
     <link rel="shortcut icon" href="<?= URL ?>/public/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../public/style/modal/cadastro-fornecedor.css">
     <!-- Estilos -->
-    <?php include("./../app/include/etc/styles.php") ?>
+    <?php include("./../app/Include/etc/styles.php") ?>
 </head>
 
 <body>
 
     <!-- navbar topo-->
-    <?php include("./../app/include/parts/navbar.php") ?>
+    <?php include("./../app/Include/parts/navbar.php") ?>
 
     <div id="container">
 
         <?php Sessao::mensagem('fornecedor') ?>
 
         <!-- menu lateral -->
-        <?php include("./../app/include/parts/menubar.php") ?>
+        <?php include("./../app/Include/parts/menubar.php") ?>
 
         <div class="content-center">
             <!-- conteudo do centro -->
@@ -56,7 +56,7 @@
                         </button>
 
                         <!-- modal para cadastro do fornecedor -->
-                        <?php include('./../app/include/modal/cadastrar-fornecedor-modal.php'); ?>
+                        <?php include('./../app/Include/modal/cadastrar-fornecedor-modal.php'); ?>
 
                     </div>
 
@@ -96,7 +96,7 @@
                             </tbody>
                         </table>
 
-                        <?php include('./../app/include/modal/editar-fornecedor-modal.php'); ?>
+                        <?php include('./../app/Include/modal/editar-fornecedor-modal.php'); ?>
 
                     </div>
                 </div>
@@ -107,7 +107,7 @@
 
 </body>
 
-<?php include("./../app/include/etc/scripts.php"); ?>
+<?php include("./../app/Include/etc/scripts.php"); ?>
 <script>
 
     var fornecedores = [];

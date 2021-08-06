@@ -9,19 +9,19 @@
     <link rel="shortcut icon" href="<?= URL ?>/public/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../public/style/modal/cadastro-cliente.css">
     <!-- estilos -->
-    <?php include("./../app/include/etc/styles.php") ?>
+    <?php include("./../app/Include/etc/styles.php") ?>
 </head>
 
 <body>
 
     <!-- navbar topo -->
-    <?php include("./../app/include/parts/navbar.php") ?>
+    <?php include("./../app/Include/parts/navbar.php") ?>
 
     <div id="container">
 
         <?= Sessao::mensagem('cliente')?>
         <!-- menu lateral -->
-        <?php include("./../app/include/parts/menubar.php") ?>
+        <?php include("./../app/Include/parts/menubar.php") ?>
 
         <div class="content-center">
             <div class="dashboard">
@@ -54,7 +54,7 @@
                         </button>
 
                         <!-- modal cadastro de cliente -->
-                        <?php include('./../app/include/modal/cadastrar-cliente-modal.php'); ?>
+                        <?php include('./../app/Include/modal/cadastrar-cliente-modal.php'); ?>
 
                     </div>
 
@@ -90,7 +90,7 @@
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
                                             </button>
                                             
-                                            <button title="Exluir cliente" onclick="deleteItem('<?= URL ?>', 'cliente', '<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
+                                            <button title="Exluir cliente" onclick="deleteItem('<?= URL ?>', 'clientes', '<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
                                                 <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
                                             </button>
                                         </td>
@@ -99,7 +99,7 @@
                             </tbody>
                         </table>
 
-                        <?php include('./../app/include/modal/editar-cliente-modal.php'); ?>
+                        <?php include('./../app/Include/modal/editar-cliente-modal.php'); ?>
 
                     </div>
                 </div>
@@ -111,7 +111,7 @@
 </body>
 
 <!-- scripts -->
-<?php include("./../app/include/etc/scripts.php"); ?>
+<?php include("./../app/Include/etc/scripts.php"); ?>
 
 <script>
 

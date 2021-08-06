@@ -8,19 +8,19 @@
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../public/style/modal/cadastro-produto.css">
     <!-- estilos -->
-    <?php include("./../app/include/etc/styles.php") ?>
+    <?php include("./../app/Include/etc/styles.php") ?>
 </head>
 
 <body>
 
     <!-- navbar topo -->
-    <?php include("./../app/include/parts/navbar.php") ?>
+    <?php include("./../app/Include/parts/navbar.php") ?>
 
     <div id="container">
         <?= Sessao::mensagem('produto') ?>
 
         <!-- menu lateral -->
-        <?php include("./../app/include/parts/menubar.php") ?>
+        <?php include("./../app/Include/parts/menubar.php") ?>
 
         <div class="content-center">
             <!-- conteudo do centro -->
@@ -53,7 +53,7 @@
                             Cadastrar Produto
                         </button>
                         <!-- modal para cadastro do produto -->
-                        <?php include('./../app/include/modal/cadastrar-produto-modal.php'); ?>
+                        <?php include('./../app/Include/modal/cadastrar-produto-modal.php'); ?>
 
                     </div>
 
@@ -98,7 +98,7 @@
                             </tbody>
                         </table>
 
-                        <?php include('./../app/include/modal/editar-produto-modal.php'); ?>
+                        <?php include('./../app/Include/modal/editar-produto-modal.php'); ?>
 
                     </div>
                 </div>
@@ -110,7 +110,7 @@
 </body>
 
 <!-- scripts -->
-<?php include("./../app/include/etc/scripts.php") ?>
+<?php include("./../app/Include/etc/scripts.php") ?>
 
 <script>
     var produtos = [];
