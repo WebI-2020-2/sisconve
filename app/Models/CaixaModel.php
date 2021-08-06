@@ -115,13 +115,12 @@ class CaixaModel
     public function caixaFuncionario() 
     {
         $this->setFuncionarioId($_SESSION["FUNCIONARIO_ID"]);
-        $this->db->query("SELECT id_caixa FROM caixa WHERE id_funcionario = :id_funcionario");
+        $this->db->query("SELECT id_caixa FROM funcionario WHERE id_funcionario = :id_funcionario");
         $this->db->bind(":id_funcionario", $this->getFuncionarioId());
         $caixa_f = $this->db->resultados();
         foreach ($caixa_f as $caixa_i):
             $caixa = $caixa_i->id_caixa;
         endforeach;
         return $caixa;
-
     }
 }

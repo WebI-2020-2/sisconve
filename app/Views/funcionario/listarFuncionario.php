@@ -70,6 +70,7 @@
                                     <th>Cargo</th>
                                     <th>Nivel de Acesso</th>
                                     <th>Salario</th>
+                                    <th>Caixa</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -82,6 +83,7 @@
                                         <td><?= $funcionario->cargo ?></td>
                                         <td><?= $funcionario->nivel_acesso ?></td>
                                         <td>R$ <?= Validar::lucro($funcionario->salario) ?></td>
+                                        <td><?= $funcionario->id_caixa ?></td>
                                         
                                         <td>
                                             <button title="Ver funcionario" onclick="">
