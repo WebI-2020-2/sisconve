@@ -1,4 +1,3 @@
-
 CREATE TABLE "cliente" (
   "id_cliente" serial NOT NULL,
   "nome_cliente" varchar(100),
@@ -51,12 +50,14 @@ CREATE TABLE "funcionario" (
 );
 
 CREATE TABLE "caixa" (
-  	"id_caixa" serial NOT NULL,
-  	"valor_em_caixa" decimal(7,2) DEFAULT 0,
+  "id_caixa" serial NOT NULL,
+  "valor_em_caixa" decimal(7,2) DEFAULT 0,
 	"status" BOOLEAN DEFAULT TRUE,
+	numero_caixa VARCHAR(20),
 	"criado_em" TIMESTAMP DEFAULT  CURRENT_TIMESTAMP(0),
   PRIMARY KEY ("id_caixa")
 );
+
 
 CREATE TABLE "forma_pagamento" (
   "id_forma_pagamento" serial NOT NULL,
@@ -846,8 +847,8 @@ LANGUAGE  plpgsql;
 -- SELECT * FROM clienteParcelaVencendo('2021-05-17');
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO caixa(valor_em_caixa) VALUES (0);
-INSERT INTO caixa(valor_em_caixa) VALUES (0);
+INSERT INTO caixa(numero_caixa) VALUES ('Caixa ADMIN');
+INSERT INTO caixa(numero_caixa) VALUES ('1');
 
 INSERT INTO "public"."funcionario"("nome_funcionario", "cpf", "usuario", "telefone", "endereco", "cargo", "senha", "email", "nivel_acesso", "id_caixa") VALUES ('admin', 'admin', 'admin', 'admin', 'admin', 'admin', '$2y$10$YDbfjFpazD66K7sD/JMQleGmvlSKU/ISRAxOJEsxYU91F/yDBTYvC', 'admin', 1, 1);
 
@@ -864,4 +865,5 @@ INSERT INTO forma_pagamento(tipo_pagamento) VALUES
 ('Cartão'),
 ('à prazo'),
 ('Carnê');
+
 

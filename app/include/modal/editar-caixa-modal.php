@@ -14,9 +14,12 @@
                 <div class="form">
                     <div class="input-num-caixa">
                         <label for="num-caixa">Número do caixa <small>(somente números)</small></label>
-                        <input type="text" name="num-caixa" oninput="validaInputNumber(this)" maxlength="99" placeholder="Ex.: 000001" required>
+                        <input type="text" name="num-caixa" id="num-caixa" oninput="validaInputNumber(this)" maxlength="99" placeholder="Ex.: 000001" required>
                     </div>
                 </div>
+
+                <!-- levando o id da caixa via POST -->
+                <input name="id_caixa" id="id-caixa" style="display: none;" required>
 
                 <div class="modal-footer">
                     <button type="button" class="close" data-dismiss="modal">

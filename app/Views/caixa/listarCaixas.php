@@ -80,7 +80,7 @@
                                             <button title="Ver caixa" onclick="">
                                                 <img src="<?= URL ?>/public/img/eye-icon.svg" alt="Ver caixa">
                                             </button>
-                                            <button title="Editar caixa" onclick="">
+                                            <button title="Editar caixa" onclick="editCaixa('<?= $caixa->id_caixa ?>')">
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-caixa-modal" alt="Editar caixa">
                                             </button>
                                             <!-- <button title="Exluir caixa" onclick="deleteCaixa('<?= $caixa->id_caixa ?>', '<?= $caixa->nome_caixa ?>')"> -->
@@ -111,13 +111,35 @@
 
     <?php
 
-        foreach ($dados['caixas']  as $caixa) {
-            # code ...
+        foreach ($dados['caixas']  as $caixa) { ?>
+            caixas["<?= $caixa->id_caixa ?>"] = {
+                id: "<?= $caixa->id_caixa ?>",
+                numero: "<?= $caixa->numero_caixa ?>"
+            }; <?php
         }
     
     ?>
 
-    
+    function editCaixa(idCaixa) {
+        var editCaixaModal = document.getElementById("editar-caixa-modal");
+        var caixaEdit;
+
+        caixas.forEach(caixa => {
+            if(caixa.id == idCaixa){
+                caixaEdit = caixa;
+            }
+        });
+
+        var inputEdit = {
+            id: editCaixaModal.querySelector("#id-caixa"),
+            numero: editCaixaModal.querySelector("#num-caixa")
+        }
+
+        inputEdit.id.value = caixaEdit.id;
+        inputEdit.numero.value = caixaEdit.numero;
+        
+    }
+
 </script>
 
 </html>
