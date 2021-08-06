@@ -4,6 +4,7 @@ class FuncionarioModel
 {
     private $Id;
     private $nomeFuncionario;
+    private $IdCaixa;
     private $telefone;
     private $cpf;
     private $endereco;
@@ -188,6 +189,25 @@ class FuncionarioModel
     {
         $this->nivel_acesso = $nivel_acesso;
     }
+    /**
+     * Get the value of IdCaixa
+     */ 
+    public function getIdCaixa()
+    {
+        return $this->IdCaixa;
+    }
+
+    /**
+     * Set the value of IdCaixa
+     *
+     * @return  self
+     */ 
+    public function setIdCaixa($IdCaixa)
+    {
+        $this->IdCaixa = $IdCaixa;
+
+        return $this;
+    }
 
     public function validarCpf($cpf)
     {
@@ -304,6 +324,7 @@ class FuncionarioModel
     {
         $nivel_acesso = intval($dados['nivel_acesso']);
 
+        $this->setIdCaixa($dados['caixa']);
         $this->setNomeFuncionario($dados['nome_funcionario']);
         $this->setTelefone($dados['telefone']);
         $this->setCpf($dados['cpf']);
@@ -315,7 +336,7 @@ class FuncionarioModel
         $this->setEmail($dados['email']);
         $this->setNivel_acesso($nivel_acesso);
 
-        $this->db->query("INSERT INTO funcionario(nome_funcionario, telefone, cpf, endereco, cargo, salario, usuario, senha, nivel_acesso, email) VALUES (:nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario, :usuario, :senha, :nivel_acesso, :email)");
+        $this->db->query("INSERT INTO funcionario(id_caixa, nome_funcionario, telefone, cpf, endereco, cargo, salario, usuario, senha, nivel_acesso, email) VALUES (:id_caixa, :nome_funcionario, :telefone, :cpf, :endereco, :cargo, :salario, :usuario, :senha, :nivel_acesso, :email)");
 
         $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
         $this->db->bind(":telefone", $this->getTelefone());
@@ -327,6 +348,7 @@ class FuncionarioModel
         $this->db->bind(":senha", $this->getSenha());
         $this->db->bind(":nivel_acesso", $this->getNivel_acesso());
         $this->db->bind(":email", $this->getEmail());
+        $this->db->bind(":id_caixa", $this->getIdCaixa());
 
         
         if ($this->db->executa()) :
@@ -351,6 +373,7 @@ class FuncionarioModel
 
     public function updateDois($dados)
     {
+        $this->setIdCaixa($dados['caixa']);
         $this->setId($dados['id_funcionario']);
         $this->setNomeFuncionario($dados['nome_funcionario']);
         $this->setCpf($dados['cpf']);
@@ -360,7 +383,7 @@ class FuncionarioModel
         $this->setCargo($dados['cargo']);
         $this->setSalario($dados['salario']);
 
-        $this->db->query("UPDATE funcionario SET nome_funcionario = :nome_funcionario, cpf = :cpf, telefone = :telefone, email = :email, endereco = :endereco, cargo = :cargo, salario = :salario WHERE id_funcionario = :id_funcionario");
+        $this->db->query("UPDATE funcionario SET nome_funcionario = :nome_funcionario, id_caixa = :id_caixa, cpf = :cpf, telefone = :telefone, email = :email, endereco = :endereco, cargo = :cargo, salario = :salario WHERE id_funcionario = :id_funcionario");
 
         $this->db->bind(":nome_funcionario",  $this->getNomeFuncionario());
         $this->db->bind(":telefone", $this->getTelefone());
@@ -370,6 +393,7 @@ class FuncionarioModel
         $this->db->bind(":salario", $this->getSalario());
         $this->db->bind(":email", $this->getEmail());
         $this->db->bind(":id_funcionario", $this->getId());
+        $this->db->bind(":id_caixa", $this->getIdCaixa());
 
         if ($this->db->executa()) :
             return true;
@@ -378,5 +402,4 @@ class FuncionarioModel
         endif;
 
     }
-
 }

@@ -1,3 +1,8 @@
+<?php
+include_once './../app/Models/CaixaModel.php';
+$caixa = new CaixaModel();
+$lista_caixas = $caixa->selectAll();
+?>
 <div class="modal fade" id="editar-funcionario-modal" tabindex="-1" aria-labelledby="editar-funcionario-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-cad-funcionario modal-dialog-centered modal-md">
         <div class="modal-content">
@@ -49,8 +54,11 @@
                                 <label for="caixa">Caixa</label>
                                 <select name="caixa" id="caixa" disabled>
                                     <option value="" selected disabled>Selecione</option>
-                                    <option value="1">Caixa root</option>
-                                    <option value="2">Caixa 0001</option>
+                                    <?php foreach ($lista_caixas as $caixas) : ?>
+                                        <option value="<?= $caixas->id_caixa ?>">
+                                            Caixa: 0<?= $caixas->id_caixa ?>
+                                        </option>
+                                    <?php endforeach ?>
                                 </select>
                             </div>
                             <div class="input input-acesso">
@@ -63,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- levando o id do funcionario via POST -->
                     <input name="id_funcionario" id="id-funcionario" style="display: none;" required>
 

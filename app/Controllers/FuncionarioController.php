@@ -20,6 +20,8 @@ class FuncionarioController extends Controller
         if (isset($formulario)) :
             if (isset($formulario['usuario'])) :
                 $dados = [
+                    'caixa' => (int) trim($formulario['caixa']),
+                    
                     'nome_funcionario' => trim($formulario['nome_funcionario']),
                     'telefone' => trim($formulario['telefone']),
                     'cpf' => trim($formulario['cpf']),
@@ -392,6 +394,8 @@ class FuncionarioController extends Controller
         if (isset($formulario)) :
             if (isset($formulario['acess_level'])) :
                 $dados = [
+                    'caixa' => (int) trim($formulario['caixa']),
+
                     "nome_funcionario" => trim($formulario['nome_funcionario']),
                     "cpf" => trim($formulario['cpf']),
                     "telefone" => trim($formulario['telefone']),
@@ -476,7 +480,6 @@ class FuncionarioController extends Controller
                         Sessao::mensagem('funcionario', 'Email invalido!', 'bg-red');
                         header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
                     else :
-                        var_dump($formulario);
                         if($this->funcionarioModel->updateDois($dados)):
                             Sessao::mensagem('funcionario', 'Funcionario atualizado com sucesso!', 'bg-green');
                             header("Location:" . URL . DIRECTORY_SEPARATOR . 'FuncionarioController/listarFuncionario');
@@ -487,6 +490,8 @@ class FuncionarioController extends Controller
                 endif;
             else :
                 $dados = [
+                    'caixa' => (int) trim($formulario['caixa']),
+
                     "nome_funcionario" => trim($formulario['nome_funcionario']),
                     "cpf" => trim($formulario['cpf']),
                     "telefone" => trim($formulario['telefone']),
@@ -576,10 +581,12 @@ class FuncionarioController extends Controller
                         else:
                             echo 'error';
                         endif;
+                        var_dump($formulario);
                     endif;
                 endif;
             endif;
         endif;
+        
         $this->viewModal('modal/editar-funcionario-modal');
     }
 }
