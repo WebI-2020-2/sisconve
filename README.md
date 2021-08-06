@@ -78,15 +78,15 @@
     </tr>
 </table>
 
-# Telas do sistema
+# Telas do sistema                                                              ### Tela de Dashboard
 ### Tela de Login
 <div align="left">
-<img src="https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png" width="50%" />
+<img src="https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png" width="45%" />
 </div>
 
-### Tela de Dashboard
+
 <div align="right">
-<img src="https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png" width="50%" />
+<img src="https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png" width="45%" />
 </div>
 
 ### Tela de cadastro de clientes
