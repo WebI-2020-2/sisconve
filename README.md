@@ -80,7 +80,7 @@
 
 # Telas do sistema
 ### Tela de Login
-![Captura de tela de 2021-08-06 00-44-19](https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png)
+![Captura de tela de 2021-08-06 00-44-19](https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png){ width=50% }
 
 ### Tela de Dashboard
 ![Captura de tela de 2021-08-06 00-52-49](https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png)
