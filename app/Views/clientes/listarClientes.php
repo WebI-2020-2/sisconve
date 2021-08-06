@@ -78,7 +78,7 @@
                                             <?= $cliente->id_cliente ?>
                                         </td>
                                         <td><?= $cliente->nome_cliente ?></td>
-                                        <td>(<?= $cliente->ddd ?>) <?= $cliente->num_telefone ?></td>
+                                        <td>(<?= $cliente->ddd ?>) <?= Validar::masc_tel($cliente->num_telefone) ?></td>
                                         <td><?= Validar::formatCpf($cliente->cpf) ?></td>
                                         <td>R$ <?= Validar::lucro($cliente->credito) ?></td>
                                         <td>R$ <?= Validar::lucro($cliente->debito) ?></td>

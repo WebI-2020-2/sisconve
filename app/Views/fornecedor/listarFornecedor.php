@@ -77,7 +77,7 @@
                                     <tr>
                                         <td><?= $fornecedor->id_fornecedor ?></td>
                                         <td><?= $fornecedor->nome_fornecedor ?></td>
-                                        <td><?= $fornecedor->telefone ?></td>
+                                        <td><?= Validar::masc_tel($fornecedor->telefone) ?></td>
                                         <td><?= $fornecedor->cidade ?></td>
                                         <td><?= $fornecedor->estado ?></td>
                                         <td>

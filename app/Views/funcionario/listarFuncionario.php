@@ -79,7 +79,7 @@
                                     <tr>
                                         <td><?= $funcionario->id_funcionario ?></td>
                                         <td><?= $funcionario->nome_funcionario ?></td>
-                                        <td><?= $funcionario->telefone ?></td>
+                                        <td><?= Validar::masc_tel($funcionario->telefone) ?></td>
                                         <td><?= $funcionario->cargo ?></td>
                                         <td><?= $funcionario->nivel_acesso < 3 ? $funcionario->nivel_acesso : '-' ?></td>
                                         <td>R$ <?= Validar::lucro($funcionario->salario) ?></td>
