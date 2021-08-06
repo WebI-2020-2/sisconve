@@ -83,7 +83,7 @@
                                             <button title="Editar categoria" onclick="editCategoria('<?= $categoria->id_categoria ?>')">
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-categoria-modal" alt="Editar categoria">
                                             </button>
-                                            <button title="Exluir categoria" onclick="deleteCategoria('<?= $categoria->id_categoria ?>', '<?= $categoria->nome_categoria ?>')">
+                                            <button title="Exluir categoria" onclick="deleteItem('<?= URL ?>', 'categoria', '<?= $categoria->id_categoria ?>', '<?= $categoria->nome_categoria ?>')">
                                                 <img src="<?= URL ?>/public/img/trash-icon.svg" alt="Excluir categoria">
                                             </button>
                                         </td>

@@ -92,7 +92,7 @@
                                             <button title="Editar funcionario" onclick="editFuncionario('<?= $funcionario->id_funcionario ?>')">
                                                 <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-funcionario-modal" alt="Editar funcionario">
                                             </button>
-                                            <button title="Exluir funcionario" onclick="deletefuncionario('<?= $funcionario->id_funcionario ?>', '<?= $funcionario->nome_funcionario ?>')">
+                                            <button title="Exluir funcionario" onclick="deleteItem('<?= URL ?>', 'funcionario', '<?= $funcionario->id_funcionario ?>', '<?= $funcionario->nome_funcionario ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="Excluir funcionario">
                                             </button>
                                         </td>

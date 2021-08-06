@@ -90,7 +90,7 @@
                                                 <img src="<?= URL ?>/public/img/pencil-icon.svg" alt="">
                                             </button>
                                             
-                                            <button title="Exluir cliente" onclick="deleteCliente('<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
+                                            <button title="Exluir cliente" onclick="deleteItem('<?= URL ?>', 'cliente', '<?= $cliente->id_cliente ?>', '<?= $cliente->nome_cliente ?>')">
                                                 <img src="<?= URL ?>/public/img/trash-icon.svg" alt="">
                                             </button>
                                         </td>

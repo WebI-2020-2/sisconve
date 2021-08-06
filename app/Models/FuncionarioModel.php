@@ -294,7 +294,7 @@ class FuncionarioModel
     {
         $this->setUsuario('admin');
         $this->setId($_SESSION["FUNCIONARIO_ID"]);
-        $this->db->query("SELECT * FROM funcionario WHERE nome_funcionario <> :nome_funcionario AND id_funcionario <> :id_funcionario");
+        $this->db->query("SELECT * FROM funcionario WHERE nome_funcionario <> :nome_funcionario AND id_funcionario <> :id_funcionario AND ativo = true");
         $this->db->bind(":nome_funcionario", $this->getUsuario());
         $this->db->bind(":id_funcionario", $this->getId());
         return $this->db->resultados();

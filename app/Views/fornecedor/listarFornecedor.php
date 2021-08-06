@@ -87,7 +87,7 @@
                                             <button title="Editar fornecedor" onclick="editFornecedor('<?= $fornecedor->id_fornecedor ?>')">
                                                 <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-fornecedor-modal" alt="Editar fornecedor">
                                             </button>
-                                            <button title="Exluir fornecedor" onclick="deleteFornecedor('<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
+                                            <button title="Exluir fornecedor" onclick="deleteItem('<?= URL ?>', 'fornecedor', '<?= $fornecedor->id_fornecedor ?>', '<?= $fornecedor->nome_fornecedor ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="Excluir fornecedor">
                                             </button>
                                         </td>

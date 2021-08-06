@@ -89,7 +89,7 @@
                                             <button type="button" title="Editar produto" onclick="editProduto(this)">
                                                 <img src="../public/img/pencil-icon.svg" data-toggle="modal" data-target="#editar-produto-modal" alt="Editar produto">
                                             </button>
-                                            <button type="button" title="Exluir produto" onclick="deleteProduto('<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
+                                            <button type="button" title="Exluir produto" onclick="deleteItem('<?= URL ?>', 'produtos', '<?= $produto->id_produto ?>', '<?= $produto->nome_produto ?>')">
                                                 <img src="../public/img/trash-icon.svg" alt="Exluir produto">
                                             </button>
                                         </td>
