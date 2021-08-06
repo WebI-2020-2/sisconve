@@ -81,10 +81,11 @@
 # Telas do sistema                                                            
 ### Screenshots da web
 <div align="center">
+    <h3>Tela de login / Dashboard
     <img src="https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png" width="45%" />
     <img src="https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png" width="45%" />
     <br>
-    <h1>Screenshots da web
+    <h3>Tela de cadastro de clientes / Produtos
     <br>
     <img src="https://user-images.githubusercontent.com/69218604/128453892-4588ec27-a30d-4103-8fe1-8fba7949f2f8.png" width="45%" />
     <img src="https://user-images.githubusercontent.com/69218604/128454063-305df2d1-1bec-47bc-82d9-fdca547d65ac.png" width="45%" />
