@@ -10,11 +10,11 @@
                 </div>
             </div>
 
-            <form action="" method="POST">
+            <form action="<?= URL?>/CaixaController/cadastrar" method="POST">
                 <div class="form">
                     <div class="input-num-caixa">
                         <label for="num-caixa">Número do caixa <small>(somente números)</small></label>
-                        <input type="text" name="num-caixa" oninput="validaInputNumber(this)" maxlength="99" placeholder="Ex.: 000001" required>
+                        <input type="text" name="num-caixa" oninput="validaInputNumber(this)" maxlength="99" placeholder="Ex.: 1" required>
                     </div>
                 </div>
 

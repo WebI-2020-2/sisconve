@@ -63,7 +63,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Descrição</th>
+                                    <th>Número do caixa</th>
                                     <th>Valor em caixa</th>
                                     <th>Status</th>
                                     <th>Ações</th>
@@ -73,7 +73,7 @@
                                 <?php foreach ($dados['caixas'] as $caixa) : ?>
                                     <tr>
                                         <td><?= $caixa->id_caixa ?></td>
-                                        <td>descrição</td>
+                                        <td>Caixa <?= $caixa->numero_caixa ?></td>
                                         <td>R$ <?= Validar::lucro($caixa->valor_em_caixa) ?></td>
                                         <td><?= $caixa->status ? 'ATIVO': 'INATIVO' ?></td>
                                         <td>

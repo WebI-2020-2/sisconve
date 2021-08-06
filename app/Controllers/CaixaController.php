@@ -28,31 +28,24 @@ class CaixaController extends Controller
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($formulario)) :
             $dados = [
-                'valor_em_caixa' => trim($formulario['valor_em_caixa']),
-                'id_funcionario' => trim($formulario['id_funcionario']),
-                'valor_em_caixa_erro' => '',
+                'num-caixa' => trim($formulario['num-caixa']),
             ];
 
             if (in_array("", $formulario)) :
 
-                if (empty($formulario['valor_em_caixa'])) :
-                    Sessao::mensagem('caixa', 'Preencha o campo valor em caixa!' . $this->$imgError, 'bg-red');
-                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixas');
-                endif;
-
-                if (empty($formulario['id_funcionario'])) :
-                    Sessao::mensagem('caixa', 'Preencha o campo Funcionario!' . $this->$imgError, 'bg-red');
-                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixas');
+                if (empty($formulario['num-caixa'])) :
+                    Sessao::mensagem('caixa', 'Preencha o campo Número do caixa!' . $this->$imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixa');
                 endif;
 
             else:
-                if (Validar::validarCampoNumerico($formulario['valor_em_caixa'])) :
-                    Sessao::mensagem('caixa', 'Formato informado Invalido!' . $this->$imgError, 'bg-red');
-                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixas');
+                if (Validar::validarCampoNumerico($formulario['num-caixa'])) :
+                    Sessao::mensagem('caixa', 'Formato de Número do caixa informado é invalido!' . $this->$imgError, 'bg-red');
+                    header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixa');
                 else:
                     if ($this->caixaModel->insert($dados)) :
                         Sessao::mensagem('caixa', 'Caixa Cadastrado com sucesso!' . $this->$imgSuccess, 'bg-green');
-
+                        header("Location:" . URL . DIRECTORY_SEPARATOR . 'CaixaController/listarCaixa');
                     else :
                         die("Erro");
 
@@ -62,13 +55,17 @@ class CaixaController extends Controller
             // var_dump($formulario);
         else:
             $dados = [
-                'valor_em_caixa' => '',
-
-                'valor_em_caixa_erro' => '',
+                'num-caixa' => '',
             ];
         endif;
 
 
-        $this->view('caixa/cadastrarCaixa', $dados);
+        $this->viewModal('modal/cadastrar-caixa-modal');
+    }
+
+    public function editar()
+    {
+        $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $this->viewModal('modal/editar-cliente-modal');
     }
 }

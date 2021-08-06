@@ -6,6 +6,7 @@ class CaixaModel
     private $funcionarioId;
     private $valorEmCaixa;
     private $status;
+    private $numeroCaixa;
 
     public function __construct()
     {
@@ -75,6 +76,26 @@ class CaixaModel
         $this->status = $status;
     }
 
+    /**
+     * Get the value of numeroCaixa
+     */ 
+    public function getNumeroCaixa()
+    {
+        return $this->numeroCaixa;
+    }
+
+    /**
+     * Set the value of numeroCaixa
+     *
+     * @return  self
+     */ 
+    public function setNumeroCaixa($numeroCaixa)
+    {
+        $this->numeroCaixa = $numeroCaixa;
+
+        return $this;
+    }
+
 
     public function selectAll()
     {
@@ -84,11 +105,11 @@ class CaixaModel
 
     public function insert($dados)
     {
-        $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
-        $this->setValorEmCaixa($valorEmCaixaFloat);
+
+        $this->setNumeroCaixa($dados['num-caixa']);
         
-        $this->db->query("INSERT INTO caixa(valor_em_caixa) VALUES (:valor_em_caixa)");
-        $this->db->bind(":valor_em_caixa", $this->getValorEmCaixa());
+        $this->db->query("INSERT INTO caixa(numero_caixa) VALUES (:numero_caixa)");
+        $this->db->bind(":numero_caixa", $this->getNumeroCaixa());
 
         if ($this->db->executa()) :
             return true;
@@ -98,12 +119,11 @@ class CaixaModel
     }
     public function update($dados)
     {
-        $valorEmCaixaFloat = (float)$dados['valor_em_caixa'];
-        $this->setValorEmCaixa($valorEmCaixaFloat);
+        $this->setNumeroCaixa($dados['num-caixa']);
         $this->setId($dados['caixa']);
         
-        $this->db->query("UPDATE caixa SET valor_em_caixa = :valor_em_caixa WHERE id_caixa = :id_caixa");
-        $this->db->bind(":valor_em_caixa", $this->getValorEmCaixa());
+        $this->db->query("UPDATE caixa SET numero_caixa = :numero_caixa WHERE id_caixa = :id_caixa");
+        $this->db->bind(":numero_caixa", $this->getNumeroCaixa());
         $this->db->bind(":id_caixa", $this->getId());
 
         if ($this->db->executa()) :
@@ -116,11 +136,12 @@ class CaixaModel
     public function caixaFuncionario() 
     {
         $this->setFuncionarioId($_SESSION["FUNCIONARIO_ID"]);
-        $this->db->query("SELECT id_caixa FROM funcionario WHERE id_funcionario = :id_funcionario");
+        $this->db->query("SELECT caixa.numero_caixa FROM funcionario, caixa WHERE caixa.id_caixa = funcionario.id_caixa
+        AND id_funcionario = :id_funcionario");
         $this->db->bind(":id_funcionario", $this->getFuncionarioId());
         $caixa_f = $this->db->resultados();
         foreach ($caixa_f as $caixa_i):
-            $caixa = $caixa_i->id_caixa;
+            $caixa = $caixa_i->numero_caixa;
         endforeach;
         return $caixa;
     }

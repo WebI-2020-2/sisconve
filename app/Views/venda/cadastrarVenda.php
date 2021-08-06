@@ -68,7 +68,7 @@
                         <span>Realizar Venda</span>
                     </div>
                     <div class="caixa-id">
-                        <span>Caixa ativo: <strong>0<?= $caixaCliente = $caixa->caixaFuncionario();?></strong></span>
+                        <span>Caixa ativo: <strong><?= $caixaCliente = $caixa->caixaFuncionario();?></strong></span>
                     </div>
                 </div>
 
