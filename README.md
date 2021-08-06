@@ -85,6 +85,10 @@
 ### Tela de Dashboard
 ![Captura de tela de 2021-08-06 00-52-49](https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png)
 
+### Tela de cadastro de clientes
+![Captura de tela de 2021-08-06 00-57-25](https://user-images.githubusercontent.com/69218604/128453892-4588ec27-a30d-4103-8fe1-8fba7949f2f8.png)
+
+
 
 
 
