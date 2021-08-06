@@ -178,13 +178,13 @@
         if(parseInt(funcionarioEdit.acesso) < 3) {
             inputAcesso.disabled = false;
             inputCaixa.disabled = false;
-            divAcessoCaixa.style.display = "block"
+            divAcessoCaixa.style.display = "block";
             inputEdit.acesso.value = funcionarioEdit.acesso;
             inputEdit.caixa.value = funcionarioEdit.caixa;
         } else {
             inputAcesso.disabled = true;
             inputCaixa.disabled = true;
-            divAcessoCaixa.style.display = "none"
+            divAcessoCaixa.style.display = "none";
         }
         
     }

@@ -43,25 +43,27 @@
                             <input type="number" oninput="validaInput(this)" name="salario" id="salario" placeholder="1500,00" min="0" max="99999" required>
                         </div>
                     </div>
-                    <div class="input-acesso-caixa" id="input-acesso-caixa" style="display: none;">
-                        <div class="input input-caixa">
-                            <label for="caixa">Caixa</label>
-                            <select name="caixa" id="caixa" disabled>
-                                <option value="" selected disabled>Selecione</option>
-                                <option value="1">Caixa root</option>
-                                <option value="2">Caixa 0001</option>
-                            </select>
-                        </div>
-                        <div class="input input-acesso">
-                            <label for="acess-level">Nível de acesso sistema</label>
-                            <select name="acess-level" id="acesso" disabled>
-                                <option value="" selected disabled>Selecione</option>
-                                <option value="1">Usuário gerente</option>
-                                <option value="2">Usuário caixa</option>
-                            </select>
+                    <div id="input-acesso-caixa" style="display: none;">
+                        <div class="input-acesso-caixa">
+                            <div class="input input-caixa">
+                                <label for="caixa">Caixa</label>
+                                <select name="caixa" id="caixa" disabled>
+                                    <option value="" selected disabled>Selecione</option>
+                                    <option value="1">Caixa root</option>
+                                    <option value="2">Caixa 0001</option>
+                                </select>
+                            </div>
+                            <div class="input input-acesso">
+                                <label for="acess-level">Nível de acesso sistema</label>
+                                <select name="acess-level" id="acesso" disabled>
+                                    <option value="" selected disabled>Selecione</option>
+                                    <option value="1">Usuário gerente</option>
+                                    <option value="2">Usuário caixa</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-
+                    
                     <!-- levando o id do funcionario via POST -->
                     <input name="id_funcionario" id="id-funcionario" style="display: none;" required>
 
