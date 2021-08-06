@@ -7,6 +7,7 @@
     <title>SISCONVE - Caixa</title>
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../public/style/modal/cadastro-caixa.css">
+    <link rel="stylesheet" href="../public/style/modal/modal.css">
     <!-- estilos -->
     <?php include("./../app/include/etc/styles.php") ?>
 </head>
@@ -34,7 +35,7 @@
                         </span>
                         <span>/</span>
                         <span>
-                            <img src="../public/img/a.svg" alt="Caixa">
+                            <img src="../public/img/cash-register.svg" alt="Caixa">
                             Caixa
                         </span>
                     </div>
@@ -53,7 +54,7 @@
                         </button>
 
                         <!-- modal para cadastro de caixas -->
-                        <?php //include('./../app/include/modal/cadastrar-caixa-modal.php'); ?>
+                        <?php include('./../app/include/modal/cadastrar-caixa-modal.php'); ?>
 
                     </div>
 
@@ -92,7 +93,7 @@
                             </tbody>
                         </table>
 
-                        <?php //include('./../app/include/modal/editar-caixa-modal.php'); ?>
+                        <?php include('./../app/include/modal/editar-caixa-modal.php'); ?>
 
                     </div>
                 </div>
@@ -104,5 +105,19 @@
 
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
+<script>
+
+    var caixas = [];
+
+    <?php
+
+        foreach ($dados['caixas']  as $caixa) {
+            # code ...
+        }
+    
+    ?>
+
+    
+</script>
 
 </html>

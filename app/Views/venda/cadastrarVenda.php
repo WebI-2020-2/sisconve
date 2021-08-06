@@ -136,7 +136,7 @@
 
                                 </div>
                                 <div class="payment">
-                                    <button type="button" id="btn" data-toggle="modal" data-target="#payment-modal">
+                                    <button type="button" id="btn" onclick="metPagamento()" data-toggle="modal" data-target="#payment-modal">
                                         <img src="../public/img/Meio-Pagamento.svg" alt="Metodo de Pagamento">
                                         Pagamento
                                     </button>
@@ -158,7 +158,7 @@
                                                 <div class="modal-select d-flex">
                                                     <div class="input-met-pag">
                                                         <label for="metodo-pagamento">Selecione o método de pagamento</label>
-                                                        <select name="metodo-pagamento" id="metodo-pagamento" required>
+                                                        <select name="metodo-pagamento" id="metodo-pagamento" onchange="metPagamento()" required>
                                                             <option value="1" selected>À VISTA</option>
                                                             <?php foreach ($lista_formaDePagamento as $formaDePagamentos) : ?>
                                                                 <option value="<?= $formaDePagamentos->id_forma_pagamento ?>"><?= $formaDePagamentos->tipo_pagamento ?></option>
@@ -167,7 +167,7 @@
                                                     </div>
                                                     <div class="input-parcel">
                                                         <label for="num-parcelas">Número de parcelas</label>
-                                                        <input type="text" name="num-parcelas" min="1" max="99" oninput="validaInputNumber(this)" maxlength="2" value="1" required>
+                                                        <input type="text" id="input-parcela" name="num-parcelas" min="1" max="99" oninput="validaInputNumber(this)" maxlength="2" value="1" required>
                                                     </div>
                                                 </div>
 
@@ -263,6 +263,7 @@
 <!-- scripts -->
 <?php include("./../app/include/etc/scripts.php"); ?>
 <script src="../public/js/checkReload.js"></script>
+<script src="../public/js/metPagamento.js"></script>
 <script>
     var produtos = [];
     var estoqueProduto = [];

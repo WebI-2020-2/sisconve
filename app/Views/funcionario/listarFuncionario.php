@@ -81,9 +81,9 @@
                                         <td><?= $funcionario->nome_funcionario ?></td>
                                         <td><?= $funcionario->telefone ?></td>
                                         <td><?= $funcionario->cargo ?></td>
-                                        <td><?= $funcionario->nivel_acesso ?></td>
+                                        <td><?= $funcionario->nivel_acesso < 3 ? $funcionario->nivel_acesso : '-' ?></td>
                                         <td>R$ <?= Validar::lucro($funcionario->salario) ?></td>
-                                        <td><?= $funcionario->id_caixa ?></td>
+                                        <td><?= $funcionario->id_caixa ? $funcionario->id_caixa : '-' ?></td>
                                         
                                         <td>
                                             <button title="Ver funcionario" onclick="">
