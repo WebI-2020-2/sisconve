@@ -1,7 +1,5 @@
-<p align="center">
-    <h1 align="center">SISCONVE</h1>
-</p>
 <div align="center">
+    <h1 align="center">SISCONVE</h1>
     <h3>Sistema de Controle de Vendas e Estoque</h3>
 </div>
 <div align="center">
@@ -11,7 +9,7 @@
 #
 
 <div align="center">
-    <h3>Tecnologias Utilizadas</h3>
+    <h3><i>Tecnologias Utilizadas</i></h3>
     <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white">
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
     <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
@@ -36,7 +34,17 @@
 #
 
 <div align="center">
-    <h3>Equipe responsável pelo desenvolvimento</h3>
+    <h3><i>Screen Shots</i></h3>
+    <p><img src="https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png" width="70%"/></p><br>
+    <p><img src="https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png" width="70%"/></p><br>
+    <p><img src="https://user-images.githubusercontent.com/69218604/128453892-4588ec27-a30d-4103-8fe1-8fba7949f2f8.png" width="70%"/></p><br>
+    <p><img src="https://user-images.githubusercontent.com/69218604/128454387-1655dacd-afe2-4238-aa4f-0aeb96c9f6f1.png" width="70%"/></p>
+</div>
+
+#
+
+<div align="center">
+    <h3><i>Equipe responsável pelo desenvolvimento</i></h3>
     <table aling="center">
         <tr>
             <td align="center">
@@ -93,10 +101,10 @@
 #
 
 <div align="center">
-    <h3>Lista de funcionalidades disponiveis</h3>
+    <h3><i>Lista de funcionalidades disponiveis</i></h3>
     <table aling="center">
         <tr aling="center">
-            <th>Atributos</th><th>Criar</th><th>Listar</th><th>Editar</th><th>Excluir</th>
+            <th>Atributos</th><th>Cadastrar</th><th>Listar</th><th>Editar</th><th>Excluir</th>
         </tr>
         <tr aling="center">
             <td>Caixa</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
@@ -111,65 +119,34 @@
             <td>Compra</td><td>✔️</td><td>✔️</td><td>❌</td><td>✔️</td>
         </tr>
         <tr aling="center">
-            <td>Devolução</td><td></td><td></td><td></td><td></td>
+            <td>Devolução</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td>
         </tr>
         <tr aling="center">
-            <td>Endereço</td><td></td><td></td><td></td><td></td>
+            <td>Endereço</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
         </tr>
         <tr aling="center">
-            <td>Forma de Pagamento</td><td></td><td></td><td></td><td></td>
+            <td>Forma de Pagamento</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td>
         </tr>
         <tr aling="center">
-            <td>Fornecedor</td><td></td><td></td><td></td><td></td>
+            <td>Fornecedor</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
         </tr>
         <tr aling="center">
-            <td>Funcionario</td><td></td><td></td><td></td><td></td>
+            <td>Funcionario</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
         </tr>
         <tr aling="center">
-            <td>Parcelas</td><td></td><td></td><td></td><td></td>
+            <td>Parcelas</td><td>✔️</td><td>❌</td><td>❌</td><td>❌</td>
         </tr>
         <tr aling="center">
-            <td>Produto</td><td></td><td></td><td></td><td></td>
+            <td>Produto</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
         </tr>
         <tr aling="center">
-            <td>Contato</td><td></td><td></td><td></td><td></td>
+            <td>Contato</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
         </tr>
         <tr aling="center">
-            <td>Venda</td><td></td><td></td><td></td><td></td>
+            <td>Venda</td><td>✔️</td><td>✔️</td><td>❌</td><td>✔️</td>
         </tr>
     </table>
 </div>
 
 #
 
-# Telas do sistema                                                            
-<div align="center">
-    <h3>Tela de login / Dashboard<br>
-    <img src="https://user-images.githubusercontent.com/69218604/128452998-a1724cd7-b93c-4734-b37c-f26ac797b5fe.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128453553-1eb1d982-056b-4316-877a-7e1c2ecce1dd.png" width="45%" />
-    <br>
-    <h3>Tela de cadastro de clientes / Produtos
-    <br>
-    <img src="https://user-images.githubusercontent.com/69218604/128453892-4588ec27-a30d-4103-8fe1-8fba7949f2f8.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128454063-305df2d1-1bec-47bc-82d9-fdca547d65ac.png" width="45%" />
-    <br>
-    <h3>Tela de cadastro de categorias / Venda
-    <br>
-    <img src="https://user-images.githubusercontent.com/69218604/128454097-d46e2e09-30f6-4116-b74f-c9cfb51a4470.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128454387-1655dacd-afe2-4238-aa4f-0aeb96c9f6f1.png" width="45%" />
-    <br>
-    <h3>Tela de visualizar venda / Realizar Compra
-    <br>
-    <img src="https://user-images.githubusercontent.com/69218604/128454467-5f99b841-c56f-41d2-bb46-b3eb9ebc7e82.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128456774-3db4d166-3c82-473b-bb0e-a9f22a06baeb.png" width="45%" />
-    <br>
-    <h3>Tela de visualizar Compra / cadastrar Fornecedor
-    <br>
-    <img src="https://user-images.githubusercontent.com/69218604/128454578-a3d05fa0-cc55-416e-acbc-d2597782f1b6.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128454659-677bff16-a085-49c6-a466-27135027abcd.png" width="45%" />
-    <br>
-    <h3>Tela de cadastrar caixa / cadastrar Funcionários
-    <br>
-    <img src="https://user-images.githubusercontent.com/69218604/128454762-37272643-19c1-47a7-a8e4-da0dee758cd9.png" width="45%" />
-    <img src="https://user-images.githubusercontent.com/69218604/128454837-46c96b85-2506-4abe-b2e2-1be4906e449d.png" width="45%" />
-</div>
