@@ -39,6 +39,23 @@
     <table aling="center">
         <tr>
             <td align="center">
+                <a target="_blank" href="https://github.com/netosep">Neto Sepulveda</a>
+            </td>
+            <td align="center">
+                <a target="_blank" href="https://github.com/cleitondcarmo">Cleiton do Carmo</a>
+            </td>
+            <td align="center">
+                <a target="_blank" href="https://github.com/joaomarcosns">João Marcos</a>
+            </td align="center">
+            <td align="center">
+                <a target="_blank" href="https://github.com/lauf8">Lucas Afonso</a>
+            </td>
+            <td align="center">
+                <a target="_blank" href="https://github.com/JacoRochadev">Jacó Rocha</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
                 <a target="_blank" href="https://github.com/netosep">
                     <img src="https://github.com/netosep.png?size=70">
                     <h5>Front-end e DBA</h5>
