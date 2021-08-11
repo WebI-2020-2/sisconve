@@ -80,16 +80,16 @@
 | Caixa              |    ✔️    |    ✔️    |     ✔️    |     ✔️     |
 | Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Compra             |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
+| Compra             |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 | Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
 | Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Forma de Pagamento |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
+| Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
 | Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Parcelas           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
+| Parcelas           |    ✔️    |    ❌     |     ❌    |     ❌     |
 | Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Venda              |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
+| Venda              |    ✔️    |    ✔️     |     ❌    |     ✔️     |
 
 
 # Telas do sistema                                                            
