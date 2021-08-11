@@ -26,6 +26,7 @@
     <h4>Links úteis:</h4>
     <ul>
         <li><a target="_blank" href="#">Como instalar e utilizar o sistema</a></li>
+        <li><a href="#">Baixar o .zip do Projeto</a></li>
         <li><a target="_blank" href="https://www.figma.com/file/WmRqZEO6MItHG6hOI7ANuV/SISCONVE">Projeto das telas no FIGMA</a></li>
         <li><a target="_blank" href="#">Modelo Relacional do Banco de Dados</a></li>
     </ul>
@@ -89,15 +90,6 @@
 | Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
 | Venda              |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-
-
-# Linguagens
-
-
-
-
-# 
-
 
 
 # Telas do sistema                                                            
