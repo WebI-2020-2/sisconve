@@ -26,7 +26,7 @@
     <h4>Links úteis:</h4>
     <ul>
         <li><a target="_blank" href="#">Como instalar e utilizar o sistema</a></li>
-        <li><a href="#">Baixar o .zip do Projeto</a></li>
+        <li><a href="https://github.com/WebI-2020-2/sisconve/archive/refs/heads/main.zip">Fazer o download do Projeto</a></li>
         <li><a target="_blank" href="https://www.figma.com/file/WmRqZEO6MItHG6hOI7ANuV/SISCONVE">Projeto das telas no FIGMA</a></li>
         <li><a target="_blank" href="#">Modelo Relacional do Banco de Dados</a></li>
     </ul>
@@ -123,13 +123,3 @@
     <img src="https://user-images.githubusercontent.com/69218604/128454762-37272643-19c1-47a7-a8e4-da0dee758cd9.png" width="45%" />
     <img src="https://user-images.githubusercontent.com/69218604/128454837-46c96b85-2506-4abe-b2e2-1be4906e449d.png" width="45%" />
 </div>
-
-
-
-
-
-
-
-
-
-
