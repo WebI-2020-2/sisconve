@@ -37,7 +37,7 @@
 <div align="center">
     <h3>Equipe responsável pelo desenvolvimento</h3>
     <table aling="center">
-        <tr >
+        <tr>
             <td align="center">
                 <a target="_blank" href="https://github.com/netosep">
                     <img src="https://github.com/netosep.png?size=70">
@@ -72,25 +72,57 @@
     </table>
 </div>
 
+#
 
-## Lista de funcionalidades disponiveis:
+<div align="center">
+    <h3>Lista de funcionalidades disponiveis</h3>
+    <table aling="center">
+        <tr aling="center">
+            <th>Atributos</th><th>Criar</th><th>Listar</th><th>Editar</th><th>Excluir</th>
+        </tr>
+        <tr aling="center">
+            <td>Caixa</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
+        </tr>
+        <tr aling="center">
+            <td>Categorias</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
+        </tr>
+        <tr aling="center">
+            <td>Cliente</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td>
+        </tr>
+        <tr aling="center">
+            <td>Compra</td><td>✔️</td><td>✔️</td><td>❌</td><td>✔️</td>
+        </tr>
+        <tr aling="center">
+            <td>Devolução</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Endereço</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Forma de Pagamento</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Fornecedor</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Funcionario</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Parcelas</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Produto</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Contato</td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr aling="center">
+            <td>Venda</td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+</div>
 
-|      Atributos     | _Criar_ | _Listar_ | _Editar_ | _Excluir_ |
-| ------------------ |:-------:|:--------:|:--------:|:---------:|
-| Caixa              |    ✔️    |    ✔️    |     ✔️    |     ✔️     |
-| Categorias         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Cliente            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Compra             |    ✔️    |    ✔️     |     ❌    |     ✔️     |
-| Devolução          |    ❌    |    ❌     |     ❌    |     ❌     |
-| Endereço           |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Forma de Pagamento |    ❌    |    ❌     |     ❌    |     ❌     |
-| Fornecedor         |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Funcionario        |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Parcelas           |    ✔️    |    ❌     |     ❌    |     ❌     |
-| Produto            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Contato            |    ✔️    |    ✔️     |     ✔️    |     ✔️     |
-| Venda              |    ✔️    |    ✔️     |     ❌    |     ✔️     |
-
+#
 
 # Telas do sistema                                                            
 <div align="center">
