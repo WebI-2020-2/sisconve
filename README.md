@@ -1,9 +1,76 @@
-# SISCONVE - `Sistema de Controle de Vendas e Estoque`
+<p align="center">
+    <h1 align="center">SISCONVE</h1>
+</p>
+<div align="center">
+    <h3>Sistema de Controle de Vendas e Estoque</h3>
+</div>
+<div align="center">
+    <small>Um projeto desenvolvido para a disciplina de WEB I do curso de Análise e Desenvolvimento de Sistemas - IFBaiano <i>campus</i> Guanambi.</small>
+</div>
 
-#### • Link para acesso/teste do sistema: [sisconve.duckdns.org](http://sisconve.duckdns.org)
-#### • Link para figma do sistema: [https://www.figma.com/file/WmRqZEO6MItHG6hOI7ANuV/SISCONVE](https://www.figma.com/file/WmRqZEO6MItHG6hOI7ANuV/SISCONVE)
-#### Usuario = `teste`
-#### Senha = `teste`
+#
+
+<div align="center">
+    <h3>Tecnologias Utilizadas</h3>
+    <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+    <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
+    <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+</div>
+
+#
+
+<div>
+    <h4>Links úteis:</h4>
+    <ul>
+        <li><a target="_blank" href="#">Como instalar e utilizar o sistema</a></li>
+        <li><a target="_blank" href="https://www.figma.com/file/WmRqZEO6MItHG6hOI7ANuV/SISCONVE">Projeto das telas no FIGMA</a></li>
+        <li><a target="_blank" href="#">Modelo Relacional do Banco de Dados</a></li>
+    </ul>
+</div>
+
+#
+
+<div align="center">
+    <h3>Equipe responsável pelo desenvolvimento</h3>
+    <table aling="center">
+        <tr >
+            <td align="center">
+                <a target="_blank" href="https://github.com/netosep">
+                    <img src="https://github.com/netosep.png?size=70">
+                    <h5>Front-end e DBA</h5>
+                </a>
+            </td>
+            <td align="center">
+                <a target="_blank" href="https://github.com/cleitondcarmo">
+                    <img src="https://github.com/cleitondcarmo.png?size=70">
+                    <h5>Tester</h5>
+                </a>
+            </td>
+            <td align="center">
+                <a target="_blank" href="https://github.com/joaomarcosns">
+                    <img src="https://github.com/joaomarcosns.png?size=70">
+                    <h5>Back-end</h5>
+                </a>
+            </td align="center">
+            <td align="center">
+                <a target="_blank" href="https://github.com/lauf8">
+                    <img src="https://github.com/lauf8.png?size=70">
+                    <h5>Designer</h5>
+                </a>
+            </td>
+            <td align="center">
+                <a target="_blank" href="https://github.com/JacoRochadev">
+                    <img src="https://github.com/JacoRochadev.png?size=70">
+                    <h5>Back-end</h5>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
 
 ## Lista de funcionalidades disponiveis:
 
@@ -25,58 +92,13 @@
 
 
 # Linguagens
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-# Framework
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-# Banco de dados
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+
 
 # 
 
-<table aling="center">
-    <tr>
-        <th colspan="5" style="text-align: center; font-size: 17px">
-            Colaboradores
-        </th>
-    </tr>
-    <tr >
-        <td>
-            <a target="_blank" href="https://github.com/netosep">
-                <img src="https://github.com/netosep.png?size=70">
-                <h5>Front-end</h5>
-            </a>
-        </td>
-        <td>
-            <a target="_blank" href="https://github.com/cleitondcarmo">
-                <img src="https://github.com/cleitondcarmo.png?size=70">
-                <h5>Tester</h5>
-            </a>
-        </td>
-        <td>
-            <a target="_blank" href="https://github.com/joaomarcosns">
-                <img src="https://github.com/joaomarcosns.png?size=70">
-                <h5>Back-end</h5>
-            </a>
-        </td>
-        <td>
-            <a target="_blank" href="https://github.com/lauf8">
-                <img src="https://github.com/lauf8.png?size=70">
-                <h5>Front-end</h5>
-            </a>
-        </td>
-        <td>
-            <a target="_blank" href="https://github.com/JacoRochadev">
-                <img src="https://github.com/JacoRochadev.png?size=70">
-                <h5>Back-end</h5>
-            </a>
-        </td>
-    </tr>
-</table>
+
 
 # Telas do sistema                                                            
 <div align="center">
