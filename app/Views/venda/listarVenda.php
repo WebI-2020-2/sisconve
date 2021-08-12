@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SISCONVE - Vendas</title>
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
-    <?php include("./../app/Include/etc/styles.php") ?>
+    <?php include("./../app/include/etc/styles.php") ?>
 </head>
 
 <body>
 
-    <?php include("../app/Include/parts/navbar.php"); ?>
+    <?php include("../app/include/parts/navbar.php"); ?>
 
     <div id="container">
         <?= Sessao::mensagem('venda'); ?>
         
-        <?php include("../app/Include/parts/menubar.php"); ?>
+        <?php include("../app/include/parts/menubar.php"); ?>
 
         <div class="content-center">
             <div class="dashboard">
@@ -91,6 +91,6 @@
 
 </body>
 
-<?php include("../app/Include/etc/scripts.php"); ?>
+<?php include("../app/include/etc/scripts.php"); ?>
 
 </html>

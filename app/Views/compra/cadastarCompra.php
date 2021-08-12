@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="<?= URL ?>/public/img/favicon.svg" type="image/x-icon">
     <title>SISCONVE - Compras</title>
     <!-- estilos -->
-    <?php include("./../app/Include/etc/styles.php") ?>
+    <?php include("./../app/include/etc/styles.php") ?>
     <link rel="stylesheet" href="../public/style/buy-products.css">
     <link rel="stylesheet" href="../public/style/modal/add-item.css">
 </head>
@@ -30,13 +30,13 @@
 <body>
 
     <!-- navbar topo -->
-    <?php include("./../app/Include/parts/navbar.php"); ?>
+    <?php include("./../app/include/parts/navbar.php"); ?>
 
     <div id="container">
         <?= Sessao::mensagem("compra")?>
 
         <!-- menu lateral -->
-        <?php include("./../app/Include/parts/menubar.php"); ?>
+        <?php include("./../app/include/parts/menubar.php"); ?>
 
         <div class="content-center">
             <div class="dashboard buy-page">
@@ -271,7 +271,7 @@
 
 </body>
 
-<?php include("./../app/Include/etc/scripts.php"); ?>
+<?php include("./../app/include/etc/scripts.php"); ?>
 <script src="../public/js/checkReload.js"></script>
 <script src="../public/js/metPagamento.js"></script>
 <script>

@@ -8,19 +8,19 @@
     <link rel="shortcut icon" href="./../public/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../public/style/modal/cadastro-categoria.css">
     <!-- estilos -->
-    <?php include("./../app/Include/etc/styles.php") ?>
+    <?php include("./../app/include/etc/styles.php") ?>
 </head>
 
 <body>
 
     <?= Sessao::mensagem('categoria') ?>
     <!-- navbar topo -->
-    <?php include("./../app/Include/parts/navbar.php") ?>
+    <?php include("./../app/include/parts/navbar.php") ?>
 
     <div id="container">
 
         <!-- menu lateral -->
-        <?php include("./../app/Include/parts/menubar.php") ?>
+        <?php include("./../app/include/parts/menubar.php") ?>
 
         <div class="content-center">
             <div class="dashboard">
@@ -53,7 +53,7 @@
                         </button>
 
                         <!-- modal para cadastro de categorias -->
-                        <?php include('./../app/Include/modal/cadastrar-categoria-modal.php'); ?>
+                        <?php include('./../app/include/modal/cadastrar-categoria-modal.php'); ?>
 
                     </div>
 
@@ -92,7 +92,7 @@
                             </tbody>
                         </table>
 
-                        <?php include('./../app/Include/modal/editar-categoria-modal.php'); ?>
+                        <?php include('./../app/include/modal/editar-categoria-modal.php'); ?>
 
                     </div>
                 </div>
@@ -103,7 +103,7 @@
 </body>
 
 <!-- scripts -->
-<?php include("./../app/Include/etc/scripts.php"); ?>
+<?php include("./../app/include/etc/scripts.php"); ?>
 <script>
 
     var categorias = [];

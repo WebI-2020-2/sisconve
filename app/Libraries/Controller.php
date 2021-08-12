@@ -16,7 +16,7 @@ class Controller {
         endif;
     }
     public function viewModal($view, $dados = []){
-        $arquivo = ('../app/Include/'.$view.'.php');
+        $arquivo = ('../app/include/'.$view.'.php');
         if(file_exists($arquivo)):
             require_once $arquivo;
         else:
