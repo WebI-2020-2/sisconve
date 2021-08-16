@@ -157,5 +157,6 @@
 
 <div align="center">
     <h3><i>Licença</i></h3>
+    <a href="https://github.com/WebI-2020-2/sisconve/blob/main/LICENSE.md">GLP 3.0</a>
 </div>
 
