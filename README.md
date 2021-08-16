@@ -1,9 +1,14 @@
+<h1 align="center">
+    <img src="https://i.imgur.com/9DPPaMz.png" alt="Sisconve Logo" width="250">
+    <p>Sistema de Controle de Vendas e Estoque</p>
+</h1>
+
 <div align="center">
-    <h1 align="center">SISCONVE</h1>
-    <h3>Sistema de Controle de Vendas e Estoque</h3>
-</div>
-<div align="center">
-    <small>Um projeto desenvolvido para a disciplina de WEB I do curso de Análise e Desenvolvimento de Sistemas - IFBaiano <i>campus</i> Guanambi.</small>
+    <p>Um projeto desenvolvido para a disciplina de WEB I do curso de Análise e Desenvolvimento de Sistemas - IFBaiano <i>campus</i> Guanambi</p>
+    <img alt="License" src="https://img.shields.io/github/license/WebI-2020-2/sisconve">
+    <img alt="Languages" src="https://img.shields.io/github/languages/count/WebI-2020-2/sisconve">
+    <img alt="Languages Top" src="https://img.shields.io/github/languages/top/WebI-2020-2/sisconve">
+    <img alt="Starts" src="https://img.shields.io/github/stars/WebI-2020-2/sisconve">
 </div>
 
 #
@@ -149,4 +154,8 @@
 </div>
 
 #
+
+<div align="center">
+    <h3><i>Licença</i></h3>
+</div>
 
