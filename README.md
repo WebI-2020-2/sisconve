@@ -8,6 +8,7 @@
     <img alt="License" src="https://img.shields.io/github/license/WebI-2020-2/sisconve">
     <img alt="Languages" src="https://img.shields.io/github/languages/count/WebI-2020-2/sisconve">
     <img alt="Languages Top" src="https://img.shields.io/github/languages/top/WebI-2020-2/sisconve">
+    <img alt="Commits" src="https://img.shields.io/github/commit-activity/m/WebI-2020-2/sisconve">
     <img alt="Starts" src="https://img.shields.io/github/stars/WebI-2020-2/sisconve">
 </div>
 
